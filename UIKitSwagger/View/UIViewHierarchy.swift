@@ -10,9 +10,12 @@ import UIKit
 
 extension UIView {
 
-    //  Integer indexed subview subscripting
     public subscript(index: Int) -> UIView? {
 
+        /**
+          Integer-indexed subview subscripting.
+          @return       Subview at provided index.
+        */
         get {
             switch index {
             case 0..<Int.max:
@@ -36,6 +39,12 @@ extension UIView {
             }
         }
 
+        /**
+          Integer-indexed subview subscripting.
+          @param        index When non-negative, uses the provided view to replace the subview at the specified index.  Using any negative index is treated as moving the view to a new superview.
+          @param        newView When `index` is non-negative, this view will replace any existing subview at the index.  When `index` is negative, this view will become the new superview of the current view.
+          @discussion   When replacing a subview, there must exist a subview at the specified index.  Otherwise, the operation is ignored.
+        */
         set(newSuperview) {
             //  Non-negative integer is potentially a subview
             if index >= 0 {
@@ -55,7 +64,11 @@ extension UIView {
 
     }
 
-    //  Ancestry
+    /**
+      Searches for the first common view at or above this view and the provided view.
+      @param        view View whose hierarchy should be searched along with the current view.
+      @return       First common ancestor of the current and provided views, if they share one.
+    */
     public func firstCommonAncestor(view: UIView) -> UIView? {
 
         if isDescendantOfView(view) {
