@@ -46,7 +46,6 @@ extension UIView {
           @discussion   When replacing a subview, there must exist a subview at the specified index.  Otherwise, the operation is ignored.
         */
         set(newSuperview) {
-            //  Non-negative integer is potentially a subview
             if index >= 0 {
                 let oldView = subviews[index] as UIView
                 oldView.removeFromSuperview()
@@ -55,7 +54,6 @@ extension UIView {
                 }
             }
 
-            //  Any negative integer is considered the immediate superview
             else {
                 removeFromSuperview()
                 newSuperview!.addSubview(self)

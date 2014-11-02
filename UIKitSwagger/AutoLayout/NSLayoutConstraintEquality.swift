@@ -61,14 +61,10 @@ public extension Constraint {
       This method reverses a constraint from the form y R mx + b, where R is a layout relation, to the form x = (y - b) / m, where m != 0
     */
     public func reversed() -> Constraint? {
-
-        //  You cannot reverse a constraint that has no second item (single variable) or has a
-        //  zero multiplier (divide by zero)
         if isIrreversible() {
             return nil
         }
 
-        //  Reverse the relation, invert the multiplier and convert the constant
         let newRelation = multiplier < 0 ? relation : relation.reversed()
         let newMultiplier = 1 / multiplier
         let newConstant = -constant / multiplier
