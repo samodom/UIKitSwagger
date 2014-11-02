@@ -71,6 +71,25 @@ class ViewHierarchyExtensionsTests: XCTestCase {
         XCTAssertTrue(subview1.superview == nil, "The removed subview should no longer have a superview")
     }
 
+    func testValidSubviewSwapping() {
+        rootView.swap(0, 2)
+        XCTAssertEqual(rootView[0]!, subview2, "The subview at index 2 should now be at index 0")
+        XCTAssertEqual(rootView[2]!, subview0, "The subview at index 0 should now be at index 2")
+    }
+
+    func testIgnoredSubviewSwapping() {
+        rootView.swap(1, 1)
+        XCTAssertEqual(rootView[1]!, subview1, "No subview should be moved if the two indices are equal")
+    }
+
+    func testInvalidSubviewSwapping() {
+        rootView.swap(0, 4)
+        XCTAssertEqual(rootView[0]!, subview0, "No subview should be moved if one of the indices is out of range")
+
+        rootView.swap(4, 0)
+        XCTAssertEqual(rootView[0]!, subview0, "No subview should be moved if one of the indices is out of range")
+    }
+
     func testViewSubscriptingReturnsNthSuperview() {
         XCTAssertEqual(subview1_0_1[-1]!, subview1_0, "The superview of subview1_0_1 should be subview1_0")
         XCTAssertEqual(subview1_0_1[-2]!, subview1, "The super-superview of subview1_0_1 should be subview1")
@@ -130,4 +149,5 @@ class ViewHierarchyExtensionsTests: XCTestCase {
         ancestor = unrelatedView.firstCommonAncestor(subview0)
         XCTAssertNil(ancestor, "There is no first common ancestor between unrelated views")
     }
+
 }

@@ -22,6 +22,8 @@ Shorten the syntax for finding and altering views in a view's hierarchy.
 Not sure where to add constraints for two items?  It's always the first common ancestor!
 - `func firstCommonAncestor(view: UIView) -> UIView?`
 
+Find `exchangeSubviewAtIndex(_: Int, withSubviewAtIndex: Int)` to be too wordy?  Try `swap(Int, Int)` instead!
+
 
 ### View Show/Hide
 

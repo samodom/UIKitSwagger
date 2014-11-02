@@ -85,3 +85,17 @@ extension UIView {
     }
 
 }
+
+
+public extension UIView {
+
+    /**
+      Much less verbose method signature for exchanging subviews.
+      @param        indexOne Index of first subview to swap.
+      @param        indexTwo Index of second subview to swap.
+    */
+    public func swap(indexOne: Int, _ indexTwo: Int) {
+        exchangeSubviewAtIndex(indexOne, withSubviewAtIndex: indexTwo)
+    }
+
+}
