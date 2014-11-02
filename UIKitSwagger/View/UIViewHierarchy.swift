@@ -36,18 +36,20 @@ extension UIView {
             }
         }
 
-        set(newView) {
+        set(newSuperview) {
             //  Non-negative integer is potentially a subview
             if index >= 0 {
                 let oldView = subviews[index] as UIView
                 oldView.removeFromSuperview()
-                insertSubview(newView!, atIndex: index)
+                if newSuperview != nil {
+                    insertSubview(newSuperview!, atIndex: index)
+                }
             }
 
             //  Any negative integer is considered the immediate superview
             else {
                 removeFromSuperview()
-                newView!.addSubview(self)
+                newSuperview!.addSubview(self)
             }
         }
 

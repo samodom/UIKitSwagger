@@ -11,7 +11,7 @@ import UIKit
 
 class ViewHierarchyExtensionsTests: XCTestCase {
 
-    let rootView = UIView()
+    var rootView = UIView()
     let subview0 = UIView()
     let subview1 = UIView()
     let subview2 = UIView()
@@ -24,6 +24,8 @@ class ViewHierarchyExtensionsTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+
+        buildComplexViewHierarchy()
     }
     
     override func tearDown() {
@@ -32,21 +34,17 @@ class ViewHierarchyExtensionsTests: XCTestCase {
 
     func buildComplexViewHierarchy() {
         rootView.addSubview(subview0)
+
         rootView.addSubview(subview1)
-        rootView.addSubview(subview2)
         subview1.addSubview(subview1_0)
         subview1.addSubview(subview1_1)
         subview1_0.addSubview(subview1_0_0)
         subview1_0.addSubview(subview1_0_1)
+
+        rootView.addSubview(subview2)
     }
 
-    //  Subview subscripting
-    //  Non-negative integers are associated with subviews
-
     func testViewSubscriptingReturnsSubviewAtIndex() {
-        rootView.addSubview(subview0)
-        rootView.addSubview(subview1)
-        rootView.addSubview(subview2)
         XCTAssertEqual(rootView[0]!, subview0, "The subview at index 0 should be subview0")
         XCTAssertEqual(rootView[1]!, subview1, "The subview at index 1 should be subview1")
         XCTAssertEqual(rootView[2]!, subview2, "The subview at index 2 should be subview2")
@@ -54,6 +52,7 @@ class ViewHierarchyExtensionsTests: XCTestCase {
     }
 
     func testViewSubscriptingReplacesSubviewAtIndex() {
+        rootView = UIView()
         rootView.addSubview(subview0)
         rootView.addSubview(subview1)
         rootView[0] = subview2
@@ -63,34 +62,31 @@ class ViewHierarchyExtensionsTests: XCTestCase {
         XCTAssertNil(subview0.superview, "The subview that was removed should no longer have a superview")
     }
 
-    //  Subview subscripting
-    //  Negative integers are associated with superviews
+    func testViewSubscriptingRemovesSubviewAtIndex() {
+        rootView[1] = nil
+        XCTAssertEqual(rootView.subviews.count, 2, "There should now be two subviews left")
+        XCTAssertTrue(subview1.superview == nil, "The removed subview should no longer have a superview")
+    }
 
     func testViewSubscriptingReturnsNthSuperview() {
-        buildComplexViewHierarchy()
         XCTAssertEqual(subview1_0_1[-1]!, subview1_0, "The superview of subview1_0_1 should be subview1_0")
         XCTAssertEqual(subview1_0_1[-2]!, subview1, "The super-superview of subview1_0_1 should be subview1")
         XCTAssertEqual(subview1_0_1[-3]!, rootView, "The super-super-superview of subview1_0_1 should be the root view")
     }
 
     func testViewSubscriptingMovesViewToSuperview() {
-        buildComplexViewHierarchy()
         subview1_0_0[-1] = rootView
         XCTAssertEqual(subview1_0_0.superview!, rootView, "The deeply nested subview should have been moved to the root view")
         subview1_0_1[-5] = rootView
         XCTAssertEqual(subview1_0_1.superview!, rootView, "Any negative index should move the subview to the new superview")
     }
 
-    //  Ancestry
-
     func testFirstCommonAncestorOfViewAndItselfIsItself() {
-        buildComplexViewHierarchy()
         ancestor = subview0.firstCommonAncestor(subview0)
         XCTAssertEqual(ancestor, subview0, "The first common ancestor of a view and itself is itself")
     }
 
     func testFirstCommonAncestorOfViewAndImmediateSubviewIsView() {
-        buildComplexViewHierarchy()
         ancestor = rootView.firstCommonAncestor(subview0)
         XCTAssertEqual(ancestor, rootView, "The first common ancestor of a view and one of its immediate subviews is that parent view")
         ancestor = subview0.firstCommonAncestor(rootView)
@@ -98,7 +94,6 @@ class ViewHierarchyExtensionsTests: XCTestCase {
     }
 
     func testFirstCommonAncestorOfViewAndNestedSubviewIsView() {
-        buildComplexViewHierarchy()
         ancestor = rootView.firstCommonAncestor(subview1_0_1)
         XCTAssertEqual(ancestor, rootView, "The first common ancestor of a view and one of its nested subviews is the parent view")
         ancestor = subview1_0_1.firstCommonAncestor(rootView)
@@ -106,13 +101,11 @@ class ViewHierarchyExtensionsTests: XCTestCase {
     }
 
     func testFirstCommonAncestorOfViewAndSiblingIsSuperview() {
-        buildComplexViewHierarchy()
         ancestor = subview0.firstCommonAncestor(subview1)
         XCTAssertEqual(ancestor, rootView, "The first common ancestor of a view and one of its siblings is their parent view")
     }
 
     func testFirstCommonAncestorOfViewAndDescendentOfSiblingIsSuperview() {
-        buildComplexViewHierarchy()
         ancestor = subview0.firstCommonAncestor(subview1_0_1)
         XCTAssertEqual(ancestor, rootView, "The first common ancestor of a view and one of its sibling's descendents is their parent view")
         ancestor = subview1_0_1.firstCommonAncestor(subview0)
@@ -128,7 +121,6 @@ class ViewHierarchyExtensionsTests: XCTestCase {
     }
 
     func testThereIsNoFirstCommonAncestorOfUnrelatedViews() {
-        buildComplexViewHierarchy()
         let unrelatedView = UIView()
         ancestor = subview0.firstCommonAncestor(unrelatedView)
         XCTAssertNil(ancestor, "There is no first common ancestor between unrelated views")
