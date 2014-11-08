@@ -21,6 +21,9 @@
 		0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */; };
 		0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */; };
 		0A3BB9AF19EB75EB0075B32A /* UIViewHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */; };
+		0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */; };
+		0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
+		0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,8 @@
 		0A3BB9A119EB71F00075B32A /* UIViewConstraintSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewConstraintSearch.swift; sourceTree = "<group>"; };
 		0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintSearch.swift; sourceTree = "<group>"; };
 		0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHierarchy.swift; sourceTree = "<group>"; };
+		0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideTests.swift; sourceTree = "<group>"; };
+		0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +133,7 @@
 				0A3BB99619EB71740075B32A /* ConstraintEquivalencyTests.swift */,
 				0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */,
 				0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */,
+				0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */,
 				0A3BB99919EB71740075B32A /* ViewHierarchyTests.swift */,
 			);
 			path = Tests;
@@ -145,8 +151,9 @@
 		0A3BB9A019EB71F00075B32A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */,
 				0A3BB9A119EB71F00075B32A /* UIViewConstraintSearch.swift */,
+				0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */,
+				0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -259,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3BB9A319EB71F00075B32A /* UIViewConstraintSearch.swift in Sources */,
+				0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintEquality.swift in Sources */,
 				0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */,
 				0A3BB9AB19EB740F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
@@ -270,11 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3BB9AF19EB75EB0075B32A /* UIViewHierarchy.swift in Sources */,
+				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */,
 				0A3BB9A419EB721E0075B32A /* NSLayoutConstraintEquality.swift in Sources */,
 				0A3BB99D19EB71740075B32A /* ViewHierarchyTests.swift in Sources */,
 				0A3BB9A519EB72210075B32A /* UIViewConstraintSearch.swift in Sources */,
+				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,
 				0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 				0A3BB99A19EB71740075B32A /* ConstraintEquivalencyTests.swift in Sources */,
 			);
