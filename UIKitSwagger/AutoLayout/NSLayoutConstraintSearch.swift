@@ -9,7 +9,6 @@
 import UIKit
 
 public typealias AttributedItem = (item: AnyObject, attribute: NSLayoutAttribute)
-public typealias ItemPair = (AnyObject, AnyObject)
 
 internal extension Constraint {
     internal func hasItem(item: AnyObject) -> Bool {
@@ -26,16 +25,16 @@ internal extension Constraint {
         return false
     }
 
-    internal func hasItems(items: ItemPair) -> Bool {
-        assert(items.0 !== items.1, "The items must be different")
+    internal func hasItems(itemOne: AnyObject, _ itemTwo: AnyObject) -> Bool {
+        assert(itemOne !== itemTwo, "The items must be different")
         if secondItem == nil {
             return false
         }
 
-        if firstItem.isEqual(items.0) && secondItem!.isEqual(items.1) {
+        if firstItem.isEqual(itemOne) && secondItem!.isEqual(itemTwo) {
             return true
         }
-        else if firstItem.isEqual(items.1) && secondItem!.isEqual(items.0) {
+        else if firstItem.isEqual(itemTwo) && secondItem!.isEqual(itemOne) {
             return true
         }
 

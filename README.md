@@ -38,10 +38,10 @@ A few simply functions for showing or hiding views in a single statement are pro
 ### Auto Layout Constraints
 
 Don't clutter your view controller code trying to find a particular constraint to remove!   Finding constraints is much easier with these methods:
-- `func constraintsForItem(item: AnyObject) -> [Constraint]?`
-- `func constraintsForAttribute(attribute: NSLayoutAttribute) -> [Constraint]?`
-- `func constraintsForItem(item: AnyObject, attribute: NSLayoutAttribute) -> [Constraint]?`
-- `func constraintsForItems(items: ItemPair) -> [Constraint]?`
+- `func constraintsForItem(AnyObject) -> [Constraint]?`
+- `func constraintsForAttribute(NSLayoutAttribute) -> [Constraint]?`
+- `func constraintsForItem(AnyObject, attribute: NSLayoutAttribute) -> [Constraint]?`
+- `func constraintsForItems(AnyObject, AnyObject) -> [Constraint]?`
 - `func constraintsForItems(attributedItems: (AttributedItem, AttributedItem)) -> [Constraint]?`
 
 In the source code and this documentation, the following type alias is used:

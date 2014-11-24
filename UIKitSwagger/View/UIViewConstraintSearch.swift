@@ -43,8 +43,8 @@ public extension UIView {
       @param        items Pair of layout items for which to search among this view's constraints.
       @return       One or more constraints where the items in the constraint match the provided item, if found.
     */
-    public func constraintsForItems(items: ItemPair) -> [Constraint]? {
-        return filteredConstraints({ $0.hasItems(items) })
+    public func constraintsForItems(itemOne: AnyObject, _ itemTwo: AnyObject) -> [Constraint]? {
+        return filteredConstraints({ $0.hasItems(itemOne, itemTwo) })
     }
 
     /**

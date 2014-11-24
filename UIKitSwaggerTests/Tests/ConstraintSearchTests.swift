@@ -93,7 +93,7 @@ class ConstraintSearchTests: XCTestCase {
     }
 
     func testConstraintSearchByTwoItems() {
-        constraints = superview.constraintsForItems((button, image))
+        constraints = superview.constraintsForItems(button, image)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 2, "All constraints with both the button and image as items should be returned")
         XCTAssertTrue(contains(constraints!, constraint4), "The fourth constraint should be included")
@@ -101,7 +101,7 @@ class ConstraintSearchTests: XCTestCase {
     }
 
     func testMissingConstraintsForTwoItems() {
-        constraints = superview.constraintsForItems((button, unusedView))
+        constraints = superview.constraintsForItems(button, unusedView)
         XCTAssertTrue(constraints == nil, "There should be no constraints returned")
     }
 
