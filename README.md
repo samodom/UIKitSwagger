@@ -29,10 +29,10 @@ Find `exchangeSubviewAtIndex(_: Int, withSubviewAtIndex: Int)` to be too wordy? 
 
 A few simply functions for showing or hiding views in a single statement are provided:
 
-- `func HideViews(views: UIView...)`
-- `func HideViews(views: [UIView])`
-- `func ShowViews(views: UIView...)`
-- `func ShowViews(views: [UIView])`
+- `func HideViews(UIView...)`
+- `func HideViews([UIView])`
+- `func ShowViews(UIView...)`
+- `func ShowViews([UIView])`
 
 
 ### Auto Layout Constraints
