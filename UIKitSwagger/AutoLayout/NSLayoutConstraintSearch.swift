@@ -8,8 +8,6 @@
 
 import UIKit
 
-public typealias AttributedItem = (item: AnyObject, attribute: NSLayoutAttribute)
-
 internal extension Constraint {
     internal func hasItem(item: AnyObject) -> Bool {
         if firstItem.isEqual(item) {
@@ -45,7 +43,7 @@ internal extension Constraint {
         return firstAttribute == attribute || secondAttribute == attribute
     }
 
-    internal func hasAttributedItem(attributedItem: AttributedItem) -> Bool {
+    internal func hasAttributedItem(attributedItem: AutoLayoutAttributedItem) -> Bool {
         if firstAttribute == attributedItem.attribute && firstItem.isEqual(attributedItem.item) {
             return true
         }
@@ -59,7 +57,7 @@ internal extension Constraint {
         return false
     }
 
-    internal func hasAttributedItems(attributedItems: (AttributedItem, AttributedItem)) -> Bool {
-        return hasAttributedItem(attributedItems.0) && hasAttributedItem(attributedItems.1)
+    internal func hasAttributedItems(itemOne: AutoLayoutAttributedItem, _ itemTwo: AutoLayoutAttributedItem) -> Bool {
+        return hasAttributedItem(itemOne) && hasAttributedItem(itemTwo)
     }
 }

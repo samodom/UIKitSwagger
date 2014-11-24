@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A3B48401A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B483F1A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift */; };
+		0A3B48411A22D99200BCCE73 /* AutoLayoutAttributedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B483F1A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift */; };
+		0A3B48431A22D9E200BCCE73 /* AttributedItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B48421A22D9E200BCCE73 /* AttributedItemTests.swift */; };
 		0A3BB97F19EB70C70075B32A /* UIKitSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3BB98519EB70C70075B32A /* UIKitSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */; };
 		0A3BB99A19EB71740075B32A /* ConstraintEquivalencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99619EB71740075B32A /* ConstraintEquivalencyTests.swift */; };
@@ -37,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A3B483F1A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutAttributedItem.swift; sourceTree = "<group>"; };
+		0A3B48421A22D9E200BCCE73 /* AttributedItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedItemTests.swift; sourceTree = "<group>"; };
 		0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIKitSwagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3BB97D19EB70C70075B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitSwagger.h; sourceTree = "<group>"; };
@@ -130,6 +135,7 @@
 		0A3BB99519EB71240075B32A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0A3B48421A22D9E200BCCE73 /* AttributedItemTests.swift */,
 				0A3BB99619EB71740075B32A /* ConstraintEquivalencyTests.swift */,
 				0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */,
 				0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */,
@@ -142,6 +148,7 @@
 		0A3BB99E19EB71F00075B32A /* AutoLayout */ = {
 			isa = PBXGroup;
 			children = (
+				0A3B483F1A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift */,
 				0A3BB99F19EB71F00075B32A /* NSLayoutConstraintEquality.swift */,
 				0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */,
 			);
@@ -268,6 +275,7 @@
 				0A3BB9A319EB71F00075B32A /* UIViewConstraintSearch.swift in Sources */,
 				0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintEquality.swift in Sources */,
+				0A3B48401A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift in Sources */,
 				0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */,
 				0A3BB9AB19EB740F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 			);
@@ -287,6 +295,8 @@
 				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,
 				0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 				0A3BB99A19EB71740075B32A /* ConstraintEquivalencyTests.swift in Sources */,
+				0A3B48431A22D9E200BCCE73 /* AttributedItemTests.swift in Sources */,
+				0A3B48411A22D99200BCCE73 /* AutoLayoutAttributedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +475,7 @@
 				0A3BB99119EB70C70075B32A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A3BB99219EB70C70075B32A /* Build configuration list for PBXNativeTarget "UIKitSwaggerTests" */ = {
 			isa = XCConfigurationList;
@@ -473,6 +484,7 @@
 				0A3BB99419EB70C70075B32A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
