@@ -24,6 +24,8 @@
 		0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */; };
 		0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */; };
 		0A3BB9AF19EB75EB0075B32A /* UIViewHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */; };
+		0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */; };
+		0A4CF44F1A22E38D00D6F4F8 /* AutoLayoutAttributable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */; };
 		0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */; };
 		0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
 		0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
@@ -55,6 +57,7 @@
 		0A3BB9A119EB71F00075B32A /* UIViewConstraintSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewConstraintSearch.swift; sourceTree = "<group>"; };
 		0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintSearch.swift; sourceTree = "<group>"; };
 		0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHierarchy.swift; sourceTree = "<group>"; };
+		0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutAttributable.swift; sourceTree = "<group>"; };
 		0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideTests.swift; sourceTree = "<group>"; };
 		0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +151,7 @@
 		0A3BB99E19EB71F00075B32A /* AutoLayout */ = {
 			isa = PBXGroup;
 			children = (
+				0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */,
 				0A3B483F1A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift */,
 				0A3BB99F19EB71F00075B32A /* NSLayoutConstraintEquality.swift */,
 				0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */,
@@ -273,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3BB9A319EB71F00075B32A /* UIViewConstraintSearch.swift in Sources */,
+				0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
 				0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintEquality.swift in Sources */,
 				0A3B48401A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift in Sources */,
@@ -288,6 +293,7 @@
 				0A3BB9AF19EB75EB0075B32A /* UIViewHierarchy.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
+				0A4CF44F1A22E38D00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
 				0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */,
 				0A3BB9A419EB721E0075B32A /* NSLayoutConstraintEquality.swift in Sources */,
 				0A3BB99D19EB71740075B32A /* ViewHierarchyTests.swift in Sources */,
