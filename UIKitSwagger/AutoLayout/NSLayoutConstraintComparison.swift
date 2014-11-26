@@ -1,5 +1,5 @@
 //
-//  NSLayoutConstraintEquality.swift
+//  NSLayoutConstraintComparison.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 6/21/14.
@@ -37,6 +37,9 @@ extension Constraint: Equatable  {
   Global-level definition of the constraint equality operator overload
 */
 public func == (lhs: Constraint, rhs: Constraint) -> Bool {
+    if lhs === rhs {
+        return true
+    }
 
     if lhs.componentsMatch(rhs) {
         return true
@@ -47,6 +50,22 @@ public func == (lhs: Constraint, rhs: Constraint) -> Bool {
     }
 
     return false
+}
+
+/**
+  Global-level definition of the constraint identity operator
+*/
+infix operator ==* { }
+
+public func ==* (lhs: Constraint, rhs: Constraint) -> Bool {
+    if lhs.priority != rhs.priority {
+        return false
+    }
+    if lhs.identifier != rhs.identifier {
+        return false
+    }
+
+    return lhs == rhs
 }
 
 private extension NSLayoutRelation {
