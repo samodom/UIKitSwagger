@@ -57,3 +57,14 @@ Want to reverse the items in a constraint to produce an equivalent constraint?
 
 **Equality:**
 Compare two constraints with respect to the items, attributes, relation, multiplier and constant.  It even tries the reverse of one operand to truly determine equivalency.  In addition, the `==*` operator can be used to compare constraints for extended equivalency by comparing constraint priorities and identifiers.
+
+
+### Real Auto Layout Syntax
+
+You can now build your constraints in Swift with a real syntax the same way that you use the `init(item:attribute:relatedBy:toItem:attribute:multiplier:constant:)` initializer.  The `*` and `+` operators provide the scalar multiples and constant offsets, respectively.  The `=*`, `>=*` and `<=*` operators specify "equal", "greater than or equal" and "less than or equal" relations, respectively.
+
+```swift
+let constraint1 = (button.centerX =* 2 * view.leftMargin + 14.5)
+let constraint2 = (button.height <=* 20)
+let constraint3 = (button.width >=* button.height + 4)
+```
