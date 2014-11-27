@@ -9,30 +9,30 @@ Extensions to UIKit for working with view hierarchies, layout constraints and ad
 Shorten the syntax for finding and altering views in a view's hierarchy.
 
 **Subviews** (non-negative integer indices)
-- `view[index]` returns `view.subviews[index]`
-- `view[index]` will return nil for an out-of-bounds index instead of raising an exception
-- `view[index] = otherSubview` replaces the subview at `index` with `otherSubview`
-- `view[index] = nil` simply removes the subview at `index`
+ - `view[index]` returns `view.subviews[index]`
+ - `view[index]` will return `nil` for an out-of-bounds index instead of raising an exception
+ - `view[index] = otherSubview` replaces the subview at `index` with `otherSubview`
+ - `view[index] = nil` simply removes the subview at `index`
 
 **Superviews** (negative integer indices)
-- `view[-1]` is equivalent to `view.superview`
-- `view[-2]` is equivalent to `view.superview.superview`, etc.
-- `view[-1] = otherView` moves `view` from `view.superview.subviews` to `otherView.subviews` (as will any other negative value of `index`)
+ - `view[-1]` is equivalent to `view.superview`
+ - `view[-2]` is equivalent to `view.superview.superview`, etc.
+ - `view[-1] = otherView` moves `view` from `view.superview.subviews` to `otherView.subviews` (as will any other negative value of `index`)
 
 Not sure where to add constraints for two items?  It's always the first common ancestor!
-- `func firstCommonAncestor(view: UIView) -> UIView?`
+ - `func firstCommonAncestor(view: UIView) -> UIView?`
 
-Find `exchangeSubviewAtIndex(_: Int, withSubviewAtIndex: Int)` to be too wordy?  Try `swap(Int, Int)` instead!
+Find `exchangeSubviewAtIndex(_: Int, withSubviewAtIndex: Int)` to be too wordy?  Try this instead!
+ - `func swap(Int, Int)` instead!
 
 
 ### View Show/Hide
 
 A few simply functions for hiding or showing views in a single statement are provided:
-
-- `func HideViews(UIView...)`
-- `func HideViews([UIView])`
-- `func ShowViews(UIView...)`
-- `func ShowViews([UIView])`
+ - `func HideViews(UIView...)`
+ - `func HideViews([UIView])`
+ - `func ShowViews(UIView...)`
+ - `func ShowViews([UIView])`
 
 
 ## Auto Layout
@@ -45,16 +45,16 @@ A few simply functions for hiding or showing views in a single statement are pro
 ### Constraint Search
 
 Don't clutter your view controller code trying to find a particular constraint to remove!   Finding constraints is much easier with these methods:
-- `func constraintsForItem(AnyObject) -> [Constraint]?`
-- `func constraintsForAttribute(NSLayoutAttribute) -> [Constraint]?`
-- `func constraintsForAttributedItem(AutoLayoutAttributedItem) -> [Constraint]?`
-- `func constraintsForItems(AnyObject, AnyObject) -> [Constraint]?`
-- `func constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [Constraint]?`
+ - `func constraintsForItem(AnyObject) -> [Constraint]?`
+ - `func constraintsForAttribute(NSLayoutAttribute) -> [Constraint]?`
+ - `func constraintsForAttributedItem(AutoLayoutAttributedItem) -> [Constraint]?`
+ - `func constraintsForItems(AnyObject, AnyObject) -> [Constraint]?`
+ - `func constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [Constraint]?`
 
 
 **Reversal:**
 Want to reverse the items in a constraint to produce an equivalent constraint?
-`func reversed() -> Constraint?`
+ - `func reversed() -> Constraint?`
 
 
 **Equality:**
@@ -72,6 +72,6 @@ let constraint3 = button.width >=* button.height + 4
 ```
 
 Additionally, the two modifiable attributes of a constraint can be manipulated with the tilde operator (`~`) as follows:
-- `constraint ~ 444` is equivalent to `constraint.priority = 444`
-- `constraint ~ "sample"` is equivalent to `constant.identifier = "sample"`
-- `constraint ~ nil` clears the identifier
+ - `constraint ~ 444` is equivalent to `constraint.priority = 444`
+ - `constraint ~ "sample"` is equivalent to `constant.identifier = "sample"`
+ - `constraint ~ nil` clears the identifier
