@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+  Simple structure representing an Auto Layout item (view or view controller) and an NSLayoutAttribute.  This is a convenience type for the constraint builder syntax.
+*/
 public struct AutoLayoutAttributedItem {
 
     public unowned var item: AnyObject

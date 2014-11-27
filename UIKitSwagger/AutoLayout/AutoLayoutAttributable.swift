@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+  @protocol Interface for creating item/attribute pairs when using the constraint builder syntax.
+*/
 public protocol AutoLayoutAttributable {
     var left: AutoLayoutAttributedItem { get }
     var right: AutoLayoutAttributedItem { get }
