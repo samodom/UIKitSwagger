@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A3B48401A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B483F1A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift */; };
-		0A3B48411A22D99200BCCE73 /* AutoLayoutAttributedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B483F1A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift */; };
-		0A3B48431A22D9E200BCCE73 /* AttributedItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B48421A22D9E200BCCE73 /* AttributedItemTests.swift */; };
 		0A3BB97F19EB70C70075B32A /* UIKitSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3BB98519EB70C70075B32A /* UIKitSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */; };
 		0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */; };
@@ -51,8 +48,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A3B483F1A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutAttributedItem.swift; sourceTree = "<group>"; };
-		0A3B48421A22D9E200BCCE73 /* AttributedItemTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedItemTests.swift; sourceTree = "<group>"; };
 		0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIKitSwagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3BB97D19EB70C70075B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitSwagger.h; sourceTree = "<group>"; };
@@ -154,7 +149,6 @@
 		0A3BB99519EB71240075B32A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0A3B48421A22D9E200BCCE73 /* AttributedItemTests.swift */,
 				0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */,
 				0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */,
 				0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */,
@@ -171,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */,
-				0A3B483F1A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift */,
 				0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */,
 				0A3BB99F19EB71F00075B32A /* NSLayoutConstraintComparison.swift */,
 				0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */,
@@ -311,7 +304,6 @@
 				0A4CF44C1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
-				0A3B48401A22D98E00BCCE73 /* AutoLayoutAttributedItem.swift in Sources */,
 				0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
 				0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */,
 				0A3BB9AB19EB740F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
@@ -337,9 +329,7 @@
 				0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */,
 				0A67BADA1A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift in Sources */,
 				0A67BAE31A2301F90038D99A /* AutoLayoutSyntax.swift in Sources */,
-				0A3B48431A22D9E200BCCE73 /* AttributedItemTests.swift in Sources */,
 				0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */,
-				0A3B48411A22D99200BCCE73 /* AutoLayoutAttributedItem.swift in Sources */,
 				0A4CF4501A22E3FD00D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

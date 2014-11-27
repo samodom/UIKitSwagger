@@ -40,7 +40,7 @@ A few simply functions for hiding or showing views in a single statement are pro
 > In the source code and this documentation, the following type alias is used:
 `typealias Constraint = NSLayoutConstraint`
 
-> `AutoLayoutAttributedItem` represents a pair consisting of an Auto Layout item (view or view controller) and an `NSLayoutAttribute`
+> `AutoLayoutAttributedItem` represents a pair consisting of an Auto Layout item (view or view controller layout guide) and an `NSLayoutAttribute`
 
 ### Constraint Search
 

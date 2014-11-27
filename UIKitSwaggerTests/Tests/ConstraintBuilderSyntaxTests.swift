@@ -30,6 +30,20 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         super.tearDown()
     }
 
+    //  MARK: Attributed items
+
+    func testViewAttributedItem() {
+        let attributedItem: AutoLayoutAttributedItem = (rootView, .Leading)
+        XCTAssertEqual(attributedItem.item as UIView, rootView, "The item's attributable item should be the view")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Leading, "The provided attribute should be the attribute")
+    }
+
+    func testViewControllerLayoutGuideAttributedItem() {
+        let attributedItem: AutoLayoutAttributedItem = (controller.topLayoutGuide, .Bottom)
+        XCTAssertTrue(attributedItem.item === controller.topLayoutGuide, "The item's attributable item should be the view controller's top layout guide")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Bottom, "The provided attribute should be the attribute")
+    }
+
     //  MARK: Right-side operands
 
     func testAttributedItemIntMultiplierSyntax() {

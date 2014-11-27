@@ -16,6 +16,8 @@ class ViewControllerLayoutAttributesTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
+
+        controller.loadView()
     }
 
     override func tearDown() {

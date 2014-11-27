@@ -9,6 +9,11 @@
 import UIKit
 
 /**
+  Pair representing an Auto Layout attributable item (view or view controller layout guide) and an NSLayoutAttribute.
+*/
+public typealias AutoLayoutAttributedItem = (item: AnyObject, attribute: NSLayoutAttribute)
+
+/**
   Pair representing an Auto Layout attribute for an item with a coefficient for producing a scalar multiple of the layout value.
 */
 public typealias AutoLayoutAttributedItemScalarMultiple = (coefficient: CGFloat, attributedItem: AutoLayoutAttributedItem)
