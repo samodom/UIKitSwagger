@@ -92,3 +92,9 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 > `constraint ~ "sample"`|`constant.identifier = "sample"`
 > `constraint ~ nil`|`contraint.identifier = nil`
 
+
+### Blindly Apply Constraints
+
+
+Instead of figuring out where to add constraints, just apply them!  The correct view is figured out for you automatically - even if a view controller layout guide is involved.
+> `func apply()`
