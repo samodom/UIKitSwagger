@@ -27,7 +27,7 @@ Find `exchangeSubviewAtIndex(_: Int, withSubviewAtIndex: Int)` to be too wordy? 
 
 ### View Show/Hide
 
-A few simply functions for showing or hiding views in a single statement are provided:
+A few simply functions for hiding or showing views in a single statement are provided:
 
 - `func HideViews(UIView...)`
 - `func HideViews([UIView])`
@@ -35,17 +35,20 @@ A few simply functions for showing or hiding views in a single statement are pro
 - `func ShowViews([UIView])`
 
 
-### Auto Layout Constraints
+## Auto Layout
+
+> In the source code and this documentation, the following type alias is used:
+`typealias Constraint = NSLayoutConstraint`
+
+### Constraint Search
 
 Don't clutter your view controller code trying to find a particular constraint to remove!   Finding constraints is much easier with these methods:
 - `func constraintsForItem(AnyObject) -> [Constraint]?`
 - `func constraintsForAttribute(NSLayoutAttribute) -> [Constraint]?`
-- `func constraintsForItem(AnyObject, attribute: NSLayoutAttribute) -> [Constraint]?`
+- `func constraintsForAttributedItem(AutoLayoutAttributedItem) -> [Constraint]?`
 - `func constraintsForItems(AnyObject, AnyObject) -> [Constraint]?`
-- `func constraintsForItems(attributedItems: (AttributedItem, AttributedItem)) -> [Constraint]?`
+- `func constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [Constraint]?`
 
-In the source code and this documentation, the following type alias is used:
-`typealias Constraint = NSLayoutConstraint`
 
 **Reversal:**
 Want to reverse the items in a constraint to produce an equivalent constraint?
