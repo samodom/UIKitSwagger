@@ -1,7 +1,7 @@
 UIKitSwagger
 ============
 
-Extensions to UIKit for searching/manipulating view hierarchies, finding/comparing layout constraints and additional tasks related to UIKit.
+Extensions to UIKit for working with view hierarchies, layout constraints and additional tasks related to UIKit.
 
 
 ### View Subscripting
@@ -70,3 +70,8 @@ let constraint1 = button.centerX =* 2 * view.leftMargin + 14.5
 let constraint2 = button.height <=* 20
 let constraint3 = button.width >=* button.height + 4
 ```
+
+Additionally, the two modifiable attributes of a constraint can be manipulated with the tilde operator (`~`) as follows:
+- `constraint ~ 444` is equivalent to `constraint.priority = 444`
+- `constraint ~ "sample"` is equivalent to `constant.identifier = "sample"`
+- `constraint ~ nil` clears the identifier

@@ -210,4 +210,25 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
+    //  MARK: Priority and Identifier
+
+    func testAddingPriorityToConstraint() {
+        constraint = rootView.height <=* 1.4 * rootView.width + 14.42
+        constraint ~ 555
+        XCTAssertEqual(constraint.priority, UILayoutPriority(555), "The '~' symbol should allow setting of constraint priorities")
+    }
+
+    func testAddingIdentifierToConstraint() {
+        constraint = rootView.height =* rootView.width
+        constraint ~ "square"
+        XCTAssertEqual(constraint.identifier!, "square", "The '~' symbol should allow setting of constraint identifiers")
+    }
+
+    func testClearingIdentifierConstraint() {
+        constraint = rootView.height =* rootView.width
+        constraint.identifier = "square"
+        constraint ~ nil
+        XCTAssertTrue(constraint.identifier == nil, "The '~' symbol with a nil value should allow clearing of constraint identifiers")
+    }
+
 }

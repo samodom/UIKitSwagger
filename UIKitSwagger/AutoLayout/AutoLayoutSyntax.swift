@@ -129,3 +129,17 @@ private func BuildConstraintFromOperands(attributedItem: AutoLayoutAttributedIte
     return Constraint(item: attributedItem.item, attribute: attributedItem.attribute, relatedBy: relation, toItem: offset.attributedItem.attributedItem.item, attribute: offset.attributedItem.attributedItem.attribute, multiplier: offset.attributedItem.coefficient, constant: offset.constant)
 }
 
+
+/**
+  An operator used to set the priority or identifier on a constraint.
+*/
+infix operator ~ { }
+
+public func ~(constraint: Constraint, priority: UILayoutPriority) {
+    constraint.priority = priority
+}
+
+public func ~(constraint: Constraint, identifier: String?) {
+    constraint.identifier = identifier
+}
+
