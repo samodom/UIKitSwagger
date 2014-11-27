@@ -27,25 +27,28 @@ Find `exchangeSubviewAtIndex(_: Int, withSubviewAtIndex: Int)` to be too wordy? 
 
 ### View Show/Hide
 
-A few simply functions for showing or hiding views in a single statement are provided:
+A few simply functions for hiding or showing views in a single statement are provided:
 
-- `func HideViews(views: UIView...)`
-- `func HideViews(views: [UIView])`
-- `func ShowViews(views: UIView...)`
-- `func ShowViews(views: [UIView])`
+- `func HideViews(UIView...)`
+- `func HideViews([UIView])`
+- `func ShowViews(UIView...)`
+- `func ShowViews([UIView])`
 
 
-### Auto Layout Constraints
+## Auto Layout
+
+> In the source code and this documentation, the following type alias is used:
+`typealias Constraint = NSLayoutConstraint`
+
+### Constraint Search
 
 Don't clutter your view controller code trying to find a particular constraint to remove!   Finding constraints is much easier with these methods:
-- `func constraintsForItem(item: AnyObject) -> [Constraint]?`
-- `func constraintsForAttribute(attribute: NSLayoutAttribute) -> [Constraint]?`
-- `func constraintsForItem(item: AnyObject, attribute: NSLayoutAttribute) -> [Constraint]?`
-- `func constraintsForItems(items: ItemPair) -> [Constraint]?`
-- `func constraintsForItems(attributedItems: (AttributedItem, AttributedItem)) -> [Constraint]?`
+- `func constraintsForItem(AnyObject) -> [Constraint]?`
+- `func constraintsForAttribute(NSLayoutAttribute) -> [Constraint]?`
+- `func constraintsForAttributedItem(AutoLayoutAttributedItem) -> [Constraint]?`
+- `func constraintsForItems(AnyObject, AnyObject) -> [Constraint]?`
+- `func constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [Constraint]?`
 
-In the source code and this documentation, the following type alias is used:
-`typealias Constraint = NSLayoutConstraint`
 
 **Reversal:**
 Want to reverse the items in a constraint to produce an equivalent constraint?
@@ -53,4 +56,15 @@ Want to reverse the items in a constraint to produce an equivalent constraint?
 
 
 **Equality:**
-Compare two constraints with respect to the items, attributes, relation, multiplier and constant.  It even tries the reverse of one operand to truly determine equivalency.
+Compare two constraints with respect to the items, attributes, relation, multiplier and constant.  It even tries the reverse of one operand to truly determine equivalency.  In addition, the `==*` operator can be used to compare constraints for extended equivalency by comparing constraint priorities and identifiers.
+
+
+### Real Auto Layout Syntax
+
+You can now build your constraints in Swift with a real syntax the same way that you use the `init(item:attribute:relatedBy:toItem:attribute:multiplier:constant:)` initializer.  The `*` and `+` operators provide the scalar multiples and constant offsets, respectively.  The `=*`, `>=*` and `<=*` operators specify "equal", "greater than or equal" and "less than or equal" relations, respectively.
+
+```swift
+let constraint1 = (button.centerX =* 2 * view.leftMargin + 14.5)
+let constraint2 = (button.height <=* 20)
+let constraint3 = (button.width >=* button.height + 4)
+```

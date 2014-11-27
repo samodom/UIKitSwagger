@@ -80,7 +80,8 @@ class ConstraintSearchTests: XCTestCase {
     }
 
     func testConstraintSearchByItemAndAttribute() {
-        constraints = superview.constraintsForItem(subview, attribute: .CenterX)
+        let attributedItem = AutoLayoutAttributedItem(subview, .CenterX)
+        constraints = superview.constraintsForAttributedItem(attributedItem)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 2, "All constraints with the subview as an item with center X attribute should be returned")
         XCTAssertTrue(contains(constraints!, constraint3), "The third constraint should be included")
@@ -88,12 +89,13 @@ class ConstraintSearchTests: XCTestCase {
     }
 
     func testMissingConstraintsForItemAndAttribute() {
-        constraints = superview.constraintsForItem(unusedView, attribute: unusedAttribute)
+        let attributedItem = AutoLayoutAttributedItem(unusedView, unusedAttribute)
+        constraints = superview.constraintsForAttributedItem(attributedItem)
         XCTAssertTrue(constraints == nil, "There should be no constraints returned")
     }
 
     func testConstraintSearchByTwoItems() {
-        constraints = superview.constraintsForItems((button, image))
+        constraints = superview.constraintsForItems(button, image)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 2, "All constraints with both the button and image as items should be returned")
         XCTAssertTrue(contains(constraints!, constraint4), "The fourth constraint should be included")
@@ -101,27 +103,27 @@ class ConstraintSearchTests: XCTestCase {
     }
 
     func testMissingConstraintsForTwoItems() {
-        constraints = superview.constraintsForItems((button, unusedView))
+        constraints = superview.constraintsForItems(button, unusedView)
         XCTAssertTrue(constraints == nil, "There should be no constraints returned")
     }
 
     func testConstraintSearchByTwoItemsAndAttributes() {
-        let imageCenterY = (image, .CenterY) as AttributedItem
-        let buttonLeading = (button, .Top) as AttributedItem
-        constraints = superview.constraintsForItems(imageCenterY, buttonLeading)
+        let imageCenterY = AutoLayoutAttributedItem(image, .CenterY)
+        let buttonLeading = AutoLayoutAttributedItem(button, .Top)
+        constraints = superview.constraintsForAttributedItems(imageCenterY, buttonLeading)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 1, "Only the constraint with the image's center Y attribute and the button's leading attribute should be returned")
         XCTAssertTrue(contains(constraints!, constraint4), "The fourth constraint is the expected result")
-        constraints = superview.constraintsForItems(buttonLeading, imageCenterY)
+        constraints = superview.constraintsForAttributedItems(buttonLeading, imageCenterY)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 1, "Only the constraint with the image's center Y attribute and the button's leading attribute should be returned")
         XCTAssertTrue(contains(constraints!, constraint4), "The fourth constraint is the expected result")
     }
 
     func testMissingConstraintsForTwoItemsAndAttributes() {
-        let imageCenterY = (image, .CenterY) as AttributedItem
-        let unusedItemAndAttribute = (unusedView, unusedAttribute) as AttributedItem
-        constraints = superview.constraintsForItems(imageCenterY, unusedItemAndAttribute)
+        let imageCenterY = AutoLayoutAttributedItem(image, .CenterY)
+        let unusedItemAndAttribute = AutoLayoutAttributedItem(unusedView, unusedAttribute)
+        constraints = superview.constraintsForAttributedItems(imageCenterY, unusedItemAndAttribute)
         XCTAssertTrue(constraints == nil, "There should be no constraints returned")
     }
 
