@@ -60,20 +60,20 @@ public func -(multiple: AutoLayoutAttributedItemScalarMultiple, constant: CGFloa
 */
 infix operator =* { }
 
-public func =*(lhs: AutoLayoutAttributedItem, rhs: CGFloat) -> Constraint {
-    return BuildConstantRelationConstraint(lhs, rhs)
+public func =*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> Constraint {
+    return BuildConstantRelationConstraint(attributedItem, constant)
 }
 
-public func =*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItem) -> Constraint {
-    return lhs =* 1 * rhs
+public func =*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> Constraint {
+    return attributedItem1 =* 1 * attributedItem2
 }
 
-public func =*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItemScalarMultiple) -> Constraint {
-    return lhs =* rhs + 0.0
+public func =*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> Constraint {
+    return attributedItem =* multiple + 0.0
 }
 
-public func =*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItemOffset) -> Constraint {
-    return BuildConstraintFromOperands(lhs, rhs, relation: .Equal)
+public func =*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> Constraint {
+    return BuildConstraintFromOperands(attributedItem, offset)
 }
 
 
@@ -82,20 +82,20 @@ public func =*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItemOffse
 */
 infix operator >=* { }
 
-public func >=*(lhs: AutoLayoutAttributedItem, rhs: CGFloat) -> Constraint {
-    return BuildConstantRelationConstraint(lhs, rhs, relation: .GreaterThanOrEqual)
+public func >=*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> Constraint {
+    return BuildConstantRelationConstraint(attributedItem, constant, relation: .GreaterThanOrEqual)
 }
 
-public func >=*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItem) -> Constraint {
-    return lhs >=* 1 * rhs
+public func >=*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> Constraint {
+    return attributedItem1 >=* 1 * attributedItem2
 }
 
-public func >=*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItemScalarMultiple) -> Constraint {
-    return lhs >=* rhs + 0.0
+public func >=*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> Constraint {
+    return attributedItem >=* multiple + 0.0
 }
 
-public func >=*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItemOffset) -> Constraint {
-    return BuildConstraintFromOperands(lhs, rhs, relation: .GreaterThanOrEqual)
+public func >=*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> Constraint {
+    return BuildConstraintFromOperands(attributedItem, offset, relation: .GreaterThanOrEqual)
 }
 
 
@@ -104,20 +104,20 @@ public func >=*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItemOffs
 */
 infix operator <=* { }
 
-public func <=*(lhs: AutoLayoutAttributedItem, rhs: CGFloat) -> Constraint {
-    return BuildConstantRelationConstraint(lhs, rhs, relation: .LessThanOrEqual)
+public func <=*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> Constraint {
+    return BuildConstantRelationConstraint(attributedItem, constant, relation: .LessThanOrEqual)
 }
 
-public func <=*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItem) -> Constraint {
-    return lhs <=* 1 * rhs
+public func <=*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> Constraint {
+    return attributedItem1 <=* 1 * attributedItem2
 }
 
-public func <=*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItemScalarMultiple) -> Constraint {
-    return lhs <=* rhs + 0.0
+public func <=*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> Constraint {
+    return attributedItem <=* multiple + 0.0
 }
 
-public func <=*(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItemOffset) -> Constraint {
-    return BuildConstraintFromOperands(lhs, rhs, relation: .LessThanOrEqual)
+public func <=*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> Constraint {
+    return BuildConstraintFromOperands(attributedItem, offset, relation: .LessThanOrEqual)
 }
 
 
@@ -125,7 +125,7 @@ private func BuildConstantRelationConstraint(attributedItem: AutoLayoutAttribute
     return Constraint(item: attributedItem.item, attribute: attributedItem.attribute, relatedBy: relation, toItem: nil, attribute: .NotAnAttribute, multiplier: 0.0, constant: constant)
 }
 
-private func BuildConstraintFromOperands(lhs: AutoLayoutAttributedItem, rhs: AutoLayoutAttributedItemOffset, relation: NSLayoutRelation = .Equal) -> Constraint {
-    return Constraint(item: lhs.item, attribute: lhs.attribute, relatedBy: relation, toItem: rhs.attributedItem.attributedItem.item, attribute: rhs.attributedItem.attributedItem.attribute, multiplier: rhs.attributedItem.coefficient, constant: rhs.constant)
+private func BuildConstraintFromOperands(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset, relation: NSLayoutRelation = .Equal) -> Constraint {
+    return Constraint(item: attributedItem.item, attribute: attributedItem.attribute, relatedBy: relation, toItem: offset.attributedItem.attributedItem.item, attribute: offset.attributedItem.attributedItem.attribute, multiplier: offset.attributedItem.coefficient, constant: offset.constant)
 }
 
