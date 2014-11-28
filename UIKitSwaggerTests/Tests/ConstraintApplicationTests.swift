@@ -26,7 +26,7 @@ class ConstraintApplicationTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        var window = UIApplication.sharedApplication().delegate!.window!
+        let window = UIApplication.sharedApplication().delegate!.window!
         viewController = window!.rootViewController
         viewController.loadView()
         view = viewController.view
