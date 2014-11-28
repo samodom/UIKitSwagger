@@ -75,23 +75,23 @@ Similar to constraint application, one should be able to activate or deactivate 
 
 ### Alignment Functions
 
-Common alignment tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically align views.
- - `AlignLeft(Constraint...)`
- - `AlignLeft([Constraint])`
- - `AlignRight(Constraint...)`
- - `AlignRight([Constraint])`
- - `AlignTop(Constraint...)`
- - `AlignTop([Constraint])`
- - `AlignBottom(Constraint...)`
- - `AlignBottom([Constraint])`
- - `AlignHorizontally(Constraint...)`
- - `AlignHorizontally([Constraint])`
- - `AlignVertically(Constraint...)`
- - `AlignVertically([Constraint])`
- - `AlignCenters(Constraint...)`
- - `AlignCenters([Constraint])`
- - `AlignBaselines(Constraint...)`
- - `AlignBaselines([Constraint])`
+Common alignment tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically align views.  Each method returns the constraints that it applies.
+ - `AlignLeft(Constraint...) -> [Constraint]`
+ - `AlignLeft([Constraint]) -> [Constraint]`
+ - `AlignRight(Constraint...) -> [Constraint]`
+ - `AlignRight([Constraint]) -> [Constraint]`
+ - `AlignTop(Constraint...) -> [Constraint]`
+ - `AlignTop([Constraint]) -> [Constraint]`
+ - `AlignBottom(Constraint...) -> [Constraint]`
+ - `AlignBottom([Constraint]) -> [Constraint]`
+ - `AlignHorizontally(Constraint...) -> [Constraint]`
+ - `AlignHorizontally([Constraint]) -> [Constraint]`
+ - `AlignVertically(Constraint...) -> [Constraint]`
+ - `AlignVertically([Constraint]) -> [Constraint]`
+ - `AlignCenters(Constraint...) -> [Constraint]`
+ - `AlignCenters([Constraint]) -> [Constraint]`
+ - `AlignBaselines(Constraint...) -> [Constraint]`
+ - `AlignBaselines([Constraint]) -> [Constraint]`
 
 
 ### Distribution Functions
