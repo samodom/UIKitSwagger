@@ -169,24 +169,3 @@ public func AlignBaselines(items: AutoLayoutAttributable...) -> [Constraint] {
 public func AlignBaselines(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .Baseline)
 }
-
-////////////////////////////////////////////////////////////////////////////////
-
-private func AlignItems(items: [AutoLayoutAttributable], attribute: NSLayoutAttribute) -> [Constraint] {
-    AssertAlignmentItemCount(items.count)
-
-    var constraints = [Constraint]()
-    let firstItem = items.first!.attributedItemForLayoutAttribute(attribute)
-    for item in items[1..<items.endIndex] {
-        let attributedItem = item.attributedItemForLayoutAttribute(attribute)
-        let constraint = attributedItem =* firstItem
-        constraints.append(constraint)
-        constraint.apply()
-    }
-
-    return constraints
-}
-
-private func AssertAlignmentItemCount(count: Int) {
-    assert(count > 1, "Multiple views are required for alignment")
-}
