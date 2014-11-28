@@ -94,4 +94,16 @@ extension UIViewController: AutoLayoutAttributable {
         return view.nonAttribute
     }
 
+    public func attributedItemForLayoutAttribute(attribute: NSLayoutAttribute) -> AutoLayoutAttributedItem {
+        if attribute == .Top {
+            return (self.topLayoutGuide, .Bottom)
+        }
+
+        if attribute == .Bottom {
+            return (self.bottomLayoutGuide, .Top)
+        }
+
+        return (self.view, attribute)
+    }
+
 }

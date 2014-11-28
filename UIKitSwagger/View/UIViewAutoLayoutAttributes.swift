@@ -94,4 +94,8 @@ extension UIView: AutoLayoutAttributable {
         return AutoLayoutAttributedItem(self, .NotAnAttribute)
     }
 
+    public func attributedItemForLayoutAttribute(attribute: NSLayoutAttribute) -> AutoLayoutAttributedItem {
+        return (self, attribute)
+    }
+
 }

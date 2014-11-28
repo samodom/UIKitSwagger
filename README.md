@@ -95,7 +95,6 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 
 ### Blindly Apply/Remove Constraints
 
-
 Instead of figuring out where to add constraints, just apply them!  And instead of figuring out where they are applied before removing them, just remove them!  The correct view is figured out for you automatically - even if a view controller layout guide is involved.
 
 Methods on NSLayoutConstraint:
@@ -113,3 +112,10 @@ Global top-level functions:
 > `func RemoveConstraints(constraints: Constraint...)`
 
 > `func RemoveConstraints(constraints: [Constraint])`
+
+
+### Alignment Functions
+
+Common alignment tasks can be performed without creating constraints manually.  The following methods come in two flavors: variadic argument list and array argument.  In each case, two or more items can be provided to automatically align views.
+
+> `AlignLeft`, `AlignRight`, `AlignTop`, `AlignBottom`, `AlignHorizontally`, `AlignVertically`, `AlignCenters`, `AlignBaselines`

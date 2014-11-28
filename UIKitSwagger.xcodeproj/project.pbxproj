@@ -41,6 +41,9 @@
 		0AC4A8B71A27E05600EBCCB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8B61A27E05600EBCCB8 /* AppDelegate.swift */; };
 		0AC4A8B91A27E05600EBCCB8 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8B81A27E05600EBCCB8 /* DummyViewController.swift */; };
 		0AC4A8BC1A27E05600EBCCB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC4A8BA1A27E05600EBCCB8 /* Main.storyboard */; };
+		0AC4A8D91A27FCF800EBCCB8 /* ViewAlignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */; };
+		0AC4A8DB1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */; };
+		0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +93,8 @@
 		0AC4A8B61A27E05600EBCCB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AC4A8B81A27E05600EBCCB8 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		0AC4A8BB1A27E05600EBCCB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAlignmentTests.swift; sourceTree = "<group>"; };
+		0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewAlignment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +183,7 @@
 		0A3BB99519EB71240075B32A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */,
 				0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */,
 				0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */,
 				0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */,
@@ -196,6 +202,7 @@
 			children = (
 				0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */,
 				0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */,
+				0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */,
 				0AC4A8AB1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift */,
 				0A3BB99F19EB71F00075B32A /* NSLayoutConstraintComparison.swift */,
 				0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */,
@@ -377,6 +384,7 @@
 				0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
 				0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A4CF44C1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
+				0AC4A8DB1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
@@ -390,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3BB9AF19EB75EB0075B32A /* UIViewHierarchy.swift in Sources */,
+				0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */,
@@ -405,6 +414,7 @@
 				0A67BADA1A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift in Sources */,
 				0AC4A8AD1A26C83E00EBCCB8 /* NSLayoutConstraintApplication.swift in Sources */,
 				0A67BAE31A2301F90038D99A /* AutoLayoutSyntax.swift in Sources */,
+				0AC4A8D91A27FCF800EBCCB8 /* ViewAlignmentTests.swift in Sources */,
 				0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */,
 				0AC4A8AA1A26C65F00EBCCB8 /* ConstraintApplicationTests.swift in Sources */,
 				0A4CF4501A22E3FD00D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
@@ -657,6 +667,7 @@
 				0AC4A8CF1A27E05600EBCCB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
