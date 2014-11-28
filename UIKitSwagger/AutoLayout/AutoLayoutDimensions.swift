@@ -55,7 +55,7 @@ private func ConstrainDimension(views: [UIView], dimension: NSLayoutAttribute) -
 
     var constraints = [Constraint]()
     let firstItem = views.first!.attributedItemForLayoutAttribute(dimension)
-    for item in views {
+    for item in views[1..<views.endIndex] {
         let attributedItem = item.attributedItemForLayoutAttribute(dimension)
         let constraint = attributedItem =* firstItem
         constraint.apply()
