@@ -126,3 +126,22 @@ Common alignment tasks can be performed without creating constraints manually.  
 Common distribution tasks can be performed without creating constraints manually.  The following methods come in four flavors: variadic argument list and array argument - both with and without constant spacing.  In each case, two or more items can be provided to automatically distribute views.
 
 > `DistributeLeftToRight`, `DistributeLeadingToTrailing`, `DistributeTopToBottom`
+
+
+### Aspect Ratio Functions
+
+The dimensions of a view can be constrained to a particular aspect ratio with or without an offset.
+
+Methods on NSLayoutConstraint:
+> `func constrainWidthToHeight(CGFloat, CGFloat)`
+
+> `func constrainHeightToWidth(CGFloat, CGFloat)`
+
+Global top-level functions:
+> `func ConstrainWidths(UIView...)`
+
+> `func ConstrainWidths([UIView])`
+
+> `func ConstrainHeights(UIView...)`
+
+> `func ConstrainHeights([UIView])`
