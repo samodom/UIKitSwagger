@@ -19,6 +19,10 @@ class ConstraintApplicationTests: XCTestCase {
     let grandchild2 = UIView()
     let unrelatedView = UIView()
 
+    var child1ToGrandchild1: Constraint!
+    var viewToGrandchild2: Constraint!
+    var child1ToController: Constraint!
+
     override func setUp() {
         super.setUp()
 
@@ -100,4 +104,66 @@ class ConstraintApplicationTests: XCTestCase {
         XCTAssertFalse(contains(child1.constraints() as [Constraint], constraint), "The constraint should be removed")
     }
 
+    //  MARK: Convenience functions for application/removal
+
+    private func createSampleConstraints() {
+        child1ToGrandchild1 = child1.centerX =* grandchild1.centerX
+        viewToGrandchild2 = grandchild2.right =* view.rightMargin - 5
+        child1ToController = child1.top =* viewController.top
+    }
+
+    func testApplyingSingleConstraint() {
+        createSampleConstraints()
+        ApplyConstraints(child1ToGrandchild1)
+        XCTAssertTrue(contains(child1.constraints() as [Constraint], child1ToGrandchild1), "The single constraint should be applied where appropriate")
+    }
+
+    func testApplyingMultipleConstraints() {
+        createSampleConstraints()
+        ApplyConstraints(child1ToGrandchild1, viewToGrandchild2, child1ToController)
+        XCTAssertTrue(contains(child1.constraints() as [Constraint], child1ToGrandchild1), "Each constraint should be applied where appropriate")
+        XCTAssertTrue(contains(view.constraints() as [Constraint], viewToGrandchild2), "Each constraint should be applied where appropriate")
+        XCTAssertTrue(contains(view.constraints() as [Constraint], child1ToController), "Each constraint should be applied where appropriate")
+    }
+
+    func testApplyingConstraintArray() {
+        createSampleConstraints()
+        ApplyConstraints([child1ToGrandchild1, viewToGrandchild2, child1ToController])
+        XCTAssertTrue(contains(child1.constraints() as [Constraint], child1ToGrandchild1), "Each constraint should be applied where appropriate")
+        XCTAssertTrue(contains(view.constraints() as [Constraint], viewToGrandchild2), "Each constraint should be applied where appropriate")
+        XCTAssertTrue(contains(view.constraints() as [Constraint], child1ToController), "Each constraint should be applied where appropriate")
+    }
+
+    func testRemovingSingleConstraint() {
+        createSampleConstraints()
+        child1ToGrandchild1.apply()
+
+        RemoveConstraints(child1ToGrandchild1)
+        XCTAssertFalse(contains(child1.constraints() as [Constraint], child1ToGrandchild1), "The single constraint should be removed")
+    }
+
+    func testRemovingMultipleConstraints() {
+        createSampleConstraints()
+        child1ToGrandchild1.apply()
+        viewToGrandchild2.apply()
+        child1ToController.apply()
+
+        RemoveConstraints(child1ToGrandchild1, viewToGrandchild2, child1ToController)
+        XCTAssertFalse(contains(child1.constraints() as [Constraint], child1ToGrandchild1), "Each constraint should be removed")
+        XCTAssertFalse(contains(view.constraints() as [Constraint], viewToGrandchild2), "Each constraint should be removed")
+        XCTAssertFalse(contains(view.constraints() as [Constraint], child1ToController), "Each constraint should be removed")
+    }
+
+    func testRemovingConstraintArray() {
+        createSampleConstraints()
+        child1ToGrandchild1.apply()
+        viewToGrandchild2.apply()
+        child1ToController.apply()
+
+        RemoveConstraints([child1ToGrandchild1, viewToGrandchild2, child1ToController])
+        XCTAssertFalse(contains(child1.constraints() as [Constraint], child1ToGrandchild1), "Each constraint should be removed")
+        XCTAssertFalse(contains(view.constraints() as [Constraint], viewToGrandchild2), "Each constraint should be removed")
+        XCTAssertFalse(contains(view.constraints() as [Constraint], child1ToController), "Each constraint should be removed")
+    }
+    
 }

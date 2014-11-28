@@ -49,6 +49,44 @@ public extension NSLayoutConstraint {
 
 }
 
+/**
+  Convenience method for applying one or more constraints to the appropriate view.
+  @param            constraints One or more NSLayoutConstraints to be applied.
+*/
+public func ApplyConstraints(constraints: Constraint...) {
+    ApplyConstraints(constraints)
+}
+
+/**
+  Convenience method for applying an array of constraints to the appropriate view.
+  @param            constraints Array of NSLayoutConstraints to be applied.
+*/
+public func ApplyConstraints(constraints: [Constraint]) {
+    for constraint in constraints {
+        constraint.apply()
+    }
+}
+
+
+/**
+  Convenience method for removing one or more constraints from where they are applied.
+  @param            constraints One or more NSLayoutConstraints to be removed.
+*/
+public func RemoveConstraints(constraints: Constraint...) {
+    RemoveConstraints(constraints)
+}
+
+/**
+  Convenience method for removing an array of constraints from where they are applied.
+  @param            constraints Array of NSLayoutConstraints to be removed.
+*/
+public func RemoveConstraints(constraints: [Constraint]) {
+    for constraint in constraints {
+        constraint.remove()
+    }
+}
+
+
 private func ViewControllerContainingView(view: UIView, #layoutGuide: UILayoutSupport) -> UIViewController? {
     let window = view.window
     if window == nil {

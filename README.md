@@ -97,6 +97,19 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 
 
 Instead of figuring out where to add constraints, just apply them!  And instead of figuring out where they are applied before removing them, just remove them!  The correct view is figured out for you automatically - even if a view controller layout guide is involved.
+
+Methods on NSLayoutConstraint:
+
 > `func apply()`
 
 > `func remove()`
+
+Global top-level functions:
+
+> `func ApplyConstraints(Constraint...)`
+
+> `func ApplyConstraints([Constraint])`
+
+> `func RemoveConstraints(constraints: Constraint...)`
+
+> `func RemoveConstraints(constraints: [Constraint])`
