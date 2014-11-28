@@ -119,3 +119,10 @@ Global top-level functions:
 Common alignment tasks can be performed without creating constraints manually.  The following methods come in two flavors: variadic argument list and array argument.  In each case, two or more items can be provided to automatically align views.
 
 > `AlignLeft`, `AlignRight`, `AlignTop`, `AlignBottom`, `AlignHorizontally`, `AlignVertically`, `AlignCenters`, `AlignBaselines`
+
+
+### Distribution Functions
+
+Common distribution tasks can be performed without creating constraints manually.  The following methods come in four flavors: variadic argument list and array argument - both with and without constant spacing.  In each case, two or more items can be provided to automatically distribute views.
+
+> `DistributeLeftToRight`, `DistributeLeadingToTrailing`, `DistributeTopToBottom`

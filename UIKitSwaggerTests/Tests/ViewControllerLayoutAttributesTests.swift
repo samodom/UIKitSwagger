@@ -17,7 +17,7 @@ class ViewControllerLayoutAttributesTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        var window = UIApplication.sharedApplication().delegate!.window!
+        let window = UIApplication.sharedApplication().delegate!.window!
         controller = window!.rootViewController
         controller.loadView()
     }
