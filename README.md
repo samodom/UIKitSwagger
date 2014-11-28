@@ -93,8 +93,10 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 > `constraint ~ nil`|`contraint.identifier = nil`
 
 
-### Blindly Apply Constraints
+### Blindly Apply/Remove Constraints
 
 
-Instead of figuring out where to add constraints, just apply them!  The correct view is figured out for you automatically - even if a view controller layout guide is involved.
+Instead of figuring out where to add constraints, just apply them!  And instead of figuring out where they are applied before removing them, just remove them!  The correct view is figured out for you automatically - even if a view controller layout guide is involved.
 > `func apply()`
+
+> `func remove()`

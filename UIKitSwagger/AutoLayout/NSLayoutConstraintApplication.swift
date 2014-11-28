@@ -19,6 +19,15 @@ public extension NSLayoutConstraint {
         }
     }
 
+    /**
+      Removes constraint from view to which it is applied.
+    */
+    public func remove() {
+        if let view = viewForConstraintApplication() {
+            view.removeConstraint(self)
+        }
+    }
+
     private func viewForConstraintApplication() -> UIView? {
         if secondItem == nil {
             return firstItem as? UIView

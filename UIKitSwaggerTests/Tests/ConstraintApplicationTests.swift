@@ -92,4 +92,12 @@ class ConstraintApplicationTests: XCTestCase {
         XCTAssertTrue(contains(view.constraints() as [Constraint], constraint), "A constraint involving a view controller guide should be added to the view controller's view")
     }
 
+    func testRemovingConstraintFromView() {
+        let constraint = child1.height =* 14.42
+        constraint.apply()
+        XCTAssertTrue(contains(child1.constraints() as [Constraint], constraint), "Just making sure the constraint has been added")
+        constraint.remove()
+        XCTAssertFalse(contains(child1.constraints() as [Constraint], constraint), "The constraint should be removed")
+    }
+
 }
