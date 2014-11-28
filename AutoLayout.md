@@ -112,14 +112,14 @@ Common distribution tasks can be performed without creating constraints manually
 
 ### Aspect Ratio Functions
 
-The dimensions of a view can be constrained to a particular aspect ratio with or without an offset.
+The dimensions of a view can be constrained to a particular aspect ratio with or without an offset.  These functions create and apply the necessary constraints, then return them to the caller for use as variables.
 
 Methods on NSLayoutConstraint:
- - `func constrainWidthToHeight(CGFloat, CGFloat)`
- - `func constrainHeightToWidth(CGFloat, CGFloat)`
+ - `func constrainWidthToHeight(CGFloat, CGFloat) -> Constraint`
+ - `func constrainHeightToWidth(CGFloat, CGFloat) -> Constraint`
 
 Global top-level functions:
- - `func ConstrainWidths(UIView...)`
- - `func ConstrainWidths([UIView])`
- - `func ConstrainHeights(UIView...)`
- - `func ConstrainHeights([UIView])`
+ - `func ConstrainWidths(UIView...) -> [Constraint]`
+ - `func ConstrainWidths([UIView]) -> [Constraint]`
+ - `func ConstrainHeights(UIView...) -> [Constraint]`
+ - `func ConstrainHeights([UIView]) -> [Constraint]`
