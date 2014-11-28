@@ -96,19 +96,20 @@ Common alignment tasks can be performed without creating constraints manually.  
 
 ### Distribution Functions
 
-Common distribution tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically distribute views.  Functions that accept a numeric argument use the provided value for spacing between items.
- - `DistributeLeftToRight(UIView...)`
- - `DistributeLeftToRight([UIView])`
- - `DistributeLeftToRight(CGFloat, UIView...)`
- - `DistributeLeftToRight(CGFloat, [UIView])`
- - `DistributeLeadingToTrailing(UIView...)`
- - `DistributeLeadingToTrailing([UIView])`
- - `DistributeLeadingToTrailing(CGFloat, UIView...)`
- - `DistributeLeadingToTrailing(CGFloat, [UIView])`
- - `DistributeTopToBottom(UIView...)`
- - `DistributeTopToBottom([UIView])`
- - `DistributeTopToBottom(CGFloat, UIView...)`
- - `DistributeTopToBottom(CGFloat, [UIView])`
+Common distribution tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically distribute views.  Functions that accept a numeric argument use the provided value for spacing between items.  All of these functions return the constraints that they apply.
+ - `DistributeLeftToRight(UIView...) -> [Constraint]`
+ - `DistributeLeftToRight([UIView]) -> [Constraint]`
+ - `DistributeLeftToRight(CGFloat, UIView...) -> [Constraint]`
+ - `DistributeLeftToRight(CGFloat, [UIView]) -> [Constraint]`
+ - `DistributeLeadingToTrailing(UIView...) -> [Constraint]`
+ - `DistributeLeadingToTrailing([UIView]) -> [Constraint]`
+ - `DistributeLeadingToTrailing(CGFloat, UIView...) -> [Constraint]`
+ - `DistributeLeadingToTrailing(CGFloat, [UIView]) -> [Constraint]`
+ - `DistributeTopToBottom(UIView...) -> [Constraint]`
+ - `DistributeTopToBottom([UIView]) -> [Constraint]`
+ - `DistributeTopToBottom(CGFloat, UIView...) -> [Constraint]`
+ - `DistributeTopToBottom(CGFloat, [UIView]) -> [Constraint]`
+
 
 ### Aspect Ratio Functions
 
