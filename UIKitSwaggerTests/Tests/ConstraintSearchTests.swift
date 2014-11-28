@@ -11,7 +11,8 @@ import XCTest
 
 class ConstraintSearchTests: XCTestCase {
 
-    let superview = UIView()
+    var controller: UIViewController!
+    var superview: UIView!
     let subview = UIView()
     let button = UIButton()
     let image = UIImageView()
@@ -32,6 +33,14 @@ class ConstraintSearchTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
+        var window = UIApplication.sharedApplication().delegate!.window!
+        controller = window!.rootViewController
+        controller.loadView()
+        superview = controller.view
+        subview.addSubview(button)
+        subview.addSubview(image)
+        subview.addSubview(slider)
+        superview.addSubview(subview)
         setupConstraints()
     }
     
