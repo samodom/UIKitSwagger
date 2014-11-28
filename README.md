@@ -114,6 +114,19 @@ Global top-level functions:
 > `func RemoveConstraints(constraints: [Constraint])`
 
 
+### Activation Functions
+
+Similar to constraint application, one should be able to activate or deactivate multiple constraints in a single statement:
+
+> `func ActivateConstraints(constraints: Constraint...)`
+
+> `func ActivateConstraints(constraints: [Constraint])`
+
+> `func DeactivateConstraints(constraints: Constraint...)`
+
+> `func DeactivateConstraints(constraints: [Constraint])`
+
+
 ### Alignment Functions
 
 Common alignment tasks can be performed without creating constraints manually.  The following methods come in two flavors: variadic argument list and array argument.  In each case, two or more items can be provided to automatically align views.

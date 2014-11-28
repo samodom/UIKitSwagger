@@ -52,6 +52,9 @@
 		0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */; };
 		0AF2A0851A28640D00A5C0F9 /* AutoLayoutDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0841A28640D00A5C0F9 /* AutoLayoutDimensions.swift */; };
 		0AF2A0861A28647900A5C0F9 /* AutoLayoutDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0841A28640D00A5C0F9 /* AutoLayoutDimensions.swift */; };
+		0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */; };
+		0AF2A08A1A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0891A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift */; };
+		0AF2A08B1A29003D00A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0891A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +111,8 @@
 		0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAlignmentTests.swift; sourceTree = "<group>"; };
 		0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewAlignment.swift; sourceTree = "<group>"; };
 		0AF2A0841A28640D00A5C0F9 /* AutoLayoutDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutDimensions.swift; sourceTree = "<group>"; };
+		0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintActivationTests.swift; sourceTree = "<group>"; };
+		0AF2A0891A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutConstraintActivation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +201,7 @@
 		0A3BB99519EB71240075B32A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */,
 				0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */,
 				0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */,
 				0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */,
@@ -216,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */,
+				0AF2A0891A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift */,
 				0AF2A0841A28640D00A5C0F9 /* AutoLayoutDimensions.swift */,
 				0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */,
 				0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */,
@@ -402,6 +409,7 @@
 				0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
 				0AF2A0851A28640D00A5C0F9 /* AutoLayoutDimensions.swift in Sources */,
 				0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */,
+				0AF2A08A1A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
 				0A4CF44C1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
 				0AC4A8DB1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintComparison.swift in Sources */,
@@ -427,9 +435,11 @@
 				0A4CF44F1A22E38D00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
 				0A5F12F91A285EBA00694C56 /* UIViewAspectRatio.swift in Sources */,
 				0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */,
+				0AF2A08B1A29003D00A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
 				0A67BADE1A22E9040038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
 				0A3BB9A419EB721E0075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0AF2A0861A28647900A5C0F9 /* AutoLayoutDimensions.swift in Sources */,
+				0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */,
 				0A3BB99D19EB71740075B32A /* ViewHierarchyTests.swift in Sources */,
 				0A5F12F31A285D1000694C56 /* AspectRatioTests.swift in Sources */,
 				0A3BB9A519EB72210075B32A /* UIViewConstraintSearch.swift in Sources */,
