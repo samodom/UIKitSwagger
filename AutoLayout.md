@@ -76,22 +76,22 @@ Similar to constraint application, one should be able to activate or deactivate 
 ### Alignment Functions
 
 Common alignment tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically align views.  Each method returns the constraints that it applies.
- - `AlignLeft(Constraint...) -> [Constraint]`
- - `AlignLeft([Constraint]) -> [Constraint]`
- - `AlignRight(Constraint...) -> [Constraint]`
- - `AlignRight([Constraint]) -> [Constraint]`
- - `AlignTop(Constraint...) -> [Constraint]`
- - `AlignTop([Constraint]) -> [Constraint]`
- - `AlignBottom(Constraint...) -> [Constraint]`
- - `AlignBottom([Constraint]) -> [Constraint]`
- - `AlignHorizontally(Constraint...) -> [Constraint]`
- - `AlignHorizontally([Constraint]) -> [Constraint]`
- - `AlignVertically(Constraint...) -> [Constraint]`
- - `AlignVertically([Constraint]) -> [Constraint]`
- - `AlignCenters(Constraint...) -> [Constraint]`
- - `AlignCenters([Constraint]) -> [Constraint]`
- - `AlignBaselines(Constraint...) -> [Constraint]`
- - `AlignBaselines([Constraint]) -> [Constraint]`
+ - `AlignLeft(AutoLayoutAttributable...) -> [Constraint]`
+ - `AlignLeft([AutoLayoutAttributable]) -> [Constraint]`
+ - `AlignRight(AutoLayoutAttributable...) -> [Constraint]`
+ - `AlignRight([AutoLayoutAttributable]) -> [Constraint]`
+ - `AlignTop(AutoLayoutAttributable...) -> [Constraint]`
+ - `AlignTop([AutoLayoutAttributable]) -> [Constraint]`
+ - `AlignBottom(AutoLayoutAttributable...) -> [Constraint]`
+ - `AlignBottom([AutoLayoutAttributable]) -> [Constraint]`
+ - `AlignHorizontally(AutoLayoutAttributable...) -> [Constraint]`
+ - `AlignHorizontally([AutoLayoutAttributable]) -> [Constraint]`
+ - `AlignVertically(AutoLayoutAttributable...) -> [Constraint]`
+ - `AlignVertically([AutoLayoutAttributable]) -> [Constraint]`
+ - `AlignCenters(AutoLayoutAttributable...) -> [Constraint]`
+ - `AlignCenters([AutoLayoutAttributable]) -> [Constraint]`
+ - `AlignBaselines(AutoLayoutAttributable...) -> [Constraint]`
+ - `AlignBaselines([AutoLayoutAttributable]) -> [Constraint]`
 
 
 ### Distribution Functions
@@ -120,7 +120,7 @@ Methods on NSLayoutConstraint:
  - `func constrainHeightToWidth(CGFloat, CGFloat) -> Constraint`
 
 Global top-level functions:
- - `func ConstrainWidths(UIView...) -> [Constraint]`
- - `func ConstrainWidths([UIView]) -> [Constraint]`
- - `func ConstrainHeights(UIView...) -> [Constraint]`
- - `func ConstrainHeights([UIView]) -> [Constraint]`
+ - `func ConstrainWidths(AutoLayoutAttributable...) -> [Constraint]`
+ - `func ConstrainWidths([AutoLayoutAttributable]) -> [Constraint]`
+ - `func ConstrainHeights(AutoLayoutAttributable...) -> [Constraint]`
+ - `func ConstrainHeights([AutoLayoutAttributable]) -> [Constraint]`
