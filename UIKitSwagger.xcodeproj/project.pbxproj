@@ -32,6 +32,9 @@
 		0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */; };
 		0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */; };
 		0A67BAE31A2301F90038D99A /* AutoLayoutSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */; };
+		0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A754C071A28455F0077DB3A /* ViewDistributionTests.swift */; };
+		0A754C0A1A2848100077DB3A /* AutoLayoutViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */; };
+		0A754C0B1A2848520077DB3A /* AutoLayoutViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */; };
 		0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */; };
 		0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
 		0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
@@ -84,6 +87,8 @@
 		0A67BADC1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerAutoLayoutAttributes.swift; sourceTree = "<group>"; };
 		0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintBuilderSyntaxTests.swift; sourceTree = "<group>"; };
 		0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutSyntax.swift; sourceTree = "<group>"; };
+		0A754C071A28455F0077DB3A /* ViewDistributionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDistributionTests.swift; sourceTree = "<group>"; };
+		0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewDistribution.swift; sourceTree = "<group>"; };
 		0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideTests.swift; sourceTree = "<group>"; };
 		0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 		0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintApplicationTests.swift; sourceTree = "<group>"; };
@@ -183,14 +188,15 @@
 		0A3BB99519EB71240075B32A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */,
 				0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */,
 				0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */,
 				0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */,
 				0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */,
 				0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */,
 				0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */,
+				0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */,
 				0A67BAD91A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift */,
+				0A754C071A28455F0077DB3A /* ViewDistributionTests.swift */,
 				0A3BB99919EB71740075B32A /* ViewHierarchyTests.swift */,
 				0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */,
 			);
@@ -203,6 +209,7 @@
 				0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */,
 				0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */,
 				0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */,
+				0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */,
 				0AC4A8AB1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift */,
 				0A3BB99F19EB71F00075B32A /* NSLayoutConstraintComparison.swift */,
 				0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */,
@@ -389,6 +396,7 @@
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
 				0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */,
+				0A754C0A1A2848100077DB3A /* AutoLayoutViewDistribution.swift in Sources */,
 				0A3BB9AB19EB740F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +409,7 @@
 				0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
+				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
 				0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */,
 				0A4CF44F1A22E38D00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
 				0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */,
@@ -408,6 +417,7 @@
 				0A3BB9A419EB721E0075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0A3BB99D19EB71740075B32A /* ViewHierarchyTests.swift in Sources */,
 				0A3BB9A519EB72210075B32A /* UIViewConstraintSearch.swift in Sources */,
+				0A754C0B1A2848520077DB3A /* AutoLayoutViewDistribution.swift in Sources */,
 				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,
 				0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 				0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */,
