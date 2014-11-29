@@ -62,18 +62,4 @@ class MainThreadUpdatesTests: XCTestCase {
         mainThreadExpectation.fulfill()
     }
 
-    func testMainThreadExecutionMonadSyntax() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            XCTAssertFalse(NSThread.isMainThread(), "Making sure we aren't running on the main thread")
-            !self.sampleExecutableStatement 14
-            XCTAssertFalse(NSThread.isMainThread(), "Making sure we aren't running on the main thread")
-        }
-
-        waitForExpectationsWithTimeout(0.01) { (_) -> () in
-            XCTAssertTrue(self.executedOnMainThread, "The provided function should be executed on the main thread")
-            XCTAssertTrue(integerArgument != nil, "The argument should be passed to the function/method")
-            XCTAssertEqual(integerArgument!, 14, "The argument should have been captured")
-        }
-    }
-
 }
