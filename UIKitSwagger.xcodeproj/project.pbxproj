@@ -43,6 +43,9 @@
 		0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
 		0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */; };
 		0AC37F901A29313A00E1C943 /* AutoLayoutInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */; };
+		0AC37F921A29541C00E1C943 /* MainThreadUpdatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */; };
+		0AC37F951A29595300E1C943 /* Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F941A29595300E1C943 /* Concurrency.swift */; };
+		0AC37F961A29595300E1C943 /* Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F941A29595300E1C943 /* Concurrency.swift */; };
 		0AC4A8AA1A26C65F00EBCCB8 /* ConstraintApplicationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */; };
 		0AC4A8AC1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8AB1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift */; };
 		0AC4A8AD1A26C83E00EBCCB8 /* NSLayoutConstraintApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8AB1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift */; };
@@ -104,6 +107,8 @@
 		0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideTests.swift; sourceTree = "<group>"; };
 		0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 		0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutInternal.swift; sourceTree = "<group>"; };
+		0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainThreadUpdatesTests.swift; sourceTree = "<group>"; };
+		0AC37F941A29595300E1C943 /* Concurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Concurrency.swift; sourceTree = "<group>"; };
 		0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintApplicationTests.swift; sourceTree = "<group>"; };
 		0AC4A8AB1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintApplication.swift; sourceTree = "<group>"; };
 		0AC4A8B21A27E05600EBCCB8 /* TestingDummy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestingDummy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				0A3BB99E19EB71F00075B32A /* AutoLayout */,
+				0AC37F931A29594000E1C943 /* Concurrency */,
 				0A3BB97C19EB70C70075B32A /* Supporting Files */,
 				0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */,
 				0A3BB9A019EB71F00075B32A /* View */,
@@ -204,13 +210,14 @@
 		0A3BB99519EB71240075B32A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */,
 				0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */,
+				0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */,
 				0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */,
 				0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */,
 				0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */,
 				0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */,
 				0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */,
+				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
 				0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */,
 				0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */,
 				0A67BAD91A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift */,
@@ -256,6 +263,14 @@
 				0A67BADC1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		0AC37F931A29594000E1C943 /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				0AC37F941A29595300E1C943 /* Concurrency.swift */,
+			);
+			path = Concurrency;
 			sourceTree = "<group>";
 		};
 		0AC4A8B31A27E05600EBCCB8 /* TestingDummy */ = {
@@ -411,6 +426,7 @@
 				0AC4A8AC1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift in Sources */,
 				0A3BB9A319EB71F00075B32A /* UIViewConstraintSearch.swift in Sources */,
 				0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
+				0AC37F951A29595300E1C943 /* Concurrency.swift in Sources */,
 				0AF2A0851A28640D00A5C0F9 /* AutoLayoutDimensions.swift in Sources */,
 				0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */,
 				0AF2A08A1A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
@@ -450,6 +466,8 @@
 				0A5F12F31A285D1000694C56 /* AspectRatioTests.swift in Sources */,
 				0A3BB9A519EB72210075B32A /* UIViewConstraintSearch.swift in Sources */,
 				0A754C0B1A2848520077DB3A /* AutoLayoutViewDistribution.swift in Sources */,
+				0AC37F961A29595300E1C943 /* Concurrency.swift in Sources */,
+				0AC37F921A29541C00E1C943 /* MainThreadUpdatesTests.swift in Sources */,
 				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,
 				0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 				0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */,
