@@ -75,7 +75,7 @@ Similar to constraint application, one should be able to activate or deactivate 
 
 ### Alignment Functions
 
-Common alignment tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically align views.  Each method returns the constraints that it applies.
+Common alignment tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically align views.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  Each method returns the constraints that it applies.
  - `AlignLeft(AutoLayoutAttributable...) -> [Constraint]`
  - `AlignLeft([AutoLayoutAttributable]) -> [Constraint]`
  - `AlignRight(AutoLayoutAttributable...) -> [Constraint]`
@@ -96,7 +96,7 @@ Common alignment tasks can be performed without creating constraints manually.  
 
 ### Distribution Functions
 
-Common distribution tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically distribute views.  Functions that accept a numeric argument use the provided value for spacing between items.  All of these functions return the constraints that they apply.
+Common distribution tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically distribute views.  Functions that accept a numeric argument use the provided value for spacing between items.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  All of these functions return the constraints that they apply.
  - `DistributeLeftToRight(UIView...) -> [Constraint]`
  - `DistributeLeftToRight([UIView]) -> [Constraint]`
  - `DistributeLeftToRight(CGFloat, UIView...) -> [Constraint]`
@@ -119,7 +119,7 @@ Methods on NSLayoutConstraint:
  - `func constrainWidthToHeight(CGFloat, CGFloat) -> Constraint`
  - `func constrainHeightToWidth(CGFloat, CGFloat) -> Constraint`
 
-Global top-level functions:
+Global top-level functions (the produced constraints are defined with respect to the appropriate attribute of the first item listed):
  - `func ConstrainWidths(AutoLayoutAttributable...) -> [Constraint]`
  - `func ConstrainWidths([AutoLayoutAttributable]) -> [Constraint]`
  - `func ConstrainHeights(AutoLayoutAttributable...) -> [Constraint]`
