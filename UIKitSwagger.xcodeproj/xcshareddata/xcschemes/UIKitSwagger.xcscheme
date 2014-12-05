@@ -28,7 +28,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0A3BB98319EB70C70075B32A"
+               BuildableName = "UIKitSwaggerTests.xctest"
+               BlueprintName = "UIKitSwaggerTests"
+               ReferencedContainer = "container:UIKitSwagger.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0A3BB97819EB70C70075B32A"
+            BuildableName = "UIKitSwagger.framework"
+            BlueprintName = "UIKitSwagger"
+            ReferencedContainer = "container:UIKitSwagger.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
