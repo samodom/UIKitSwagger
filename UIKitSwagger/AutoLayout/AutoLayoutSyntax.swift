@@ -147,4 +147,3 @@ public func ~(constraint: Constraint, priority: UILayoutPriority) {
 public func ~(constraint: Constraint, identifier: String?) {
     constraint.identifier = identifier
 }
-

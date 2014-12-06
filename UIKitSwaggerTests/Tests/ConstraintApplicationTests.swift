@@ -165,5 +165,5 @@ class ConstraintApplicationTests: XCTestCase {
         XCTAssertFalse(contains(view.constraints() as [Constraint], viewToGrandchild2), "Each constraint should be removed")
         XCTAssertFalse(contains(view.constraints() as [Constraint], child1ToController), "Each constraint should be removed")
     }
-    
+
 }
