@@ -35,3 +35,15 @@ A few simple functions for hiding or showing views in a single statement are pro
  - `func HideViews([UIView])`
  - `func ShowViews(UIView...)`
  - `func ShowViews([UIView])`
+
+
+### Adding and removing things
+
+If UIView has an `add...` method for something, then you can use the `+=` syntax to add it and the `-=` syntax to remove it.  This includes subviews, auto layout constraints, motion effects and gesture recognizers.
+
+```swift
+view += someSubview
+view += someConstraint
+view += aMotionEffecdt
+view += myTapGetureRecognizer
+```

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A2312691A327F4F00BE92BE /* UIViewAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */; };
+		0A23126A1A327F5300BE92BE /* UIViewAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */; };
+		0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */; };
 		0A3BB97F19EB70C70075B32A /* UIKitSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3BB98519EB70C70075B32A /* UIKitSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */; };
 		0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */; };
@@ -80,6 +83,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAdditionSyntax.swift; sourceTree = "<group>"; };
+		0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAddableSyntaxTests.swift; sourceTree = "<group>"; };
 		0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIKitSwagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3BB97D19EB70C70075B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitSwagger.h; sourceTree = "<group>"; };
@@ -219,6 +224,7 @@
 				0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */,
 				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
 				0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */,
+				0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */,
 				0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */,
 				0A67BAD91A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift */,
 				0A754C071A28455F0077DB3A /* ViewDistributionTests.swift */,
@@ -248,6 +254,7 @@
 		0A3BB9A019EB71F00075B32A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */,
 				0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */,
 				0A4CF44B1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift */,
 				0A3BB9A119EB71F00075B32A /* UIViewConstraintSearch.swift */,
@@ -438,6 +445,7 @@
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
 				0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */,
+				0A2312691A327F4F00BE92BE /* UIViewAdditionSyntax.swift in Sources */,
 				0A754C0A1A2848100077DB3A /* AutoLayoutViewDistribution.swift in Sources */,
 				0A3BB9AB19EB740F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 			);
@@ -448,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3BB9AF19EB75EB0075B32A /* UIViewHierarchy.swift in Sources */,
+				0A23126A1A327F5300BE92BE /* UIViewAdditionSyntax.swift in Sources */,
 				0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
@@ -457,6 +466,7 @@
 				0A5F12F91A285EBA00694C56 /* UIViewAspectRatio.swift in Sources */,
 				0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */,
 				0AF2A08B1A29003D00A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
+				0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */,
 				0A67BADE1A22E9040038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
 				0A3BB9A419EB721E0075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0AC37F901A29313A00E1C943 /* AutoLayoutInternal.swift in Sources */,
