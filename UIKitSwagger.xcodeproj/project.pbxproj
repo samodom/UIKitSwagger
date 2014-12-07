@@ -44,6 +44,11 @@
 		0A8028031A3421E000816792 /* AlertActionEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8028021A3421E000816792 /* AlertActionEnablingTests.swift */; };
 		0A8028061A34221E00816792 /* UIAlertActionEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8028051A34221E00816792 /* UIAlertActionEnabling.swift */; };
 		0A8028071A34221E00816792 /* UIAlertActionEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8028051A34221E00816792 /* UIAlertActionEnabling.swift */; };
+		0A8028091A34257C00816792 /* BarItemEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8028081A34257C00816792 /* BarItemEnablingTests.swift */; };
+		0A80280C1A34265A00816792 /* UIBarItemEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A80280B1A34265A00816792 /* UIBarItemEnabling.swift */; };
+		0A80280D1A34265A00816792 /* UIBarItemEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A80280B1A34265A00816792 /* UIBarItemEnabling.swift */; };
+		0A80280F1A34294300816792 /* UIKitEnablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A80280E1A34294300816792 /* UIKitEnablable.swift */; };
+		0A8028101A34294300816792 /* UIKitEnablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A80280E1A34294300816792 /* UIKitEnablable.swift */; };
 		0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */; };
 		0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
 		0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
@@ -114,6 +119,9 @@
 		0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewDistribution.swift; sourceTree = "<group>"; };
 		0A8028021A3421E000816792 /* AlertActionEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionEnablingTests.swift; sourceTree = "<group>"; };
 		0A8028051A34221E00816792 /* UIAlertActionEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertActionEnabling.swift; sourceTree = "<group>"; };
+		0A8028081A34257C00816792 /* BarItemEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarItemEnablingTests.swift; sourceTree = "<group>"; };
+		0A80280B1A34265A00816792 /* UIBarItemEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarItemEnabling.swift; sourceTree = "<group>"; };
+		0A80280E1A34294300816792 /* UIKitEnablable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitEnablable.swift; sourceTree = "<group>"; };
 		0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideTests.swift; sourceTree = "<group>"; };
 		0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 		0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutInternal.swift; sourceTree = "<group>"; };
@@ -184,8 +192,10 @@
 			children = (
 				0A8028041A3421FF00816792 /* Alert */,
 				0A3BB99E19EB71F00075B32A /* AutoLayout */,
+				0A80280A1A34264000816792 /* Bar Item */,
 				0AC37F931A29594000E1C943 /* Concurrency */,
 				0A3BB97C19EB70C70075B32A /* Supporting Files */,
+				0A80280E1A34294300816792 /* UIKitEnablable.swift */,
 				0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */,
 				0A3BB9A019EB71F00075B32A /* View */,
 				0A67BADB1A22E8FD0038D99A /* View Controller */,
@@ -223,6 +233,7 @@
 			children = (
 				0A8028021A3421E000816792 /* AlertActionEnablingTests.swift */,
 				0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */,
+				0A8028081A34257C00816792 /* BarItemEnablingTests.swift */,
 				0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */,
 				0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */,
 				0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */,
@@ -285,6 +296,14 @@
 				0A8028051A34221E00816792 /* UIAlertActionEnabling.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		0A80280A1A34264000816792 /* Bar Item */ = {
+			isa = PBXGroup;
+			children = (
+				0A80280B1A34265A00816792 /* UIBarItemEnabling.swift */,
+			);
+			path = "Bar Item";
 			sourceTree = "<group>";
 		};
 		0AC37F931A29594000E1C943 /* Concurrency */ = {
@@ -445,8 +464,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A80280C1A34265A00816792 /* UIBarItemEnabling.swift in Sources */,
 				0AC4A8AC1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift in Sources */,
 				0A3BB9A319EB71F00075B32A /* UIViewConstraintSearch.swift in Sources */,
+				0A80280F1A34294300816792 /* UIKitEnablable.swift in Sources */,
 				0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
 				0AC37F951A29595300E1C943 /* Concurrency.swift in Sources */,
 				0AF2A0851A28640D00A5C0F9 /* AutoLayoutDimensions.swift in Sources */,
@@ -474,6 +495,7 @@
 				0A3BB9AF19EB75EB0075B32A /* UIViewHierarchy.swift in Sources */,
 				0A23126A1A327F5300BE92BE /* UIViewAdditionSyntax.swift in Sources */,
 				0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
+				0A80280D1A34265A00816792 /* UIBarItemEnabling.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
@@ -487,6 +509,7 @@
 				0A3BB9A419EB721E0075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0AC37F901A29313A00E1C943 /* AutoLayoutInternal.swift in Sources */,
 				0AF2A0861A28647900A5C0F9 /* AutoLayoutDimensions.swift in Sources */,
+				0A8028101A34294300816792 /* UIKitEnablable.swift in Sources */,
 				0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */,
 				0A3BB99D19EB71740075B32A /* ViewHierarchyTests.swift in Sources */,
 				0A5F12F31A285D1000694C56 /* AspectRatioTests.swift in Sources */,
@@ -503,6 +526,7 @@
 				0AC4A8D91A27FCF800EBCCB8 /* ViewAlignmentTests.swift in Sources */,
 				0A8028031A3421E000816792 /* AlertActionEnablingTests.swift in Sources */,
 				0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */,
+				0A8028091A34257C00816792 /* BarItemEnablingTests.swift in Sources */,
 				0A8028071A34221E00816792 /* UIAlertActionEnabling.swift in Sources */,
 				0AC4A8AA1A26C65F00EBCCB8 /* ConstraintApplicationTests.swift in Sources */,
 				0A4CF4501A22E3FD00D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
