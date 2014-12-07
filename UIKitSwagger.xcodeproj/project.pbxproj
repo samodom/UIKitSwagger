@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0A21DC441A343018005FFC4E /* UIControlEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC431A343018005FFC4E /* UIControlEnabling.swift */; };
 		0A21DC451A343044005FFC4E /* UIControlEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC431A343018005FFC4E /* UIControlEnabling.swift */; };
+		0A21DC481A343174005FFC4E /* UIGestureRecognizerEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC471A343174005FFC4E /* UIGestureRecognizerEnabling.swift */; };
+		0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */; };
+		0A21DC4B1A343264005FFC4E /* UIGestureRecognizerEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC471A343174005FFC4E /* UIGestureRecognizerEnabling.swift */; };
 		0A2312691A327F4F00BE92BE /* UIViewAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */; };
 		0A23126A1A327F5300BE92BE /* UIViewAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */; };
 		0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */; };
@@ -95,6 +98,8 @@
 
 /* Begin PBXFileReference section */
 		0A21DC431A343018005FFC4E /* UIControlEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlEnabling.swift; sourceTree = "<group>"; };
+		0A21DC471A343174005FFC4E /* UIGestureRecognizerEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerEnabling.swift; sourceTree = "<group>"; };
+		0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizerEnablingTests.swift; sourceTree = "<group>"; };
 		0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAdditionSyntax.swift; sourceTree = "<group>"; };
 		0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAddableSyntaxTests.swift; sourceTree = "<group>"; };
 		0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIKitSwagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +185,14 @@
 			path = Control;
 			sourceTree = "<group>";
 		};
+		0A21DC461A343174005FFC4E /* Gesture Recognizer */ = {
+			isa = PBXGroup;
+			children = (
+				0A21DC471A343174005FFC4E /* UIGestureRecognizerEnabling.swift */,
+			);
+			path = "Gesture Recognizer";
+			sourceTree = "<group>";
+		};
 		0A3BB96F19EB70C70075B32A = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +221,7 @@
 				0A80280A1A34264000816792 /* Bar Item */,
 				0AC37F931A29594000E1C943 /* Concurrency */,
 				0A21DC421A343018005FFC4E /* Control */,
+				0A21DC461A343174005FFC4E /* Gesture Recognizer */,
 				0A3BB97C19EB70C70075B32A /* Supporting Files */,
 				0A80280E1A34294300816792 /* UIKitEnablable.swift */,
 				0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */,
@@ -255,6 +269,7 @@
 				0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */,
 				0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */,
 				0A8028111A342EEA00816792 /* ControlEnablingTests.swift */,
+				0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */,
 				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
 				0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */,
 				0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */,
@@ -498,6 +513,7 @@
 				0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
 				0A21DC441A343018005FFC4E /* UIControlEnabling.swift in Sources */,
 				0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */,
+				0A21DC481A343174005FFC4E /* UIGestureRecognizerEnabling.swift in Sources */,
 				0A2312691A327F4F00BE92BE /* UIViewAdditionSyntax.swift in Sources */,
 				0A754C0A1A2848100077DB3A /* AutoLayoutViewDistribution.swift in Sources */,
 				0A3BB9AB19EB740F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
@@ -519,6 +535,7 @@
 				0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */,
 				0A21DC451A343044005FFC4E /* UIControlEnabling.swift in Sources */,
 				0A4CF44F1A22E38D00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
+				0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */,
 				0A5F12F91A285EBA00694C56 /* UIViewAspectRatio.swift in Sources */,
 				0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */,
 				0AF2A08B1A29003D00A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
@@ -548,6 +565,7 @@
 				0A8028071A34221E00816792 /* UIAlertActionEnabling.swift in Sources */,
 				0AC4A8AA1A26C65F00EBCCB8 /* ConstraintApplicationTests.swift in Sources */,
 				0A4CF4501A22E3FD00D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
+				0A21DC4B1A343264005FFC4E /* UIGestureRecognizerEnabling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
