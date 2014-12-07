@@ -72,6 +72,9 @@
 		0AC4A8D91A27FCF800EBCCB8 /* ViewAlignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */; };
 		0AC4A8DB1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */; };
 		0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */; };
+		0AD6F2551A34353700D863A2 /* LabelEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */; };
+		0AD6F2581A34354400D863A2 /* UILabelEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */; };
+		0AD6F2591A34356500D863A2 /* UILabelEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */; };
 		0AF2A0851A28640D00A5C0F9 /* AutoLayoutDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0841A28640D00A5C0F9 /* AutoLayoutDimensions.swift */; };
 		0AF2A0861A28647900A5C0F9 /* AutoLayoutDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0841A28640D00A5C0F9 /* AutoLayoutDimensions.swift */; };
 		0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */; };
@@ -146,6 +149,8 @@
 		0AC4A8BB1A27E05600EBCCB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAlignmentTests.swift; sourceTree = "<group>"; };
 		0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewAlignment.swift; sourceTree = "<group>"; };
+		0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEnablingTests.swift; sourceTree = "<group>"; };
+		0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelEnabling.swift; sourceTree = "<group>"; };
 		0AF2A0841A28640D00A5C0F9 /* AutoLayoutDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutDimensions.swift; sourceTree = "<group>"; };
 		0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintActivationTests.swift; sourceTree = "<group>"; };
 		0AF2A0891A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutConstraintActivation.swift; sourceTree = "<group>"; };
@@ -222,6 +227,7 @@
 				0AC37F931A29594000E1C943 /* Concurrency */,
 				0A21DC421A343018005FFC4E /* Control */,
 				0A21DC461A343174005FFC4E /* Gesture Recognizer */,
+				0AD6F2561A34354400D863A2 /* Label */,
 				0A3BB97C19EB70C70075B32A /* Supporting Files */,
 				0A80280E1A34294300816792 /* UIKitEnablable.swift */,
 				0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */,
@@ -270,6 +276,7 @@
 				0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */,
 				0A8028111A342EEA00816792 /* ControlEnablingTests.swift */,
 				0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */,
+				0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */,
 				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
 				0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */,
 				0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */,
@@ -353,6 +360,14 @@
 				0AC4A8BA1A27E05600EBCCB8 /* Main.storyboard */,
 			);
 			path = TestingDummy;
+			sourceTree = "<group>";
+		};
+		0AD6F2561A34354400D863A2 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */,
+			);
+			path = Label;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,6 +523,7 @@
 				0A8028061A34221E00816792 /* UIAlertActionEnabling.swift in Sources */,
 				0AC4A8DB1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintComparison.swift in Sources */,
+				0AD6F2581A34354400D863A2 /* UILabelEnabling.swift in Sources */,
 				0A5F12F81A285EB600694C56 /* UIViewAspectRatio.swift in Sources */,
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
@@ -542,6 +558,7 @@
 				0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */,
 				0A67BADE1A22E9040038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
 				0A3BB9A419EB721E0075B32A /* NSLayoutConstraintComparison.swift in Sources */,
+				0AD6F2591A34356500D863A2 /* UILabelEnabling.swift in Sources */,
 				0AC37F901A29313A00E1C943 /* AutoLayoutInternal.swift in Sources */,
 				0AF2A0861A28647900A5C0F9 /* AutoLayoutDimensions.swift in Sources */,
 				0A8028101A34294300816792 /* UIKitEnablable.swift in Sources */,
@@ -550,6 +567,7 @@
 				0A5F12F31A285D1000694C56 /* AspectRatioTests.swift in Sources */,
 				0A3BB9A519EB72210075B32A /* UIViewConstraintSearch.swift in Sources */,
 				0A754C0B1A2848520077DB3A /* AutoLayoutViewDistribution.swift in Sources */,
+				0AD6F2551A34353700D863A2 /* LabelEnablingTests.swift in Sources */,
 				0AC37F961A29595300E1C943 /* Concurrency.swift in Sources */,
 				0AC37F921A29541C00E1C943 /* MainThreadUpdatesTests.swift in Sources */,
 				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,

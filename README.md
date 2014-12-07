@@ -10,3 +10,4 @@ Extensions to UIKit for working with view hierarchies, layout constraints and ma
  - [Enabling/Disabling Bar Items](BarItem.md)
  - [Enabling/Disabling Controls](Control.md)
  - [Enabling/Disabling Gesture Recognizers](GestureRecognizer.md)
+ - [Enabling/Disabling Labels](Label.md)
