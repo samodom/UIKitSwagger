@@ -75,6 +75,8 @@
 		0AD6F2551A34353700D863A2 /* LabelEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */; };
 		0AD6F2581A34354400D863A2 /* UILabelEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */; };
 		0AD6F2591A34356500D863A2 /* UILabelEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */; };
+		0AD6F25B1A34394000D863A2 /* NSLayoutConstraintActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F25A1A34394000D863A2 /* NSLayoutConstraintActivation.swift */; };
+		0AD6F25C1A34394700D863A2 /* NSLayoutConstraintActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F25A1A34394000D863A2 /* NSLayoutConstraintActivation.swift */; };
 		0AF2A0851A28640D00A5C0F9 /* AutoLayoutDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0841A28640D00A5C0F9 /* AutoLayoutDimensions.swift */; };
 		0AF2A0861A28647900A5C0F9 /* AutoLayoutDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0841A28640D00A5C0F9 /* AutoLayoutDimensions.swift */; };
 		0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */; };
@@ -151,6 +153,7 @@
 		0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewAlignment.swift; sourceTree = "<group>"; };
 		0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEnablingTests.swift; sourceTree = "<group>"; };
 		0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelEnabling.swift; sourceTree = "<group>"; };
+		0AD6F25A1A34394000D863A2 /* NSLayoutConstraintActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintActivation.swift; sourceTree = "<group>"; };
 		0AF2A0841A28640D00A5C0F9 /* AutoLayoutDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutDimensions.swift; sourceTree = "<group>"; };
 		0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintActivationTests.swift; sourceTree = "<group>"; };
 		0AF2A0891A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutConstraintActivation.swift; sourceTree = "<group>"; };
@@ -299,6 +302,7 @@
 				0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */,
 				0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */,
 				0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */,
+				0AD6F25A1A34394000D863A2 /* NSLayoutConstraintActivation.swift */,
 				0AC4A8AB1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift */,
 				0A3BB99F19EB71F00075B32A /* NSLayoutConstraintComparison.swift */,
 				0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */,
@@ -520,6 +524,7 @@
 				0AF2A08A1A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
 				0A4CF44C1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
 				0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */,
+				0AD6F25B1A34394000D863A2 /* NSLayoutConstraintActivation.swift in Sources */,
 				0A8028061A34221E00816792 /* UIAlertActionEnabling.swift in Sources */,
 				0AC4A8DB1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintComparison.swift in Sources */,
@@ -546,6 +551,7 @@
 				0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A80280D1A34265A00816792 /* UIBarItemEnabling.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
+				0AD6F25C1A34394700D863A2 /* NSLayoutConstraintActivation.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
 				0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */,

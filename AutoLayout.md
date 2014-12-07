@@ -66,6 +66,10 @@ Global top-level functions:
 
 ### Activation Functions
 
+Convenience methods for activating and deactivating constraints:
+ - `func activate()`
+ - `func deactivate()`
+
 Similar to constraint application, one should be able to activate or deactivate multiple constraints in a single statement:
  - `func ActivateConstraints(constraints: Constraint...)`
  - `func ActivateConstraints(constraints: [Constraint])`
