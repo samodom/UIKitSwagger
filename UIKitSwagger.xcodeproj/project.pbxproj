@@ -41,6 +41,9 @@
 		0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A754C071A28455F0077DB3A /* ViewDistributionTests.swift */; };
 		0A754C0A1A2848100077DB3A /* AutoLayoutViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */; };
 		0A754C0B1A2848520077DB3A /* AutoLayoutViewDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */; };
+		0A8028031A3421E000816792 /* AlertActionEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8028021A3421E000816792 /* AlertActionEnablingTests.swift */; };
+		0A8028061A34221E00816792 /* UIAlertActionEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8028051A34221E00816792 /* UIAlertActionEnabling.swift */; };
+		0A8028071A34221E00816792 /* UIAlertActionEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8028051A34221E00816792 /* UIAlertActionEnabling.swift */; };
 		0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */; };
 		0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
 		0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
@@ -109,6 +112,8 @@
 		0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutSyntax.swift; sourceTree = "<group>"; };
 		0A754C071A28455F0077DB3A /* ViewDistributionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDistributionTests.swift; sourceTree = "<group>"; };
 		0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutViewDistribution.swift; sourceTree = "<group>"; };
+		0A8028021A3421E000816792 /* AlertActionEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertActionEnablingTests.swift; sourceTree = "<group>"; };
+		0A8028051A34221E00816792 /* UIAlertActionEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertActionEnabling.swift; sourceTree = "<group>"; };
 		0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideTests.swift; sourceTree = "<group>"; };
 		0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 		0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutInternal.swift; sourceTree = "<group>"; };
@@ -177,6 +182,7 @@
 		0A3BB97B19EB70C70075B32A /* UIKitSwagger */ = {
 			isa = PBXGroup;
 			children = (
+				0A8028041A3421FF00816792 /* Alert */,
 				0A3BB99E19EB71F00075B32A /* AutoLayout */,
 				0AC37F931A29594000E1C943 /* Concurrency */,
 				0A3BB97C19EB70C70075B32A /* Supporting Files */,
@@ -215,6 +221,7 @@
 		0A3BB99519EB71240075B32A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				0A8028021A3421E000816792 /* AlertActionEnablingTests.swift */,
 				0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */,
 				0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */,
 				0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */,
@@ -270,6 +277,14 @@
 				0A67BADC1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		0A8028041A3421FF00816792 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				0A8028051A34221E00816792 /* UIAlertActionEnabling.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		0AC37F931A29594000E1C943 /* Concurrency */ = {
@@ -439,6 +454,7 @@
 				0AF2A08A1A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
 				0A4CF44C1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
 				0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */,
+				0A8028061A34221E00816792 /* UIAlertActionEnabling.swift in Sources */,
 				0AC4A8DB1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0A5F12F81A285EB600694C56 /* UIViewAspectRatio.swift in Sources */,
@@ -485,7 +501,9 @@
 				0AC4A8AD1A26C83E00EBCCB8 /* NSLayoutConstraintApplication.swift in Sources */,
 				0A67BAE31A2301F90038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0AC4A8D91A27FCF800EBCCB8 /* ViewAlignmentTests.swift in Sources */,
+				0A8028031A3421E000816792 /* AlertActionEnablingTests.swift in Sources */,
 				0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */,
+				0A8028071A34221E00816792 /* UIAlertActionEnabling.swift in Sources */,
 				0AC4A8AA1A26C65F00EBCCB8 /* ConstraintApplicationTests.swift in Sources */,
 				0A4CF4501A22E3FD00D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
 			);
