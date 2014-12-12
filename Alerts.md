@@ -37,6 +37,6 @@ Use these shortcuts to enable or disable an alert action:
 
 > For convenience, the following type aliases are provided for easier declaration of alert action and text field configuration handlers:
 
-> `public typealias UIAlertTextFieldConfigurationHandler = (UITextField!) -> Void`
+> `typealias UIAlertTextFieldConfigurationHandler = (UITextField!) -> Void`
 
-> `public typealias UIAlertActionHandler = (UIAlertAction!) -> Void`
+> `typealias UIAlertActionHandler = (UIAlertAction!) -> Void`
