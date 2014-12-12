@@ -29,6 +29,26 @@ public func AlignLeft(items: [AutoLayoutAttributable]) -> [Constraint] {
 }
 
 /**
+  Convenience method for aligning two or more items by their leading attribute.
+  @param        items Two or more items that are to be leading-aligned.
+  @return       The constraints that were applied.
+  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+*/
+public func AlignLeading(items: AutoLayoutAttributable...) -> [Constraint] {
+    return AlignLeading(items)
+}
+
+/**
+  Convenience method for aligning an array of items by their leading attribute.
+  @param        items Array of two or more items that are to be leading-aligned.
+  @return       The constraints that were applied.
+  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+*/
+public func AlignLeading(items: [AutoLayoutAttributable]) -> [Constraint] {
+    return AlignItems(items, .Leading)
+}
+
+/**
   Convenience method for aligning two or more items by their right attribute.
   @param        items Two or more items that are to be right-aligned.
   @return       The constraints that were applied.
@@ -46,6 +66,26 @@ public func AlignRight(items: AutoLayoutAttributable...) -> [Constraint] {
 */
 public func AlignRight(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .Right)
+}
+
+/**
+  Convenience method for aligning two or more items by their trailing attribute.
+  @param        items Two or more items that are to be trailing-aligned.
+  @return       The constraints that were applied.
+  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+*/
+public func AlignTrailing(items: AutoLayoutAttributable...) -> [Constraint] {
+    return AlignTrailing(items)
+}
+
+/**
+Convenience method for aligning an array of items by their trailing attribute.
+  @param        items Array of two or more items that are to be trailing-aligned.
+  @return       The constraints that were applied.
+  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+*/
+public func AlignTrailing(items: [AutoLayoutAttributable]) -> [Constraint] {
+    return AlignItems(items, .Trailing)
 }
 
 /**

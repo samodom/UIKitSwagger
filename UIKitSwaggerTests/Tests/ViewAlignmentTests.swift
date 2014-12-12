@@ -63,6 +63,30 @@ class ViewAlignmentTests: XCTestCase {
         XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
     }
 
+    func testLeadingAlignmentWithList() {
+        returnedConstraints = AlignLeading(subview1, subview2, controller)
+        XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
+        appliedConstraints = view.constraints() as [Constraint]
+        var expected = subview2.leading =* subview1.leading
+        XCTAssertTrue(contains(appliedConstraints, expected), "The second subview should be leading-aligned with the first subview")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+        expected = controller.leading =* subview1.leading
+        XCTAssertTrue(contains(appliedConstraints, expected), "The main view should be leading-aligned with the first subview")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+    }
+
+    func testLeadingAlignmentWithArray() {
+        returnedConstraints = AlignLeading([subview1, subview2, controller])
+        XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
+        appliedConstraints = view.constraints() as [Constraint]
+        var expected = subview2.leading =* subview1.leading
+        XCTAssertTrue(contains(appliedConstraints, expected), "The second subview should be leading-aligned with the first subview")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+        expected = controller.leading =* subview1.leading
+        XCTAssertTrue(contains(appliedConstraints, expected), "The main view should be leading-aligned with the first subview")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+    }
+
     func testRightAlignmentWithList() {
         returnedConstraints = AlignRight(subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
@@ -80,10 +104,34 @@ class ViewAlignmentTests: XCTestCase {
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         appliedConstraints = view.constraints() as [Constraint]
         var expected = subview2.right =* subview1.right
-        XCTAssertTrue(contains(appliedConstraints, expected), "The second subview should be right-margin-aligned with the first subview")
+        XCTAssertTrue(contains(appliedConstraints, expected), "The second subview should be right-aligned with the first subview")
         XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
         expected = controller.right =* subview1.right
-        XCTAssertTrue(contains(appliedConstraints, expected), "The main view should be right-margin-aligned with the first subview")
+        XCTAssertTrue(contains(appliedConstraints, expected), "The main view should be right-aligned with the first subview")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+    }
+
+    func testTrailingAlignmentWithList() {
+        returnedConstraints = AlignTrailing(subview1, subview2, controller)
+        XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
+        appliedConstraints = view.constraints() as [Constraint]
+        var expected = subview2.trailing =* subview1.trailing
+        XCTAssertTrue(contains(appliedConstraints, expected), "The second subview should be trailing-aligned with the first subview")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+        expected = controller.trailing =* subview1.trailing
+        XCTAssertTrue(contains(appliedConstraints, expected), "The main view should be trailing-aligned with the first subview")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+    }
+
+    func testTrailingAlignmentWithArray() {
+        returnedConstraints = AlignTrailing([subview1, subview2, controller])
+        XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
+        appliedConstraints = view.constraints() as [Constraint]
+        var expected = subview2.trailing =* subview1.trailing
+        XCTAssertTrue(contains(appliedConstraints, expected), "The second subview should be trailing-aligned with the first subview")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+        expected = controller.trailing =* subview1.trailing
+        XCTAssertTrue(contains(appliedConstraints, expected), "The main view should be trailing-aligned with the first subview")
         XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
     }
 
