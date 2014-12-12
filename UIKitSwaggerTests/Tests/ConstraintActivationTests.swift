@@ -40,6 +40,30 @@ class ConstraintActivationTests: XCTestCase {
         super.tearDown()
     }
 
+    func testActivatingInactiveConstraint() {
+        constraint1.active = false
+        constraint1.activate()
+        XCTAssertTrue(constraint1.active, "The inactive constraint should be activated")
+    }
+
+    func testNotDeactivatingActiveConstraint() {
+        constraint1.active = true
+        constraint1.activate()
+        XCTAssertTrue(constraint1.active, "The active contraint should not be deactivated")
+    }
+
+    func testDeactivatingActiveConstraint() {
+        constraint1.active = true
+        constraint1.deactivate()
+        XCTAssertFalse(constraint1.active, "The active constraint should be deactivated")
+    }
+
+    func testNotActivatingInactiveConstraint() {
+        constraint1.active = false
+        constraint1.deactivate()
+        XCTAssertFalse(constraint1.active, "The inactive constraint should not be activated")
+    }
+
     func testActivationOfSingleConstraint() {
         ActivateConstraints(constraint1)
         XCTAssertTrue(constraint1.active, "The constraint should be activated")

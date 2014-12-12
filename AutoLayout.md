@@ -66,6 +66,10 @@ Global top-level functions:
 
 ### Activation Functions
 
+Convenience methods for activating and deactivating constraints:
+ - `func activate()`
+ - `func deactivate()`
+
 Similar to constraint application, one should be able to activate or deactivate multiple constraints in a single statement:
  - `func ActivateConstraints(constraints: Constraint...)`
  - `func ActivateConstraints(constraints: [Constraint])`
@@ -78,8 +82,12 @@ Similar to constraint application, one should be able to activate or deactivate 
 Common alignment tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically align views.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  Each method returns the constraints that it applies.
  - `AlignLeft(AutoLayoutAttributable...) -> [Constraint]`
  - `AlignLeft([AutoLayoutAttributable]) -> [Constraint]`
+ - `AlignLeading(AutoLayoutAttributable...) -> [Constraint]`
+ - `AlignLeading([AutoLayoutAttributable]) -> [Constraint]`
  - `AlignRight(AutoLayoutAttributable...) -> [Constraint]`
  - `AlignRight([AutoLayoutAttributable]) -> [Constraint]`
+ - `AlignTrailing(AutoLayoutAttributable...) -> [Constraint]`
+ - `AlignTrailing([AutoLayoutAttributable]) -> [Constraint]`
  - `AlignTop(AutoLayoutAttributable...) -> [Constraint]`
  - `AlignTop([AutoLayoutAttributable]) -> [Constraint]`
  - `AlignBottom(AutoLayoutAttributable...) -> [Constraint]`
