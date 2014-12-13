@@ -7,6 +7,7 @@ Extensions to UIKit for working with view hierarchies, layout constraints and ma
  - [Auto Layout Convenience](AutoLayout.md)
  - [Concurrency](Concurrency.md)
  - [Working with Alert Controllers](Alerts.md)
+ - [Switch Toggling Convenience](Switch.md)
  - [Enabling/Disabling Bar Items](BarItem.md)
  - [Enabling/Disabling Controls](Control.md)
  - [Enabling/Disabling Gesture Recognizers](GestureRecognizer.md)
