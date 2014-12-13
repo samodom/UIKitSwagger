@@ -13,7 +13,23 @@ public extension UISwitch {
     /**
       Convenience property that always represents the boolean negation of the `on` property.
     */
-    public var off: Bool { return !on }
+    public var off: Bool {
+        get {
+            return !on
+        }
+        set {
+            on = !newValue
+        }
+    }
+
+    /**
+      Convenience method to set the `off` property with or without animation to match the similar method for the `on` property.
+      @param        off Boolean value representing whether or not the switch should be off or not.
+      @animated     Boolean value indicating whether or not the changing of the boolean value should be animated.
+    */
+    public func setOff(off: Bool, animated: Bool) {
+        setOn(!off, animated: animated)
+    }
 
     /**
       Method to explicitly turn the switch on without animation.

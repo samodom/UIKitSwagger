@@ -28,7 +28,43 @@ class SwitchStateManagementTests: XCTestCase {
 
         toggle2.on = false
         XCTAssertTrue(toggle2.off, "The `off` property should represent the opposite of the `on` property")
-}
+    }
+
+    func testSettingOffSetsOn() {
+        toggle1.on = true
+        toggle1.off = true
+        XCTAssertFalse(toggle1.on, "Setting the `off` property to true should set the `on` property to false")
+        XCTAssertFalse(toggle1.toggleAnimated, "Setting the switch should not be animated")
+
+        toggle2.on = false
+        toggle2.off = false
+        XCTAssertTrue(toggle2.on, "Setting the `off` property to false should set the `on` property to true")
+        XCTAssertFalse(toggle2.toggleAnimated, "Setting the switch should not be animated")
+    }
+
+    func testSettingOffUnanimated() {
+        toggle1.on = true
+        toggle1.setOff(true, animated: false)
+        XCTAssertFalse(toggle1.on, "The switch should now be off")
+        XCTAssertFalse(toggle1.toggleAnimated, "Setting the switch should not be animated")
+
+        toggle2.on = false
+        toggle2.setOff(false, animated: false)
+        XCTAssertTrue(toggle2.on, "The switch should now be on")
+        XCTAssertFalse(toggle2.toggleAnimated, "Setting the switch should not be animated")
+    }
+
+    func testSettingOffAnimated() {
+        toggle1.on = true
+        toggle1.setOff(true, animated: true)
+        XCTAssertFalse(toggle1.on, "The switch should now be off")
+        XCTAssertTrue(toggle1.toggleAnimated, "Setting the switch should be animated")
+
+        toggle2.on = false
+        toggle2.setOff(false, animated: true)
+        XCTAssertTrue(toggle2.on, "The switch should now be on")
+        XCTAssertTrue(toggle2.toggleAnimated, "Setting the switch should be animated")
+    }
 
     func testTurningOnSwitchSetsSwitchToOn() {
         toggle1.on = false
