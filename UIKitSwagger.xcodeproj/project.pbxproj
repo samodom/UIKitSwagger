@@ -81,6 +81,9 @@
 		0ACADAF41A3BF4A500CF49F8 /* UISliderInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAF21A3BF4A500CF49F8 /* UISliderInterval.swift */; };
 		0ACADAFF1A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAFE1A3CF48900CF49F8 /* UIKitEnablable.swift */; };
 		0ACADB001A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAFE1A3CF48900CF49F8 /* UIKitEnablable.swift */; };
+		0ACADB061A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */; };
+		0ACADB071A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */; };
+		0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */; };
 		0AD6F2551A34353700D863A2 /* LabelEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */; };
 		0AD6F2581A34354400D863A2 /* UILabelEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */; };
 		0AD6F2591A34356500D863A2 /* UILabelEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */; };
@@ -166,6 +169,8 @@
 		0ACADAEF1A3BF0E500CF49F8 /* SliderIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderIntervalTests.swift; sourceTree = "<group>"; };
 		0ACADAF21A3BF4A500CF49F8 /* UISliderInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderInterval.swift; sourceTree = "<group>"; };
 		0ACADAFE1A3CF48900CF49F8 /* UIKitEnablable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitEnablable.swift; sourceTree = "<group>"; };
+		0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStepperInterval.swift; sourceTree = "<group>"; };
+		0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperIntervalTests.swift; sourceTree = "<group>"; };
 		0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEnablingTests.swift; sourceTree = "<group>"; };
 		0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelEnabling.swift; sourceTree = "<group>"; };
 		0AD6F25A1A34394000D863A2 /* NSLayoutConstraintActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintActivation.swift; sourceTree = "<group>"; };
@@ -248,6 +253,7 @@
 				0A21DC461A343174005FFC4E /* Gesture Recognizer */,
 				0AD6F2561A34354400D863A2 /* Label */,
 				0ACADAF11A3BF47B00CF49F8 /* Slider */,
+				0ACADB041A3CF71F00CF49F8 /* Stepper */,
 				0A3BB97C19EB70C70075B32A /* Supporting Files */,
 				0ACADAEB1A3BE8F400CF49F8 /* Switch */,
 				0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */,
@@ -301,6 +307,7 @@
 				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
 				0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */,
 				0ACADAEF1A3BF0E500CF49F8 /* SliderIntervalTests.swift */,
+				0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */,
 				0ACADAE91A3BE42B00CF49F8 /* SwitchStateManagementTests.swift */,
 				0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */,
 				0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */,
@@ -409,6 +416,14 @@
 				0ACADAFE1A3CF48900CF49F8 /* UIKitEnablable.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		0ACADB041A3CF71F00CF49F8 /* Stepper */ = {
+			isa = PBXGroup;
+			children = (
+				0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */,
+			);
+			path = Stepper;
 			sourceTree = "<group>";
 		};
 		0AD6F2561A34354400D863A2 /* Label */ = {
@@ -560,6 +575,7 @@
 			files = (
 				0A80280C1A34265A00816792 /* UIBarItemEnabling.swift in Sources */,
 				0AC4A8AC1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift in Sources */,
+				0ACADB061A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */,
 				0A3BB9A319EB71F00075B32A /* UIViewConstraintSearch.swift in Sources */,
 				0ACADAFF1A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */,
 				0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
@@ -599,6 +615,7 @@
 				0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A80280D1A34265A00816792 /* UIBarItemEnabling.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
+				0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */,
 				0AD6F25C1A34394700D863A2 /* NSLayoutConstraintActivation.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
@@ -609,6 +626,7 @@
 				0ACADAF41A3BF4A500CF49F8 /* UISliderInterval.swift in Sources */,
 				0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */,
 				0ACADB001A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */,
+				0ACADB071A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */,
 				0A5F12F91A285EBA00694C56 /* UIViewAspectRatio.swift in Sources */,
 				0ACADAE51A3A8AB800CF49F8 /* AlertControllerAddableTests.swift in Sources */,
 				0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */,
