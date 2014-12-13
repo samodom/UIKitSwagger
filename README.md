@@ -1,7 +1,7 @@
 UIKitSwagger
 ============
 
-Extensions to UIKit for working with view hierarchies, layout constraints and many other components of UIKit.
+A bit of a DSL for UIKit
 
  - [Working with Views](Views.md)
  - [Auto Layout Convenience](AutoLayout.md)
