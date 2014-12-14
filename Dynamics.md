@@ -22,3 +22,14 @@ parentBehavior += [gravityBehavior, pushBehavior, snapBehavior]
 parentBehavior -= gravityBehavior
 parentBehavior -= [collisionBehavior, snapBehavior]
 ```
+
+### Adding/removing dynamic items to/from a dynamic item behavior
+
+Use the `+=` and `-=` operators to add or remove dynamic items one-at-a-time or as an array.
+
+```swift
+itemBehavior += box
+itemBehavior += [circle, line, star]
+itemBehavior -= circle
+itemBehavior -= [line, box]
+```
