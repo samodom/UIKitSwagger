@@ -1,5 +1,5 @@
 //
-//  UIDynamicItemBehaviorAdditionSyntax.swift
+//  UIDynamicItemBehaviorSyntax.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/14/14.
@@ -38,4 +38,22 @@ public func -=(behavior: UIDynamicItemBehavior, items: [UIDynamicItem]) {
     for item in items {
         behavior -= item
     }
+}
+
+/**
+  Convenience operator for adding angular velocity to a dynamic item attached to a dynamic item behavior.
+*/
+infix operator <+ { }
+
+public func <+(behavior: UIDynamicItemBehavior, itemVelocityPair: (UIDynamicItem, CGFloat)) {
+    behavior.addAngularVelocity(itemVelocityPair.1, forItem: itemVelocityPair.0)
+}
+
+/**
+  Convenience operator for adding linear velocity to a dynamic item attached to a dynamic item behavior.
+*/
+infix operator -+ { }
+
+public func -+(behavior: UIDynamicItemBehavior, itemVelocityPair: (UIDynamicItem, CGPoint)) {
+    behavior.addLinearVelocity(itemVelocityPair.1, forItem: itemVelocityPair.0)
 }
