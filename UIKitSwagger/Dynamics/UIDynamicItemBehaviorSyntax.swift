@@ -50,10 +50,28 @@ public func <+(behavior: UIDynamicItemBehavior, itemVelocityPair: (UIDynamicItem
 }
 
 /**
+  Convenience operator for retrieving the angular velocity of a dynamic item attached to a dynamic item behavior.
+*/
+infix operator <? { }
+
+public func <?(behavior: UIDynamicItemBehavior, item: UIDynamicItem) -> CGFloat {
+    return behavior.angularVelocityForItem(item)
+}
+
+/**
   Convenience operator for adding linear velocity to a dynamic item attached to a dynamic item behavior.
 */
 infix operator -+ { }
 
 public func -+(behavior: UIDynamicItemBehavior, itemVelocityPair: (UIDynamicItem, CGPoint)) {
     behavior.addLinearVelocity(itemVelocityPair.1, forItem: itemVelocityPair.0)
+}
+
+/**
+  Convenience operator for retrieving the linear velocity of a dynamic item attached to a dynamic item behavior.
+*/
+infix operator -? { }
+
+public func -?(behavior: UIDynamicItemBehavior, item: UIDynamicItem) -> CGPoint {
+    return behavior.linearVelocityForItem(item)
 }

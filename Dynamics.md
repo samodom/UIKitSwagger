@@ -45,9 +45,22 @@ behavior <+ (box, 0.09)
 behavior <+ (star, -0.12)
 ```
 
+Retrieve the angular velocity of a dynamic item attached to the behavior:
+
+```swift
+let boxRotation = behavior <? box
+```
+
+
 Add linear velocity to a dynamic item attached to the behavior:
 
 ```swift
 behavior -+ (circle, CGPoint(x: 3.0, y: 0.0))
 behavior -+ (line, CGPoint(x: 1.5, y: 1.5))
+```
+
+Retrieve the linear velocity of a dynamic item attached to the behavior:
+
+```swift
+let circleMovement = behavior -? circle
 ```

@@ -64,6 +64,13 @@ class DynamicItemBehaviorSyntaxTests: XCTestCase {
         XCTAssertEqualWithAccuracy(itemBehavior.angularVelocityForItem(dynamicItem1), CGFloat(-0.1), 1e-8, "The `<+` operator should add angular velocity to the provided dynamic item using the specified value in radians per second")
     }
 
+    func testGettingAngularVelocityOfDynamicItemWithOperator() {
+        itemBehavior.addItem(dynamicItem1)
+        itemBehavior.addAngularVelocity(0.1, forItem: dynamicItem1)
+        let velocity = itemBehavior <? dynamicItem1
+        XCTAssertEqualWithAccuracy(velocity, CGFloat(0.1), 1e-8, "The `<?` operator should return the angular velocity of the specified dynamic item")
+    }
+
     func testSettingLinearVelocityOfDynamicItemWithOperator() {
         itemBehavior.addItem(dynamicItem2)
         let velocity1 = CGPoint(x: 1.5, y: -2.4)
@@ -78,6 +85,15 @@ class DynamicItemBehaviorSyntaxTests: XCTestCase {
         newVelocity = itemBehavior.linearVelocityForItem(dynamicItem2)
         XCTAssertEqualWithAccuracy(newVelocity.x, expected.x, 1e-7, "The `-+` operator should add linear velocity to the provided dynamic item using the specified value in points per second")
         XCTAssertEqualWithAccuracy(newVelocity.y, expected.y, 1e-7, "The `-+` operator should add linear velocity to the provided dynamic item using the specified value in points per second")
+    }
+
+    func testGettingLinearVelocityOfDynamicItemWithOperator() {
+        itemBehavior.addItem(dynamicItem2)
+        let velocityToAdd = CGPoint(x: 1.1, y: -2.2)
+        itemBehavior.addLinearVelocity(velocityToAdd, forItem: dynamicItem2)
+        let velocity = itemBehavior -? dynamicItem2
+        XCTAssertEqualWithAccuracy(velocity.x, velocityToAdd.x, 1e-7, "The `-?` operator should return the linear velocity of the specified dynamic item")
+        XCTAssertEqualWithAccuracy(velocity.y, velocityToAdd.y, 1e-7, "The `-?` operator should return the linear velocity of the specified dynamic item")
     }
 
 }
