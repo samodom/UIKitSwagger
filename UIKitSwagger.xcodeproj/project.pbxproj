@@ -50,6 +50,9 @@
 		0A63F7481A3E0EA3001FBFF7 /* DynamicAnimatorAddableSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F7471A3E0EA3001FBFF7 /* DynamicAnimatorAddableSyntaxTests.swift */; };
 		0A63F74B1A3E105D001FBFF7 /* UIDynamicAnimatorAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F74A1A3E105D001FBFF7 /* UIDynamicAnimatorAdditionSyntax.swift */; };
 		0A63F74C1A3E105D001FBFF7 /* UIDynamicAnimatorAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F74A1A3E105D001FBFF7 /* UIDynamicAnimatorAdditionSyntax.swift */; };
+		0A63F74E1A3E147B001FBFF7 /* DynamicBehaviorAddableSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F74D1A3E147B001FBFF7 /* DynamicBehaviorAddableSyntaxTests.swift */; };
+		0A63F7501A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F74F1A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift */; };
+		0A63F7511A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F74F1A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift */; };
 		0A67BADA1A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BAD91A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift */; };
 		0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BADC1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift */; };
 		0A67BADE1A22E9040038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BADC1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift */; };
@@ -165,6 +168,8 @@
 		0A63F7441A3D59F8001FBFF7 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		0A63F7471A3E0EA3001FBFF7 /* DynamicAnimatorAddableSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicAnimatorAddableSyntaxTests.swift; sourceTree = "<group>"; };
 		0A63F74A1A3E105D001FBFF7 /* UIDynamicAnimatorAdditionSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDynamicAnimatorAdditionSyntax.swift; sourceTree = "<group>"; };
+		0A63F74D1A3E147B001FBFF7 /* DynamicBehaviorAddableSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicBehaviorAddableSyntaxTests.swift; sourceTree = "<group>"; };
+		0A63F74F1A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDynamicBehaviorAdditionSyntax.swift; sourceTree = "<group>"; };
 		0A67BAD91A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLayoutAttributesTests.swift; sourceTree = "<group>"; };
 		0A67BADC1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerAutoLayoutAttributes.swift; sourceTree = "<group>"; };
 		0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintBuilderSyntaxTests.swift; sourceTree = "<group>"; };
@@ -325,7 +330,6 @@
 		0A3BB99519EB71240075B32A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0A63F7471A3E0EA3001FBFF7 /* DynamicAnimatorAddableSyntaxTests.swift */,
 				0A8028021A3421E000816792 /* AlertActionEnablingTests.swift */,
 				0ACADAE41A3A8AB800CF49F8 /* AlertControllerAddableTests.swift */,
 				0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */,
@@ -340,6 +344,8 @@
 				0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */,
 				0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */,
 				0A8028111A342EEA00816792 /* ControlEnablingTests.swift */,
+				0A63F7471A3E0EA3001FBFF7 /* DynamicAnimatorAddableSyntaxTests.swift */,
+				0A63F74D1A3E147B001FBFF7 /* DynamicBehaviorAddableSyntaxTests.swift */,
 				0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */,
 				0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */,
 				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
@@ -405,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				0A63F74A1A3E105D001FBFF7 /* UIDynamicAnimatorAdditionSyntax.swift */,
+				0A63F74F1A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift */,
 			);
 			path = Dynamics;
 			sourceTree = "<group>";
@@ -658,6 +665,7 @@
 				0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
 				0A10F28F1A3D16E600715C7A /* UIColorComponents.swift in Sources */,
 				0A5BD0FA1A3D0C9200793312 /* ColorAliases.swift in Sources */,
+				0A63F7501A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift in Sources */,
 				0A21DC441A343018005FFC4E /* UIControlEnabling.swift in Sources */,
 				0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */,
 				0ACADAED1A3BE90600CF49F8 /* UISwitchStateManagement.swift in Sources */,
@@ -678,6 +686,7 @@
 				0A8028131A342EEA00816792 /* ControlEnablingTests.swift in Sources */,
 				0A3BB9AF19EB75EB0075B32A /* UIViewHierarchy.swift in Sources */,
 				0A23126A1A327F5300BE92BE /* UIViewAdditionSyntax.swift in Sources */,
+				0A63F7511A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift in Sources */,
 				0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A80280D1A34265A00816792 /* UIBarItemEnabling.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
@@ -721,6 +730,7 @@
 				0AD6F2551A34353700D863A2 /* LabelEnablingTests.swift in Sources */,
 				0AC37F961A29595300E1C943 /* Concurrency.swift in Sources */,
 				0AC37F921A29541C00E1C943 /* MainThreadUpdatesTests.swift in Sources */,
+				0A63F74E1A3E147B001FBFF7 /* DynamicBehaviorAddableSyntaxTests.swift in Sources */,
 				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,
 				0AA5805D1A3D2B830061D882 /* UIColorHSBComponents.swift in Sources */,
 				0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,

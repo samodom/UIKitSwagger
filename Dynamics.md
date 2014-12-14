@@ -11,3 +11,14 @@ animator += [gravityBehavior, pushBehavior, snapBehavior]
 animator -= gravityBehavior
 animator -= [collisionBehavior, snapBehavior]
 ```
+
+### Adding/removing child behaviors to/from another behavior
+
+Use the `+=` and `-=` operators to add or remove child behaviors one-at-a-time or as an array.
+
+```swift
+parentBehavior += collisionBehavior
+parentBehavior += [gravityBehavior, pushBehavior, snapBehavior]
+parentBehavior -= gravityBehavior
+parentBehavior -= [collisionBehavior, snapBehavior]
+```
