@@ -1,7 +1,60 @@
-Color Aliases
-=============
+Color Convenience
+=================
 
-Aliases for all of the `*Color()` factory methods on `UIColor`:
+### Components
+
+Getting color information from an instance of `UIColor` is as easy as it could possibly be.
+
+**Component Structure**
+
+The following component structures are provided for convenience.  Each one conforms to `Equatable`.
+
+```swift
+struct UIColorRGBComponents {
+  let red: CGFloat
+  let green: CGFloat
+  let blue: CGFloat
+  let alpha: CGFloat
+}
+```
+
+```swift
+struct UIColorHSBComponents {
+  let hue: CGFloat
+  let saturation: CGFloat
+  let brightness: CGFloat
+  let alpha: CGFloat
+}
+```
+
+```swift
+struct UIColorGrayscaleComponents {
+  let white: CGFloat
+  let alpha: CGFloat
+}
+```
+
+These component structures can be retrieved using the following properties:
+ - `var rgbComponents: UIColorRGBComponents`
+ - `var hsbComponents: UIColorHSBComponents`
+ - `var grayscaleComponents: UIColorGrayscaleComponents`
+
+**Component Values**
+
+Want individual component values?  Here they are as properties!
+ - `var red: CGFloat`
+ - `var green: CGFloat`
+ - `var blue: CGFloat`
+ - `var alpha: CGFloat`
+ - `var hue: CGFloat`
+ - `var saturation: CGFloat`
+ - `var brightness: CGFloat`
+ - `var white: CGFloat`
+
+
+### Aliases
+
+Use these aliases for all of the `*Color()` factory methods on `UIColor`:
 
  - `var black` returns `UIColor.blackColor()`
  - `var white` returns `UIColor.whiteColor()`

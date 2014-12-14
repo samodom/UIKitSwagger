@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A10F28D1A3D147700715C7A /* ColorComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A10F28C1A3D147700715C7A /* ColorComponentTests.swift */; };
+		0A10F28F1A3D16E600715C7A /* UIColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A10F28E1A3D16E600715C7A /* UIColorComponents.swift */; };
+		0A10F2901A3D16E600715C7A /* UIColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A10F28E1A3D16E600715C7A /* UIColorComponents.swift */; };
 		0A21DC441A343018005FFC4E /* UIControlEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC431A343018005FFC4E /* UIControlEnabling.swift */; };
 		0A21DC451A343044005FFC4E /* UIControlEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC431A343018005FFC4E /* UIControlEnabling.swift */; };
 		0A21DC481A343174005FFC4E /* UIGestureRecognizerEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC471A343174005FFC4E /* UIGestureRecognizerEnabling.swift */; };
@@ -59,6 +62,12 @@
 		0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */; };
 		0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
 		0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
+		0AA580591A3D29EB0061D882 /* UIColorRGBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA580581A3D29EB0061D882 /* UIColorRGBComponents.swift */; };
+		0AA5805A1A3D29EB0061D882 /* UIColorRGBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA580581A3D29EB0061D882 /* UIColorRGBComponents.swift */; };
+		0AA5805C1A3D2B830061D882 /* UIColorHSBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805B1A3D2B830061D882 /* UIColorHSBComponents.swift */; };
+		0AA5805D1A3D2B830061D882 /* UIColorHSBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805B1A3D2B830061D882 /* UIColorHSBComponents.swift */; };
+		0AA5805F1A3D2B960061D882 /* UIColorGrayscaleComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805E1A3D2B960061D882 /* UIColorGrayscaleComponents.swift */; };
+		0AA580601A3D2B960061D882 /* UIColorGrayscaleComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805E1A3D2B960061D882 /* UIColorGrayscaleComponents.swift */; };
 		0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */; };
 		0AC37F901A29313A00E1C943 /* AutoLayoutInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */; };
 		0AC37F921A29541C00E1C943 /* MainThreadUpdatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */; };
@@ -117,6 +126,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A10F28C1A3D147700715C7A /* ColorComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorComponentTests.swift; sourceTree = "<group>"; };
+		0A10F28E1A3D16E600715C7A /* UIColorComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorComponents.swift; sourceTree = "<group>"; };
 		0A21DC431A343018005FFC4E /* UIControlEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlEnabling.swift; sourceTree = "<group>"; };
 		0A21DC471A343174005FFC4E /* UIGestureRecognizerEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerEnabling.swift; sourceTree = "<group>"; };
 		0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizerEnablingTests.swift; sourceTree = "<group>"; };
@@ -155,6 +166,9 @@
 		0A8028111A342EEA00816792 /* ControlEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlEnablingTests.swift; sourceTree = "<group>"; };
 		0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideTests.swift; sourceTree = "<group>"; };
 		0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
+		0AA580581A3D29EB0061D882 /* UIColorRGBComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorRGBComponents.swift; sourceTree = "<group>"; };
+		0AA5805B1A3D2B830061D882 /* UIColorHSBComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorHSBComponents.swift; sourceTree = "<group>"; };
+		0AA5805E1A3D2B960061D882 /* UIColorGrayscaleComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorGrayscaleComponents.swift; sourceTree = "<group>"; };
 		0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutInternal.swift; sourceTree = "<group>"; };
 		0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainThreadUpdatesTests.swift; sourceTree = "<group>"; };
 		0AC37F941A29595300E1C943 /* Concurrency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Concurrency.swift; sourceTree = "<group>"; };
@@ -302,6 +316,7 @@
 				0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */,
 				0A8028081A34257C00816792 /* BarItemEnablingTests.swift */,
 				0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */,
+				0A10F28C1A3D147700715C7A /* ColorComponentTests.swift */,
 				0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */,
 				0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */,
 				0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */,
@@ -361,6 +376,10 @@
 			isa = PBXGroup;
 			children = (
 				0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */,
+				0A10F28E1A3D16E600715C7A /* UIColorComponents.swift */,
+				0AA5805E1A3D2B960061D882 /* UIColorGrayscaleComponents.swift */,
+				0AA5805B1A3D2B830061D882 /* UIColorHSBComponents.swift */,
+				0AA580581A3D29EB0061D882 /* UIColorRGBComponents.swift */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -592,6 +611,7 @@
 				0AC4A8AC1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift in Sources */,
 				0ACADB061A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */,
 				0A3BB9A319EB71F00075B32A /* UIViewConstraintSearch.swift in Sources */,
+				0AA5805F1A3D2B960061D882 /* UIColorGrayscaleComponents.swift in Sources */,
 				0ACADAFF1A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */,
 				0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
 				0AC37F951A29595300E1C943 /* Concurrency.swift in Sources */,
@@ -607,9 +627,11 @@
 				0ACADAE71A3A8C6700CF49F8 /* UIAlertControllerAdditionSyntax.swift in Sources */,
 				0AD6F2581A34354400D863A2 /* UILabelEnabling.swift in Sources */,
 				0A5F12F81A285EB600694C56 /* UIViewAspectRatio.swift in Sources */,
+				0AA580591A3D29EB0061D882 /* UIColorRGBComponents.swift in Sources */,
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0ACADAF31A3BF4A500CF49F8 /* UISliderInterval.swift in Sources */,
 				0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
+				0A10F28F1A3D16E600715C7A /* UIColorComponents.swift in Sources */,
 				0A5BD0FA1A3D0C9200793312 /* ColorAliases.swift in Sources */,
 				0A21DC441A343018005FFC4E /* UIControlEnabling.swift in Sources */,
 				0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */,
@@ -617,6 +639,7 @@
 				0A21DC481A343174005FFC4E /* UIGestureRecognizerEnabling.swift in Sources */,
 				0A2312691A327F4F00BE92BE /* UIViewAdditionSyntax.swift in Sources */,
 				0A754C0A1A2848100077DB3A /* AutoLayoutViewDistribution.swift in Sources */,
+				0AA5805C1A3D2B830061D882 /* UIColorHSBComponents.swift in Sources */,
 				0A3BB9AB19EB740F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,6 +662,7 @@
 				0A21DC451A343044005FFC4E /* UIControlEnabling.swift in Sources */,
 				0A4CF44F1A22E38D00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
 				0ACADAF01A3BF0E500CF49F8 /* SliderIntervalTests.swift in Sources */,
+				0A10F28D1A3D147700715C7A /* ColorComponentTests.swift in Sources */,
 				0ACADAF41A3BF4A500CF49F8 /* UISliderInterval.swift in Sources */,
 				0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */,
 				0ACADB001A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */,
@@ -649,13 +673,16 @@
 				0AF2A08B1A29003D00A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
 				0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */,
 				0A67BADE1A22E9040038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
+				0AA5805A1A3D29EB0061D882 /* UIColorRGBComponents.swift in Sources */,
 				0A3BB9A419EB721E0075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0AD6F2591A34356500D863A2 /* UILabelEnabling.swift in Sources */,
 				0AC37F901A29313A00E1C943 /* AutoLayoutInternal.swift in Sources */,
 				0AF2A0861A28647900A5C0F9 /* AutoLayoutDimensions.swift in Sources */,
+				0A10F2901A3D16E600715C7A /* UIColorComponents.swift in Sources */,
 				0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */,
 				0A3BB99D19EB71740075B32A /* ViewHierarchyTests.swift in Sources */,
 				0A5F12F31A285D1000694C56 /* AspectRatioTests.swift in Sources */,
+				0AA580601A3D2B960061D882 /* UIColorGrayscaleComponents.swift in Sources */,
 				0A3BB9A519EB72210075B32A /* UIViewConstraintSearch.swift in Sources */,
 				0ACADAEA1A3BE42B00CF49F8 /* SwitchStateManagementTests.swift in Sources */,
 				0ACADAE81A3A8C6700CF49F8 /* UIAlertControllerAdditionSyntax.swift in Sources */,
@@ -665,6 +692,7 @@
 				0AC37F961A29595300E1C943 /* Concurrency.swift in Sources */,
 				0AC37F921A29541C00E1C943 /* MainThreadUpdatesTests.swift in Sources */,
 				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,
+				0AA5805D1A3D2B830061D882 /* UIColorHSBComponents.swift in Sources */,
 				0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 				0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */,
 				0A5BD0FB1A3D0C9200793312 /* ColorAliases.swift in Sources */,

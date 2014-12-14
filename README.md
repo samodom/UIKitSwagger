@@ -10,7 +10,7 @@ A bit of a DSL for UIKit
  - [Switch Toggling Convenience](Switch.md)
  - [Working with Sliders](Slider.md)
  - [Working with Steppers](Stepper.md)
- - [Color Aliases](Color.md)
+ - [Color Convenience](Color.md)
  - [Enabling/Disabling Bar Items](BarItem.md)
  - [Enabling/Disabling Controls](Control.md)
  - [Enabling/Disabling Gesture Recognizers](GestureRecognizer.md)
