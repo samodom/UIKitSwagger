@@ -11,9 +11,16 @@ import UIKit
 /**
   Convenience structure to hold the white and alpha component values of an instance of `UIColor`.
 */
-public struct UIColorGrayscaleComponents {
+public struct UIColorGrayscaleComponents: UIColorComponents {
     public let white: CGFloat
     public let alpha: CGFloat
+
+    /**
+      Required method for creating colors based on this component scheme.
+    */
+    public func color() -> UIColor {
+        return UIColor(components: self)
+    }
 }
 
 /**
@@ -31,6 +38,7 @@ public func ==(lhs: UIColorGrayscaleComponents, rhs: UIColorGrayscaleComponents)
   Property that returns the grayscale components of the color in a structure.
 */
 public extension UIColor {
+
     public var grayscaleComponents: UIColorGrayscaleComponents {
         var whiteValue = CGFloat(0)
         var alphaValue = CGFloat(0)
@@ -38,4 +46,6 @@ public extension UIColor {
         getWhite(&whiteValue, alpha: &alphaValue)
         return UIColorGrayscaleComponents(white: whiteValue, alpha: alphaValue)
     }
+
+
 }

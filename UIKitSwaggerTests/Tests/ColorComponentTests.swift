@@ -23,6 +23,20 @@ class ColorComponentTests: XCTestCase {
         super.tearDown()
     }
 
+    //  MARK: Non-components in initializer
+
+    func testNonComponentsCreatesColorWithAllZeroRGBAValues() {
+        struct NonComponents: UIColorComponents {
+            private func color() -> UIColor {
+                return UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            }
+        }
+
+        let components = UIColor(components: NonComponents())
+        let expected = UIColorRGBComponents(red: 0, green: 0, blue: 0, alpha: 0)
+        XCTAssertEqual(components.rgbComponents, expected, "The color produced for unknown types conforming to `UIColorComponents` should have all zeros for component values")
+    }
+
     //  MARK: UIColorRGBComponents
 
     func testRGBComponentStructure() {
@@ -87,6 +101,18 @@ class ColorComponentTests: XCTestCase {
         monochromeColor.getRed(&redValue, green: &greenValue, blue: &blueValue, alpha: &alphaValue)
         let expected = UIColorRGBComponents(red: redValue, green: greenValue, blue: blueValue, alpha: alphaValue)
         XCTAssertEqual(monochromeColor.rgbComponents, expected, "The red, green, blue and alpha components of the color should be provided")
+    }
+
+    func testColorCreationWithRGBComponents() {
+        let components = UIColorRGBComponents(red: 0.14, green: 0.42, blue: 0.77, alpha: 0.99)
+        let color = components.color()
+        XCTAssertEqual(color.rgbComponents, components, "The components should create an instance of UIColor using the same values")
+    }
+
+    func testRGBComponentsUIColorInitializer() {
+        let components = UIColorRGBComponents(red: 0.14, green: 0.42, blue: 0.77, alpha: 0.99)
+        let color = UIColor(components: components)
+        XCTAssertEqual(color.rgbComponents, components, "The initializer should use the provided component values")
     }
 
     //  MARK: RGB and alpha component values
@@ -204,6 +230,18 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(monochromeColor.hsbComponents, expected, "The hue, saturation, brightness and alpha components of the color should be provided")
     }
 
+    func testColorCreationWithHSBComponents() {
+        let components = UIColorHSBComponents(hue: 0.33, saturation: 0.55, brightness: 0.66, alpha: 0.11)
+        let color = components.color()
+        XCTAssertEqual(color.hsbComponents, components, "The components should create an instance of UIColor using the same values")
+    }
+
+    func testHSBComponentsUIColorInitializer() {
+        let components = UIColorHSBComponents(hue: 0.33, saturation: 0.55, brightness: 0.66, alpha: 0.11)
+        let color = UIColor(components: components)
+        XCTAssertEqual(color.hsbComponents, components, "The initializer should use the provided component values")
+    }
+
     //  MARK: HSB component values
 
     func testHueComponentWithRGBColor() {
@@ -287,6 +325,18 @@ class ColorComponentTests: XCTestCase {
     func testGrayscaleComponentsWithMonochromeColor() {
         let expected = UIColorGrayscaleComponents(white: 0.88, alpha: 0.8)
         XCTAssertEqual(monochromeColor.grayscaleComponents, expected, "The white and alpha components of the color should be provided")
+    }
+
+    func testColorCreationWithGrayscaleComponents() {
+        let components = UIColorGrayscaleComponents(white: 0.88, alpha: 0.8)
+        let color = components.color()
+        XCTAssertEqual(color.grayscaleComponents, components, "The components should create an instance of UIColor using the same values")
+    }
+
+    func testGrayscaleComponentsUIColorInitializer() {
+        let components = UIColorGrayscaleComponents(white: 0.88, alpha: 0.8)
+        let color = UIColor(components: components)
+        XCTAssertEqual(color.grayscaleComponents, components, "The initializer should use the provided component values")
     }
 
     //  MARK: Monochrome component values

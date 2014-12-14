@@ -11,11 +11,18 @@ import UIKit
 /**
   Convenience structure to hold the hue, saturation, brightness and alpha component values of an instance of `UIColor`.
 */
-public struct UIColorHSBComponents {
+public struct UIColorHSBComponents: UIColorComponents {
     public let hue: CGFloat
     public let saturation: CGFloat
     public let brightness: CGFloat
     public let alpha: CGFloat
+
+    /**
+      Required method for creating colors based on this component scheme.
+    */
+    public func color() -> UIColor {
+        return UIColor(components: self)
+    }
 }
 
 /**
@@ -32,10 +39,11 @@ public func ==(lhs: UIColorHSBComponents, rhs: UIColorHSBComponents) -> Bool {
         lhs.alpha == rhs.alpha
 }
 
-/**
-  Property that returns the HSB components of the color in a structure.
-*/
 public extension UIColor {
+
+    /**
+      Property that returns the HSB components of the color in a structure.
+    */
     public var hsbComponents: UIColorHSBComponents {
         var hueValue = CGFloat(0)
         var saturationValue = CGFloat(0)
@@ -45,4 +53,5 @@ public extension UIColor {
         getHue(&hueValue, saturation: &saturationValue, brightness: &brightnessValue, alpha: &alphaValue)
         return UIColorHSBComponents(hue: hueValue, saturation: saturationValue, brightness: brightnessValue, alpha: alphaValue)
     }
+
 }

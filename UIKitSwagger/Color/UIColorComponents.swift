@@ -8,6 +8,42 @@
 
 import UIKit
 
+/**
+  @protocol         Protocol that unifies the various types of component sets used to identify and compose a color.
+  @discussion       Any user-defined component types will not enjoy the luxury of having the convenience initializer on `UIColor` produce component-based colors using their type.
+*/
+public protocol UIColorComponents {
+    func color() -> UIColor
+}
+
+public extension UIColor {
+
+    /**
+      Convenience initializer for component-based color creation.
+    */
+    public convenience init(components: UIColorComponents) {
+
+        switch components {
+        case is UIColorRGBComponents:
+            let rgbComponents = components as UIColorRGBComponents
+            self.init(red: rgbComponents.red, green: rgbComponents.green, blue: rgbComponents.blue, alpha: rgbComponents.alpha)
+
+        case is UIColorHSBComponents:
+            let hsbComponents = components as UIColorHSBComponents
+            self.init(hue: hsbComponents.hue, saturation: hsbComponents.saturation, brightness: hsbComponents.brightness, alpha: hsbComponents.alpha)
+
+        case is UIColorGrayscaleComponents:
+            let grayscaleComponents = components as UIColorGrayscaleComponents
+            self.init(white: grayscaleComponents.white, alpha: grayscaleComponents.alpha)
+
+        default:
+            self.init(red: 0, green: 0, blue: 0, alpha: 0)
+        }
+
+    }
+
+}
+
 public extension UIColor {
 
     /**

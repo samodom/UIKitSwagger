@@ -7,7 +7,7 @@ Getting color information from an instance of `UIColor` is as easy as it could p
 
 **Component Structure**
 
-The following component structures are provided for convenience.  Each one conforms to `Equatable`.
+The following component structures are provided for convenience.  Each one conforms to `Equatable` and a protocol called `UIColorComponents`.
 
 ```swift
 struct UIColorRGBComponents {
@@ -38,6 +38,13 @@ These component structures can be retrieved using the following properties:
  - `var rgbComponents: UIColorRGBComponents`
  - `var hsbComponents: UIColorHSBComponents`
  - `var grayscaleComponents: UIColorGrayscaleComponents`
+
+Each component scheme also has a method to produce a color:
+ - `func color() -> UIColor`
+
+In addition, `UIColor` has a corresponding convenience initializer for creating colors that match exactly the system-provided initializers except for their use of these structures.
+ - `convenience init(components: UIColorComponents)`
+
 
 **Component Values**
 
