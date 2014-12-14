@@ -1,5 +1,5 @@
 //
-//  DynamicBehaviorAddableSyntaxTests.swift
+//  DynamicBehaviorAdditionSyntaxTests.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/14/14.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class DynamicBehaviorAddableSyntaxTests: XCTestCase {
+class DynamicBehaviorAdditionSyntaxTests: XCTestCase {
 
     let parentBehavior = UIDynamicBehavior()
     let behavior1 = UIDynamicBehavior()

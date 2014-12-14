@@ -1,5 +1,5 @@
 //
-//  DynamicAnimatorAddableSyntaxTests.swift
+//  DynamicAnimatorAdditionSyntaxTests.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/14/14.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class DynamicAnimatorAddableSyntaxTests: XCTestCase {
+class DynamicAnimatorAdditionSyntaxTests: XCTestCase {
 
     let animator = UIDynamicAnimator()
     let behavior1 = UIDynamicBehavior()

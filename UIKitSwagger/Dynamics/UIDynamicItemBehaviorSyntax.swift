@@ -9,39 +9,7 @@
 import UIKit
 
 /**
-  Convenience operator for adding a dynamic item to a dynamic item behavior.
-*/
-public func +=(behavior: UIDynamicItemBehavior, item: UIDynamicItem) {
-    behavior.addItem(item)
-}
-
-/**
-  Convenience operator for adding an array of dynamic items to a dynamic item behavior.
-*/
-public func +=(behavior: UIDynamicItemBehavior, items: [UIDynamicItem]) {
-    for item in items {
-        behavior += item
-    }
-}
-
-/**
-  Convenience operator for removing a dynamic item from a dynamic item behavior.
-*/
-public func -=(behavior: UIDynamicItemBehavior, item: UIDynamicItem) {
-    behavior.removeItem(item)
-}
-
-/**
-  Convenience operator for removing an array of dynamic items from a dynamic item behavior.
-*/
-public func -=(behavior: UIDynamicItemBehavior, items: [UIDynamicItem]) {
-    for item in items {
-        behavior -= item
-    }
-}
-
-/**
-  Convenience operator for adding angular velocity to a dynamic item attached to a dynamic item behavior.
+  Convenience operator for adding angular velocity to a dynamic item attached to a dynamic behavior.
 */
 infix operator <+ { }
 
@@ -50,7 +18,7 @@ public func <+(behavior: UIDynamicItemBehavior, itemVelocityPair: (UIDynamicItem
 }
 
 /**
-  Convenience operator for retrieving the angular velocity of a dynamic item attached to a dynamic item behavior.
+  Convenience operator for retrieving the angular velocity of a dynamic item attached to a dynamic behavior.
 */
 infix operator <? { }
 
@@ -59,7 +27,7 @@ public func <?(behavior: UIDynamicItemBehavior, item: UIDynamicItem) -> CGFloat 
 }
 
 /**
-  Convenience operator for adding linear velocity to a dynamic item attached to a dynamic item behavior.
+  Convenience operator for adding linear velocity to a dynamic item attached to a dynamic behavior.
 */
 infix operator -+ { }
 
@@ -68,7 +36,7 @@ public func -+(behavior: UIDynamicItemBehavior, itemVelocityPair: (UIDynamicItem
 }
 
 /**
-  Convenience operator for retrieving the linear velocity of a dynamic item attached to a dynamic item behavior.
+  Convenience operator for retrieving the linear velocity of a dynamic item attached to a dynamic behavior.
 */
 infix operator -? { }
 

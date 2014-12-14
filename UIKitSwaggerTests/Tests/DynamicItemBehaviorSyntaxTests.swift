@@ -25,38 +25,12 @@ class DynamicItemBehaviorSyntaxTests: XCTestCase {
         dynamicItem3 = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: 10))
         animator.addBehavior(itemBehavior)
     }
-
+    
     override func tearDown() {
         super.tearDown()
     }
 
-    func testAddingDynamicItemWithOperator() {
-        itemBehavior += dynamicItem1
-        XCTAssertEqual(itemBehavior.items as [UIView], [dynamicItem1], "The item should be added to the item behavior")
-    }
-
-    func testAddingDynamicItemArrayWithOperator() {
-        itemBehavior += [dynamicItem1, dynamicItem2, dynamicItem3]
-        XCTAssertEqual(itemBehavior.items as [UIView], [dynamicItem1, dynamicItem2, dynamicItem3], "The items should be added to the item behavior in the order provided")
-    }
-
-    func testRemovingDynamicItemWithOperator() {
-        itemBehavior.addItem(dynamicItem1)
-        itemBehavior.addItem(dynamicItem2)
-        itemBehavior.addItem(dynamicItem3)
-        itemBehavior -= dynamicItem2
-        XCTAssertEqual(itemBehavior.items as [UIView], [dynamicItem1, dynamicItem3], "The item should be removed from the item behavior")
-    }
-
-    func testRemovingDynamicItemArrayWithOperator() {
-        itemBehavior.addItem(dynamicItem1)
-        itemBehavior.addItem(dynamicItem2)
-        itemBehavior.addItem(dynamicItem3)
-        itemBehavior -= [dynamicItem1, dynamicItem3]
-        XCTAssertEqual(itemBehavior.items as [UIView], [dynamicItem2], "The items should be removed from the item behavior")
-    }
-
-    func testSettingAngularVelocityOfDynamicItemWithOperator() {
+    func testSettingAngularVelocityOfDynamicItemWithItemBehavior() {
         itemBehavior.addItem(dynamicItem1)
         itemBehavior <+ (dynamicItem1, 0.1)
         XCTAssertEqualWithAccuracy(itemBehavior.angularVelocityForItem(dynamicItem1), CGFloat(0.1), 1e-8, "The `<+` operator should add angular velocity to the provided dynamic item using the specified value in radians per second")
@@ -64,14 +38,14 @@ class DynamicItemBehaviorSyntaxTests: XCTestCase {
         XCTAssertEqualWithAccuracy(itemBehavior.angularVelocityForItem(dynamicItem1), CGFloat(-0.1), 1e-8, "The `<+` operator should add angular velocity to the provided dynamic item using the specified value in radians per second")
     }
 
-    func testGettingAngularVelocityOfDynamicItemWithOperator() {
+    func testGettingAngularVelocityOfDynamicItemWithItemBehavior() {
         itemBehavior.addItem(dynamicItem1)
         itemBehavior.addAngularVelocity(0.1, forItem: dynamicItem1)
         let velocity = itemBehavior <? dynamicItem1
         XCTAssertEqualWithAccuracy(velocity, CGFloat(0.1), 1e-8, "The `<?` operator should return the angular velocity of the specified dynamic item")
     }
 
-    func testSettingLinearVelocityOfDynamicItemWithOperator() {
+    func testSettingLinearVelocityOfDynamicItemWithItemBehavior() {
         itemBehavior.addItem(dynamicItem2)
         let velocity1 = CGPoint(x: 1.5, y: -2.4)
         itemBehavior -+ (dynamicItem2, velocity1)
@@ -87,7 +61,7 @@ class DynamicItemBehaviorSyntaxTests: XCTestCase {
         XCTAssertEqualWithAccuracy(newVelocity.y, expected.y, 1e-7, "The `-+` operator should add linear velocity to the provided dynamic item using the specified value in points per second")
     }
 
-    func testGettingLinearVelocityOfDynamicItemWithOperator() {
+    func testGettingLinearVelocityOfDynamicItemWithItemBehavior() {
         itemBehavior.addItem(dynamicItem2)
         let velocityToAdd = CGPoint(x: 1.1, y: -2.2)
         itemBehavior.addLinearVelocity(velocityToAdd, forItem: dynamicItem2)
