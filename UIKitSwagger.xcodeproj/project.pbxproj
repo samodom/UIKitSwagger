@@ -319,13 +319,13 @@
 		0A3BB99519EB71240075B32A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				0A63F7421A3D51F0001FBFF7 /* ColorPaletteTests.swift */,
 				0A8028021A3421E000816792 /* AlertActionEnablingTests.swift */,
 				0ACADAE41A3A8AB800CF49F8 /* AlertControllerAddableTests.swift */,
 				0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */,
 				0A8028081A34257C00816792 /* BarItemEnablingTests.swift */,
 				0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */,
 				0A10F28C1A3D147700715C7A /* ColorComponentTests.swift */,
+				0A63F7421A3D51F0001FBFF7 /* ColorPaletteTests.swift */,
 				0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */,
 				0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */,
 				0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */,
