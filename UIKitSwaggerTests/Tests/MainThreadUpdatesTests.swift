@@ -34,7 +34,7 @@ class MainThreadUpdatesTests: XCTestCase {
             XCTAssertFalse(NSThread.isMainThread(), "Making sure we aren't running on the main thread")
         }
 
-        waitForExpectationsWithTimeout(0.01) { (_) -> () in
+        waitForExpectationsWithTimeout(MinimumTestExpectationWaitTime) { (_) -> () in
             XCTAssertTrue(self.executedOnMainThread, "The provided closure should be executed on the main thread")
         }
     }
@@ -51,7 +51,7 @@ class MainThreadUpdatesTests: XCTestCase {
             XCTAssertFalse(NSThread.isMainThread(), "Making sure we aren't running on the main thread")
         }
 
-        waitForExpectationsWithTimeout(0.01) { (_) -> () in
+        waitForExpectationsWithTimeout(MinimumTestExpectationWaitTime) { (_) -> () in
             XCTAssertTrue(self.executedOnMainThread, "The provided function should be executed on the main thread")
         }
     }

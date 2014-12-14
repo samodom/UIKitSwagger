@@ -1,12 +1,16 @@
 UIKitSwagger
 ============
 
-Extensions to UIKit for working with view hierarchies, layout constraints and many other components of UIKit.
+A bit of a DSL for UIKit
 
  - [Working with Views](Views.md)
  - [Auto Layout Convenience](AutoLayout.md)
  - [Concurrency](Concurrency.md)
- - [Enabling/Disabling Alert Actions](AlertAction.md)
+ - [Working with Alert Controllers](Alerts.md)
+ - [Switch Toggling Convenience](Switch.md)
+ - [Working with Sliders](Slider.md)
+ - [Working with Steppers](Stepper.md)
+ - [Color Convenience](Color.md) and a [ColorPalette](ColorPalette.md) class
  - [Enabling/Disabling Bar Items](BarItem.md)
  - [Enabling/Disabling Controls](Control.md)
  - [Enabling/Disabling Gesture Recognizers](GestureRecognizer.md)
