@@ -43,6 +43,7 @@
 		0A5F12F31A285D1000694C56 /* AspectRatioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */; };
 		0A5F12F81A285EB600694C56 /* UIViewAspectRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */; };
 		0A5F12F91A285EBA00694C56 /* UIViewAspectRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */; };
+		0A63F7411A3D4A71001FBFF7 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F7401A3D4A71001FBFF7 /* TestConstants.swift */; };
 		0A67BADA1A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BAD91A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift */; };
 		0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BADC1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift */; };
 		0A67BADE1A22E9040038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67BADC1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift */; };
@@ -153,6 +154,7 @@
 		0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAliases.swift; sourceTree = "<group>"; };
 		0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectRatioTests.swift; sourceTree = "<group>"; };
 		0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAspectRatio.swift; sourceTree = "<group>"; };
+		0A63F7401A3D4A71001FBFF7 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		0A67BAD91A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLayoutAttributesTests.swift; sourceTree = "<group>"; };
 		0A67BADC1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerAutoLayoutAttributes.swift; sourceTree = "<group>"; };
 		0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintBuilderSyntaxTests.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			isa = PBXGroup;
 			children = (
 				0A3BB98919EB70C70075B32A /* Supporting Files */,
+				0A63F7401A3D4A71001FBFF7 /* TestConstants.swift */,
 				0A3BB99519EB71240075B32A /* Tests */,
 			);
 			path = UIKitSwaggerTests;
@@ -654,6 +657,7 @@
 				0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A80280D1A34265A00816792 /* UIBarItemEnabling.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
+				0A63F7411A3D4A71001FBFF7 /* TestConstants.swift in Sources */,
 				0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */,
 				0AD6F25C1A34394700D863A2 /* NSLayoutConstraintActivation.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
