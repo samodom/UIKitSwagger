@@ -11,6 +11,7 @@ A bit of a DSL for UIKit
  - [Working with Sliders](Slider.md)
  - [Working with Steppers](Stepper.md)
  - [Color Convenience](Color.md) and a [ColorPalette](ColorPalette.md) class
+ - [UIKit Dynamics](Dynamics.md)
  - [Enabling/Disabling Bar Items](BarItem.md)
  - [Enabling/Disabling Controls](Control.md)
  - [Enabling/Disabling Gesture Recognizers](GestureRecognizer.md)
