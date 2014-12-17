@@ -34,6 +34,8 @@
 		0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */; };
 		0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */; };
 		0A3BB9AF19EB75EB0075B32A /* UIViewHierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */; };
+		0A3F1B4E1A4112F500195B8F /* UIViewConstraintApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F1B4D1A4112F500195B8F /* UIViewConstraintApplication.swift */; };
+		0A3F1B4F1A4112F500195B8F /* UIViewConstraintApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F1B4D1A4112F500195B8F /* UIViewConstraintApplication.swift */; };
 		0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */; };
 		0A4CF44C1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44B1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift */; };
 		0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */; };
@@ -160,6 +162,7 @@
 		0A3BB9A119EB71F00075B32A /* UIViewConstraintSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewConstraintSearch.swift; sourceTree = "<group>"; };
 		0A3BB9AA19EB740F0075B32A /* NSLayoutConstraintSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintSearch.swift; sourceTree = "<group>"; };
 		0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewHierarchy.swift; sourceTree = "<group>"; };
+		0A3F1B4D1A4112F500195B8F /* UIViewConstraintApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewConstraintApplication.swift; sourceTree = "<group>"; };
 		0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutAttributesTests.swift; sourceTree = "<group>"; };
 		0A4CF44B1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAutoLayoutAttributes.swift; sourceTree = "<group>"; };
 		0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutAttributable.swift; sourceTree = "<group>"; };
@@ -393,6 +396,7 @@
 				0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */,
 				0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */,
 				0A4CF44B1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift */,
+				0A3F1B4D1A4112F500195B8F /* UIViewConstraintApplication.swift */,
 				0A3BB9A119EB71F00075B32A /* UIViewConstraintSearch.swift */,
 				0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */,
 				0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */,
@@ -671,6 +675,7 @@
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0ACADAF31A3BF4A500CF49F8 /* UISliderInterval.swift in Sources */,
 				0A67BADD1A22E8FD0038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
+				0A3F1B4E1A4112F500195B8F /* UIViewConstraintApplication.swift in Sources */,
 				0A10F28F1A3D16E600715C7A /* UIColorComponents.swift in Sources */,
 				0A5BD0FA1A3D0C9200793312 /* ColorAliases.swift in Sources */,
 				0A63F7501A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift in Sources */,
@@ -697,6 +702,7 @@
 				0A63F7511A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift in Sources */,
 				0AC4A8DC1A27FEED00EBCCB8 /* AutoLayoutViewAlignment.swift in Sources */,
 				0A80280D1A34265A00816792 /* UIBarItemEnabling.swift in Sources */,
+				0A3F1B4F1A4112F500195B8F /* UIViewConstraintApplication.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A63F7411A3D4A71001FBFF7 /* TestConstants.swift in Sources */,
 				0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */,

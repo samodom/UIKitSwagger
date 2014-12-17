@@ -20,15 +20,17 @@ Don't clutter your view controller code trying to find a particular constraint t
  - `func constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [Constraint]?`
 
 
-**Reversal:**
+### Reversal
+
 Want to reverse the items in a constraint to produce an equivalent constraint?  Note that some constraints are not reversible.
+- `func reversed() -> Constraint?`
 
-> `func reversed() -> Constraint?`
 
+### Equality
 
-**Equality:**
 Compare two constraints with respect to the items, attributes, relation, multiplier and constant.  It even tries the reverse of one operand to truly determine equivalency.  In addition, the `==*` operator can be used to compare constraints for extended equivalency by comparing constraint priorities and identifiers.
 
+---
 
 ### Real Auto Layout Syntax
 
@@ -48,6 +50,7 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 |`constraint ~ "sample"`|`constant.identifier = "sample"`|
 |`constraint ~ nil`|`contraint.identifier = nil`|
 
+---
 
 ### Blindly Apply/Remove Constraints
 
@@ -63,6 +66,19 @@ Global top-level functions:
  - `func RemoveConstraints(constraints: Constraint...)`
  - `func RemoveConstraints(constraints: [Constraint])`
 
+And for good measure, a method to remove all of a view's constraints without having to use this cumbersome one-liner:
+
+```swift
+view.removeConstraints(view.constraints())
+```
+
+This can now be written as:
+
+```swift
+view.clearConstraints()
+```
+
+---
 
 ### Activation Functions
 
