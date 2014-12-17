@@ -136,4 +136,10 @@ class ConstraintSearchTests: XCTestCase {
         XCTAssertTrue(constraints == nil, "There should be no constraints returned")
     }
 
+    func testCheckingForConstraintInclusion() {
+        let unappliedConstraint = image.centerX =* slider.centerX
+        XCTAssertTrue(superview.hasConstraint(constraint1), "The specified constraint should be found")
+        XCTAssertFalse(superview.hasConstraint(unappliedConstraint), "The specified constraint should not be found")
+    }
+
 }

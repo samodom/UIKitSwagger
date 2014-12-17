@@ -9,6 +9,15 @@ Auto Layout Convenience
 > In addition, `AutoLayoutAttributedItem` represents a pair consisting of an Auto Layout item (view or view controller layout guide) and an `NSLayoutAttribute`
 
 
+### Equality
+
+Compare two constraints with respect to the items, attributes, relation, multiplier and constant.  It even tries the reverse of one operand to truly determine equivalency.  In addition, the `==*` operator can be used to compare constraints for extended equivalency by comparing constraint priorities and identifiers.
+
+### Reversal
+
+Want to reverse the items in a constraint to produce an equivalent constraint?  Note that some constraints are not reversible.
+- `func reversed() -> Constraint?`
+
 ### Constraint Search
 
 Don't clutter your view controller code trying to find a particular constraint to remove!   Finding constraints is much easier with these methods on `UIView`:
@@ -19,16 +28,10 @@ Don't clutter your view controller code trying to find a particular constraint t
  - `func constraintsForItems(AnyObject, AnyObject) -> [Constraint]?`
  - `func constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [Constraint]?`
 
+Also, you can check for an applied constraint (or equivalent) using this method:
 
-### Reversal
+ - `func hasConstraint(Constraint) -> Bool`
 
-Want to reverse the items in a constraint to produce an equivalent constraint?  Note that some constraints are not reversible.
-- `func reversed() -> Constraint?`
-
-
-### Equality
-
-Compare two constraints with respect to the items, attributes, relation, multiplier and constant.  It even tries the reverse of one operand to truly determine equivalency.  In addition, the `==*` operator can be used to compare constraints for extended equivalency by comparing constraint priorities and identifiers.
 
 ---
 
