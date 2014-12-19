@@ -166,4 +166,13 @@ class ConstraintApplicationTests: XCTestCase {
         XCTAssertFalse(contains(view.constraints() as [Constraint], child1ToController), "Each constraint should be removed")
     }
 
+    func testClearingConstraints() {
+        view.constrainWidthToHeight()
+        AlignLeading(view, child1)
+        XCTAssertGreaterThan(view.constraints().count, 0, "There should be at least one constraint on the view at this point")
+
+        view.clearConstraints()
+        XCTAssertEqual(view.constraints().count, 0, "The constraints should be completely cleared")
+    }
+
 }
