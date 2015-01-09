@@ -77,6 +77,9 @@
 		0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */; };
 		0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
 		0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
+		0AA05D701A5F5203004A6DC7 /* ButtonStateConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA05D6F1A5F5203004A6DC7 /* ButtonStateConfigurationTests.swift */; };
+		0AA05D731A5F55E2004A6DC7 /* UIButtonStateConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA05D721A5F55E2004A6DC7 /* UIButtonStateConfiguration.swift */; };
+		0AA05D741A5F55E2004A6DC7 /* UIButtonStateConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA05D721A5F55E2004A6DC7 /* UIButtonStateConfiguration.swift */; };
 		0AA580591A3D29EB0061D882 /* UIColorRGBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA580581A3D29EB0061D882 /* UIColorRGBComponents.swift */; };
 		0AA5805A1A3D29EB0061D882 /* UIColorRGBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA580581A3D29EB0061D882 /* UIColorRGBComponents.swift */; };
 		0AA5805C1A3D2B830061D882 /* UIColorHSBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805B1A3D2B830061D882 /* UIColorHSBComponents.swift */; };
@@ -191,6 +194,8 @@
 		0A9032251A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicBehaviorItemAdditionSyntaxTests.swift; sourceTree = "<group>"; };
 		0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideTests.swift; sourceTree = "<group>"; };
 		0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
+		0AA05D6F1A5F5203004A6DC7 /* ButtonStateConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonStateConfigurationTests.swift; sourceTree = "<group>"; };
+		0AA05D721A5F55E2004A6DC7 /* UIButtonStateConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonStateConfiguration.swift; sourceTree = "<group>"; };
 		0AA580581A3D29EB0061D882 /* UIColorRGBComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorRGBComponents.swift; sourceTree = "<group>"; };
 		0AA5805B1A3D2B830061D882 /* UIColorHSBComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorHSBComponents.swift; sourceTree = "<group>"; };
 		0AA5805E1A3D2B960061D882 /* UIColorGrayscaleComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorGrayscaleComponents.swift; sourceTree = "<group>"; };
@@ -291,6 +296,7 @@
 				0A8028041A3421FF00816792 /* Alert */,
 				0A3BB99E19EB71F00075B32A /* AutoLayout */,
 				0A80280A1A34264000816792 /* Bar Item */,
+				0AA05D711A5F55CD004A6DC7 /* Button */,
 				0A5BD0F81A3D0C7D00793312 /* Color */,
 				0ACADAFD1A3CF48900CF49F8 /* Common */,
 				0AC37F931A29594000E1C943 /* Concurrency */,
@@ -342,6 +348,7 @@
 				0ACADAE41A3A8AB800CF49F8 /* AlertControllerAddableTests.swift */,
 				0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */,
 				0A8028081A34257C00816792 /* BarItemEnablingTests.swift */,
+				0AA05D6F1A5F5203004A6DC7 /* ButtonStateConfigurationTests.swift */,
 				0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */,
 				0A10F28C1A3D147700715C7A /* ColorComponentTests.swift */,
 				0A63F7421A3D51F0001FBFF7 /* ColorPaletteTests.swift */,
@@ -450,6 +457,14 @@
 				0A80280B1A34265A00816792 /* UIBarItemEnabling.swift */,
 			);
 			path = "Bar Item";
+			sourceTree = "<group>";
+		};
+		0AA05D711A5F55CD004A6DC7 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				0AA05D721A5F55E2004A6DC7 /* UIButtonStateConfiguration.swift */,
+			);
+			path = Button;
 			sourceTree = "<group>";
 		};
 		0AC37F931A29594000E1C943 /* Concurrency */ = {
@@ -678,6 +693,7 @@
 				0A3F1B4E1A4112F500195B8F /* UIViewConstraintApplication.swift in Sources */,
 				0A10F28F1A3D16E600715C7A /* UIColorComponents.swift in Sources */,
 				0A5BD0FA1A3D0C9200793312 /* ColorAliases.swift in Sources */,
+				0AA05D731A5F55E2004A6DC7 /* UIButtonStateConfiguration.swift in Sources */,
 				0A63F7501A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift in Sources */,
 				0A21DC441A343018005FFC4E /* UIControlEnabling.swift in Sources */,
 				0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */,
@@ -724,6 +740,7 @@
 				0A63F74C1A3E105D001FBFF7 /* UIDynamicAnimatorAdditionSyntax.swift in Sources */,
 				0A5F12F91A285EBA00694C56 /* UIViewAspectRatio.swift in Sources */,
 				0ACADAE51A3A8AB800CF49F8 /* AlertControllerAddableTests.swift in Sources */,
+				0AA05D741A5F55E2004A6DC7 /* UIButtonStateConfiguration.swift in Sources */,
 				0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */,
 				0AF2A08B1A29003D00A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
 				0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */,
@@ -749,6 +766,7 @@
 				0A63F74E1A3E147B001FBFF7 /* DynamicBehaviorAdditionSyntaxTests.swift in Sources */,
 				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,
 				0AA5805D1A3D2B830061D882 /* UIColorHSBComponents.swift in Sources */,
+				0AA05D701A5F5203004A6DC7 /* ButtonStateConfigurationTests.swift in Sources */,
 				0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 				0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */,
 				0A5BD0FB1A3D0C9200793312 /* ColorAliases.swift in Sources */,
