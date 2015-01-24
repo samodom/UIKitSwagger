@@ -12,6 +12,7 @@ class MainThreadUpdatesTests: XCTestCase {
 
     var executedOnMainThread = false
     var mainThreadExpectation: XCTestExpectation!
+    var executionCount = 0
     var integerArgument: Int?
 
     override func setUp() {
@@ -28,6 +29,7 @@ class MainThreadUpdatesTests: XCTestCase {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
             XCTAssertFalse(NSThread.isMainThread(), "Making sure we aren't running on the main thread")
             !{
+                self.executionCount++
                 self.executedOnMainThread = NSThread.isMainThread()
                 self.mainThreadExpectation.fulfill()
             }
@@ -36,12 +38,14 @@ class MainThreadUpdatesTests: XCTestCase {
 
         waitForExpectationsWithTimeout(MinimumTestExpectationWaitTime) { (_) -> () in
             XCTAssertTrue(self.executedOnMainThread, "The provided closure should be executed on the main thread")
+            XCTAssertEqual(self.executionCount, 1, "The function should only be executed once")
         }
     }
 
     private func sampleExecutableStatement() {
         executedOnMainThread = NSThread.isMainThread()
         mainThreadExpectation.fulfill()
+        executionCount++
     }
 
     func testMainThreadExecutionFunctionSyntax() {
@@ -53,6 +57,7 @@ class MainThreadUpdatesTests: XCTestCase {
 
         waitForExpectationsWithTimeout(MinimumTestExpectationWaitTime) { (_) -> () in
             XCTAssertTrue(self.executedOnMainThread, "The provided function should be executed on the main thread")
+            XCTAssertEqual(self.executionCount, 1, "The function should only be executed once")
         }
     }
 
