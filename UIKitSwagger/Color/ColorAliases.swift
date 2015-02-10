@@ -11,74 +11,104 @@ import UIKit
 /**
   Alias for `UIColor.blackColor()`
 */
-public var black: UIColor { return UIColor.blackColor() }
+public var Black: UIColor {
+    return UIColor.blackColor()
+}
 
 /**
   Alias for `UIColor.whiteColor()`
 */
-public var white: UIColor { return UIColor.whiteColor() }
+public var White: UIColor {
+    return UIColor.whiteColor()
+}
 
 /**
   Alias for `UIColor.whiteColor()`
 */
-public var gray: UIColor { return UIColor.grayColor() }
+public var Gray: UIColor {
+    return UIColor.grayColor()
+}
 
 /**
   Alias for `UIColor.lightGrayColor()`
 */
-public var lightGray: UIColor { return UIColor.lightGrayColor() }
+public var LightGray: UIColor {
+    return UIColor.lightGrayColor()
+}
 
 /**
   Alias for `UIColor.darkGrayColor()`
 */
-public var darkGray: UIColor { return UIColor.darkGrayColor() }
+public var DarkGray: UIColor {
+    return UIColor.darkGrayColor()
+}
 
 /**
   Alias for `UIColor.redColor()`
 */
-public var red: UIColor { return UIColor.redColor() }
+public var Red: UIColor {
+    return UIColor.redColor()
+}
 
 /**
   Alias for `UIColor.greenColor()`
 */
-public var green: UIColor { return UIColor.greenColor() }
+public var Green: UIColor {
+    return UIColor.greenColor()
+}
 
 /**
   Alias for `UIColor.blueColor()`
 */
-public var blue: UIColor { return UIColor.blueColor() }
+public var Blue: UIColor {
+    return UIColor.blueColor()
+}
 
 /**
   Alias for `UIColor.cyanColor()`
 */
-public var cyan: UIColor { return UIColor.cyanColor() }
+public var Cyan: UIColor {
+    return UIColor.cyanColor()
+}
 
 /**
   Alias for `UIColor.megentaColor()`
 */
-public var magenta: UIColor { return UIColor.magentaColor() }
+public var Magenta: UIColor {
+    return UIColor.magentaColor()
+}
 
 /**
   Alias for `UIColor.yellowColor()`
 */
-public var yellow: UIColor { return UIColor.yellowColor() }
+public var Yellow: UIColor {
+    return UIColor.yellowColor()
+}
 
 /**
   Alias for `UIColor.orangeColor()`
 */
-public var orange: UIColor { return UIColor.orangeColor() }
+public var Orange: UIColor {
+    return UIColor.orangeColor()
+}
 
 /**
   Alias for `UIColor.purpleColor()`
 */
-public var purple: UIColor { return UIColor.purpleColor() }
+public var Purple: UIColor {
+    return UIColor.purpleColor()
+}
 
 /**
   Alias for `UIColor.brownColor()`
 */
-public var brown: UIColor { return UIColor.brownColor() }
+public var Brown: UIColor {
+    return UIColor.brownColor()
+}
 
 /**
   Alias for `UIColor.clearColor()`
 */
-public var clear: UIColor { return UIColor.clearColor() }
+public var Clear: UIColor {
+    return UIColor.clearColor()
+}

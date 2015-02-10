@@ -63,18 +63,18 @@ Want individual component values?  Here they are as properties!
 
 Use these aliases for all of the `*Color()` factory methods on `UIColor`:
 
- - `var black` returns `UIColor.blackColor()`
- - `var white` returns `UIColor.whiteColor()`
- - `var gray` returns `UIColor.grayColor()`
- - `var lightGray` returns `UIColor.lightGrayColor()`
- - `var darkGray` returns `UIColor.darkGrayColor()`
- - `var red` returns `UIColor.redColor()`
- - `var green` returns `UIColor.greenColor()`
- - `var blue` returns `UIColor.blueColor()`
- - `var cyan` returns `UIColor.cyanColor()`
- - `var magenta` returns `UIColor.magentaColor()`
- - `var yellow` returns `UIColor.yellowColor()`
- - `var orange` returns `UIColor.orangeColor()`
- - `var purple` returns `UIColor.purpleColor()`
- - `var brown` returns `UIColor.brownColor()`
- - `var clear` returns `UIColor.clearColor()`
+ - `var Black` returns `UIColor.blackColor()`
+ - `var White` returns `UIColor.whiteColor()`
+ - `var Gray` returns `UIColor.grayColor()`
+ - `var LightGray` returns `UIColor.lightGrayColor()`
+ - `var DarkGray` returns `UIColor.darkGrayColor()`
+ - `var Red` returns `UIColor.redColor()`
+ - `var Green` returns `UIColor.greenColor()`
+ - `var Blue` returns `UIColor.blueColor()`
+ - `var Cyan` returns `UIColor.cyanColor()`
+ - `var Magenta` returns `UIColor.magentaColor()`
+ - `var Yellow` returns `UIColor.yellowColor()`
+ - `var Orange` returns `UIColor.orangeColor()`
+ - `var Purple` returns `UIColor.purpleColor()`
+ - `var Brown` returns `UIColor.brownColor()`
+ - `var Clear` returns `UIColor.clearColor()`

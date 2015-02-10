@@ -20,63 +20,63 @@ class ColorAliasTests: XCTestCase {
     }
 
     func testBlackColorAlias() {
-        XCTAssertEqual(black, UIColor.blackColor(), "The alias `black` should produce the black color")
+        XCTAssertEqual(Black, UIColor.blackColor(), "The alias `Black` should produce the black color")
     }
 
     func testWhiteColorAlias() {
-        XCTAssertEqual(white, UIColor.whiteColor(), "The alias `white` should produce the white color")
+        XCTAssertEqual(White, UIColor.whiteColor(), "The alias `White` should produce the white color")
     }
 
     func testGrayColorAlias() {
-        XCTAssertEqual(gray, UIColor.grayColor(), "The alias `gray` should produce the gray color")
+        XCTAssertEqual(Gray, UIColor.grayColor(), "The alias `Gray` should produce the gray color")
     }
 
     func testLightGrayColorAlias() {
-        XCTAssertEqual(lightGray, UIColor.lightGrayColor(), "The alias `lightGray` should produce the light gray color")
+        XCTAssertEqual(LightGray, UIColor.lightGrayColor(), "The alias `LightGray` should produce the light gray color")
     }
 
     func testDarkGrayColorAlias() {
-        XCTAssertEqual(darkGray, UIColor.darkGrayColor(), "The alias `darkGray` should produce the dark gray color")
+        XCTAssertEqual(DarkGray, UIColor.darkGrayColor(), "The alias `DarkGray` should produce the dark gray color")
     }
 
     func testRedColorAlias() {
-        XCTAssertEqual(red, UIColor.redColor(), "The alias `red` should produce the red color")
+        XCTAssertEqual(Red, UIColor.redColor(), "The alias `Red` should produce the red color")
     }
 
     func testGreenColorAlias() {
-        XCTAssertEqual(green, UIColor.greenColor(), "The alias `green` should produce the green color")
+        XCTAssertEqual(Green, UIColor.greenColor(), "The alias `Green` should produce the green color")
     }
 
     func testBlueColorAlias() {
-        XCTAssertEqual(blue, UIColor.blueColor(), "The alias `blue` should produce the blue color")
+        XCTAssertEqual(Blue, UIColor.blueColor(), "The alias `Blue` should produce the blue color")
     }
 
     func testCyanColorAlias() {
-        XCTAssertEqual(cyan, UIColor.cyanColor(), "The alias `cyan` should produce the cyan color")
+        XCTAssertEqual(Cyan, UIColor.cyanColor(), "The alias `Cyan` should produce the cyan color")
     }
 
     func testMagentaColorAlias() {
-        XCTAssertEqual(magenta, UIColor.magentaColor(), "The alias `magenta` should produce the magenta color")
+        XCTAssertEqual(Magenta, UIColor.magentaColor(), "The alias `Magenta` should produce the magenta color")
     }
 
     func testYellowColorAlias() {
-        XCTAssertEqual(yellow, UIColor.yellowColor(), "The alias `yellow` should produce the yellow color")
+        XCTAssertEqual(Yellow, UIColor.yellowColor(), "The alias `Yellow` should produce the yellow color")
     }
 
     func testOrangeColorAlias() {
-        XCTAssertEqual(orange, UIColor.orangeColor(), "The alias `orange` should produce the orange color")
+        XCTAssertEqual(Orange, UIColor.orangeColor(), "The alias `Orange` should produce the orange color")
     }
 
     func testPurpleColorAlias() {
-        XCTAssertEqual(purple, UIColor.purpleColor(), "The alias `purple` should produce the purple color")
+        XCTAssertEqual(Purple, UIColor.purpleColor(), "The alias `Purple` should produce the purple color")
     }
 
     func testBrownColorAlias() {
-        XCTAssertEqual(brown, UIColor.brownColor(), "The alias `brown` should produce the brown color")
+        XCTAssertEqual(Brown, UIColor.brownColor(), "The alias `Brown` should produce the brown color")
     }
 
     func testClearColorAlias() {
-        XCTAssertEqual(clear, UIColor.clearColor(), "The alias `clear` should produce the clear color")
+        XCTAssertEqual(Clear, UIColor.clearColor(), "The alias `Clear` should produce the clear color")
     }
 
 }
