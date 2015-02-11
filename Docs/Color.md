@@ -61,20 +61,20 @@ Want individual component values?  Here they are as properties!
 
 ### Aliases
 
-Use these aliases for all of the `*Color()` factory methods on `UIColor`:
+Use these constant aliases for all of the preset component value methods on `UIColor`:
 
- - `var black` returns `UIColor.blackColor()`
- - `var white` returns `UIColor.whiteColor()`
- - `var gray` returns `UIColor.grayColor()`
- - `var lightGray` returns `UIColor.lightGrayColor()`
- - `var darkGray` returns `UIColor.darkGrayColor()`
- - `var red` returns `UIColor.redColor()`
- - `var green` returns `UIColor.greenColor()`
- - `var blue` returns `UIColor.blueColor()`
- - `var cyan` returns `UIColor.cyanColor()`
- - `var magenta` returns `UIColor.magentaColor()`
- - `var yellow` returns `UIColor.yellowColor()`
- - `var orange` returns `UIColor.orangeColor()`
- - `var purple` returns `UIColor.purpleColor()`
- - `var brown` returns `UIColor.brownColor()`
- - `var clear` returns `UIColor.clearColor()`
+ - `let Black` returns `UIColor.blackColor()`
+ - `let White` returns `UIColor.whiteColor()`
+ - `let Gray` returns `UIColor.grayColor()`
+ - `let LightGray` returns `UIColor.lightGrayColor()`
+ - `let DarkGray` returns `UIColor.darkGrayColor()`
+ - `let Red` returns `UIColor.redColor()`
+ - `let Green` returns `UIColor.greenColor()`
+ - `let Blue` returns `UIColor.blueColor()`
+ - `let Cyan` returns `UIColor.cyanColor()`
+ - `let Magenta` returns `UIColor.magentaColor()`
+ - `let Yellow` returns `UIColor.yellowColor()`
+ - `let Orange` returns `UIColor.orangeColor()`
+ - `let Purple` returns `UIColor.purpleColor()`
+ - `let Brown` returns `UIColor.brownColor()`
+ - `let Clear` returns `UIColor.clearColor()`

@@ -19,7 +19,6 @@ public extension UIView {
     */
     public func constrainWidthToHeight(_ aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> Constraint {
         assert(aspectRatio != 0)
-
         return constrainHeightToWidth(1 / aspectRatio, offset: -offset / aspectRatio)
     }
 
@@ -32,7 +31,6 @@ public extension UIView {
     */
     public func constrainHeightToWidth(_ aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> Constraint {
         assert(aspectRatio != 0)
-
         let constraint = self.height =* aspectRatio * self.width + offset
         constraint.apply()
         return constraint

@@ -59,12 +59,7 @@ public extension ColorPalette {
         }
 
         set {
-            if newValue != nil {
-                addColor(newValue!, named: name)
-            }
-            else {
-                removeColorNamed(name)
-            }
+            newValue == nil ? removeColorNamed(name) : addColor(newValue!, named: name)
         }
     }
 

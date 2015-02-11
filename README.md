@@ -3,16 +3,17 @@ UIKitSwagger
 
 A bit of a DSL for UIKit
 
- - [Working with Views](Views.md)
- - [Auto Layout Convenience](AutoLayout.md)
- - [Concurrency](Concurrency.md)
- - [Working with Alert Controllers](Alerts.md)
- - [Switch Toggling Convenience](Switch.md)
- - [Working with Sliders](Slider.md)
- - [Working with Steppers](Stepper.md)
- - [Color Convenience](Color.md) and a [ColorPalette](ColorPalette.md) class
- - [UIKit Dynamics](Dynamics.md)
- - [Enabling/Disabling Bar Items](BarItem.md)
- - [Enabling/Disabling Controls](Control.md)
- - [Enabling/Disabling Gesture Recognizers](GestureRecognizer.md)
- - [Enabling/Disabling Labels](Label.md)
+ - [Working with Views](Docs/Views.md)
+ - [Auto Layout Convenience](Docs/AutoLayout.md)
+ - [Concurrency](Docs/Concurrency.md)
+ - [Working with Alert Controllers](Docs/Alerts.md)
+ - [Switch Toggling Convenience](Docs/Switch.md)
+ - [Working with Sliders](Docs/Slider.md)
+ - [Working with Steppers](Docs/Stepper.md)
+ - [Color Convenience](Docs/Color.md) and a [ColorPalette](Docs/ColorPalette.md) class
+ - [UIKit Dynamics](Docs/Dynamics.md)
+ - [Enabling/Disabling Bar Items](Docs/BarItem.md)
+ - [Enabling/Disabling Controls](Docs/Control.md)
+ - [Enabling/Disabling Gesture Recognizers](Docs/GestureRecognizer.md)
+ - [Enabling/Disabling Labels](Docs/Label.md)
+ - [Managing An Activity Indicator View](Docs/SpinnerStateManager.md)
