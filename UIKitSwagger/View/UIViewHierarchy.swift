@@ -18,7 +18,7 @@ extension UIView {
         */
         get {
             switch index {
-            case 0..<Int.max:
+            case 0 ..< Int.max:
                 if index >= subviews.count {
                     return nil
                 }
@@ -30,12 +30,7 @@ extension UIView {
                 return superview
 
             default:
-                if superview != nil {
-                    return superview![index.successor()]
-                }
-                else {
-                    return nil
-                }
+                return superview?[index.successor()]
             }
         }
 
@@ -47,8 +42,9 @@ extension UIView {
         */
         set(newSuperview) {
             if index >= 0 {
-                let oldView = subviews[index] as UIView
+                let oldView = subviews[index] as! UIView
                 oldView.removeFromSuperview()
+
                 if newSuperview != nil {
                     insertSubview(newSuperview!, atIndex: index)
                 }
@@ -68,7 +64,6 @@ extension UIView {
       @return       First common ancestor of the current and provided views, if they share one.
     */
     public func firstCommonAncestor(view: UIView) -> UIView? {
-
         if isDescendantOfView(view) {
             return view
         }
@@ -77,11 +72,7 @@ extension UIView {
             return self
         }
 
-        if let parent = superview {
-            return parent.firstCommonAncestor(view)
-        }
-
-        return nil
+        return superview?.firstCommonAncestor(view)
     }
 
 }
