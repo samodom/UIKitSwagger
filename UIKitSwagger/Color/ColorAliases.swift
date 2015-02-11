@@ -9,106 +9,90 @@
 import UIKit
 
 /**
-  Alias for `UIColor.blackColor()`
+  Constant alias for `UIColor.blackColor()`
 */
-public var Black: UIColor {
-    return UIColor.blackColor()
-}
+public let Black = UIColor.blackColor()
 
 /**
-  Alias for `UIColor.whiteColor()`
+  Constant alias for `UIColor.whiteColor()`
 */
-public var White: UIColor {
-    return UIColor.whiteColor()
-}
+public let White = UIColor.whiteColor()
+
 
 /**
-  Alias for `UIColor.whiteColor()`
+  Constant alias for `UIColor.whiteColor()`
 */
-public var Gray: UIColor {
-    return UIColor.grayColor()
-}
+public let Gray = UIColor.grayColor()
+
 
 /**
-  Alias for `UIColor.lightGrayColor()`
+  Constant alias for `UIColor.lightGrayColor()`
 */
-public var LightGray: UIColor {
-    return UIColor.lightGrayColor()
-}
+public let LightGray = UIColor.lightGrayColor()
+
 
 /**
-  Alias for `UIColor.darkGrayColor()`
+  Constant alias for `UIColor.darkGrayColor()`
 */
-public var DarkGray: UIColor {
-    return UIColor.darkGrayColor()
-}
+public let DarkGray = UIColor.darkGrayColor()
+
 
 /**
-  Alias for `UIColor.redColor()`
+  Constant alias for `UIColor.redColor()`
 */
-public var Red: UIColor {
-    return UIColor.redColor()
-}
+public let Red = UIColor.redColor()
+
 
 /**
-  Alias for `UIColor.greenColor()`
+  Constant alias for `UIColor.greenColor()`
 */
-public var Green: UIColor {
-    return UIColor.greenColor()
-}
+public let Green = UIColor.greenColor()
+
 
 /**
-  Alias for `UIColor.blueColor()`
+  Constant alias for `UIColor.blueColor()`
 */
-public var Blue: UIColor {
-    return UIColor.blueColor()
-}
+public let Blue = UIColor.blueColor()
+
 
 /**
-  Alias for `UIColor.cyanColor()`
+  Constant alias for `UIColor.cyanColor()`
 */
-public var Cyan: UIColor {
-    return UIColor.cyanColor()
-}
+public let Cyan = UIColor.cyanColor()
+
 
 /**
-  Alias for `UIColor.megentaColor()`
+  Constant alias for `UIColor.megentaColor()`
 */
-public var Magenta: UIColor {
-    return UIColor.magentaColor()
-}
+public let Magenta = UIColor.magentaColor()
+
 
 /**
-  Alias for `UIColor.yellowColor()`
+  Constant alias for `UIColor.yellowColor()`
 */
-public var Yellow: UIColor {
-    return UIColor.yellowColor()
-}
+public let Yellow = UIColor.yellowColor()
+
 
 /**
-  Alias for `UIColor.orangeColor()`
+  Constant alias for `UIColor.orangeColor()`
 */
-public var Orange: UIColor {
-    return UIColor.orangeColor()
-}
+public let Orange = UIColor.orangeColor()
+
 
 /**
-  Alias for `UIColor.purpleColor()`
+  Constant alias for `UIColor.purpleColor()`
 */
-public var Purple: UIColor {
-    return UIColor.purpleColor()
-}
+public let Purple = UIColor.purpleColor()
+
 
 /**
-  Alias for `UIColor.brownColor()`
+  Constant alias for `UIColor.brownColor()`
 */
-public var Brown: UIColor {
-    return UIColor.brownColor()
-}
+public let Brown = UIColor.brownColor()
+
 
 /**
-  Alias for `UIColor.clearColor()`
+  Constant alias for `UIColor.clearColor()`
 */
-public var Clear: UIColor {
-    return UIColor.clearColor()
-}
+public let Clear = UIColor.clearColor()
+
