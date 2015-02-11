@@ -40,12 +40,12 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
 
     func testAddingDynamicItemToItemBehavior() {
         itemBehavior += dynamicItem1
-        XCTAssertEqual(itemBehavior.items as [UIView], [dynamicItem1], "The item should be added to the item behavior")
+        XCTAssertEqual(itemBehavior.items as! [UIView], [dynamicItem1], "The item should be added to the item behavior")
     }
 
     func testAddingDynamicItemArrayToItemBehavior() {
         itemBehavior += [dynamicItem1, dynamicItem2, dynamicItem3]
-        XCTAssertEqual(itemBehavior.items as [UIView], [dynamicItem1, dynamicItem2, dynamicItem3], "The items should be added to the item behavior in the order provided")
+        XCTAssertEqual(itemBehavior.items as! [UIView], [dynamicItem1, dynamicItem2, dynamicItem3], "The items should be added to the item behavior in the order provided")
     }
 
     func testRemovingDynamicItemFromItemBehavior() {
@@ -53,7 +53,7 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
         itemBehavior.addItem(dynamicItem2)
         itemBehavior.addItem(dynamicItem3)
         itemBehavior -= dynamicItem2
-        XCTAssertEqual(itemBehavior.items as [UIView], [dynamicItem1, dynamicItem3], "The item should be removed from the item behavior")
+        XCTAssertEqual(itemBehavior.items as! [UIView], [dynamicItem1, dynamicItem3], "The item should be removed from the item behavior")
     }
 
     func testRemovingDynamicItemArrayFromItemBehavior() {
@@ -61,19 +61,19 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
         itemBehavior.addItem(dynamicItem2)
         itemBehavior.addItem(dynamicItem3)
         itemBehavior -= [dynamicItem1, dynamicItem3]
-        XCTAssertEqual(itemBehavior.items as [UIView], [dynamicItem2], "The items should be removed from the item behavior")
+        XCTAssertEqual(itemBehavior.items as! [UIView], [dynamicItem2], "The items should be removed from the item behavior")
     }
 
     //  MARK:  UIGravityBehavior
 
     func testAddingDynamicItemToGravityBehavior() {
         gravityBehavior += dynamicItem1
-        XCTAssertEqual(gravityBehavior.items as [UIView], [dynamicItem1], "The item should be added to the gravity behavior")
+        XCTAssertEqual(gravityBehavior.items as! [UIView], [dynamicItem1], "The item should be added to the gravity behavior")
     }
 
     func testAddingDynamicItemArrayToGravityBehavior() {
         gravityBehavior += [dynamicItem1, dynamicItem2, dynamicItem3]
-        XCTAssertEqual(gravityBehavior.items as [UIView], [dynamicItem1, dynamicItem2, dynamicItem3], "The items should be added to the gravity behavior in the order provided")
+        XCTAssertEqual(gravityBehavior.items as! [UIView], [dynamicItem1, dynamicItem2, dynamicItem3], "The items should be added to the gravity behavior in the order provided")
     }
 
     func testRemovingDynamicItemFromGravityBehavior() {
@@ -81,7 +81,7 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
         gravityBehavior.addItem(dynamicItem2)
         gravityBehavior.addItem(dynamicItem3)
         gravityBehavior -= dynamicItem2
-        XCTAssertEqual(gravityBehavior.items as [UIView], [dynamicItem1, dynamicItem3], "The item should be removed from the gravity behavior")
+        XCTAssertEqual(gravityBehavior.items as! [UIView], [dynamicItem1, dynamicItem3], "The item should be removed from the gravity behavior")
     }
 
     func testRemovingDynamicItemArrayFromGravityBehavior() {
@@ -89,19 +89,19 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
         gravityBehavior.addItem(dynamicItem2)
         gravityBehavior.addItem(dynamicItem3)
         gravityBehavior -= [dynamicItem1, dynamicItem3]
-        XCTAssertEqual(gravityBehavior.items as [UIView], [dynamicItem2], "The items should be removed from the gravity behavior")
+        XCTAssertEqual(gravityBehavior.items as! [UIView], [dynamicItem2], "The items should be removed from the gravity behavior")
     }
 
     //  MARK: UICollisionBehavior
 
     func testAddingDynamicItemToCollisionBehavior() {
         collisionBehavior += dynamicItem1
-        XCTAssertEqual(collisionBehavior.items as [UIView], [dynamicItem1], "The item should be added to the collision behavior")
+        XCTAssertEqual(collisionBehavior.items as! [UIView], [dynamicItem1], "The item should be added to the collision behavior")
     }
 
     func testAddingDynamicItemArrayToCollisionBehavior() {
         collisionBehavior += [dynamicItem1, dynamicItem2, dynamicItem3]
-        XCTAssertEqual(collisionBehavior.items as [UIView], [dynamicItem1, dynamicItem2, dynamicItem3], "The items should be added to the collision behavior in the order provided")
+        XCTAssertEqual(collisionBehavior.items as! [UIView], [dynamicItem1, dynamicItem2, dynamicItem3], "The items should be added to the collision behavior in the order provided")
     }
 
     func testRemovingDynamicItemFromCollisionBehavior() {
@@ -109,7 +109,7 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
         collisionBehavior.addItem(dynamicItem2)
         collisionBehavior.addItem(dynamicItem3)
         collisionBehavior -= dynamicItem2
-        XCTAssertEqual(collisionBehavior.items as [UIView], [dynamicItem1, dynamicItem3], "The item should be removed from the collision behavior")
+        XCTAssertEqual(collisionBehavior.items as! [UIView], [dynamicItem1, dynamicItem3], "The item should be removed from the collision behavior")
     }
 
     func testRemovingDynamicItemArrayFromCollisionBehavior() {
@@ -117,19 +117,19 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
         collisionBehavior.addItem(dynamicItem2)
         collisionBehavior.addItem(dynamicItem3)
         collisionBehavior -= [dynamicItem1, dynamicItem3]
-        XCTAssertEqual(collisionBehavior.items as [UIView], [dynamicItem2], "The items should be removed from the collision behavior")
+        XCTAssertEqual(collisionBehavior.items as! [UIView], [dynamicItem2], "The items should be removed from the collision behavior")
     }
 
     //  MARK: UIPushBehavior
 
     func testAddingDynamicItemToPushBehavior() {
         pushBehavior += dynamicItem1
-        XCTAssertEqual(pushBehavior.items as [UIView], [dynamicItem1], "The item should be added to the push behavior")
+        XCTAssertEqual(pushBehavior.items as! [UIView], [dynamicItem1], "The item should be added to the push behavior")
     }
 
     func testAddingDynamicItemArrayToPushBehavior() {
         pushBehavior += [dynamicItem1, dynamicItem2, dynamicItem3]
-        XCTAssertEqual(pushBehavior.items as [UIView], [dynamicItem1, dynamicItem2, dynamicItem3], "The items should be added to the push behavior in the order provided")
+        XCTAssertEqual(pushBehavior.items as! [UIView], [dynamicItem1, dynamicItem2, dynamicItem3], "The items should be added to the push behavior in the order provided")
     }
 
     func testRemovingDynamicItemFromPushBehavior() {
@@ -137,7 +137,7 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
         pushBehavior.addItem(dynamicItem2)
         pushBehavior.addItem(dynamicItem3)
         pushBehavior -= dynamicItem2
-        XCTAssertEqual(pushBehavior.items as [UIView], [dynamicItem1, dynamicItem3], "The item should be removed from the push behavior")
+        XCTAssertEqual(pushBehavior.items as! [UIView], [dynamicItem1, dynamicItem3], "The item should be removed from the push behavior")
     }
 
     func testRemovingDynamicItemArrayFromPushBehavior() {
@@ -145,7 +145,7 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
         pushBehavior.addItem(dynamicItem2)
         pushBehavior.addItem(dynamicItem3)
         pushBehavior -= [dynamicItem1, dynamicItem3]
-        XCTAssertEqual(pushBehavior.items as [UIView], [dynamicItem2], "The items should be removed from the push behavior")
+        XCTAssertEqual(pushBehavior.items as! [UIView], [dynamicItem2], "The items should be removed from the push behavior")
     }
 
 }

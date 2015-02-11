@@ -60,7 +60,7 @@ class ViewHierarchyExtensionsTests: XCTestCase {
         rootView.addSubview(subview1)
         rootView[0] = subview2
         XCTAssertEqual(rootView.subviews.count, 2, "There should still be two subviews")
-        XCTAssertEqual(rootView.subviews[0] as UIView, subview2, "The subview at index 0 should have been replaced with subview2")
+        XCTAssertEqual(rootView.subviews[0] as! UIView, subview2, "The subview at index 0 should have been replaced with subview2")
         XCTAssertEqual(subview2.superview!, rootView, "The newly added subview should have the rootView as its superview")
         XCTAssertNil(subview0.superview, "The subview that was removed should no longer have a superview")
     }
