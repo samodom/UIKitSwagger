@@ -12,6 +12,9 @@ import XCTest
 class ColorPaletteTests: XCTestCase {
 
     var palette = ColorPalette()
+    let red = UIColor.redColor()
+    let blue = UIColor.blueColor()
+    let green = UIColor.greenColor()
 
     override func setUp() {
         super.setUp()
