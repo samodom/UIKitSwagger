@@ -10,33 +10,17 @@ import UIKit
 
 internal extension Constraint {
     internal func hasItem(item: AnyObject) -> Bool {
-        if firstItem.isEqual(item) {
-            return true
-        }
-        else if secondItem == nil {
-            return false
-        }
-        else if secondItem!.isEqual(item) {
-            return true
-        }
-
-        return false
+        return firstItem.isEqual(item) || (secondItem != nil && secondItem!.isEqual(item))
     }
 
     internal func hasItems(itemOne: AnyObject, _ itemTwo: AnyObject) -> Bool {
         assert(itemOne !== itemTwo, "The items must be different")
-        if secondItem == nil {
-            return false
-        }
+        return secondItem != nil && itemsMatch(itemOne, itemTwo)
+    }
 
-        if firstItem.isEqual(itemOne) && secondItem!.isEqual(itemTwo) {
-            return true
-        }
-        else if firstItem.isEqual(itemTwo) && secondItem!.isEqual(itemOne) {
-            return true
-        }
-
-        return false
+    private func itemsMatch(itemOne: AnyObject, _ itemTwo: AnyObject) -> Bool {
+        return firstItem.isEqual(itemOne) && secondItem!.isEqual(itemTwo) ||
+            firstItem.isEqual(itemTwo) && secondItem!.isEqual(itemOne)
     }
 
     internal func hasAttribute(attribute: NSLayoutAttribute) -> Bool {
@@ -44,17 +28,16 @@ internal extension Constraint {
     }
 
     internal func hasAttributedItem(attributedItem: AutoLayoutAttributedItem) -> Bool {
-        if firstAttribute == attributedItem.attribute && firstItem.isEqual(attributedItem.item) {
-            return true
-        }
-        else if secondItem == nil {
+        switch attributedItem.attribute {
+        case firstAttribute:
+            return firstItem.isEqual(attributedItem.item)
+
+        case secondAttribute:
+            return secondItem != nil && secondItem!.isEqual(attributedItem.item)
+
+        default:
             return false
         }
-        else if secondAttribute == attributedItem.attribute && secondItem!.isEqual(attributedItem.item) {
-            return true
-        }
-
-        return false
     }
 
     internal func hasAttributedItems(itemOne: AutoLayoutAttributedItem, _ itemTwo: AutoLayoutAttributedItem) -> Bool {

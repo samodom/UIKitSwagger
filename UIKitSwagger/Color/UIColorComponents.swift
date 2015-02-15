@@ -24,17 +24,14 @@ public extension UIColor {
     public convenience init(components: UIColorComponents) {
 
         switch components {
-        case is UIColorRGBComponents:
-            let rgbComponents = components as UIColorRGBComponents
-            self.init(red: rgbComponents.red, green: rgbComponents.green, blue: rgbComponents.blue, alpha: rgbComponents.alpha)
+        case let rgb as UIColorRGBComponents:
+            self.init(red: rgb.red, green: rgb.green, blue: rgb.blue, alpha: rgb.alpha)
 
-        case is UIColorHSBComponents:
-            let hsbComponents = components as UIColorHSBComponents
-            self.init(hue: hsbComponents.hue, saturation: hsbComponents.saturation, brightness: hsbComponents.brightness, alpha: hsbComponents.alpha)
+        case let hsb as UIColorHSBComponents:
+            self.init(hue: hsb.hue, saturation: hsb.saturation, brightness: hsb.brightness, alpha: hsb.alpha)
 
-        case is UIColorGrayscaleComponents:
-            let grayscaleComponents = components as UIColorGrayscaleComponents
-            self.init(white: grayscaleComponents.white, alpha: grayscaleComponents.alpha)
+        case let grayscale as UIColorGrayscaleComponents:
+            self.init(white: grayscale.white, alpha: grayscale.alpha)
 
         default:
             self.init(red: 0, green: 0, blue: 0, alpha: 0)

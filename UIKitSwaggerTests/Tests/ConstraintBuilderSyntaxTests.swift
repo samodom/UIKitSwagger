@@ -34,7 +34,7 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
 
     func testViewAttributedItem() {
         let attributedItem: AutoLayoutAttributedItem = (rootView, .Leading)
-        XCTAssertEqual(attributedItem.item as UIView, rootView, "The item's attributable item should be the view")
+        XCTAssertEqual(attributedItem.item as! UIView, rootView, "The item's attributable item should be the view")
         XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Leading, "The provided attribute should be the attribute")
     }
 
@@ -49,21 +49,21 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     func testAttributedItemIntMultiplierSyntax() {
         multiple = 14 * rootView.width
         XCTAssertEqual(multiple.0, CGFloat(14), "The multiple should use the provided multiplier")
-        XCTAssertEqual(multiple.1.item as UIView, rootView, "The multiple should use the provided attributed item")
+        XCTAssertEqual(multiple.1.item as! UIView, rootView, "The multiple should use the provided attributed item")
         XCTAssertEqual(multiple.1.attribute, NSLayoutAttribute.Width, "The multiple should use the provided attributed item")
     }
 
     func testAttributedItemCGFloatMultiplierSyntax() {
         multiple = 14.42 * rootView.width
         XCTAssertEqual(multiple.0, CGFloat(14.42), "The multiple should use the provided multiplier")
-        XCTAssertEqual(multiple.1.item as UIView, rootView, "The multiple should use the provided attributed item")
+        XCTAssertEqual(multiple.1.item as! UIView, rootView, "The multiple should use the provided attributed item")
         XCTAssertEqual(multiple.1.attribute, NSLayoutAttribute.Width, "The multiple should use the provided attributed item")
     }
 
     func testAttributedItemIntConstantSyntax() {
         offset = rootView.width + 14
         XCTAssertEqual(offset.0.0, CGFloat(1), "A singular multiple should be used in the offset")
-        XCTAssertEqual(offset.0.1.item as UIView, rootView, "The offset should use the provided attributed item")
+        XCTAssertEqual(offset.0.1.item as! UIView, rootView, "The offset should use the provided attributed item")
         XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attributed item")
         XCTAssertEqual(offset.1, CGFloat(14), "The offset should use the provided constant")
     }
@@ -71,7 +71,7 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     func testAttributedItemCGFloatConstantSyntax() {
         offset = rootView.width + 14.42
         XCTAssertEqual(offset.0.0, CGFloat(1), "A singular multiple should be used in the offset")
-        XCTAssertEqual(offset.0.1.item as UIView, rootView, "The offset should use the provided attributed item")
+        XCTAssertEqual(offset.0.1.item as! UIView, rootView, "The offset should use the provided attributed item")
         XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attributed item")
         XCTAssertEqual(offset.1, CGFloat(14.42), "The offset should use the provided constant")
     }
@@ -79,7 +79,7 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     func testAttributedItemNegativeIntConstantSyntax() {
         offset = rootView.width - 14
         XCTAssertEqual(offset.0.0, CGFloat(1), "A singular multiple should be used in the offset")
-        XCTAssertEqual(offset.0.1.item as UIView, rootView, "The offset should use the provided attributed item")
+        XCTAssertEqual(offset.0.1.item as! UIView, rootView, "The offset should use the provided attributed item")
         XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attributed item")
         XCTAssertEqual(offset.1, CGFloat(-14), "The offset should use the provided constant")
     }
@@ -87,7 +87,7 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     func testAttributedItemNegativeCGFloatConstantSyntax() {
         offset = rootView.width - 14.42
         XCTAssertEqual(offset.0.0, CGFloat(1), "A singular multiple should be used in the offset")
-        XCTAssertEqual(offset.0.1.item as UIView, rootView, "The offset should use the provided attributed item")
+        XCTAssertEqual(offset.0.1.item as! UIView, rootView, "The offset should use the provided attributed item")
         XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attributed item")
         XCTAssertEqual(offset.1, CGFloat(-14.42), "The offset should use the provided constant")
     }
@@ -96,7 +96,7 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         multiple = 2 * rootView.width
         offset = multiple + 14
         XCTAssertEqual(offset.0.0, CGFloat(2), "The offset should use the provided multiple")
-        XCTAssertEqual(offset.0.1.item as UIView, rootView, "The offset should use the provided multiple")
+        XCTAssertEqual(offset.0.1.item as! UIView, rootView, "The offset should use the provided multiple")
         XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided multiple")
         XCTAssertEqual(offset.1, CGFloat(14), "The offset should use the provided constant")
     }
@@ -105,7 +105,7 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         multiple = 2 * rootView.width
         offset = multiple + 14.42
         XCTAssertEqual(offset.0.0, CGFloat(2), "The offset should use the provided multiple")
-        XCTAssertEqual(offset.0.1.item as UIView, rootView, "The offset should use the provided multiple")
+        XCTAssertEqual(offset.0.1.item as! UIView, rootView, "The offset should use the provided multiple")
         XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided multiple")
         XCTAssertEqual(offset.1, CGFloat(14.42), "The offset should use the provided constant")
     }
@@ -114,7 +114,7 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         multiple = 2 * rootView.width
         offset = multiple - 14
         XCTAssertEqual(offset.0.0, CGFloat(2), "The offset should use the provided multiple")
-        XCTAssertEqual(offset.0.1.item as UIView, rootView, "The offset should use the provided multiple")
+        XCTAssertEqual(offset.0.1.item as! UIView, rootView, "The offset should use the provided multiple")
         XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided multiple")
         XCTAssertEqual(offset.1, CGFloat(-14), "The offset should use the provided constant")
     }
@@ -123,7 +123,7 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         multiple = 2 * rootView.width
         offset = multiple - 14.42
         XCTAssertEqual(offset.0.0, CGFloat(2), "The offset should use the provided multiple")
-        XCTAssertEqual(offset.0.1.item as UIView, rootView, "The offset should use the provided multiple")
+        XCTAssertEqual(offset.0.1.item as! UIView, rootView, "The offset should use the provided multiple")
         XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided multiple")
         XCTAssertEqual(offset.1, CGFloat(-14.42), "The offset should use the provided constant")
     }

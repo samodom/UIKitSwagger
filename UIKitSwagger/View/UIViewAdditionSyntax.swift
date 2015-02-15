@@ -23,17 +23,17 @@ public typealias UIViewRemovable = UIViewAddable
 */
 public func +=(view: UIView, addable: UIViewAddable) {
     switch addable {
-    case is UIView:
-        view.addSubview(addable as UIView)
+    case let subview as UIView:
+        view.addSubview(subview)
 
-    case is Constraint:
-        view.addConstraint(addable as Constraint)
+    case let constraint as Constraint:
+        view.addConstraint(constraint)
 
-    case is UIMotionEffect:
-        view.addMotionEffect(addable as UIMotionEffect)
+    case let effect as UIMotionEffect:
+        view.addMotionEffect(effect)
 
-    case is UIGestureRecognizer:
-        view.addGestureRecognizer(addable as UIGestureRecognizer)
+    case let recognizer as UIGestureRecognizer:
+        view.addGestureRecognizer(recognizer)
 
     default:
         break
@@ -73,18 +73,17 @@ An operator used to remove a subview, auto layout constraint, motion effect or g
 */
 public func -=(view: UIView, removable: UIViewRemovable) {
     switch removable {
-    case is UIView:
-        let subview = removable as UIView
+    case let subview as UIView:
         subview.removeFromSuperview()
 
-    case is Constraint:
-        view.removeConstraint(removable as Constraint)
+    case let constraint as Constraint:
+        view.removeConstraint(constraint)
 
-    case is UIMotionEffect:
-        view.removeMotionEffect(removable as UIMotionEffect)
+    case let effect as UIMotionEffect:
+        view.removeMotionEffect(effect)
 
-    case is UIGestureRecognizer:
-        view.removeGestureRecognizer(removable as UIGestureRecognizer)
+    case let recognizer as UIGestureRecognizer:
+        view.removeGestureRecognizer(recognizer)
 
     default:
         break
@@ -130,17 +129,17 @@ private func splitAddablesIntoViewsConstraintsEffectsRecognizers(addables: [UIVi
 
     for addable in addables {
         switch addable {
-        case is UIView:
-            views.append(addable as UIView)
+        case let view as UIView:
+            views.append(view)
 
-        case is Constraint:
-            constraints.append(addable as Constraint)
+        case let constraint as Constraint:
+            constraints.append(constraint)
 
-        case is UIMotionEffect:
-            effects.append(addable as UIMotionEffect)
+        case let effect as UIMotionEffect:
+            effects.append(effect)
 
-        case is UIGestureRecognizer:
-            recognizers.append(addable as UIGestureRecognizer)
+        case let recognizer as UIGestureRecognizer:
+            recognizers.append(recognizer)
 
         default:
             break

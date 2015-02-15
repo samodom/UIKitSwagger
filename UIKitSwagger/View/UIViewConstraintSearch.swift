@@ -62,14 +62,14 @@ public extension UIView {
       @discussion   This method will match the same instance of `NSLayoutConstraint` provided OR an equivalent constraint as defined by constraint equality in this framework.
     */
     public func hasConstraint(constraint: Constraint) -> Bool {
-        return contains(constraints() as [Constraint], constraint)
+        return contains(constraints() as! [Constraint], constraint)
     }
 
 
     private typealias ConstraintFilter = Constraint -> Bool
 
     private func filteredConstraints(filter: ConstraintFilter) -> [Constraint]? {
-        let allConstraints = constraints() as [Constraint]
+        let allConstraints = constraints() as! [Constraint]
         let filteredConstraints = allConstraints.filter(filter)
         if filteredConstraints.count == 0 {
             return nil

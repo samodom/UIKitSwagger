@@ -58,14 +58,7 @@ public func == (lhs: Constraint, rhs: Constraint) -> Bool {
 infix operator ==* { }
 
 public func ==* (lhs: Constraint, rhs: Constraint) -> Bool {
-    if lhs.priority != rhs.priority {
-        return false
-    }
-    if lhs.identifier != rhs.identifier {
-        return false
-    }
-
-    return lhs == rhs
+    return lhs == rhs && lhs.priority == rhs.priority && lhs.identifier == rhs.identifier
 }
 
 private extension NSLayoutRelation {

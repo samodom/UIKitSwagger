@@ -26,12 +26,12 @@ class DynamicAnimatorAdditionSyntaxTests: XCTestCase {
 
     func testAddingDynamicBehaviorWithOperator() {
         animator += behavior1
-        XCTAssertEqual(animator.behaviors as [UIDynamicBehavior], [behavior1], "The behavior should be added to the animator")
+        XCTAssertEqual(animator.behaviors as! [UIDynamicBehavior], [behavior1], "The behavior should be added to the animator")
     }
 
     func testAddingDynamicBehaviorArrayWithOperator() {
         animator += [behavior1, behavior2, behavior3]
-        XCTAssertEqual(animator.behaviors as [UIDynamicBehavior], [behavior1, behavior2, behavior3], "The behaviors should be added to the animator in the order provided")
+        XCTAssertEqual(animator.behaviors as! [UIDynamicBehavior], [behavior1, behavior2, behavior3], "The behaviors should be added to the animator in the order provided")
     }
 
     func testRemovingDynamicBehaviorWithOperator() {
@@ -39,7 +39,7 @@ class DynamicAnimatorAdditionSyntaxTests: XCTestCase {
         animator.addBehavior(behavior2)
         animator.addBehavior(behavior3)
         animator -= behavior2
-        XCTAssertEqual(animator.behaviors as [UIDynamicBehavior], [behavior1, behavior3], "The behavior should be removed from the animator")
+        XCTAssertEqual(animator.behaviors as! [UIDynamicBehavior], [behavior1, behavior3], "The behavior should be removed from the animator")
     }
 
     func testRemovingDynamicBehaviorArrayWithOperator() {
@@ -47,7 +47,7 @@ class DynamicAnimatorAdditionSyntaxTests: XCTestCase {
         animator.addBehavior(behavior2)
         animator.addBehavior(behavior3)
         animator -= [behavior1, behavior3]
-        XCTAssertEqual(animator.behaviors as [UIDynamicBehavior], [behavior2], "The behaviors should be removed from the animator")
+        XCTAssertEqual(animator.behaviors as! [UIDynamicBehavior], [behavior2], "The behaviors should be removed from the animator")
     }
 
 }

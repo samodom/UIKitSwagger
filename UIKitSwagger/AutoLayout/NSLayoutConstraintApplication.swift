@@ -33,18 +33,24 @@ public extension NSLayoutConstraint {
             return firstItem as? UIView
         }
 
-        if firstItem is UILayoutSupport {
-            let controller = ViewControllerContainingView(secondItem as UIView, layoutGuide: firstItem as UILayoutSupport)
-            return controller?.view
-        }
-        else if secondItem is UILayoutSupport {
-            let controller = ViewControllerContainingView(firstItem as UIView, layoutGuide: secondItem as UILayoutSupport)
-            return controller?.view
+        if let firstView = firstItem as? UIView, let secondView = secondItem as? UIView {
+            return firstView.firstCommonAncestor(secondView)
         }
 
-        let viewOne = firstItem as UIView
-        let viewTwo = secondItem as UIView
-        return viewOne.firstCommonAncestor(viewTwo)
+        var view: UIView!
+        var layoutGuide: UILayoutSupport!
+
+        if firstItem is UILayoutSupport {
+            layoutGuide = firstItem as! UILayoutSupport
+            view = secondItem as! UIView
+        }
+        else {
+            layoutGuide = secondItem as! UILayoutSupport
+            view = firstItem as! UIView
+        }
+
+        let controller = ViewControllerContainingView(view, layoutGuide: layoutGuide)
+        return controller?.view
     }
 
 }
@@ -88,19 +94,10 @@ public func RemoveConstraints(constraints: [Constraint]) {
 
 
 private func ViewControllerContainingView(view: UIView, #layoutGuide: UILayoutSupport) -> UIViewController? {
-    let window = view.window
-    if window == nil {
-        return nil
-    }
-
-    let rootController = window!.rootViewController
+    let rootController = view.window?.rootViewController
     if rootController == nil {
         return nil
     }
 
-    if view.isDescendantOfView(rootController!.view) {
-        return rootController
-    }
-
-    return nil
+    return view.isDescendantOfView(rootController!.view) ? rootController : nil
 }
