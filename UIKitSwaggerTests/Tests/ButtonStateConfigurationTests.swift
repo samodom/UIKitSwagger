@@ -15,7 +15,7 @@ class ButtonStateConfigurationTests: XCTestCase {
     var otherConfiguration = UIButtonStateConfiguration()
     var button = UIButton()
     let title = "Sample Button"
-    let attributes = [NSForegroundColorAttributeName:red]
+    let attributes = [NSForegroundColorAttributeName: Red]
     var attributedTitle: NSAttributedString!
     let image = UIImage()
 
@@ -45,14 +45,14 @@ class ButtonStateConfigurationTests: XCTestCase {
 
     func testConfigurationHasTitleColor() {
         XCTAssertNil(configuration.titleColor, "The configuration should not have a title color by default")
-        configuration.titleColor = orange
-        XCTAssertEqual(configuration.titleColor!, orange, "The configuration should have a title color")
+        configuration.titleColor = Orange
+        XCTAssertEqual(configuration.titleColor!, Orange, "The configuration should have a title color")
     }
 
     func testConfigurationHasTitleShadowColor() {
         XCTAssertNil(configuration.titleShadowColor, "The configuration should not have a title shadow color by default")
-        configuration.titleShadowColor = purple
-        XCTAssertEqual(configuration.titleShadowColor!, purple, "The configuration should have a title shadow color")
+        configuration.titleShadowColor = Purple
+        XCTAssertEqual(configuration.titleShadowColor!, Purple, "The configuration should have a title shadow color")
     }
 
     func testConfigurationHasImage() {
@@ -87,14 +87,14 @@ class ButtonStateConfigurationTests: XCTestCase {
     }
 
     func testTitleColorOnlyEqualConfigurations() {
-        configuration.titleColor = orange
-        otherConfiguration.titleColor = orange
+        configuration.titleColor = Orange
+        otherConfiguration.titleColor = Orange
         XCTAssertEqual(configuration, otherConfiguration, "Title-color-only configurations should be considered equal if their title colors are equal")
     }
 
     func testTitleShadowColorOnlyEqualConfigurations() {
-        configuration.titleShadowColor = purple
-        otherConfiguration.titleShadowColor = purple
+        configuration.titleShadowColor = Purple
+        otherConfiguration.titleShadowColor = Purple
         XCTAssertEqual(configuration, otherConfiguration, "Title-shadow-color-only configurations should be considered equal if their title shadow colors are equal")
     }
 
@@ -135,7 +135,7 @@ class ButtonStateConfigurationTests: XCTestCase {
 
     func testConfigurationsUnequalWithMismatchedTitleColors() {
         createEquivalentConfigurations()
-        otherConfiguration.titleColor = green
+        otherConfiguration.titleColor = Green
         XCTAssertNotEqual(configuration, otherConfiguration, "The two configurations should not be considered equal if their title colors are not equal")
 
         otherConfiguration.titleColor = nil
@@ -144,7 +144,7 @@ class ButtonStateConfigurationTests: XCTestCase {
 
     func testConfigurationsUnequalWithMismatchedTitleShadowColors() {
         createEquivalentConfigurations()
-        otherConfiguration.titleShadowColor = brown
+        otherConfiguration.titleShadowColor = Brown
         XCTAssertNotEqual(configuration, otherConfiguration, "The two configurations should not be considered equal if their title shadow colors are not equal")
 
         otherConfiguration.titleShadowColor = nil
@@ -172,15 +172,15 @@ class ButtonStateConfigurationTests: XCTestCase {
     private func createEquivalentConfigurations() {
         configuration.title = title
         configuration.attributedTitle = attributedTitle
-        configuration.titleColor = orange
-        configuration.titleShadowColor = purple
+        configuration.titleColor = Orange
+        configuration.titleShadowColor = Purple
         configuration.image = image
         configuration.backgroundImage = image
 
         otherConfiguration.title = title
         otherConfiguration.attributedTitle = attributedTitle
-        otherConfiguration.titleColor = orange
-        otherConfiguration.titleShadowColor = purple
+        otherConfiguration.titleColor = Orange
+        otherConfiguration.titleShadowColor = Purple
         otherConfiguration.image = image
         otherConfiguration.backgroundImage = image
     }
