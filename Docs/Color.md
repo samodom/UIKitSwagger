@@ -63,18 +63,18 @@ Want individual component values?  Here they are as properties!
 
 Use these constant aliases for all of the preset component value methods on `UIColor`:
 
- - `let Black` returns `UIColor.blackColor()`
- - `let White` returns `UIColor.whiteColor()`
- - `let Gray` returns `UIColor.grayColor()`
- - `let LightGray` returns `UIColor.lightGrayColor()`
- - `let DarkGray` returns `UIColor.darkGrayColor()`
- - `let Red` returns `UIColor.redColor()`
- - `let Green` returns `UIColor.greenColor()`
- - `let Blue` returns `UIColor.blueColor()`
- - `let Cyan` returns `UIColor.cyanColor()`
- - `let Magenta` returns `UIColor.magentaColor()`
- - `let Yellow` returns `UIColor.yellowColor()`
- - `let Orange` returns `UIColor.orangeColor()`
- - `let Purple` returns `UIColor.purpleColor()`
- - `let Brown` returns `UIColor.brownColor()`
- - `let Clear` returns `UIColor.clearColor()`
+ - `let Black` is defined as `UIColor.blackColor()`
+ - `let White` is defined as `UIColor.whiteColor()`
+ - `let Gray` is defined as `UIColor.grayColor()`
+ - `let LightGray` is defined as `UIColor.lightGrayColor()`
+ - `let DarkGray` is defined as `UIColor.darkGrayColor()`
+ - `let Red` is defined as `UIColor.redColor()`
+ - `let Green` is defined as `UIColor.greenColor()`
+ - `let Blue` is defined as `UIColor.blueColor()`
+ - `let Cyan` is defined as `UIColor.cyanColor()`
+ - `let Magenta` is defined as `UIColor.magentaColor()`
+ - `let Yellow` is defined as `UIColor.yellowColor()`
+ - `let Orange` is defined as `UIColor.orangeColor()`
+ - `let Purple` is defined as `UIColor.purpleColor()`
+ - `let Brown` is defined as `UIColor.brownColor()`
+ - `let Clear` is defined as `UIColor.clearColor()`
