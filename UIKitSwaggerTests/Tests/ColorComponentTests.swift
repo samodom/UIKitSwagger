@@ -39,6 +39,14 @@ class ColorComponentTests: XCTestCase {
 
     //  MARK: UIColorRGBComponents
 
+    func testRGBComponentStructureWithDefaultAlpha() {
+        let components = UIColorRGBComponents(red: 0.14, green: 0.42, blue: 0.77)
+        XCTAssertEqual(components.red, CGFloat(0.14), "The components should include a red value")
+        XCTAssertEqual(components.green, CGFloat(0.42), "The components should include a green value")
+        XCTAssertEqual(components.blue, CGFloat(0.77), "The components should include a blue value")
+        XCTAssertEqual(components.alpha, CGFloat(1.0), "The components should use a default alpha value of 1.0")
+    }
+
     func testRGBComponentStructure() {
         let components = UIColorRGBComponents(red: 0.14, green: 0.42, blue: 0.77, alpha: 0.99)
         XCTAssertEqual(components.red, CGFloat(0.14), "The components should include a red value")
@@ -167,6 +175,14 @@ class ColorComponentTests: XCTestCase {
 
     //  MARK: UIColorHSBComponents
 
+    func testHSBComponentStructureWithDefaultAlpha() {
+        let components = UIColorHSBComponents(hue: 0.33, saturation: 0.55, brightness: 0.66)
+        XCTAssertEqual(components.hue, CGFloat(0.33), "The components should include a hue value")
+        XCTAssertEqual(components.saturation, CGFloat(0.55), "The components should include a saturation value")
+        XCTAssertEqual(components.brightness, CGFloat(0.66), "The components should include a brightness value")
+        XCTAssertEqual(components.alpha, CGFloat(1.0), "The components should use a default alpha value of 1.0")
+    }
+
     func testHSBComponentStructure() {
         let components = UIColorHSBComponents(hue: 0.33, saturation: 0.55, brightness: 0.66, alpha: 0.11)
         XCTAssertEqual(components.hue, CGFloat(0.33), "The components should include a hue value")
@@ -231,7 +247,7 @@ class ColorComponentTests: XCTestCase {
     }
 
     func testColorCreationWithHSBComponents() {
-        let components = UIColorHSBComponents(hue: 0.33, saturation: 0.55, brightness: 0.66, alpha: 0.11)
+        let components = UIColorHSBComponents(hue: 0.33, saturation: 0.55, brightness: 0.66)
         let color = components.color()
         XCTAssertEqual(color.hsbComponents, components, "The components should create an instance of UIColor using the same values")
     }
@@ -281,6 +297,12 @@ class ColorComponentTests: XCTestCase {
     }
 
     //  MARK: UIColorGrayscaleComponents
+
+    func testGrayscaleComponentStructureWithDefaultAlpha() {
+        let components = UIColorGrayscaleComponents(white: 0.88)
+        XCTAssertEqual(components.white, CGFloat(0.88), "The components should include a white value")
+        XCTAssertEqual(components.alpha, CGFloat(1.0), "The components should use a default alpha value of 1.0")
+    }
 
     func testGrayscaleComponentStructure() {
         let components = UIColorGrayscaleComponents(white: 0.88, alpha: 0.8)

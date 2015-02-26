@@ -17,6 +17,13 @@ public struct UIColorRGBComponents: UIColorComponents {
     public let blue: CGFloat
     public let alpha: CGFloat
 
+    public init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat! = 1) {
+        self.red = red
+        self.green = green
+        self.blue = blue
+        self.alpha = alpha
+    }
+
     /**
       Required method for creating colors based on this component scheme.
     */

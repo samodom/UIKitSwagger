@@ -17,6 +17,13 @@ public struct UIColorHSBComponents: UIColorComponents {
     public let brightness: CGFloat
     public let alpha: CGFloat
 
+    public init(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat! = 1) {
+        self.hue = hue
+        self.saturation = saturation
+        self.brightness = brightness
+        self.alpha = alpha
+    }
+
     /**
       Required method for creating colors based on this component scheme.
     */

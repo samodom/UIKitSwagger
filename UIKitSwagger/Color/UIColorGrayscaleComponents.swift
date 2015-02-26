@@ -15,6 +15,11 @@ public struct UIColorGrayscaleComponents: UIColorComponents {
     public let white: CGFloat
     public let alpha: CGFloat
 
+    public init(white: CGFloat, alpha: CGFloat! = 1) {
+        self.white = white
+        self.alpha = alpha
+    }
+
     /**
       Required method for creating colors based on this component scheme.
     */
