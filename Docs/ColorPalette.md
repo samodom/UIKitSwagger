@@ -1,8 +1,9 @@
 `ColorPalette`
 =============
 
-This class provides a simple interface for storing and retrieving commonly used colors by name.
+This class provides a simple interface for storing and retrieving commonly used colors by name.  You can create an empty palette or provide a dictionary of colors.
 
+ - `var numberOfColors: Int`
  - `func addColor(color: UIColor, named: String)`
  - `func colorNamed(name: String) -> UIColor?`
  - `func removeColorNamed(name: String)`
