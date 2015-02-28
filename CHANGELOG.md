@@ -1,6 +1,11 @@
 UIKitSwagger Changelog
 ======================
 
+#### v0.5.3 (__DATE__)
+ - Added color count property to `ColorPalette`
+ - Added formal initializers for color component types
+ - Changed deployment target to 8.0
+
 ##### v0.5.2 (Tuesday, February 10, 2015)
  - Updated for Swift 1.2
  - Added a multi-client manager for a `UIActivityIndicatorView` called `SpinnerStateManager`
