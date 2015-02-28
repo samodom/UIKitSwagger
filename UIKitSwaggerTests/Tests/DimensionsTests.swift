@@ -176,6 +176,13 @@ class DimensionsTests: XCTestCase {
 
     //  MARK: Restricting item dimensions
 
+    func testConstrainingViewWidthWithSingleItem() {
+        returnedConstraints = ConstrainWidths(42.2, view1)
+        let expected = view1.width =* 42.2
+        XCTAssertEqual(returnedConstraints, [expected], "The width constraint should be returned")
+        XCTAssertTrue(view1.hasConstraint(expected), "The view's width should be constrained")
+    }
+
     func testConstrainingViewWidthsWithList() {
         returnedConstraints = ConstrainWidths(42.2, view1, view2, view3)
         let expected = [
@@ -200,6 +207,13 @@ class DimensionsTests: XCTestCase {
         XCTAssertTrue(view1.hasConstraint(expected[0]), "The first view's width should be constrained")
         XCTAssertTrue(view2.hasConstraint(expected[1]), "The second view's width should be constrained")
         XCTAssertTrue(view3.hasConstraint(expected[2]), "The third view's width should be constrained")
+    }
+
+    func testConstrainingViewHeightWithSingleItem() {
+        returnedConstraints = ConstrainHeights(42.2, view1)
+        let expected = view1.height =* 42.2
+        XCTAssertEqual(returnedConstraints, [expected], "The height constraint should be returned")
+        XCTAssertTrue(view1.hasConstraint(expected), "The view's height should be constrained")
     }
 
     func testConstrainingViewHeightsWithList() {
