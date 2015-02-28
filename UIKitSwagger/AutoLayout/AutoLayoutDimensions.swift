@@ -29,20 +29,20 @@ public func MatchWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
 }
 
 /**
-  Convenience method for making the widths of two or more items equal.
-  @param        items Two or more items that are to maintain the same width.
+  Convenience method for constraint the widths of one or more items to a constant.
+  @param        items One or more items that are to maintain a constant width.
   @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  @discussion   The layout constraints created by this function are applied to the appropriate view.
 */
 public func ConstrainWidths(width: CGFloat, items: AutoLayoutAttributable...) -> [Constraint] {
     return ConstrainWidths(width, items)
 }
 
 /**
-  Convenience method for making the widths of an array of items equal.
-  @param        items Array of two or more items that are to maintain the same width.
+  Convenience method for constraint the widths of an array of items to a constant.
+  @param        items Array of items that are to maintain a constant width.
   @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  @discussion   The layout constraints created by this function are applied to the appropriate view.
 */
 public func ConstrainWidths(width: CGFloat, items: [AutoLayoutAttributable]) -> [Constraint] {
     return ConstrainDimension(items, .Width, width)
@@ -69,20 +69,20 @@ public func MatchHeights(items: [AutoLayoutAttributable]) -> [Constraint] {
 }
 
 /**
-  Convenience method for making the heights of two or more items equal.
-  @param        items Two or more items that are to maintain the same height.
+  Convenience method for constraint the heights of one or more items to a constant.
+  @param        items One or more items that are to maintain a constant height.
   @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  @discussion   The layout constraints created by this function are applied to the appropriate view.
 */
 public func ConstrainHeights(height: CGFloat, items: AutoLayoutAttributable...) -> [Constraint] {
     return ConstrainHeights(height, items)
 }
 
 /**
-  Convenience method for making the heights of an array of items equal.
-  @param        items Array of two or more items that are to maintain the same height.
+  Convenience method for constraint the heights of an array of items to a constant.
+  @param        items Array of more items that are to maintain a constant height.
   @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  @discussion   The layout constraints created by this function are applied to the appropriate view.
 */
 public func ConstrainHeights(height: CGFloat, items: [AutoLayoutAttributable]) -> [Constraint] {
     return ConstrainDimension(items, .Height, height)
