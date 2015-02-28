@@ -66,8 +66,8 @@ Methods on NSLayoutConstraint:
 Global top-level functions:
  - `func ApplyConstraints(Constraint...)`
  - `func ApplyConstraints([Constraint])`
- - `func RemoveConstraints(constraints: Constraint...)`
- - `func RemoveConstraints(constraints: [Constraint])`
+ - `func RemoveConstraints(Constraint...)`
+ - `func RemoveConstraints([Constraint])`
 
 And for good measure, a method to remove all of a view's constraints without having to use this cumbersome one-liner:
 
@@ -90,10 +90,10 @@ Convenience methods for activating and deactivating constraints:
  - `func deactivate()`
 
 Similar to constraint application, one should be able to activate or deactivate multiple constraints in a single statement:
- - `func ActivateConstraints(constraints: Constraint...)`
- - `func ActivateConstraints(constraints: [Constraint])`
- - `func DeactivateConstraints(constraints: Constraint...)`
- - `func DeactivateConstraints(constraints: [Constraint])`
+ - `func ActivateConstraints(Constraint...)`
+ - `func ActivateConstraints([Constraint])`
+ - `func DeactivateConstraints(Constraint...)`
+ - `func DeactivateConstraints([Constraint])`
 
 
 ### Alignment Functions
