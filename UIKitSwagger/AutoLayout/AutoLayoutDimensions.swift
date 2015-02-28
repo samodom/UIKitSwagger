@@ -25,7 +25,7 @@ public func ConstrainWidths(items: AutoLayoutAttributable...) -> [Constraint] {
   @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
 */
 public func ConstrainWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return ConstrainDimension(items, .Width)
+    return MatchDimension(items, .Width)
 }
 
 /**
@@ -45,5 +45,5 @@ public func ConstrainHeights(items: AutoLayoutAttributable...) -> [Constraint] {
   @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
 */
 public func ConstrainHeights(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return ConstrainDimension(items, .Height)
+    return MatchDimension(items, .Height)
 }
