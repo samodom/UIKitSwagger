@@ -19,6 +19,17 @@ private func AssertDimensionAttribute(attribute: NSLayoutAttribute) {
     assert(attribute == .Width || attribute == .Height)
 }
 
+internal func ConstrainDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute, value: CGFloat) -> [Constraint] {
+    AssertDimensionAttribute(dimension)
+    var constraints = [Constraint]()
+    for item in items {
+        constraints.append((item as! AnyObject, dimension) =* value)
+    }
+
+    ApplyConstraints(constraints)
+    return constraints
+}
+
 internal func MatchDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute) -> [Constraint] {
     AssertDimensionItemCount(items.count)
     AssertDimensionAttribute(dimension)
