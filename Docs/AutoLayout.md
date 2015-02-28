@@ -150,6 +150,18 @@ Common distribution tasks can be performed without creating constraints manually
 
 ### Dimensions
 
+#### Single Dimension
+
+Restricting a view's width or height to a constant or range is easy enough:
+
+ - `func constrainWidth(160)`
+ - `func constrainWidth(120 ... 160)`
+ - `func constrainWidth(120.12 ... 160.8)`
+ - `func constrainHeight(44)`
+ - `func constrainHeight(22 ... 44)`
+ - `func constrainHeight(22.1 ... 44.1)`
+
+
 #### Aspect Ratios
 
 The dimensions of a view can be constrained to a particular aspect ratio with or without an offset.  These functions create and apply the necessary constraints, then return them to the caller for use as variables.

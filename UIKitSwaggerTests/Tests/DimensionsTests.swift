@@ -1,5 +1,5 @@
 //
-//  AspectRatioTests.swift
+//  DimensionsTests.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 11/28/14.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class AspectRatioTests: XCTestCase {
+class DimensionsTests: XCTestCase {
 
     var superview = UIView()
     var view1 = UIView()
@@ -29,6 +29,60 @@ class AspectRatioTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
+    }
+
+    //  MARK: Constraining height
+
+    func testConstrainingWidthToConstant() {
+        returnedConstraint = view1.constrainWidth(42)
+        let expected = view1.width =* 42
+        XCTAssertTrue(view1.hasConstraint(expected), "The view's width should now be constrained to 42 pt")
+        XCTAssertEqual(returnedConstraint, expected, "The constraint should be returned")
+    }
+
+    func testConstrainingWidthToRange() {
+        returnedConstraints = view1.constrainWidth(42 ... 99)
+        let expectedMin = view1.width >=* 42
+        let expectedMax = view1.width <=* 99
+        XCTAssertTrue(view1.hasConstraint(expectedMin), "The view's width should now be constrained to a minimum of 42 pt")
+        XCTAssertTrue(view1.hasConstraint(expectedMax), "The view's width should now be constrained to a maximum of 99 pt")
+        XCTAssertEqual(returnedConstraints, [expectedMin, expectedMax], "The constraints should be returned")
+    }
+
+    func testConstrainingWidthToClosedInterval() {
+        returnedConstraints = view1.constrainWidth(42.24 ... 99.99)
+        let expectedMin = view1.width >=* 42.24
+        let expectedMax = view1.width <=* 99.99
+        XCTAssertTrue(view1.hasConstraint(expectedMin), "The view's width should now be constrained to a minimum of 42.24 pt")
+        XCTAssertTrue(view1.hasConstraint(expectedMax), "The view's width should now be constrained to a maximum of 99.99 pt")
+        XCTAssertEqual(returnedConstraints, [expectedMin, expectedMax], "The constraints should be returned")
+    }
+
+    //  MARK: Constraining width
+
+    func testConstrainingHeightToConstant() {
+        returnedConstraint = view1.constrainHeight(42)
+        let expected = view1.height =* 42
+        XCTAssertTrue(view1.hasConstraint(expected), "The view's height should now be constrained to 42 pt")
+        XCTAssertEqual(returnedConstraint, expected, "The constraint should be returned")
+    }
+
+    func testConstrainingHeightToRange() {
+        returnedConstraints = view1.constrainHeight(42 ... 99)
+        let expectedMin = view1.height >=* 42
+        let expectedMax = view1.height <=* 99
+        XCTAssertTrue(view1.hasConstraint(expectedMin), "The view's height should now be constrained to a minimum of 42 pt")
+        XCTAssertTrue(view1.hasConstraint(expectedMax), "The view's height should now be constrained to a maximum of 99 pt")
+        XCTAssertEqual(returnedConstraints, [expectedMin, expectedMax], "The constraints should be returned")
+    }
+
+    func testConstrainingHeightToClosedInterval() {
+        returnedConstraints = view1.constrainHeight(42.24 ... 99.99)
+        let expectedMin = view1.height >=* 42.24
+        let expectedMax = view1.height <=* 99.99
+        XCTAssertTrue(view1.hasConstraint(expectedMin), "The view's height should now be constrained to a minimum of 42.24 pt")
+        XCTAssertTrue(view1.hasConstraint(expectedMax), "The view's height should now be constrained to a maximum of 99.99 pt")
+        XCTAssertEqual(returnedConstraints, [expectedMin, expectedMax], "The constraints should be returned")
     }
 
     //  MARK: Single-item aspect ratio

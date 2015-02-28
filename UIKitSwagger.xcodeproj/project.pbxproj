@@ -47,9 +47,9 @@
 		0A5BD0F71A3D0C5F00793312 /* ColorAliasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */; };
 		0A5BD0FA1A3D0C9200793312 /* ColorAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */; };
 		0A5BD0FB1A3D0C9200793312 /* ColorAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */; };
-		0A5F12F31A285D1000694C56 /* AspectRatioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */; };
-		0A5F12F81A285EB600694C56 /* UIViewAspectRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */; };
-		0A5F12F91A285EBA00694C56 /* UIViewAspectRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */; };
+		0A5F12F31A285D1000694C56 /* DimensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F21A285D1000694C56 /* DimensionsTests.swift */; };
+		0A5F12F81A285EB600694C56 /* UIViewDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewDimensions.swift */; };
+		0A5F12F91A285EBA00694C56 /* UIViewDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewDimensions.swift */; };
 		0A63F7411A3D4A71001FBFF7 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F7401A3D4A71001FBFF7 /* TestConstants.swift */; };
 		0A63F7431A3D51F0001FBFF7 /* ColorPaletteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F7421A3D51F0001FBFF7 /* ColorPaletteTests.swift */; };
 		0A63F7451A3D59F8001FBFF7 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F7441A3D59F8001FBFF7 /* ColorPalette.swift */; };
@@ -174,8 +174,8 @@
 		0A5A297A1A73368B003CB7EE /* SpinnerStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerStateManager.swift; sourceTree = "<group>"; };
 		0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAliasTests.swift; sourceTree = "<group>"; };
 		0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAliases.swift; sourceTree = "<group>"; };
-		0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectRatioTests.swift; sourceTree = "<group>"; };
-		0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAspectRatio.swift; sourceTree = "<group>"; };
+		0A5F12F21A285D1000694C56 /* DimensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionsTests.swift; sourceTree = "<group>"; };
+		0A5F12F71A285EB600694C56 /* UIViewDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDimensions.swift; sourceTree = "<group>"; };
 		0A63F7401A3D4A71001FBFF7 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		0A63F7421A3D51F0001FBFF7 /* ColorPaletteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPaletteTests.swift; sourceTree = "<group>"; };
 		0A63F7441A3D59F8001FBFF7 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
@@ -348,7 +348,6 @@
 			children = (
 				0A8028021A3421E000816792 /* AlertActionEnablingTests.swift */,
 				0ACADAE41A3A8AB800CF49F8 /* AlertControllerAddableTests.swift */,
-				0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */,
 				0A8028081A34257C00816792 /* BarItemEnablingTests.swift */,
 				0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */,
 				0A10F28C1A3D147700715C7A /* ColorComponentTests.swift */,
@@ -361,6 +360,7 @@
 				0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */,
 				0A7748DD1AA170A600B434D3 /* ConstraintTranslationTests.swift */,
 				0A8028111A342EEA00816792 /* ControlEnablingTests.swift */,
+				0A5F12F21A285D1000694C56 /* DimensionsTests.swift */,
 				0A63F7471A3E0EA3001FBFF7 /* DynamicAnimatorAdditionSyntaxTests.swift */,
 				0A63F74D1A3E147B001FBFF7 /* DynamicBehaviorAdditionSyntaxTests.swift */,
 				0A9032251A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift */,
@@ -404,10 +404,10 @@
 			isa = PBXGroup;
 			children = (
 				0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */,
-				0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */,
 				0A4CF44B1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift */,
 				0A3F1B4D1A4112F500195B8F /* UIViewConstraintApplication.swift */,
 				0A3BB9A119EB71F00075B32A /* UIViewConstraintSearch.swift */,
+				0A5F12F71A285EB600694C56 /* UIViewDimensions.swift */,
 				0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */,
 				0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */,
 			);
@@ -689,7 +689,7 @@
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0ACADAE71A3A8C6700CF49F8 /* UIAlertControllerAdditionSyntax.swift in Sources */,
 				0AD6F2581A34354400D863A2 /* UILabelEnabling.swift in Sources */,
-				0A5F12F81A285EB600694C56 /* UIViewAspectRatio.swift in Sources */,
+				0A5F12F81A285EB600694C56 /* UIViewDimensions.swift in Sources */,
 				0AA580591A3D29EB0061D882 /* UIColorRGBComponents.swift in Sources */,
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0ACADAF31A3BF4A500CF49F8 /* UISliderInterval.swift in Sources */,
@@ -742,7 +742,7 @@
 				0A9032261A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift in Sources */,
 				0ACADB071A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */,
 				0A63F74C1A3E105D001FBFF7 /* UIDynamicAnimatorAdditionSyntax.swift in Sources */,
-				0A5F12F91A285EBA00694C56 /* UIViewAspectRatio.swift in Sources */,
+				0A5F12F91A285EBA00694C56 /* UIViewDimensions.swift in Sources */,
 				0ACADAE51A3A8AB800CF49F8 /* AlertControllerAddableTests.swift in Sources */,
 				0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */,
 				0AF2A08B1A29003D00A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
@@ -756,7 +756,7 @@
 				0A10F2901A3D16E600715C7A /* UIColorComponents.swift in Sources */,
 				0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */,
 				0A3BB99D19EB71740075B32A /* ViewHierarchyTests.swift in Sources */,
-				0A5F12F31A285D1000694C56 /* AspectRatioTests.swift in Sources */,
+				0A5F12F31A285D1000694C56 /* DimensionsTests.swift in Sources */,
 				0AA580601A3D2B960061D882 /* UIColorGrayscaleComponents.swift in Sources */,
 				0A3BB9A519EB72210075B32A /* UIViewConstraintSearch.swift in Sources */,
 				0ACADAEA1A3BE42B00CF49F8 /* SwitchStateManagementTests.swift in Sources */,

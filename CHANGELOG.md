@@ -5,6 +5,7 @@ UIKitSwagger Changelog
  - Added color count property to `ColorPalette`
  - Added formal initializers for color component types
  - Added functions to easily turn off autoresizing-mask-to-constraint translation
+ - Added methods for constraining a view's width or height to a constant or range of values
  - Changed deployment target to 8.0
 
 ##### v0.5.2 (Tuesday, February 10, 2015)
