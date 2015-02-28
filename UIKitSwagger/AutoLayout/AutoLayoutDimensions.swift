@@ -14,8 +14,8 @@ import UIKit
   @return       The constraints that were applied.
   @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
 */
-public func ConstrainWidths(items: AutoLayoutAttributable...) -> [Constraint] {
-    return ConstrainWidths(items)
+public func MatchWidths(items: AutoLayoutAttributable...) -> [Constraint] {
+    return MatchWidths(items)
 }
 
 /**
@@ -24,7 +24,7 @@ public func ConstrainWidths(items: AutoLayoutAttributable...) -> [Constraint] {
   @return       The constraints that were applied.
   @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
 */
-public func ConstrainWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func MatchWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
     return MatchDimension(items, .Width)
 }
 
@@ -34,8 +34,8 @@ public func ConstrainWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
   @return       The constraints that were applied.
   @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
 */
-public func ConstrainHeights(items: AutoLayoutAttributable...) -> [Constraint] {
-    return ConstrainHeights(items)
+public func MatchHeights(items: AutoLayoutAttributable...) -> [Constraint] {
+    return MatchHeights(items)
 }
 
 /**
@@ -44,6 +44,6 @@ public func ConstrainHeights(items: AutoLayoutAttributable...) -> [Constraint] {
   @return       The constraints that were applied.
   @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
 */
-public func ConstrainHeights(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func MatchHeights(items: [AutoLayoutAttributable]) -> [Constraint] {
     return MatchDimension(items, .Height)
 }

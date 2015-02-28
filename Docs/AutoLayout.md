@@ -171,7 +171,7 @@ Methods on NSLayoutConstraint:
  - `func constrainHeightToWidth(CGFloat, CGFloat) -> Constraint`
 
 Global top-level functions (the produced constraints are defined with respect to the appropriate attribute of the first item listed):
- - `func ConstrainWidths(AutoLayoutAttributable...) -> [Constraint]`
- - `func ConstrainWidths([AutoLayoutAttributable]) -> [Constraint]`
- - `func ConstrainHeights(AutoLayoutAttributable...) -> [Constraint]`
- - `func ConstrainHeights([AutoLayoutAttributable]) -> [Constraint]`
+ - `func MatchWidths(AutoLayoutAttributable...) -> [Constraint]`
+ - `func MatchWidths([AutoLayoutAttributable]) -> [Constraint]`
+ - `func MatchHeights(AutoLayoutAttributable...) -> [Constraint]`
+ - `func MatchHeights([AutoLayoutAttributable]) -> [Constraint]`

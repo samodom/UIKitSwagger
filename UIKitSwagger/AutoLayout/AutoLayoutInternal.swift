@@ -32,7 +32,17 @@ internal func AssertAlignmentItemCount(count: Int) {
     assert(count > 1, "Multiple views are required for alignment")
 }
 
-private let validAlignmentAttributes: [NSLayoutAttribute] = [.Left, .Leading, .Right, .Trailing, .Top, .Bottom, .CenterX, .CenterY, .Baseline]
+private let validAlignmentAttributes: [NSLayoutAttribute] = [
+    .Left,
+    .Leading,
+    .Right,
+    .Trailing,
+    .Top,
+    .Bottom,
+    .CenterX,
+    .CenterY,
+    .Baseline
+]
 
 private func AssertAlignmentAttribute(attribute: NSLayoutAttribute) {
     assert(contains(validAlignmentAttributes, attribute))

@@ -131,7 +131,7 @@ class DimensionsTests: XCTestCase {
     //  MARK: Matching dimensions between items
 
     func testMatchingViewWidthsWithList() {
-        returnedConstraints = ConstrainWidths(view1, view2, view3)
+        returnedConstraints = MatchWidths(view1, view2, view3)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = view2.width =* view1.width
         XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same width as the first view")
@@ -142,7 +142,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testMatchingViewWidthsWithArray() {
-        returnedConstraints = ConstrainWidths([view1, view2, view3])
+        returnedConstraints = MatchWidths([view1, view2, view3])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = view2.width =* view1.width
         XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same width as the first view")
@@ -153,7 +153,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testMatchingViewHeightsWithList() {
-        returnedConstraints = ConstrainHeights(view1, view2, view3)
+        returnedConstraints = MatchHeights(view1, view2, view3)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = view2.height =* view1.height
         XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same height as the first view")
@@ -164,7 +164,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testMatchingViewHeightsWithArray() {
-        returnedConstraints = ConstrainHeights([view1, view2, view3])
+        returnedConstraints = MatchHeights([view1, view2, view3])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = view2.height =* view1.height
         XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same height as the first view")
