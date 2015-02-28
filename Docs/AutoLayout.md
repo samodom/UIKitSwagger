@@ -55,6 +55,17 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 
 ---
 
+### Turning Off Translation
+
+Tired of calling `setTranslatesAutoresizingMaskIntoConstraints(false)` on so many views when writing Auto Layout code?  Do a bunch at once:
+
+```swift
+DoNotTranslateMasks(button, image, titleLabel)
+//  OR
+DoNotTranslateMasks(view.subviews)
+```
+
+
 ### Blindly Apply/Remove Constraints
 
 Instead of figuring out where to add constraints, just apply them!  And instead of figuring out where they are applied before removing them, just remove them!  The correct view is figured out for you automatically - even if a view controller layout guide is involved.

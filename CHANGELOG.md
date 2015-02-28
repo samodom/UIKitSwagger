@@ -4,6 +4,7 @@ UIKitSwagger Changelog
 #### v0.5.3 (__DATE__)
  - Added color count property to `ColorPalette`
  - Added formal initializers for color component types
+ - Added functions to easily turn off autoresizing-mask-to-constraint translation
  - Changed deployment target to 8.0
 
 ##### v0.5.2 (Tuesday, February 10, 2015)
