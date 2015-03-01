@@ -30,6 +30,20 @@ internal func ConstrainDimension(items: [AutoLayoutAttributable], dimension: NSL
     return constraints
 }
 
+internal func ConstrainDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute, interval: ClosedInterval<CGFloat>) -> [Constraint] {
+    AssertDimensionAttribute(dimension)
+    var constraints = [Constraint]()
+    for item in items {
+        let attributedItem = AutoLayoutAttributedItem(item as! AnyObject, dimension)
+        constraints.append(attributedItem >=* interval.start)
+        constraints.append(attributedItem <=* interval.end)
+    }
+
+    ApplyConstraints(constraints)
+    return constraints
+}
+
+
 internal func MatchDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute) -> [Constraint] {
     AssertDimensionItemCount(items.count)
     AssertDimensionAttribute(dimension)

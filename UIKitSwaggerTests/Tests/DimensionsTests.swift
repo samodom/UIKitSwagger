@@ -174,7 +174,7 @@ class DimensionsTests: XCTestCase {
         XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
     }
 
-    //  MARK: Restricting item dimensions
+    //  MARK: Restricting item dimensions to constant
 
     func testConstrainingViewWidthWithSingleItem() {
         returnedConstraints = ConstrainWidths(42.2, view1)
@@ -241,5 +241,105 @@ class DimensionsTests: XCTestCase {
         XCTAssertTrue(view2.hasConstraint(expected[1]), "The second view's height should be constrained")
         XCTAssertTrue(view3.hasConstraint(expected[2]), "The third view's height should be constrained")
     }
-    
+
+    //  MARK: Restricting item dimensions to interval
+
+    func testConstrainingViewWidthIntervalWithSingleItem() {
+        returnedConstraints = ConstrainWidths(42.2 ... 99.9, view1)
+        let expected = [
+            view1.width >=* 42.2,
+            view1.width <=* 99.9
+        ]
+        XCTAssertEqual(returnedConstraints, expected, "The width constraints should be returned")
+        XCTAssertTrue(view1.hasConstraint(expected[0]), "The view's width should be constrained to the specified interval")
+        XCTAssertTrue(view1.hasConstraint(expected[1]), "The view's width should be constrained to the specified interval")
+    }
+
+    func testConstrainingViewWidthIntervalsWithList() {
+        returnedConstraints = ConstrainWidths(42.2 ... 99.9, view1, view2, view3)
+        let expected = [
+            view1.width >=* 42.2,
+            view1.width <=* 99.9,
+            view2.width >=* 42.2,
+            view2.width <=* 99.9,
+            view3.width >=* 42.2,
+            view3.width <=* 99.9
+        ]
+        XCTAssertEqual(returnedConstraints, expected, "The width constraints should be returned")
+        XCTAssertTrue(view1.hasConstraint(expected[0]), "The first view's width should be constrained to the specified interval")
+        XCTAssertTrue(view1.hasConstraint(expected[1]), "The first view's width should be constrained to the specified interval")
+        XCTAssertTrue(view2.hasConstraint(expected[2]), "The second view's width should be constrained to the specified interval")
+        XCTAssertTrue(view2.hasConstraint(expected[3]), "The second view's width should be constrained to the specified interval")
+        XCTAssertTrue(view3.hasConstraint(expected[4]), "The third view's width should be constrained to the specified interval")
+        XCTAssertTrue(view3.hasConstraint(expected[5]), "The third view's width should be constrained to the specified interval")
+    }
+
+    func testConstrainingViewWidthIntervalsWithArray() {
+        returnedConstraints = ConstrainWidths(42.2 ... 99.9, [view1, view2, view3])
+        let expected = [
+            view1.width >=* 42.2,
+            view1.width <=* 99.9,
+            view2.width >=* 42.2,
+            view2.width <=* 99.9,
+            view3.width >=* 42.2,
+            view3.width <=* 99.9
+        ]
+        XCTAssertEqual(returnedConstraints, expected, "The width constraints should be returned")
+        XCTAssertTrue(view1.hasConstraint(expected[0]), "The first view's width should be constrained to the specified interval")
+        XCTAssertTrue(view1.hasConstraint(expected[1]), "The first view's width should be constrained to the specified interval")
+        XCTAssertTrue(view2.hasConstraint(expected[2]), "The second view's width should be constrained to the specified interval")
+        XCTAssertTrue(view2.hasConstraint(expected[3]), "The second view's width should be constrained to the specified interval")
+        XCTAssertTrue(view3.hasConstraint(expected[4]), "The third view's width should be constrained to the specified interval")
+        XCTAssertTrue(view3.hasConstraint(expected[5]), "The third view's width should be constrained to the specified interval")
+    }
+
+    func testConstrainingViewHeightIntervalWithSingleItem() {
+        returnedConstraints = ConstrainHeights(42.2 ... 99.9, view1)
+        let expected = [
+            view1.height >=* 42.2,
+            view1.height <=* 99.9
+        ]
+        XCTAssertEqual(returnedConstraints, expected, "The height constraints should be returned")
+        XCTAssertTrue(view1.hasConstraint(expected[0]), "The view's height should be constrained to the specified interval")
+        XCTAssertTrue(view1.hasConstraint(expected[1]), "The view's height should be constrained to the specified interval")
+    }
+
+    func testConstrainingViewHeightIntervalsWithList() {
+        returnedConstraints = ConstrainHeights(42.2 ... 99.9, view1, view2, view3)
+        let expected = [
+            view1.height >=* 42.2,
+            view1.height <=* 99.9,
+            view2.height >=* 42.2,
+            view2.height <=* 99.9,
+            view3.height >=* 42.2,
+            view3.height <=* 99.9
+        ]
+        XCTAssertEqual(returnedConstraints, expected, "The height constraints should be returned")
+        XCTAssertTrue(view1.hasConstraint(expected[0]), "The first view's height should be constrained to the specified interval")
+        XCTAssertTrue(view1.hasConstraint(expected[1]), "The first view's height should be constrained to the specified interval")
+        XCTAssertTrue(view2.hasConstraint(expected[2]), "The second view's height should be constrained to the specified interval")
+        XCTAssertTrue(view2.hasConstraint(expected[3]), "The second view's height should be constrained to the specified interval")
+        XCTAssertTrue(view3.hasConstraint(expected[4]), "The third view's height should be constrained to the specified interval")
+        XCTAssertTrue(view3.hasConstraint(expected[5]), "The third view's height should be constrained to the specified interval")
+    }
+
+    func testConstrainingViewHeightIntervalsWithArray() {
+        returnedConstraints = ConstrainHeights(42.2 ... 99.9, [view1, view2, view3])
+        let expected = [
+            view1.height >=* 42.2,
+            view1.height <=* 99.9,
+            view2.height >=* 42.2,
+            view2.height <=* 99.9,
+            view3.height >=* 42.2,
+            view3.height <=* 99.9
+        ]
+        XCTAssertEqual(returnedConstraints, expected, "The height constraints should be returned")
+        XCTAssertTrue(view1.hasConstraint(expected[0]), "The first view's height should be constrained to the specified interval")
+        XCTAssertTrue(view1.hasConstraint(expected[1]), "The first view's height should be constrained to the specified interval")
+        XCTAssertTrue(view2.hasConstraint(expected[2]), "The second view's height should be constrained to the specified interval")
+        XCTAssertTrue(view2.hasConstraint(expected[3]), "The second view's height should be constrained to the specified interval")
+        XCTAssertTrue(view3.hasConstraint(expected[4]), "The third view's height should be constrained to the specified interval")
+        XCTAssertTrue(view3.hasConstraint(expected[5]), "The third view's height should be constrained to the specified interval")
+    }
+
 }
