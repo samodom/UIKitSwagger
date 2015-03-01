@@ -4,6 +4,7 @@ UIKitSwagger Changelog
 ##### v0.6.0 (__DATE__)
  - Added color count and color dictionary properties to `ColorPalette`
  - Added formal initializers for color component types
+ - Added component conversion methods
  - Added functions to easily turn off autoresizing-mask-to-constraint translation
  - Added methods and functions for constraining view dimensions to a constant or interval
  - Renamed equal-dimension constraint functions to 'Match' functions

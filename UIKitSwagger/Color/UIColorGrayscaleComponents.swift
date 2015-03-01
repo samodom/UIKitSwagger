@@ -54,3 +54,24 @@ public extension UIColor {
 
 
 }
+
+/**
+  Component conversion methods.
+*/
+public extension UIColorGrayscaleComponents {
+
+    /**
+      Converts grayscale components into RGB components.
+    */
+    public func asRGBComponents() -> UIColorRGBComponents {
+        return color().rgbComponents
+    }
+
+    /**
+      Converts grayscale components into HSB components.
+    */
+    public func asHSBComponents() -> UIColorHSBComponents {
+        return color().hsbComponents
+    }
+
+}

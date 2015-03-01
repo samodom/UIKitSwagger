@@ -34,7 +34,17 @@ struct UIColorGrayscaleComponents {
 }
 ```
 
-These component structures can be retrieved using the following properties:
+Convert component types with these methods:
+
+ - `UIColorRGBComponents.asHSBComponents() -> UIColorHSBComponents`
+ - `UIColorRGBComponents.asGrayscaleComponents() -> UIColorGrayscaleComponents`
+ - `UIColorHSBComponents.asRGBComponents() -> UIColorRGBComponents`
+ - `UIColorHSBComponents.asGrayscaleComponents() -> UIColorGrayscaleComponents`
+ - `UIColorGrayscaleComponents.asRGComponents() -> UIColorRGBComponents`
+ - `UIColorGrayscaleComponents.asHSBComponents() -> UIColorHSBComponents`
+
+
+These component structures can be retrieved from an existing color using the following properties:
  - `var rgbComponents: UIColorRGBComponents`
  - `var hsbComponents: UIColorHSBComponents`
  - `var grayscaleComponents: UIColorGrayscaleComponents`
