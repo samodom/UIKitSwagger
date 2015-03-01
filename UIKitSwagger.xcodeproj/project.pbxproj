@@ -115,6 +115,7 @@
 		0ACADB071A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */; };
 		0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */; };
 		0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED1781AA387CD0073E42C /* TestConstants.swift */; };
+		0ACED17D1AA388350073E42C /* ColorTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED17C1AA388350073E42C /* ColorTestHelpers.swift */; };
 		0AD6F2551A34353700D863A2 /* LabelEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */; };
 		0AD6F2581A34354400D863A2 /* UILabelEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */; };
 		0AD6F2591A34356500D863A2 /* UILabelEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */; };
@@ -222,6 +223,7 @@
 		0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStepperInterval.swift; sourceTree = "<group>"; };
 		0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperIntervalTests.swift; sourceTree = "<group>"; };
 		0ACED1781AA387CD0073E42C /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
+		0ACED17C1AA388350073E42C /* ColorTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTestHelpers.swift; sourceTree = "<group>"; };
 		0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEnablingTests.swift; sourceTree = "<group>"; };
 		0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelEnabling.swift; sourceTree = "<group>"; };
 		0AD6F25A1A34394000D863A2 /* NSLayoutConstraintActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintActivation.swift; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 		0ACED1771AA387CD0073E42C /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0ACED17C1AA388350073E42C /* ColorTestHelpers.swift */,
 				0ACED1781AA387CD0073E42C /* TestConstants.swift */,
 			);
 			path = Common;
@@ -747,6 +750,7 @@
 				0ACADAF41A3BF4A500CF49F8 /* UISliderInterval.swift in Sources */,
 				0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */,
 				0ACADB001A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */,
+				0ACED17D1AA388350073E42C /* ColorTestHelpers.swift in Sources */,
 				0A9032261A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift in Sources */,
 				0ACADB071A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */,
 				0A63F74C1A3E105D001FBFF7 /* UIDynamicAnimatorAdditionSyntax.swift in Sources */,
