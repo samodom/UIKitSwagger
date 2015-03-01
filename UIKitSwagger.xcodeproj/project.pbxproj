@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0A0E3C8E1A3E42DC00E4AC29 /* UIDynamicBehaviorItemAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E3C8D1A3E42DC00E4AC29 /* UIDynamicBehaviorItemAdditionSyntax.swift */; };
 		0A0E3C8F1A3E42DC00E4AC29 /* UIDynamicBehaviorItemAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0E3C8D1A3E42DC00E4AC29 /* UIDynamicBehaviorItemAdditionSyntax.swift */; };
-		0A10F28D1A3D147700715C7A /* ColorComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A10F28C1A3D147700715C7A /* ColorComponentTests.swift */; };
+		0A10F28D1A3D147700715C7A /* ColorComponentConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A10F28C1A3D147700715C7A /* ColorComponentConversionTests.swift */; };
 		0A10F28F1A3D16E600715C7A /* UIColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A10F28E1A3D16E600715C7A /* UIColorComponents.swift */; };
 		0A10F2901A3D16E600715C7A /* UIColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A10F28E1A3D16E600715C7A /* UIColorComponents.swift */; };
 		0A21DC441A343018005FFC4E /* UIControlEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC431A343018005FFC4E /* UIControlEnabling.swift */; };
@@ -114,6 +114,9 @@
 		0ACADB061A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */; };
 		0ACADB071A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */; };
 		0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */; };
+		0ACED16E1AA383A70073E42C /* RGBComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED16D1AA383A70073E42C /* RGBComponentsTests.swift */; };
+		0ACED1701AA384360073E42C /* HSBComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED16F1AA384360073E42C /* HSBComponentsTests.swift */; };
+		0ACED1721AA384420073E42C /* GrayscaleComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED1711AA384420073E42C /* GrayscaleComponentsTests.swift */; };
 		0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED1781AA387CD0073E42C /* TestConstants.swift */; };
 		0ACED17D1AA388350073E42C /* ColorTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED17C1AA388350073E42C /* ColorTestHelpers.swift */; };
 		0AD6F2551A34353700D863A2 /* LabelEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */; };
@@ -147,7 +150,7 @@
 
 /* Begin PBXFileReference section */
 		0A0E3C8D1A3E42DC00E4AC29 /* UIDynamicBehaviorItemAdditionSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDynamicBehaviorItemAdditionSyntax.swift; sourceTree = "<group>"; };
-		0A10F28C1A3D147700715C7A /* ColorComponentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorComponentTests.swift; sourceTree = "<group>"; };
+		0A10F28C1A3D147700715C7A /* ColorComponentConversionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorComponentConversionTests.swift; sourceTree = "<group>"; };
 		0A10F28E1A3D16E600715C7A /* UIColorComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorComponents.swift; sourceTree = "<group>"; };
 		0A21DC431A343018005FFC4E /* UIControlEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIControlEnabling.swift; sourceTree = "<group>"; };
 		0A21DC471A343174005FFC4E /* UIGestureRecognizerEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerEnabling.swift; sourceTree = "<group>"; };
@@ -222,6 +225,9 @@
 		0ACADAFE1A3CF48900CF49F8 /* UIKitEnablable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitEnablable.swift; sourceTree = "<group>"; };
 		0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStepperInterval.swift; sourceTree = "<group>"; };
 		0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperIntervalTests.swift; sourceTree = "<group>"; };
+		0ACED16D1AA383A70073E42C /* RGBComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBComponentsTests.swift; sourceTree = "<group>"; };
+		0ACED16F1AA384360073E42C /* HSBComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSBComponentsTests.swift; sourceTree = "<group>"; };
+		0ACED1711AA384420073E42C /* GrayscaleComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayscaleComponentsTests.swift; sourceTree = "<group>"; };
 		0ACED1781AA387CD0073E42C /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		0ACED17C1AA388350073E42C /* ColorTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTestHelpers.swift; sourceTree = "<group>"; };
 		0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEnablingTests.swift; sourceTree = "<group>"; };
@@ -352,7 +358,7 @@
 				0ACADAE41A3A8AB800CF49F8 /* AlertControllerAddableTests.swift */,
 				0A8028081A34257C00816792 /* BarItemEnablingTests.swift */,
 				0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */,
-				0A10F28C1A3D147700715C7A /* ColorComponentTests.swift */,
+				0A10F28C1A3D147700715C7A /* ColorComponentConversionTests.swift */,
 				0A63F7421A3D51F0001FBFF7 /* ColorPaletteTests.swift */,
 				0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */,
 				0AC4A8A91A26C65F00EBCCB8 /* ConstraintApplicationTests.swift */,
@@ -367,8 +373,11 @@
 				0A63F74D1A3E147B001FBFF7 /* DynamicBehaviorAdditionSyntaxTests.swift */,
 				0A9032251A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift */,
 				0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */,
+				0ACED1711AA384420073E42C /* GrayscaleComponentsTests.swift */,
+				0ACED16F1AA384360073E42C /* HSBComponentsTests.swift */,
 				0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */,
 				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
+				0ACED16D1AA383A70073E42C /* RGBComponentsTests.swift */,
 				0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */,
 				0ACADAEF1A3BF0E500CF49F8 /* SliderIntervalTests.swift */,
 				0A5A29771A73351D003CB7EE /* SpinnerStateManagerTests.swift */,
@@ -740,12 +749,13 @@
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
 				0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */,
+				0ACED16E1AA383A70073E42C /* RGBComponentsTests.swift in Sources */,
 				0A0E3C8F1A3E42DC00E4AC29 /* UIDynamicBehaviorItemAdditionSyntax.swift in Sources */,
 				0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */,
 				0A21DC451A343044005FFC4E /* UIControlEnabling.swift in Sources */,
 				0A4CF44F1A22E38D00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
 				0ACADAF01A3BF0E500CF49F8 /* SliderIntervalTests.swift in Sources */,
-				0A10F28D1A3D147700715C7A /* ColorComponentTests.swift in Sources */,
+				0A10F28D1A3D147700715C7A /* ColorComponentConversionTests.swift in Sources */,
 				0A63F7461A3D59F8001FBFF7 /* ColorPalette.swift in Sources */,
 				0ACADAF41A3BF4A500CF49F8 /* UISliderInterval.swift in Sources */,
 				0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */,
@@ -761,6 +771,7 @@
 				0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */,
 				0A67BADE1A22E9040038D99A /* UIViewControllerAutoLayoutAttributes.swift in Sources */,
 				0AA5805A1A3D29EB0061D882 /* UIColorRGBComponents.swift in Sources */,
+				0ACED1721AA384420073E42C /* GrayscaleComponentsTests.swift in Sources */,
 				0A3BB9A419EB721E0075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0AD6F2591A34356500D863A2 /* UILabelEnabling.swift in Sources */,
 				0AC37F901A29313A00E1C943 /* AutoLayoutInternal.swift in Sources */,
@@ -782,6 +793,7 @@
 				0A63F74E1A3E147B001FBFF7 /* DynamicBehaviorAdditionSyntaxTests.swift in Sources */,
 				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,
 				0AA5805D1A3D2B830061D882 /* UIColorHSBComponents.swift in Sources */,
+				0ACED1701AA384360073E42C /* HSBComponentsTests.swift in Sources */,
 				0A3BB9AC19EB741F0075B32A /* NSLayoutConstraintSearch.swift in Sources */,
 				0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */,
 				0A5BD0FB1A3D0C9200793312 /* ColorAliases.swift in Sources */,

@@ -36,7 +36,8 @@ extension UIColorGrayscaleComponents: Equatable {
 }
 
 public func ==(lhs: UIColorGrayscaleComponents, rhs: UIColorGrayscaleComponents) -> Bool {
-    return lhs.white == rhs.white && lhs.alpha == rhs.alpha
+    return componentValuesEqualWithinTolerance(lhs.white, rhs.white) &&
+        componentValuesEqualWithinTolerance(lhs.alpha, rhs.alpha)
 }
 
 /**

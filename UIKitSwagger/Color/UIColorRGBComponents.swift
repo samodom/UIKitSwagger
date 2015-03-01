@@ -40,10 +40,10 @@ extension UIColorRGBComponents: Equatable {
 }
 
 public func ==(lhs: UIColorRGBComponents, rhs: UIColorRGBComponents) -> Bool {
-    return lhs.red == rhs.red &&
-        lhs.green == rhs.green &&
-        lhs.blue == rhs.blue &&
-        lhs.alpha == rhs.alpha
+    return componentValuesEqualWithinTolerance(lhs.red, rhs.red) &&
+        componentValuesEqualWithinTolerance(lhs.green, rhs.green) &&
+        componentValuesEqualWithinTolerance(lhs.blue, rhs.blue) &&
+        componentValuesEqualWithinTolerance(lhs.alpha, rhs.alpha)
 }
 
 public extension UIColor {
