@@ -40,7 +40,7 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(components.rgbComponents, rgbComponents, "The color produced for unknown types conforming to `UIColorComponents` should have all zeros for component values")
     }
 
-    //  MARK: UIColorRGBComponents
+    //  MARK: - UIColorRGBComponents
 
     func testRGBComponentStructureWithDefaultAlpha() {
         rgbComponents = UIColorRGBComponents(red: 0.14, green: 0.42, blue: 0.77)
@@ -57,6 +57,8 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(rgbComponents.blue, CGFloat(0.77), "The components should include a blue value")
         XCTAssertEqual(rgbComponents.alpha, CGFloat(0.99), "The components should include an alpha value")
     }
+
+    //  MARK:  Equality
 
     func testEqualityOfRGBComponentStructure() {
         rgbComponents = UIColorRGBComponents(red: 0.14, green: 0.42, blue: 0.77, alpha: 0.99)
@@ -88,6 +90,8 @@ class ColorComponentTests: XCTestCase {
         XCTAssertNotEqual(rgbComponents, moreComponents, "The components should not be considered equal")
     }
 
+    //  MARK: Components from colors
+
     func testRGBComponentsWithRGBColor() {
         rgbComponents = UIColorRGBComponents(red: 0.14, green: 0.42, blue: 0.77, alpha: 0.99)
         XCTAssertEqual(rgbColor.rgbComponents, rgbComponents, "The red, green, blue and alpha components of the color should be provided")
@@ -113,6 +117,8 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(monochromeColor.rgbComponents, rgbComponents, "The red, green, blue and alpha components of the color should be provided")
     }
 
+    //  MARK: Colors from components
+
     func testColorCreationWithRGBComponents() {
         rgbComponents = UIColorRGBComponents(red: 0.14, green: 0.42, blue: 0.77, alpha: 0.99)
         let color = rgbComponents.color()
@@ -125,7 +131,7 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(color.rgbComponents, rgbComponents, "The initializer should use the provided component values")
     }
 
-    //  MARK: RGB and alpha component values
+    //  MARK: Component values
 
     func testRedComponentWithRGBColor() {
         XCTAssertEqual(rgbColor.red, rgbColor.rgbComponents.red, "The red component of the RGB color should be provided")
@@ -175,7 +181,7 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(monochromeColor.alpha, monochromeColor.rgbComponents.alpha, "The alpha component of the monochrome color should be provided")
     }
 
-    //  MARK: UIColorHSBComponents
+    //  MARK: - UIColorHSBComponents
 
     func testHSBComponentStructureWithDefaultAlpha() {
         hsbComponents = UIColorHSBComponents(hue: 0.33, saturation: 0.55, brightness: 0.66)
@@ -192,6 +198,8 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(hsbComponents.brightness, CGFloat(0.66), "The components should include a brightness value")
         XCTAssertEqual(hsbComponents.alpha, CGFloat(0.11), "The components should include an alpha value")
     }
+
+    //  MARK: Equality
 
     func testEqualityOfHSBComponentStructure() {
         hsbComponents = UIColorHSBComponents(hue: 0.33, saturation: 0.55, brightness: 0.66, alpha: 0.11)
@@ -223,6 +231,8 @@ class ColorComponentTests: XCTestCase {
         XCTAssertNotEqual(hsbComponents, moreComponents, "The components should not be considered equal")
     }
 
+    //  MARK: Components from colors
+
     func testHSBComponentsWithRGBColor() {
         var hueValue = CGFloat(0)
         var saturationValue = CGFloat(0)
@@ -248,6 +258,8 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(monochromeColor.hsbComponents, hsbComponents, "The hue, saturation, brightness and alpha components of the color should be provided")
     }
 
+    //  MARK: Colors from components
+
     func testColorCreationWithHSBComponents() {
         hsbComponents = UIColorHSBComponents(hue: 0.33, saturation: 0.55, brightness: 0.66)
         let color = hsbComponents.color()
@@ -260,7 +272,7 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(color.hsbComponents, hsbComponents, "The initializer should use the provided component values")
     }
 
-    //  MARK: HSB component values
+    //  MARK: Component values
 
     func testHueComponentWithRGBColor() {
         XCTAssertEqual(rgbColor.hue, rgbColor.hsbComponents.hue, "The hue component of the RGB color should be provided")
@@ -298,7 +310,7 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(monochromeColor.brightness, monochromeColor.hsbComponents.brightness, "The white component of the monochrome color should be provided")
     }
 
-    //  MARK: UIColorGrayscaleComponents
+    //  MARK: - UIColorGrayscaleComponents
 
     func testGrayscaleComponentStructureWithDefaultAlpha() {
         grayscaleComponents = UIColorGrayscaleComponents(white: 0.88)
@@ -311,6 +323,8 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(grayscaleComponents.white, CGFloat(0.88), "The components should include a white value")
         XCTAssertEqual(grayscaleComponents.alpha, CGFloat(0.8), "The components should include an alpha value")
     }
+
+    //  MARK: Equality
 
     func testEqualityOfGrayscaleComponentStructure() {
         grayscaleComponents = UIColorGrayscaleComponents(white: 0.88, alpha: 0.8)
@@ -329,6 +343,8 @@ class ColorComponentTests: XCTestCase {
         let moreComponents = UIColorGrayscaleComponents(white: 0.88, alpha: 0.79)
         XCTAssertNotEqual(grayscaleComponents, moreComponents, "The components should not be considered equal")
     }
+
+    //  MARK: Components from colors
 
     func testGrayscaleComponentsWithRGBColor() {
         var whiteValue = CGFloat(0)
@@ -351,6 +367,8 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(monochromeColor.grayscaleComponents, grayscaleComponents, "The white and alpha components of the color should be provided")
     }
 
+    //  MARK: Colors from components
+
     func testColorCreationWithGrayscaleComponents() {
         grayscaleComponents = UIColorGrayscaleComponents(white: 0.88, alpha: 0.8)
         let color = grayscaleComponents.color()
@@ -363,7 +381,7 @@ class ColorComponentTests: XCTestCase {
         XCTAssertEqual(color.grayscaleComponents, grayscaleComponents, "The initializer should use the provided component values")
     }
 
-    //  MARK: Monochrome component values
+    //  MARK: Component values
 
     func testWhiteComponentWithRGBColor() {
         var whiteValue = CGFloat(0)
