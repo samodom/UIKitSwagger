@@ -11,26 +11,26 @@ The following component structures are provided for convenience.  Each one confo
 
 ```swift
 struct UIColorRGBComponents {
-  let red: CGFloat
-  let green: CGFloat
-  let blue: CGFloat
-  let alpha: CGFloat
+    let red: CGFloat
+    let green: CGFloat
+    let blue: CGFloat
+    let alpha: CGFloat
 }
 ```
 
 ```swift
 struct UIColorHSBComponents {
-  let hue: CGFloat
-  let saturation: CGFloat
-  let brightness: CGFloat
-  let alpha: CGFloat
+    let hue: CGFloat
+    let saturation: CGFloat
+    let brightness: CGFloat
+    let alpha: CGFloat
 }
 ```
 
 ```swift
 struct UIColorGrayscaleComponents {
-  let white: CGFloat
-  let alpha: CGFloat
+    let white: CGFloat
+    let alpha: CGFloat
 }
 ```
 
