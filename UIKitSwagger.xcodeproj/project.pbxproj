@@ -50,7 +50,6 @@
 		0A5F12F31A285D1000694C56 /* DimensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F21A285D1000694C56 /* DimensionsTests.swift */; };
 		0A5F12F81A285EB600694C56 /* UIViewDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewDimensions.swift */; };
 		0A5F12F91A285EBA00694C56 /* UIViewDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewDimensions.swift */; };
-		0A63F7411A3D4A71001FBFF7 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F7401A3D4A71001FBFF7 /* TestConstants.swift */; };
 		0A63F7431A3D51F0001FBFF7 /* ColorPaletteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F7421A3D51F0001FBFF7 /* ColorPaletteTests.swift */; };
 		0A63F7451A3D59F8001FBFF7 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F7441A3D59F8001FBFF7 /* ColorPalette.swift */; };
 		0A63F7461A3D59F8001FBFF7 /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63F7441A3D59F8001FBFF7 /* ColorPalette.swift */; };
@@ -115,6 +114,7 @@
 		0ACADB061A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */; };
 		0ACADB071A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */; };
 		0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */; };
+		0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED1781AA387CD0073E42C /* TestConstants.swift */; };
 		0AD6F2551A34353700D863A2 /* LabelEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */; };
 		0AD6F2581A34354400D863A2 /* UILabelEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */; };
 		0AD6F2591A34356500D863A2 /* UILabelEnabling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */; };
@@ -176,7 +176,6 @@
 		0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAliases.swift; sourceTree = "<group>"; };
 		0A5F12F21A285D1000694C56 /* DimensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionsTests.swift; sourceTree = "<group>"; };
 		0A5F12F71A285EB600694C56 /* UIViewDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDimensions.swift; sourceTree = "<group>"; };
-		0A63F7401A3D4A71001FBFF7 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		0A63F7421A3D51F0001FBFF7 /* ColorPaletteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPaletteTests.swift; sourceTree = "<group>"; };
 		0A63F7441A3D59F8001FBFF7 /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		0A63F7471A3E0EA3001FBFF7 /* DynamicAnimatorAdditionSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicAnimatorAdditionSyntaxTests.swift; sourceTree = "<group>"; };
@@ -222,6 +221,7 @@
 		0ACADAFE1A3CF48900CF49F8 /* UIKitEnablable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitEnablable.swift; sourceTree = "<group>"; };
 		0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStepperInterval.swift; sourceTree = "<group>"; };
 		0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperIntervalTests.swift; sourceTree = "<group>"; };
+		0ACED1781AA387CD0073E42C /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEnablingTests.swift; sourceTree = "<group>"; };
 		0AD6F2571A34354400D863A2 /* UILabelEnabling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelEnabling.swift; sourceTree = "<group>"; };
 		0AD6F25A1A34394000D863A2 /* NSLayoutConstraintActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraintActivation.swift; sourceTree = "<group>"; };
@@ -328,8 +328,8 @@
 		0A3BB98819EB70C70075B32A /* UIKitSwaggerTests */ = {
 			isa = PBXGroup;
 			children = (
+				0ACED1771AA387CD0073E42C /* Common */,
 				0A3BB98919EB70C70075B32A /* Supporting Files */,
-				0A63F7401A3D4A71001FBFF7 /* TestConstants.swift */,
 				0A3BB99519EB71240075B32A /* Tests */,
 			);
 			path = UIKitSwaggerTests;
@@ -519,6 +519,14 @@
 				0ACADB051A3CF71F00CF49F8 /* UIStepperInterval.swift */,
 			);
 			path = Stepper;
+			sourceTree = "<group>";
+		};
+		0ACED1771AA387CD0073E42C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0ACED1781AA387CD0073E42C /* TestConstants.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		0AD6F2561A34354400D863A2 /* Label */ = {
@@ -724,11 +732,11 @@
 				0A3F1B4F1A4112F500195B8F /* UIViewConstraintApplication.swift in Sources */,
 				0A5A297C1A73368B003CB7EE /* SpinnerStateManager.swift in Sources */,
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
-				0A63F7411A3D4A71001FBFF7 /* TestConstants.swift in Sources */,
 				0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */,
 				0AD6F25C1A34394700D863A2 /* NSLayoutConstraintActivation.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
+				0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */,
 				0A0E3C8F1A3E42DC00E4AC29 /* UIDynamicBehaviorItemAdditionSyntax.swift in Sources */,
 				0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */,
 				0A21DC451A343044005FFC4E /* UIControlEnabling.swift in Sources */,
