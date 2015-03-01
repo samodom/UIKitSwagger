@@ -10,3 +10,9 @@ import UIKit
 
 internal let MinimumTestExpectationWaitTime = 0.05 as NSTimeInterval
 internal let MaximumTestExpectationWaitTime = 0.1 as NSTimeInterval
+
+#if arch(x86_64) || arch(arm64)
+    internal let ColorComponentValueTestAccuracy = CGFloat(DBL_EPSILON)
+    #else
+    internal let ColorComponentValueTestAccuracy = CGFloat(FLT_EPSILON)
+#endif
