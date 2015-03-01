@@ -1,8 +1,8 @@
 UIKitSwagger Changelog
 ======================
 
-##### v0.5.3 (__DATE__)
- - Added color count property to `ColorPalette`
+##### v0.6.0 (__DATE__)
+ - Added color count and color dictionary properties to `ColorPalette`
  - Added formal initializers for color component types
  - Added functions to easily turn off autoresizing-mask-to-constraint translation
  - Added methods and functions for constraining view dimensions to a constant or interval
