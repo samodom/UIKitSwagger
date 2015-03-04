@@ -28,7 +28,7 @@ public struct UIColorRGBComponents: UIColorComponents {
       Required method for creating colors based on this component scheme.
     */
     public func color() -> UIColor {
-        return UIColor(components: self)
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
 
@@ -80,6 +80,13 @@ public extension UIColorRGBComponents {
     */
     public func asGrayscaleComponents() -> UIColorGrayscaleComponents {
         return color().grayscaleComponents
+    }
+
+    /**
+      Converts RGB components into CMYK components.
+    */
+    public func asCMYKComponents() -> UIColorCMYKComponents {
+        return color().cmykComponents
     }
 
 }

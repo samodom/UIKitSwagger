@@ -8,26 +8,27 @@
 
 import UIKit
 
-//  MARK: - Non-component structure
-
-internal struct NonComponents: UIColorComponents {
-    internal func color() -> UIColor {
-        return UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-    }
-}
 
 //  MARK: - Sample Color Values
 
 //  MARK: Random component values
 
-internal let randomRedValue = randomComponentValue()
-internal let randomGreenValue = randomComponentValue()
-internal let randomBlueValue = randomComponentValue()
-internal let randomAlphaValue = randomComponentValue()
-internal let randomHueValue = randomComponentValue()
-internal let randomSaturationValue = randomComponentValue()
-internal let randomBrightnessValue = randomComponentValue()
-internal let randomWhiteValue = randomComponentValue()
+internal var randomAlphaValue = randomComponentValue()
+
+internal var randomRedValue = randomComponentValue()
+internal var randomGreenValue = randomComponentValue()
+internal var randomBlueValue = randomComponentValue()
+
+internal var randomHueValue = randomComponentValue()
+internal var randomSaturationValue = randomComponentValue()
+internal var randomBrightnessValue = randomComponentValue()
+
+internal var randomWhiteValue = randomComponentValue()
+
+internal var randomCyanValue = randomComponentValue()
+internal var randomMagentaValue = randomComponentValue()
+internal var randomYellowValue = randomComponentValue()
+internal var randomKeyValue = randomComponentValue()
 
 
 //  MARK: Colors
@@ -69,22 +70,24 @@ internal func randomComponentValue() -> CGFloat {
     }
 
     createGenerator()
-    return CGFloat(drand48())
+    let randomValue = CGFloat(drand48())
+    assert(randomValue >= 0)
+    assert(randomValue <= 1)
+    return randomValue
 }
 
-private let absoluteNudgeValue = CGFloat(1e-6)
 internal func nudgeComponentValue(value: CGFloat) -> CGFloat {
     var useNegative: Bool
-    if value < 0 + absoluteNudgeValue {
+    if value < 0 + ColorComponentValueTestAccuracy {
         useNegative = false
     }
-    else if value > 1 - absoluteNudgeValue {
+    else if value > 1 - ColorComponentValueTestAccuracy {
         useNegative = true
     }
     else {
         useNegative = arc4random() % 2 == 0
     }
 
-    let nudgeValue = useNegative ? -absoluteNudgeValue : absoluteNudgeValue
+    let nudgeValue = useNegative ? -ColorComponentValueTestAccuracy : ColorComponentValueTestAccuracy
     return value + nudgeValue
 }

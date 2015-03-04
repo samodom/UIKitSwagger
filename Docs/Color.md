@@ -34,26 +34,45 @@ struct UIColorGrayscaleComponents {
 }
 ```
 
+```swift
+struct UIColorCMYKComponents {
+    let cyan: CGFloat
+    let magenta: CGFloat
+    let yellow: CGFloat
+    let key: CGFloat
+    let alpha: CGFloat
+}
+```
+
+
 Convert component types with these methods:
 
  - `UIColorRGBComponents.asHSBComponents() -> UIColorHSBComponents`
  - `UIColorRGBComponents.asGrayscaleComponents() -> UIColorGrayscaleComponents`
+ - `UIColorRGBComponents.asCMYKComponents() -> UIColorCMYKComponents`
  - `UIColorHSBComponents.asRGBComponents() -> UIColorRGBComponents`
  - `UIColorHSBComponents.asGrayscaleComponents() -> UIColorGrayscaleComponents`
+ - `UIColorHSBComponents.asCMYKComponents() -> UIColorCMYKComponents`
  - `UIColorGrayscaleComponents.asRGComponents() -> UIColorRGBComponents`
  - `UIColorGrayscaleComponents.asHSBComponents() -> UIColorHSBComponents`
+ - `UIColorGrayscaleComponents.asCMYKComponents() -> UIColorCMYKComponents`
+ - `UIColorCMYKComponents.asRGBComponents() -> UIColorRGBComponents`
+ - `UIColorCMYKComponents.asHSBComponents() -> UIColorHSBComponents`
+ - `UIColorCMYKComponents.asGrayscaleComponents() -> UIColorGrayscaleComponents`
 
 
 These component structures can be retrieved from an existing color using the following properties:
  - `var rgbComponents: UIColorRGBComponents`
  - `var hsbComponents: UIColorHSBComponents`
  - `var grayscaleComponents: UIColorGrayscaleComponents`
+ - `var cmykComponents: UIColorCMYKComponents`
 
 Each component scheme also has a method to produce a color:
  - `func color() -> UIColor`
 
-In addition, `UIColor` has a corresponding convenience initializer for creating colors that match exactly the system-provided initializers except for their use of these structures.
- - `convenience init(components: UIColorComponents)`
+In addition, `UIColor` has a new convenience initializer for creating colors using CMYK values and a component-value retrieval method to match the system API.
+ - `init(cyan: CGFloat, magenta: CGFloat, yellow: CGFloat, key: CGFloat, alpha: CGFloat)`
+ - `func getCyan(inout cyan: CGFloat, inout magenta: CGFloat, inout yellow: CGFloat, inout key: CGFloat, inout alpha: CGFloat) -> Bool`
 
 
 **Component Values**
@@ -67,6 +86,10 @@ Want individual component values?  Here they are as properties!
  - `var saturation: CGFloat`
  - `var brightness: CGFloat`
  - `var white: CGFloat`
+ - `var cyan: CGFloat`
+ - `var magenta: CGFloat`
+ - `var yellow: CGFloat`
+ - `var key: CGFloat`
 
 
 ### Aliases

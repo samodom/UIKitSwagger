@@ -24,7 +24,7 @@ public struct UIColorGrayscaleComponents: UIColorComponents {
       Required method for creating colors based on this component scheme.
     */
     public func color() -> UIColor {
-        return UIColor(components: self)
+        return UIColor(white: white, alpha: alpha)
     }
 }
 
@@ -40,11 +40,11 @@ public func ==(lhs: UIColorGrayscaleComponents, rhs: UIColorGrayscaleComponents)
         componentValuesEqualWithinTolerance(lhs.alpha, rhs.alpha)
 }
 
-/**
-  Property that returns the grayscale components of the color in a structure.
-*/
 public extension UIColor {
 
+    /**
+      Property that returns the grayscale components of the color in a structure.
+    */
     public var grayscaleComponents: UIColorGrayscaleComponents {
         var whiteValue = CGFloat(0)
         var alphaValue = CGFloat(0)
@@ -73,6 +73,13 @@ public extension UIColorGrayscaleComponents {
     */
     public func asHSBComponents() -> UIColorHSBComponents {
         return color().hsbComponents
+    }
+
+    /**
+      Converts grayscale components into CMYK components.
+    */
+    public func asCMYKComponents() -> UIColorCMYKComponents {
+        return color().cmykComponents
     }
 
 }

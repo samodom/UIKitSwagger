@@ -28,7 +28,7 @@ public struct UIColorHSBComponents: UIColorComponents {
       Required method for creating colors based on this component scheme.
     */
     public func color() -> UIColor {
-        return UIColor(components: self)
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
     }
 }
 
@@ -80,6 +80,13 @@ public extension UIColorHSBComponents {
     */
     public func asGrayscaleComponents() -> UIColorGrayscaleComponents {
         return color().grayscaleComponents
+    }
+
+    /**
+      Converts HSB components into CNYK components.
+    */
+    public func asCMYKComponents() -> UIColorCMYKComponents {
+        return color().cmykComponents
     }
 
 }
