@@ -19,7 +19,32 @@ private func AssertDimensionAttribute(attribute: NSLayoutAttribute) {
     assert(attribute == .Width || attribute == .Height)
 }
 
-internal func ConstrainDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute) -> [Constraint] {
+internal func ConstrainDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute, value: CGFloat) -> [Constraint] {
+    AssertDimensionAttribute(dimension)
+    var constraints = [Constraint]()
+    for item in items {
+        constraints.append((item as! AnyObject, dimension) =* value)
+    }
+
+    ApplyConstraints(constraints)
+    return constraints
+}
+
+internal func ConstrainDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute, interval: ClosedInterval<CGFloat>) -> [Constraint] {
+    AssertDimensionAttribute(dimension)
+    var constraints = [Constraint]()
+    for item in items {
+        let attributedItem = AutoLayoutAttributedItem(item as! AnyObject, dimension)
+        constraints.append(attributedItem >=* interval.start)
+        constraints.append(attributedItem <=* interval.end)
+    }
+
+    ApplyConstraints(constraints)
+    return constraints
+}
+
+
+internal func MatchDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute) -> [Constraint] {
     AssertDimensionItemCount(items.count)
     AssertDimensionAttribute(dimension)
 
@@ -32,7 +57,17 @@ internal func AssertAlignmentItemCount(count: Int) {
     assert(count > 1, "Multiple views are required for alignment")
 }
 
-private let validAlignmentAttributes: [NSLayoutAttribute] = [.Left, .Leading, .Right, .Trailing, .Top, .Bottom, .CenterX, .CenterY, .Baseline]
+private let validAlignmentAttributes: [NSLayoutAttribute] = [
+    .Left,
+    .Leading,
+    .Right,
+    .Trailing,
+    .Top,
+    .Bottom,
+    .CenterX,
+    .CenterY,
+    .Baseline
+]
 
 private func AssertAlignmentAttribute(attribute: NSLayoutAttribute) {
     assert(contains(validAlignmentAttributes, attribute))

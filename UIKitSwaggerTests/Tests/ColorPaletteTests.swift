@@ -15,51 +15,66 @@ class ColorPaletteTests: XCTestCase {
     let red = UIColor.redColor()
     let blue = UIColor.blueColor()
     let green = UIColor.greenColor()
+    var colors: [String:UIColor]!
 
     override func setUp() {
         super.setUp()
+
+        colors = ["red": red, "blue": blue, "green": green]
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
 
-    func testColorPaletteHasColorDictionary() {
-        let dictionary = palette.colorDictionary
-        XCTAssertEqual(dictionary.count, 0, "The palette should have an empty color dictionary by default")
+    func testCreatingEmptyPalette() {
+        XCTAssertEqual(palette.numberOfColors, 0, "There should be no colors in an empty palette")
+    }
+
+    func testCreatingPaletteWithColors() {
+        palette = ColorPalette(colors: colors)
+        XCTAssertEqual(palette.numberOfColors, 3, "The palette should be created with three colors")
+        XCTAssertEqual(palette.colorNamed("red")!, red, "The supplied colors should be added to the palette")
+        XCTAssertEqual(palette.colorNamed("blue")!, blue, "The supplied colors should be added to the palette")
+        XCTAssertEqual(palette.colorNamed("green")!, green, "The supplied colors should be added to the palette")
+    }
+
+    func testPaletteProvidesColorDictionary() {
+        palette = ColorPalette(colors: colors)
+        XCTAssertEqual(palette.allColors, colors, "The palette should provide all of the colors with their names")
     }
 
     func testColorPaletteAddsColorsToDictionary() {
         palette.addColor(red, named: "rosso")
-        XCTAssertEqual(palette.colorDictionary.count, 1, "There should be one color in the dictionary")
-        XCTAssertEqual(palette.colorDictionary["rosso"]!, red, "The palette should add colors to its dictionary by a name string")
+        XCTAssertEqual(palette.numberOfColors, 1, "There should be one color in the dictionary")
+        XCTAssertEqual(palette.colorNamed("rosso")!, red, "The palette should add colors to its dictionary by a name string")
 
         palette.addColor(blue, named: "blou")
-        XCTAssertEqual(palette.colorDictionary.count, 2, "There should be two colors in the dictionary")
-        XCTAssertEqual(palette.colorDictionary["blou"]!, blue, "The palette should add colors to its dictionary by a name string")
+        XCTAssertEqual(palette.numberOfColors, 2, "There should be two colors in the dictionary")
+        XCTAssertEqual(palette.colorNamed("blou")!, blue, "The palette should add colors to its dictionary by a name string")
     }
 
     func testColorPaletteReplacesColorsInDictionary() {
         palette.addColor(red, named: "rosso")
         palette.addColor(blue, named: "rosso")
-        XCTAssertEqual(palette.colorDictionary.count, 1, "There should be one color in the dictionary")
-        XCTAssertEqual(palette.colorDictionary["rosso"]!, blue, "The palette should replace colors in its dictionary")
+        XCTAssertEqual(palette.numberOfColors, 1, "There should be one color in the dictionary")
+        XCTAssertEqual(palette.colorNamed("rosso")!, blue, "The palette should replace colors in its dictionary")
     }
 
     func testColorPaletteRemovesColorsFromDictionary() {
         palette.addColor(red, named: "red")
         palette.removeColorNamed("red")
-        XCTAssertEqual(palette.colorDictionary.count, 0, "There should be no colors left in the dictionary")
+        XCTAssertEqual(palette.numberOfColors, 0, "There should be no colors left in the dictionary")
     }
 
     func testColorPaletteRemovesAllColors() {
-        palette.colorDictionary = [ "red": red, "blue": blue, "green": green ]
+        palette = ColorPalette(colors: colors)
         palette.removeAllColors()
-        XCTAssertEqual(palette.colorDictionary.count, 0, "The palette should clear all of its colors")
+        XCTAssertEqual(palette.numberOfColors, 0, "The palette should clear all of its colors")
     }
 
     func testColorPaletteReturnsColorsByName() {
-        palette.colorDictionary = [ "red": red, "blue": blue, "green": green ]
+        palette = ColorPalette(colors: colors)
         XCTAssertEqual(palette.colorNamed("red")!, red, "The palette should return colors by their name")
         XCTAssertEqual(palette.colorNamed("blue")!, blue, "The palette should return colors by their name")
         XCTAssertEqual(palette.colorNamed("green")!, green, "The palette should return colors by their name")

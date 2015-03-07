@@ -17,11 +17,18 @@ public struct UIColorRGBComponents: UIColorComponents {
     public let blue: CGFloat
     public let alpha: CGFloat
 
+    public init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat! = 1) {
+        self.red = red
+        self.green = green
+        self.blue = blue
+        self.alpha = alpha
+    }
+
     /**
       Required method for creating colors based on this component scheme.
     */
     public func color() -> UIColor {
-        return UIColor(components: self)
+        return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
 
@@ -33,10 +40,10 @@ extension UIColorRGBComponents: Equatable {
 }
 
 public func ==(lhs: UIColorRGBComponents, rhs: UIColorRGBComponents) -> Bool {
-    return lhs.red == rhs.red &&
-        lhs.green == rhs.green &&
-        lhs.blue == rhs.blue &&
-        lhs.alpha == rhs.alpha
+    return componentValuesEqualWithinTolerance(lhs.red, rhs.red) &&
+        componentValuesEqualWithinTolerance(lhs.green, rhs.green) &&
+        componentValuesEqualWithinTolerance(lhs.blue, rhs.blue) &&
+        componentValuesEqualWithinTolerance(lhs.alpha, rhs.alpha)
 }
 
 public extension UIColor {
@@ -52,6 +59,34 @@ public extension UIColor {
 
         getRed(&redValue, green: &greenValue, blue: &blueValue, alpha: &alphaValue)
         return UIColorRGBComponents(red: redValue, green: greenValue, blue: blueValue, alpha: alphaValue)
+    }
+
+}
+
+/**
+  Component conversion methods.
+*/
+public extension UIColorRGBComponents {
+
+    /**
+      Converts RGB components into HSB components.
+    */
+    public func asHSBComponents() -> UIColorHSBComponents {
+        return color().hsbComponents
+    }
+
+    /**
+      Converts RGB components into grayscale components.
+    */
+    public func asGrayscaleComponents() -> UIColorGrayscaleComponents {
+        return color().grayscaleComponents
+    }
+
+    /**
+      Converts RGB components into CMYK components.
+    */
+    public func asCMYKComponents() -> UIColorCMYKComponents {
+        return color().cmykComponents
     }
 
 }

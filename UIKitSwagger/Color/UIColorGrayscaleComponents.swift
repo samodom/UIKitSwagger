@@ -15,11 +15,16 @@ public struct UIColorGrayscaleComponents: UIColorComponents {
     public let white: CGFloat
     public let alpha: CGFloat
 
+    public init(white: CGFloat, alpha: CGFloat! = 1) {
+        self.white = white
+        self.alpha = alpha
+    }
+
     /**
       Required method for creating colors based on this component scheme.
     */
     public func color() -> UIColor {
-        return UIColor(components: self)
+        return UIColor(white: white, alpha: alpha)
     }
 }
 
@@ -31,14 +36,15 @@ extension UIColorGrayscaleComponents: Equatable {
 }
 
 public func ==(lhs: UIColorGrayscaleComponents, rhs: UIColorGrayscaleComponents) -> Bool {
-    return lhs.white == rhs.white && lhs.alpha == rhs.alpha
+    return componentValuesEqualWithinTolerance(lhs.white, rhs.white) &&
+        componentValuesEqualWithinTolerance(lhs.alpha, rhs.alpha)
 }
 
-/**
-  Property that returns the grayscale components of the color in a structure.
-*/
 public extension UIColor {
 
+    /**
+      Property that returns the grayscale components of the color in a structure.
+    */
     public var grayscaleComponents: UIColorGrayscaleComponents {
         var whiteValue = CGFloat(0)
         var alphaValue = CGFloat(0)
@@ -47,5 +53,33 @@ public extension UIColor {
         return UIColorGrayscaleComponents(white: whiteValue, alpha: alphaValue)
     }
 
+
+}
+
+/**
+  Component conversion methods.
+*/
+public extension UIColorGrayscaleComponents {
+
+    /**
+      Converts grayscale components into RGB components.
+    */
+    public func asRGBComponents() -> UIColorRGBComponents {
+        return color().rgbComponents
+    }
+
+    /**
+      Converts grayscale components into HSB components.
+    */
+    public func asHSBComponents() -> UIColorHSBComponents {
+        return color().hsbComponents
+    }
+
+    /**
+      Converts grayscale components into CMYK components.
+    */
+    public func asCMYKComponents() -> UIColorCMYKComponents {
+        return color().cmykComponents
+    }
 
 }

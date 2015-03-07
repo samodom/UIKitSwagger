@@ -9,6 +9,8 @@ Auto Layout Convenience
 > In addition, `AutoLayoutAttributedItem` represents a pair consisting of an Auto Layout item (view or view controller layout guide) and an `NSLayoutAttribute`
 
 
+## Enhancements to Constraints
+
 ### Equality
 
 Compare two constraints with respect to the items, attributes, relation, multiplier and constant.  It even tries the reverse of one operand to truly determine equivalency.  In addition, the `==*` operator can be used to compare constraints for extended equivalency by comparing constraint priorities and identifiers.
@@ -18,24 +20,8 @@ Compare two constraints with respect to the items, attributes, relation, multipl
 Want to reverse the items in a constraint to produce an equivalent constraint?  Note that some constraints are not reversible.
 - `func reversed() -> Constraint?`
 
-### Constraint Search
 
-Don't clutter your view controller code trying to find a particular constraint to remove!   Finding constraints is much easier with these methods on `UIView`:
-
- - `func constraintsForItem(AnyObject) -> [Constraint]?`
- - `func constraintsForAttribute(NSLayoutAttribute) -> [Constraint]?`
- - `func constraintsForAttributedItem(AutoLayoutAttributedItem) -> [Constraint]?`
- - `func constraintsForItems(AnyObject, AnyObject) -> [Constraint]?`
- - `func constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [Constraint]?`
-
-Also, you can check for an applied constraint (or equivalent) using this method:
-
- - `func hasConstraint(Constraint) -> Bool`
-
-
----
-
-### Real Auto Layout Syntax
+## Real Auto Layout Syntax
 
 You can now build your constraints in Swift with a real syntax the same way that you use the `init(item:attribute:relatedBy:toItem:attribute:multiplier:constant:)` initializer.  The `*` and `+` operators provide the scalar multiples and constant offsets, respectively.  The `=*`, `>=*` and `<=*` operators specify "equal", "greater than or equal" and "less than or equal" relations, respectively.
 
@@ -53,7 +39,19 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 |`constraint ~ "sample"`|`constant.identifier = "sample"`|
 |`constraint ~ nil`|`contraint.identifier = nil`|
 
----
+
+## Views Enhancements and Utilities
+
+### Turning Off Translation
+
+Tired of calling `setTranslatesAutoresizingMaskIntoConstraints(false)` on so many views when writing Auto Layout code?  Do a bunch at once:
+
+```swift
+DoNotTranslateMasks(button, image, titleLabel)
+//  OR
+DoNotTranslateMasks(view.subviews)
+```
+
 
 ### Blindly Apply/Remove Constraints
 
@@ -66,8 +64,8 @@ Methods on NSLayoutConstraint:
 Global top-level functions:
  - `func ApplyConstraints(Constraint...)`
  - `func ApplyConstraints([Constraint])`
- - `func RemoveConstraints(constraints: Constraint...)`
- - `func RemoveConstraints(constraints: [Constraint])`
+ - `func RemoveConstraints(Constraint...)`
+ - `func RemoveConstraints([Constraint])`
 
 And for good measure, a method to remove all of a view's constraints without having to use this cumbersome one-liner:
 
@@ -81,8 +79,6 @@ This can now be written as:
 view.clearConstraints()
 ```
 
----
-
 ### Activation Functions
 
 Convenience methods for activating and deactivating constraints:
@@ -90,10 +86,24 @@ Convenience methods for activating and deactivating constraints:
  - `func deactivate()`
 
 Similar to constraint application, one should be able to activate or deactivate multiple constraints in a single statement:
- - `func ActivateConstraints(constraints: Constraint...)`
- - `func ActivateConstraints(constraints: [Constraint])`
- - `func DeactivateConstraints(constraints: Constraint...)`
- - `func DeactivateConstraints(constraints: [Constraint])`
+ - `func ActivateConstraints(Constraint...)`
+ - `func ActivateConstraints([Constraint])`
+ - `func DeactivateConstraints(Constraint...)`
+ - `func DeactivateConstraints([Constraint])`
+
+ ### Constraint Search
+
+ Don't clutter your view controller code trying to find a particular constraint to remove!   Finding constraints is much easier with these methods on `UIView`:
+
+  - `func constraintsForItem(AnyObject) -> [Constraint]?`
+  - `func constraintsForAttribute(NSLayoutAttribute) -> [Constraint]?`
+  - `func constraintsForAttributedItem(AutoLayoutAttributedItem) -> [Constraint]?`
+  - `func constraintsForItems(AnyObject, AnyObject) -> [Constraint]?`
+  - `func constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [Constraint]?`
+
+ Also, you can check for an applied constraint (or equivalent) using this method:
+
+  - `func hasConstraint(Constraint) -> Bool`
 
 
 ### Alignment Functions
@@ -138,7 +148,21 @@ Common distribution tasks can be performed without creating constraints manually
  - `DistributeTopToBottom(CGFloat, [UIView]) -> [Constraint]`
 
 
-### Aspect Ratio Functions
+### Dimensions
+
+#### Single Dimension
+
+Restricting a view's width or height to a constant or range is easy enough:
+
+ - `func constrainWidth(160)`
+ - `func constrainWidth(120 ... 160)`
+ - `func constrainWidth(120.12 ... 160.8)`
+ - `func constrainHeight(44)`
+ - `func constrainHeight(22 ... 44)`
+ - `func constrainHeight(22.1 ... 44.1)`
+
+
+#### Aspect Ratios
 
 The dimensions of a view can be constrained to a particular aspect ratio with or without an offset.  These functions create and apply the necessary constraints, then return them to the caller for use as variables.
 
@@ -146,8 +170,16 @@ Methods on NSLayoutConstraint:
  - `func constrainWidthToHeight(CGFloat, CGFloat) -> Constraint`
  - `func constrainHeightToWidth(CGFloat, CGFloat) -> Constraint`
 
-Global top-level functions (the produced constraints are defined with respect to the appropriate attribute of the first item listed):
- - `func ConstrainWidths(AutoLayoutAttributable...) -> [Constraint]`
- - `func ConstrainWidths([AutoLayoutAttributable]) -> [Constraint]`
- - `func ConstrainHeights(AutoLayoutAttributable...) -> [Constraint]`
- - `func ConstrainHeights([AutoLayoutAttributable]) -> [Constraint]`
+Global top-level functions (the produced constraints are defined with respect to the appropriate attribute of the first item listed or the provided constant/interval):
+ - `func MatchWidths(AutoLayoutAttributable...) -> [Constraint]`
+ - `func MatchWidths([AutoLayoutAttributable]) -> [Constraint]`
+ - `func ConstrainWidths(CGFloat, AutoLayoutAttributable...) -> [Constraint]`
+ - `func ConstrainWidths(CGFloat, [AutoLayoutAttributable]) -> [Constraint]`
+ - `func ConstrainWidths(ClosedInterval<CGFloat>, AutoLayoutAttributable...) -> [Constraint]`
+ - `func ConstrainWidths(ClosedInterval<CGFloat>, [AutoLayoutAttributable]) -> [Constraint]`
+ - `func MatchHeights(AutoLayoutAttributable...) -> [Constraint]`
+ - `func MatchHeights([AutoLayoutAttributable]) -> [Constraint]`
+ - `func ConstrainHeights(CGFloat, AutoLayoutAttributable...) -> [Constraint]`
+ - `func ConstrainHeights(CGFloat, [AutoLayoutAttributable]) -> [Constraint]`
+ - `func ConstrainHeights(ClosedInterval<CGFloat>, AutoLayoutAttributable...) -> [Constraint]`
+ - `func ConstrainHeights(ClosedInterval<CGFloat>, [AutoLayoutAttributable]) -> [Constraint]`

@@ -19,31 +19,6 @@ public protocol UIColorComponents {
 public extension UIColor {
 
     /**
-      Convenience initializer for component-based color creation.
-    */
-    public convenience init(components: UIColorComponents) {
-
-        switch components {
-        case let rgb as UIColorRGBComponents:
-            self.init(red: rgb.red, green: rgb.green, blue: rgb.blue, alpha: rgb.alpha)
-
-        case let hsb as UIColorHSBComponents:
-            self.init(hue: hsb.hue, saturation: hsb.saturation, brightness: hsb.brightness, alpha: hsb.alpha)
-
-        case let grayscale as UIColorGrayscaleComponents:
-            self.init(white: grayscale.white, alpha: grayscale.alpha)
-
-        default:
-            self.init(red: 0, green: 0, blue: 0, alpha: 0)
-        }
-
-    }
-
-}
-
-public extension UIColor {
-
-    /**
       Property to provide the red component value of the color.
     */
     public var red: CGFloat {
@@ -99,4 +74,16 @@ public extension UIColor {
         return grayscaleComponents.white
     }
 
+}
+
+//  MARK: - Internal
+
+#if arch(x86_64) || arch(arm64)
+    internal let ColorComponentValueTestAccuracy = CGFloat(DBL_EPSILON)
+    #else
+    internal let ColorComponentValueTestAccuracy = CGFloat(FLT_EPSILON)
+#endif
+
+internal func componentValuesEqualWithinTolerance(value1: CGFloat, value2: CGFloat) -> Bool {
+    return fabs(value1 - value2) < ColorComponentValueTestAccuracy
 }
