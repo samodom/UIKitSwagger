@@ -1,7 +1,7 @@
 UIKitSwagger Changelog
 ======================
 
-##### v0.6.0 (__DATE__)
+##### v0.6.0 (Saturday, March 7, 2015)
  - Added color count and color dictionary properties to `ColorPalette`
  - Added formal initializers for color component types
  - Removed component-type-based initializer on UIColor
