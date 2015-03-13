@@ -17,3 +17,6 @@ A bit of a DSL for UIKit
  - [Enabling/Disabling Gesture Recognizers](Docs/GestureRecognizer.md)
  - [Enabling/Disabling Labels](Docs/Label.md)
  - [Managing An Activity Indicator View](Docs/SpinnerStateManager.md)
+
+
+Available as a CocaoPod

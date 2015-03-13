@@ -28,7 +28,7 @@ public struct UIColorHSBComponents: UIColorComponents {
       Required method for creating colors based on this component scheme.
     */
     public func color() -> UIColor {
-        return UIColor(components: self)
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
     }
 }
 
@@ -40,10 +40,10 @@ extension UIColorHSBComponents: Equatable {
 }
 
 public func ==(lhs: UIColorHSBComponents, rhs: UIColorHSBComponents) -> Bool {
-    return lhs.hue == rhs.hue &&
-        lhs.saturation == rhs.saturation &&
-        lhs.brightness == rhs.brightness &&
-        lhs.alpha == rhs.alpha
+    return componentValuesEqualWithinTolerance(lhs.hue, rhs.hue) &&
+        componentValuesEqualWithinTolerance(lhs.saturation, rhs.saturation) &&
+        componentValuesEqualWithinTolerance(lhs.brightness, rhs.brightness) &&
+        componentValuesEqualWithinTolerance(lhs.alpha, rhs.alpha)
 }
 
 public extension UIColor {
@@ -59,6 +59,34 @@ public extension UIColor {
 
         getHue(&hueValue, saturation: &saturationValue, brightness: &brightnessValue, alpha: &alphaValue)
         return UIColorHSBComponents(hue: hueValue, saturation: saturationValue, brightness: brightnessValue, alpha: alphaValue)
+    }
+
+}
+
+/**
+  Component conversion methods.
+*/
+public extension UIColorHSBComponents {
+
+    /**
+      Converts HSB components into RGB components.
+    */
+    public func asRGBComponents() -> UIColorRGBComponents {
+        return color().rgbComponents
+    }
+
+    /**
+      Converts HSB components into grayscale components.
+    */
+    public func asGrayscaleComponents() -> UIColorGrayscaleComponents {
+        return color().grayscaleComponents
+    }
+
+    /**
+      Converts HSB components into CNYK components.
+    */
+    public func asCMYKComponents() -> UIColorCMYKComponents {
+        return color().cmykComponents
     }
 
 }

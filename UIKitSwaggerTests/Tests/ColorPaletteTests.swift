@@ -39,6 +39,11 @@ class ColorPaletteTests: XCTestCase {
         XCTAssertEqual(palette.colorNamed("green")!, green, "The supplied colors should be added to the palette")
     }
 
+    func testPaletteProvidesColorDictionary() {
+        palette = ColorPalette(colors: colors)
+        XCTAssertEqual(palette.allColors, colors, "The palette should provide all of the colors with their names")
+    }
+
     func testColorPaletteAddsColorsToDictionary() {
         palette.addColor(red, named: "rosso")
         XCTAssertEqual(palette.numberOfColors, 1, "There should be one color in the dictionary")

@@ -8,9 +8,16 @@
 
 import UIKit
 
+/**
+  Convenient type alias for a string-keyed dictionary of colors
+*/
+public typealias ColorDictionary = [String:UIColor]
+
+/**
+  This class provides a simple interface for storing and retrieving commonly used colors by name.  You can create an empty palette or provide a dictionary of colors.
+*/
 public class ColorPalette {
 
-    private typealias ColorDictionary = [String:UIColor]
     private var colorDictionary = ColorDictionary()
 
     /**
@@ -23,7 +30,7 @@ public class ColorPalette {
       Initializes a color palette with the supplied colors and names.
       @param        colors Dictionary of colors stored by name.
     */
-    public init(colors: [String:UIColor]) {
+    public init(colors: ColorDictionary) {
         colorDictionary = colors
     }
 
@@ -32,6 +39,10 @@ public class ColorPalette {
     */
     public var numberOfColors: Int {
         return colorDictionary.count
+    }
+
+    public var allColors: ColorDictionary {
+        return colorDictionary
     }
 
     /**
