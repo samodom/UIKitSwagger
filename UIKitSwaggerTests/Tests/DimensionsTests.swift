@@ -342,4 +342,38 @@ class DimensionsTests: XCTestCase {
         XCTAssertTrue(view3.hasConstraint(expected[5]), "The third view's height should be constrained to the specified interval")
     }
 
+    func testMatchingViewSizesWithList() {
+        returnedConstraints = MatchSizes(view1, view2, view3)
+        XCTAssertEqual(returnedConstraints.count, 4, "There should be four total constraints returned")
+        var expected = view2.width =* view1.width
+        XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same width as the first view")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+        expected = view2.height =* view1.height
+        XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same height as the first view")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+        expected = view3.width =* view1.width
+        XCTAssertTrue(superview.hasConstraint(expected), "The third view should have the same width as the first view")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+        expected = view3.height =* view1.height
+        XCTAssertTrue(superview.hasConstraint(expected), "The third view should have the same height as the first view")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+    }
+
+    func testMatchingViewSizesWithArray() {
+        returnedConstraints = MatchSizes([view1, view2, view3])
+        XCTAssertEqual(returnedConstraints.count, 4, "There should be four total constraints returned")
+        var expected = view2.width =* view1.width
+        XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same width as the first view")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+        expected = view2.height =* view1.height
+        XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same height as the first view")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+        expected = view3.width =* view1.width
+        XCTAssertTrue(superview.hasConstraint(expected), "The third view should have the same width as the first view")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+        expected = view3.height =* view1.height
+        XCTAssertTrue(superview.hasConstraint(expected), "The third view should have the same height as the first view")
+        XCTAssertTrue(contains(returnedConstraints, expected), "The applied constraint should be returned to the caller")
+    }
+
 }

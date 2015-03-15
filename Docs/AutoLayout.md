@@ -148,3 +148,4 @@ Global top-level functions (the produced constraints are defined with respect to
  - `ConstrainWidths(...) -> [Constraint]`
  - `MatchHeights(...) -> [Constraint]`
  - `ConstrainHeights(...) -> [Constraint]`
+ - `MatchSizes(...) -> [Constraint]`
