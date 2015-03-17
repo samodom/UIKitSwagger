@@ -11,9 +11,11 @@ Auto Layout Convenience
 
 ## Enhancements to Constraints
 
+
 ### Equality
 
 Compare two constraints with respect to the items, attributes, relation, multiplier and constant.  It even tries the reverse of one operand to truly determine equivalency.  In addition, the `==*` operator can be used to compare constraints for extended equivalency by comparing constraint priorities and identifiers.
+
 
 ### Reversal
 
@@ -41,6 +43,7 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 
 
 ## Views Enhancements and Utilities
+
 
 ### Turning Off Translation
 
@@ -73,6 +76,7 @@ This can now be written as:
 view.clearConstraints()
 ```
 
+
 ### Activation Functions
 
 Convenience methods for activating and deactivating constraints:
@@ -82,6 +86,7 @@ Convenience methods for activating and deactivating constraints:
 Similar to constraint application, one should be able to activate or deactivate multiple constraints in a single statement using a variadic list or array of constraints:
  - `ActivateConstraints(...)`
  - `DeactivateConstraints(...)`
+
 
  ### Constraint Search
 
@@ -122,6 +127,7 @@ Common distribution tasks can be performed without creating constraints manually
 
 
 ### Dimensions
+
 
 #### Single Dimension
 
