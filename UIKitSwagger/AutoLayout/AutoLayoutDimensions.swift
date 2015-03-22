@@ -136,3 +136,26 @@ public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: AutoLayou
 public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [Constraint] {
     return ConstrainDimension(items, .Height, interval)
 }
+
+
+//  MARK: Heights
+
+/**
+  Convenience method for making the sizes of two or more items equal.
+  @param        items Two or more items that are to maintain the same size.
+  @return       The constraints that were applied.
+  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+*/
+public func MatchSizes(items: AutoLayoutAttributable...) -> [Constraint] {
+    return MatchSizes(items)
+}
+
+/**
+  Convenience method for making the sizes of an array of items equal.
+  @param        items Array of two or more items that are to maintain the same size.
+  @return       The constraints that were applied.
+  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+*/
+public func MatchSizes(items: [AutoLayoutAttributable]) -> [Constraint] {
+    return MatchWidths(items) + MatchHeights(items)
+}

@@ -19,4 +19,4 @@ A bit of a DSL for UIKit
  - [Managing An Activity Indicator View](Docs/SpinnerStateManager.md)
 
 
-Available as a CocaoPod
+Available as a [CocoaPod](http://cocoapods.org)
