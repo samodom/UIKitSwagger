@@ -20,7 +20,7 @@ public func +=(controller: UIAlertController, action: UIAlertAction) {
 
 /**
   An operator used to add an array of alert actions to an alert controller.
-  @discussion The actions are added in the same order as they are provided in the array.
+  The actions are added in the same order as they are provided in the array.
 */
 public func +=(controller: UIAlertController, actions: [UIAlertAction]) {
     for action in actions {
@@ -30,7 +30,7 @@ public func +=(controller: UIAlertController, actions: [UIAlertAction]) {
 
 /**
   An operator used to add a text field to an alert controller using a configuration handler.
-  @discussion This is only allowed for alert controllers using the `Alert` style.  Attempting to add a text field to an `ActionSheet` style alert controller results in a failure.
+  This is only allowed for alert controllers using the `Alert` style.  Attempting to add a text field to an `ActionSheet` style alert controller results in a failure.
 */
 public func +=(controller: UIAlertController, textFieldConfigurationHandler: UIAlertTextFieldConfigurationHandler) {
     AssertAlertControllerCanAddTextFields(controller)
@@ -39,7 +39,7 @@ public func +=(controller: UIAlertController, textFieldConfigurationHandler: UIA
 
 /**
   An operator used to add an array of text fields to an alert controller using configuration handlers.
-  @discussion The fields are added in the same order as they are provided in the array.  This is only allowed for alert controllers using the `Alert` style.  Attempting to add text fields to an `ActionSheet` style alert controller results in a failure.
+  The fields are added in the same order as they are provided in the array.  This is only allowed for alert controllers using the `Alert` style.  Attempting to add text fields to an `ActionSheet` style alert controller results in a failure.
 */
 public func +=(controller: UIAlertController, textFieldConfigurationHandlers: [UIAlertTextFieldConfigurationHandler]) {
     AssertAlertControllerCanAddTextFields(controller)

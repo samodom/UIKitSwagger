@@ -9,8 +9,8 @@
 import UIKit
 
 /**
-  @protocol         Protocol that unifies the various types of component sets used to identify and compose a color.
-  @discussion       Any user-defined component types will not enjoy the luxury of having the convenience initializer on `UIColor` produce component-based colors using their type.
+  Protocol that unifies the various types of component sets used to identify and compose a color.
+  Any user-defined component types will not enjoy the luxury of having the convenience initializer on `UIColor` produce component-based colors using their type.
 */
 public protocol UIColorComponents {
     func color() -> UIColor

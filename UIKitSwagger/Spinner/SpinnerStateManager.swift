@@ -8,8 +8,8 @@
 
 import UIKit
 
-/*!
-    State enumeration representing the managed state of a `UIActivityIndicatorView`.
+/**
+  State enumeration representing the managed state of a `UIActivityIndicatorView`.
 
     - Detached: The manager does not currently have a spinner attached to it.
     - Stopped: The manager has a spinner, but it is not supposed to be animated.
@@ -21,20 +21,19 @@ public enum SpinnerState {
     case Started(Int)
 }
 
-/*!
-    Class that helps manage mutliple concurrent client tasks that use a `UIActivityIndicatorView`.
+/**
+  Class that helps manage mutliple concurrent client tasks that use a `UIActivityIndicatorView`.
 */
 public class SpinnerStateManager {
 
-    /*!
-        The current state of the manager concerning attachment to a spinner and its expected animation state.
-
-        :discussion: This value cannot be modified directly.  Instead, the state is managed internally through the assignment of the spinner and by start/stop events.
+    /**
+      The current state of the manager concerning attachment to a spinner and its expected animation state.
+      This value cannot be modified directly.  Instead, the state is managed internally through the assignment of the spinner and by start/stop events.
     */
     public private(set) var currentState = SpinnerState.Detached
 
-    /*!
-        The instance of `UIActivityIndicatorView` that is attached to the manager, if any.
+    /**
+      The instance of `UIActivityIndicatorView` that is attached to the manager, if any.
     */
     weak public var spinner: UIActivityIndicatorView? {
         didSet {
@@ -42,19 +41,20 @@ public class SpinnerStateManager {
         }
     }
 
-    /*!
-        Designated initializer for a `SpinnerStateManager`.
-    
-        :param:         spinner An instance of `UIActivityIndicatorView` to be managed.
-        :discussion:    If a spinner is provided during initialization, the manager's state will be either Stopped or Started(1), depending on the animation state of the spinner.
+    /**
+      Designated initializer for a `SpinnerStateManager`.
+      If a spinner is provided during initialization, the manager's state will be either Stopped or Started(1), depending on the animation state of the spinner.
+
+      :param:       spinner An instance of `UIActivityIndicatorView` to be managed.
     */
     public init(_ spinner: UIActivityIndicatorView? = nil) {
         self.spinner = spinner
         matchNewSpinnerState()
     }
 
-    /*!
-        Begins animating an attached spinner, if any, or increases the client count of a spinner that is already animating.  If a spinner is not attached to the manager, the start event is ignored.
+    /**
+      Begins animating an attached spinner, if any, or increases the client count of a spinner that is already animating.
+      If a spinner is not attached to the manager, the start event is ignored.
     */
     public func start() {
         spinner?.startAnimating()
@@ -71,8 +71,10 @@ public class SpinnerStateManager {
         }
     }
 
-    /*!
-        Stop animating an attached spinner, if any, if it is currently animating and has a client count of 1.  If it is animating and has multiple clients, the client count is decreased by one (1) and the spinner will continue to animate.  If a spinner is not attached to the manager, the stop event is ignored.
+    /**
+      Stop animating an attached spinner, if any, if it is currently animating and has a client count of 1.
+      If it is animating and has multiple clients, the client count is decreased by one (1) and the spinner will continue to animate.
+      If a spinner is not attached to the manager, the stop event is ignored.
     */
     public func stop() {
         switch currentState {

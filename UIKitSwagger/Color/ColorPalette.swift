@@ -14,7 +14,8 @@ import UIKit
 public typealias ColorDictionary = [String:UIColor]
 
 /**
-  This class provides a simple interface for storing and retrieving commonly used colors by name.  You can create an empty palette or provide a dictionary of colors.
+  This class provides a simple interface for storing and retrieving commonly used colors by name.
+  You can create an empty palette or provide a dictionary of colors.
 */
 public class ColorPalette {
 
@@ -22,13 +23,15 @@ public class ColorPalette {
 
     /**
       Initializes a color palette with the supplied colors and names.
-      @param        colors Dictionary of colors stored by name.
+
+      :param:       colors Dictionary of colors stored by name.
     */
     public init() { }
 
     /**
       Initializes a color palette with the supplied colors and names.
-      @param        colors Dictionary of colors stored by name.
+
+      :param:       colors Dictionary of colors stored by name.
     */
     public init(colors: ColorDictionary) {
         colorDictionary = colors
@@ -47,8 +50,9 @@ public class ColorPalette {
 
     /**
       Adds a color to the palette by name.
-      @param        color Color to add to the palette.
-      @param        name Name to associate with the color
+
+      :param:       color Color to add to the palette.
+      :param:       name Name to associate with the color
     */
     public func addColor(color: UIColor, named name: String) {
         assert(name != "", "The name for a color in the palette must be at least one character long")
@@ -57,8 +61,9 @@ public class ColorPalette {
 
     /**
       Retrieves the color in the palette associated with the provided name.
-      @param        name Name associated with color to retrieve.
-      @return       Color associated with the provided name or `nil` if no such association exists.
+
+      :param:       name Name associated with color to retrieve.
+      :returns:     Color associated with the provided name or `nil` if no such association exists.
     */
     public func colorNamed(name: String) -> UIColor? {
         return colorDictionary[name]
@@ -66,7 +71,8 @@ public class ColorPalette {
 
     /**
       Removes the color in the palette associated with the provided name.
-      @param        name Name associated with the color to remove.
+
+      :param:       name Name associated with the color to remove.
     */
     public func removeColorNamed(name: String) {
         colorDictionary[name] = nil

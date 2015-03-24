@@ -10,9 +10,11 @@ import UIKit
 
 /**
   Convenience method for aligning two or more items by their left attribute.
-  @param        items Two or more items that are to be left-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to be left-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignLeft(items: AutoLayoutAttributable...) -> [Constraint] {
     return AlignLeft(items)
@@ -20,9 +22,11 @@ public func AlignLeft(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for aligning an array of items by their left attribute.
-  @param        items Array of two or more items that are to be left-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to be left-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignLeft(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .Left)
@@ -30,9 +34,11 @@ public func AlignLeft(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for aligning two or more items by their leading attribute.
-  @param        items Two or more items that are to be leading-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to be leading-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignLeading(items: AutoLayoutAttributable...) -> [Constraint] {
     return AlignLeading(items)
@@ -40,9 +46,11 @@ public func AlignLeading(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for aligning an array of items by their leading attribute.
-  @param        items Array of two or more items that are to be leading-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to be leading-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignLeading(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .Leading)
@@ -50,9 +58,11 @@ public func AlignLeading(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for aligning two or more items by their right attribute.
-  @param        items Two or more items that are to be right-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to be right-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignRight(items: AutoLayoutAttributable...) -> [Constraint] {
     return AlignRight(items)
@@ -60,9 +70,11 @@ public func AlignRight(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for aligning an array of items by their right attribute.
-  @param        items Array of two or more items that are to be right-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to be right-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignRight(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .Right)
@@ -70,19 +82,23 @@ public func AlignRight(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for aligning two or more items by their trailing attribute.
-  @param        items Two or more items that are to be trailing-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to be trailing-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignTrailing(items: AutoLayoutAttributable...) -> [Constraint] {
     return AlignTrailing(items)
 }
 
 /**
-Convenience method for aligning an array of items by their trailing attribute.
-  @param        items Array of two or more items that are to be trailing-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  Convenience method for aligning an array of items by their trailing attribute.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to be trailing-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignTrailing(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .Trailing)
@@ -90,9 +106,11 @@ public func AlignTrailing(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for aligning two or more items by their top attribute.
-  @param        items Two or more items that are to be top-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to be top-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignTop(items: AutoLayoutAttributable...) -> [Constraint] {
     return AlignTop(items)
@@ -100,9 +118,11 @@ public func AlignTop(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for aligning an array of items by their top attribute.
-  @param        items Array of two or more items that are to be top-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to be top-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignTop(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .Top)
@@ -110,9 +130,11 @@ public func AlignTop(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for aligning two or more items by their bottom attribute.
-  @param        items Two or more items that are to be bottom-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to be bottom-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignBottom(items: AutoLayoutAttributable...) -> [Constraint] {
     return AlignBottom(items)
@@ -120,9 +142,11 @@ public func AlignBottom(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for aligning an array of items by their bottom attribute.
-  @param        items Array of two or more items that are to be bottom-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to be bottom-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignBottom(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .Bottom)
@@ -130,9 +154,11 @@ public func AlignBottom(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for horizontally aligning two or more items.
-  @param        items Two or more items that are to be horizontally aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to be horizontally aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignHorizontally(items: AutoLayoutAttributable...) -> [Constraint] {
     return AlignHorizontally(items)
@@ -140,9 +166,11 @@ public func AlignHorizontally(items: AutoLayoutAttributable...) -> [Constraint] 
 
 /**
   Convenience method for horizontally aligning an array of items.
-  @param        items Array of two or more items that are to be horizontally aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to be horizontally aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignHorizontally(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .CenterX)
@@ -150,9 +178,11 @@ public func AlignHorizontally(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for vertically aligning two or more items.
-  @param        items Two or more items that are to be vertically aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to be vertically aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignVertically(items: AutoLayoutAttributable...) -> [Constraint] {
     return AlignVertically(items)
@@ -160,9 +190,11 @@ public func AlignVertically(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for vertically aligning an array of items.
-  @param        items Array of two or more items that are to be vertically aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to be vertically aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignVertically(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .CenterY)
@@ -170,9 +202,11 @@ public func AlignVertically(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for horizontally and vertically aligning two or more items.
-  @param        items Two or more items that are to be horizontally and vertically aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to be horizontally and vertically aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignCenters(items: AutoLayoutAttributable...) -> [Constraint] {
     return AlignCenters(items)
@@ -180,9 +214,11 @@ public func AlignCenters(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for horizontally and vertically aligning an array of items.
-  @param        items Array of two or more items that are to be horizontally and vertically aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to be horizontally and vertically aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignCenters(items: [AutoLayoutAttributable]) -> [Constraint] {
     var constraints = AlignItems(items, .CenterX)
@@ -192,9 +228,11 @@ public func AlignCenters(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for aligning two or more items by their baseline attribute.
-  @param        items Two or more items that are to be baseline-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to be baseline-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignBaselines(items: AutoLayoutAttributable...) -> [Constraint] {
     return AlignBaselines(items)
@@ -202,9 +240,11 @@ public func AlignBaselines(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for aligning an array of items by their baseline attribute.
-  @param        items Array of two or more items that are to be baseline-aligned.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to be baseline-aligned.
+  :returns:     The constraints that were applied.
 */
 public func AlignBaselines(items: [AutoLayoutAttributable]) -> [Constraint] {
     return AlignItems(items, .Baseline)

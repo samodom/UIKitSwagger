@@ -12,9 +12,11 @@ import UIKit
 
 /**
   Convenience method for making the widths of two or more items equal.
-  @param        items Two or more items that are to maintain the same width.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to maintain the same width.
+  :returns:     The constraints that were applied.
 */
 public func MatchWidths(items: AutoLayoutAttributable...) -> [Constraint] {
     return MatchWidths(items)
@@ -22,9 +24,11 @@ public func MatchWidths(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for making the widths of an array of items equal.
-  @param        items Array of two or more items that are to maintain the same width.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to maintain the same width.
+  :returns:     The constraints that were applied.
 */
 public func MatchWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
     return MatchDimension(items, .Width)
@@ -32,9 +36,10 @@ public func MatchWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for constraint the widths of one or more items to a constant.
-  @param        items One or more items that are to maintain a constant width.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.
+  The layout constraints created by this function are applied to the appropriate view.
+
+  :param:       items One or more items that are to maintain a constant width.
+  :returns:     The constraints that were applied.
 */
 public func ConstrainWidths(width: CGFloat, items: AutoLayoutAttributable...) -> [Constraint] {
     return ConstrainWidths(width, items)
@@ -42,9 +47,10 @@ public func ConstrainWidths(width: CGFloat, items: AutoLayoutAttributable...) ->
 
 /**
   Convenience method for constraint the widths of an array of items to a constant.
-  @param        items Array of items that are to maintain a constant width.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.
+  The layout constraints created by this function are applied to the appropriate view.
+
+  :param:       items Array of items that are to maintain a constant width.
+  :returns:     The constraints that were applied.
 */
 public func ConstrainWidths(width: CGFloat, items: [AutoLayoutAttributable]) -> [Constraint] {
     return ConstrainDimension(items, .Width, width)
@@ -52,10 +58,11 @@ public func ConstrainWidths(width: CGFloat, items: [AutoLayoutAttributable]) -> 
 
 /**
   Convenience method for constraining the widths of one or more items to an interval.
-  @param        items One or more items that are to maintain a width in the specified interval.
-  @param        interval A closed interval representing the minimum and maximum widths for this view.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.
+  The layout constraints created by this function are applied to the appropriate view.
+
+  :param:       items One or more items that are to maintain a width in the specified interval.
+  :param:       interval A closed interval representing the minimum and maximum widths for this view.
+  :returns:     The constraints that were applied.
 */
 public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: AutoLayoutAttributable...) -> [Constraint] {
     return ConstrainWidths(interval, items)
@@ -63,10 +70,11 @@ public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: AutoLayout
 
 /**
   Convenience method for constraining the widths of an array of items to an interval.
-  @param        items Array of items that are to maintain a width in the specified interval.
-  @param        interval A closed interval representing the minimum and maximum widths for this view.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.
+  The layout constraints created by this function are applied to the appropriate view.
+
+  :param:       items Array of items that are to maintain a width in the specified interval.
+  :param:       interval A closed interval representing the minimum and maximum widths for this view.
+  :returns:     The constraints that were applied.
 */
 public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [Constraint] {
     return ConstrainDimension(items, .Width, interval)
@@ -77,9 +85,11 @@ public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: [AutoLayou
 
 /**
   Convenience method for making the heights of two or more items equal.
-  @param        items Two or more items that are to maintain the same height.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Two or more items that are to maintain the same height.
+  :returns:     The constraints that were applied.
 */
 public func MatchHeights(items: AutoLayoutAttributable...) -> [Constraint] {
     return MatchHeights(items)
@@ -87,9 +97,11 @@ public func MatchHeights(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for making the heights of an array of items equal.
-  @param        items Array of two or more items that are to maintain the same height.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to maintain the same height.
+  :returns:     The constraints that were applied.
 */
 public func MatchHeights(items: [AutoLayoutAttributable]) -> [Constraint] {
     return MatchDimension(items, .Height)
@@ -97,9 +109,10 @@ public func MatchHeights(items: [AutoLayoutAttributable]) -> [Constraint] {
 
 /**
   Convenience method for constraint the heights of one or more items to a constant.
-  @param        items One or more items that are to maintain a constant height.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.
+  The layout constraints created by this function are applied to the appropriate view.
+
+  :param:       items One or more items that are to maintain a constant height.
+  :returns:     The constraints that were applied.
 */
 public func ConstrainHeights(height: CGFloat, items: AutoLayoutAttributable...) -> [Constraint] {
     return ConstrainHeights(height, items)
@@ -107,9 +120,10 @@ public func ConstrainHeights(height: CGFloat, items: AutoLayoutAttributable...) 
 
 /**
   Convenience method for constraint the heights of an array of items to a constant.
-  @param        items Array of more items that are to maintain a constant height.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.
+  The layout constraints created by this function are applied to the appropriate view.
+
+  :param:       items Array of more items that are to maintain a constant height.
+  :returns:     The constraints that were applied.
 */
 public func ConstrainHeights(height: CGFloat, items: [AutoLayoutAttributable]) -> [Constraint] {
     return ConstrainDimension(items, .Height, height)
@@ -117,10 +131,11 @@ public func ConstrainHeights(height: CGFloat, items: [AutoLayoutAttributable]) -
 
 /**
   Convenience method for constraining the heights of one or more items to an interval.
-  @param        items One or more items that are to maintain a height in the specified interval.
-  @param        interval A closed interval representing the minimum and maximum widths for this view.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.
+  The layout constraints created by this function are applied to the appropriate view.
+
+  :param:       items One or more items that are to maintain a height in the specified interval.
+  :param:       interval A closed interval representing the minimum and maximum widths for this view.
+  :returns:     The constraints that were applied.
 */
 public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: AutoLayoutAttributable...) -> [Constraint] {
     return ConstrainHeights(interval, items)
@@ -128,10 +143,11 @@ public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: AutoLayou
 
 /**
   Convenience method for constraining the heights of an array of items to an interval.
-  @param        items Array of items that are to maintain a height in the specified interval.
-  @param        interval A closed interval representing the minimum and maximum widths for this view.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.
+  The layout constraints created by this function are applied to the appropriate view.
+
+  :param:       items Array of items that are to maintain a height in the specified interval.
+  :param:       interval A closed interval representing the minimum and maximum widths for this view.
+  :returns:     The constraints that were applied.
 */
 public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [Constraint] {
     return ConstrainDimension(items, .Height, interval)
@@ -142,9 +158,11 @@ public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: [AutoLayo
 
 /**
   Convenience method for making the sizes of two or more items equal.
-  @param        items Two or more items that are to maintain the same size.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:        items Two or more items that are to maintain the same size.
+  :returns:       The constraints that were applied.
 */
 public func MatchSizes(items: AutoLayoutAttributable...) -> [Constraint] {
     return MatchSizes(items)
@@ -152,9 +170,11 @@ public func MatchSizes(items: AutoLayoutAttributable...) -> [Constraint] {
 
 /**
   Convenience method for making the sizes of an array of items equal.
-  @param        items Array of two or more items that are to maintain the same size.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+  The layout constraints created by this function are applied to the appropriate view.
+  If fewer than two items are provided, an error is thrown.
+
+  :param:       items Array of two or more items that are to maintain the same size.
+  :returns:     The constraints that were applied.
 */
 public func MatchSizes(items: [AutoLayoutAttributable]) -> [Constraint] {
     return MatchWidths(items) + MatchHeights(items)

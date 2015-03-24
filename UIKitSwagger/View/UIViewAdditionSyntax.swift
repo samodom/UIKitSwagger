@@ -42,7 +42,8 @@ public func +=(view: UIView, addable: UIViewAddable) {
 
 /**
   An operator used to add an array of subviews, auto layout constraints, motion effects and gesture recognizers to a view.
-  @discussion       The order in which the items are applied is not necessarily the order in which they are provided in the array.  This is done to avoid adding constraints for which the view is unprepared.
+  The order in which the items are applied is not necessarily the order in which they are provided in the array.
+  This is done to avoid adding constraints for which the view is unprepared.
 */
 public func +=(view: UIView, addables: [UIViewAddable]) {
     var subviews: [UIView]
@@ -69,7 +70,7 @@ public func +=(view: UIView, addables: [UIViewAddable]) {
 }
 
 /**
-An operator used to remove a subview, auto layout constraint, motion effect or gesture recognizer from a view.
+  An operator used to remove a subview, auto layout constraint, motion effect or gesture recognizer from a view.
 */
 public func -=(view: UIView, removable: UIViewRemovable) {
     switch removable {
@@ -92,7 +93,8 @@ public func -=(view: UIView, removable: UIViewRemovable) {
 
 /**
   An operator used to remove an array of subviews, auto layout constraints, motion effects and gesture recognizers from a view.
-  @discussion       The order in which the items are removed is not necessarily the order in which they are provided in the array.  This is done to avoid leaving invalid constraints in the view.
+  The order in which the items are removed is not necessarily the order in which they are provided in the array.
+  This is done to avoid leaving invalid constraints in the view.
 */
 public func -=(view: UIView, removables: [UIViewRemovable]) {
     var subviews: [UIView]

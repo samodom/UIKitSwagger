@@ -92,11 +92,12 @@ public extension UIColor {
 
     /**
       Convenience intitializer to match the system-provided component-wise intializers for other component types.
-      @param            cyan The cyan value to use when initializing the color.
-      @param            magenta The magneta value to use when initializing the color.
-      @param            yellow The yellow value to use when initializing the color.
-      @param            key The key value to use when initializing the color.
-      @param            alpha The alpha value to use when initializing the color.
+
+      :param:           cyan The cyan value to use when initializing the color.
+      :param:           magenta The magneta value to use when initializing the color.
+      :param:           yellow The yellow value to use when initializing the color.
+      :param:           key The key value to use when initializing the color.
+      :param:           alpha The alpha value to use when initializing the color.
     */
     public convenience init(cyan: CGFloat, magenta: CGFloat, yellow: CGFloat, key: CGFloat, alpha: CGFloat) {
         let cmykComponents =
@@ -113,12 +114,13 @@ public extension UIColor {
 
     /**
       This method matches the system-provided messages for retrieving the various component values.
-      @param          cyan The destination for the cyan value of this color.
-      @param          magenta The destination for the magenta value of this color.
-      @param          yellow The destination for the yellow value of this color.
-      @param          key The destination for the key value of this color.
-      @param          alpha The destination for the alpha value of this color.
-      @discussion     This conversion may be lossy.
+      This conversion may be lossy.
+
+      :param:         cyan The destination for the cyan value of this color.
+      :param:         magenta The destination for the magenta value of this color.
+      :param:         yellow The destination for the yellow value of this color.
+      :param:         key The destination for the key value of this color.
+      :param:         alpha The destination for the alpha value of this color.
     */
     public func getCyan(inout cyanOut: CGFloat, inout magenta magentaOut: CGFloat, inout yellow yellowOut: CGFloat, inout key keyOut: CGFloat, inout alpha alphaOut: CGFloat) -> Bool {
         let components = cmykComponents
@@ -132,7 +134,7 @@ public extension UIColor {
 
     /**
       Property that returns the CMYK components of the color in a structure.
-      @discussion       This conversion may be lossy.
+      This conversion may be lossy.
     */
     public var cmykComponents: UIColorCMYKComponents {
         let components = rgbComponents

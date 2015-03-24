@@ -24,8 +24,9 @@ public extension UISwitch {
 
     /**
       Convenience method to set the `off` property with or without animation to match the similar method for the `on` property.
-      @param        off Boolean value representing whether or not the switch should be off or not.
-      @animated     Boolean value indicating whether or not the changing of the boolean value should be animated.
+
+      :param:       off Boolean value representing whether or not the switch should be off or not.
+      :param:       animated Boolean value indicating whether or not the changing of the boolean value should be animated.
     */
     public func setOff(off: Bool, animated: Bool) {
         setOn(!off, animated: animated)

@@ -10,7 +10,8 @@ import UIKit
 
 /**
   Convenience method for activating one or more layout constraints.
-  @param        constraints One or more constraints that are to be activated.
+
+  :param:       constraints One or more constraints that are to be activated.
 */
 public func ActivateConstraints(constraints: Constraint...) {
     ActivateConstraints(constraints)
@@ -18,7 +19,8 @@ public func ActivateConstraints(constraints: Constraint...) {
 
 /**
   Convenience method for activating an array of layout constraints.
-  @param        constraints Array of constraints that are to be activated.
+
+  :param:       constraints Array of constraints that are to be activated.
 */
 public func ActivateConstraints(constraints: [Constraint]) {
     for constraint in constraints {
@@ -28,7 +30,8 @@ public func ActivateConstraints(constraints: [Constraint]) {
 
 /**
   Convenience method for deactivating one or more layout constraints.
-  @param        constraints One or more constraints that are to be deactivated.
+
+  :param:       constraints One or more constraints that are to be deactivated.
 */
 public func DeactivateConstraints(constraints: Constraint...) {
     DeactivateConstraints(constraints)
@@ -36,7 +39,8 @@ public func DeactivateConstraints(constraints: Constraint...) {
 
 /**
   Convenience method for deactivating an array of layout constraints.
-  @param        constraints Array of constraints that are to be deactivated.
+
+  :param:       constraints Array of constraints that are to be deactivated.
 */
 public func DeactivateConstraints(constraints: [Constraint]) {
     for constraint in constraints {
