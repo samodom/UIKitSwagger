@@ -29,7 +29,7 @@ public func AlignLeft(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func AlignLeft(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return AlignItems(items, .Left)
+    return AlignItems(items, attribute: .Left)
 }
 
 /**
@@ -53,7 +53,7 @@ public func AlignLeading(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func AlignLeading(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return AlignItems(items, .Leading)
+    return AlignItems(items, attribute: .Leading)
 }
 
 /**
@@ -77,7 +77,7 @@ public func AlignRight(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func AlignRight(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return AlignItems(items, .Right)
+    return AlignItems(items, attribute: .Right)
 }
 
 /**
@@ -101,7 +101,7 @@ public func AlignTrailing(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func AlignTrailing(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return AlignItems(items, .Trailing)
+    return AlignItems(items, attribute: .Trailing)
 }
 
 /**
@@ -125,7 +125,7 @@ public func AlignTop(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func AlignTop(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return AlignItems(items, .Top)
+    return AlignItems(items, attribute: .Top)
 }
 
 /**
@@ -149,7 +149,7 @@ public func AlignBottom(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func AlignBottom(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return AlignItems(items, .Bottom)
+    return AlignItems(items, attribute: .Bottom)
 }
 
 /**
@@ -173,7 +173,7 @@ public func AlignHorizontally(items: AutoLayoutAttributable...) -> [Constraint] 
   :returns:     The constraints that were applied.
 */
 public func AlignHorizontally(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return AlignItems(items, .CenterX)
+    return AlignItems(items, attribute: .CenterX)
 }
 
 /**
@@ -197,7 +197,7 @@ public func AlignVertically(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func AlignVertically(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return AlignItems(items, .CenterY)
+    return AlignItems(items, attribute: .CenterY)
 }
 
 /**
@@ -221,8 +221,8 @@ public func AlignCenters(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func AlignCenters(items: [AutoLayoutAttributable]) -> [Constraint] {
-    var constraints = AlignItems(items, .CenterX)
-    constraints += AlignItems(items, .CenterY)
+    var constraints = AlignItems(items, attribute: .CenterX)
+    constraints += AlignItems(items, attribute: .CenterY)
     return constraints
 }
 
@@ -247,5 +247,5 @@ public func AlignBaselines(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func AlignBaselines(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return AlignItems(items, .Baseline)
+    return AlignItems(items, attribute: .Baseline)
 }

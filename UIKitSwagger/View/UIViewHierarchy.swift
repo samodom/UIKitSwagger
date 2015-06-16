@@ -25,7 +25,7 @@ extension UIView {
                     return nil
                 }
                 else {
-                    return subviews[index] as? UIView
+                    return subviews[index]
                 }
 
             case -1:
@@ -46,7 +46,7 @@ extension UIView {
         */
         set(newSuperview) {
             if index >= 0 {
-                let oldView = subviews[index] as! UIView
+                let oldView = subviews[index]
                 oldView.removeFromSuperview()
 
                 if newSuperview != nil {

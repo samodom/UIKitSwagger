@@ -76,7 +76,7 @@ public extension UIView {
       :param:       offset Offset value to add to the height multiple to get the final width.
       :returns:     The constraint that was applied to the view.
     */
-    public func constrainWidthToHeight(_ aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> Constraint {
+    public func constrainWidthToHeight(aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> Constraint {
         assert(aspectRatio != 0)
         return constrainHeightToWidth(1 / aspectRatio, offset: -offset / aspectRatio)
     }
@@ -89,7 +89,7 @@ public extension UIView {
       :param:       offset Offset value to add to the width multiple to get the final height.
       :returns:     The constraint that was applied to the view.
     */
-    public func constrainHeightToWidth(_ aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> Constraint {
+    public func constrainHeightToWidth(aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> Constraint {
         assert(aspectRatio != 0)
         let constraint = self.height =* aspectRatio * self.width + offset
         constraint.apply()

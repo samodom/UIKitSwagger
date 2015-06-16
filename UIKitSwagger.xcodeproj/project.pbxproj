@@ -630,6 +630,7 @@
 		0A3BB97019EB70C70075B32A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Swagger Soft";
 				TargetAttributes = {

@@ -33,7 +33,7 @@ public func DistributeLeftToRight(views: UIView...)  -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func DistributeLeftToRight(views: [UIView])  -> [Constraint] {
-    return DistributeLeftToRight(spacing: 0, views)
+    return DistributeLeftToRight(spacing: 0, views: views)
 }
 
 /**
@@ -46,8 +46,8 @@ public func DistributeLeftToRight(views: [UIView])  -> [Constraint] {
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeftToRight(#spacing: CGFloat, views: UIView...)  -> [Constraint] {
-    return DistributeLeftToRight(spacing: spacing, views)
+public func DistributeLeftToRight(spacing spacing: CGFloat, views: UIView...)  -> [Constraint] {
+    return DistributeLeftToRight(spacing: spacing, views: views)
 }
 
 /**
@@ -60,8 +60,8 @@ public func DistributeLeftToRight(#spacing: CGFloat, views: UIView...)  -> [Cons
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeftToRight(#spacing: CGFloat, views: [UIView])  -> [Constraint] {
-    return DistributeViews(views, spacing, .LeftToRight)
+public func DistributeLeftToRight(spacing spacing: CGFloat, views: [UIView])  -> [Constraint] {
+    return DistributeViews(views, spacing: spacing, direction: .LeftToRight)
 }
 
 //  MARK: Leading-to-trailing distribution
@@ -89,7 +89,7 @@ public func DistributeLeadingToTrailing(views: UIView...)  -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func DistributeLeadingToTrailing(views: [UIView])  -> [Constraint] {
-    return DistributeLeadingToTrailing(spacing: 0, views)
+    return DistributeLeadingToTrailing(spacing: 0, views: views)
 }
 
 /**
@@ -102,8 +102,8 @@ public func DistributeLeadingToTrailing(views: [UIView])  -> [Constraint] {
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeadingToTrailing(#spacing: CGFloat, views: UIView...)  -> [Constraint] {
-    return DistributeLeadingToTrailing(spacing: spacing, views)
+public func DistributeLeadingToTrailing(spacing spacing: CGFloat, views: UIView...)  -> [Constraint] {
+    return DistributeLeadingToTrailing(spacing: spacing, views: views)
 }
 
 /**
@@ -116,8 +116,8 @@ public func DistributeLeadingToTrailing(#spacing: CGFloat, views: UIView...)  ->
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeadingToTrailing(#spacing: CGFloat, views: [UIView])  -> [Constraint] {
-    return DistributeViews(views, spacing, .LeadingToTrailing)
+public func DistributeLeadingToTrailing(spacing spacing: CGFloat, views: [UIView])  -> [Constraint] {
+    return DistributeViews(views, spacing: spacing, direction: .LeadingToTrailing)
 }
 
 //  MARK: Top-to-bottom distribution
@@ -145,7 +145,7 @@ public func DistributeTopToBottom(views: UIView...)  -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func DistributeTopToBottom(views: [UIView])  -> [Constraint] {
-    return DistributeTopToBottom(spacing: 0, views)
+    return DistributeTopToBottom(spacing: 0, views: views)
 }
 
 /**
@@ -158,8 +158,8 @@ public func DistributeTopToBottom(views: [UIView])  -> [Constraint] {
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeTopToBottom(#spacing: CGFloat, views: UIView...)  -> [Constraint] {
-    return DistributeTopToBottom(spacing: spacing, views)
+public func DistributeTopToBottom(spacing spacing: CGFloat, views: UIView...)  -> [Constraint] {
+    return DistributeTopToBottom(spacing: spacing, views: views)
 }
 
 /**
@@ -172,6 +172,6 @@ public func DistributeTopToBottom(#spacing: CGFloat, views: UIView...)  -> [Cons
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeTopToBottom(#spacing: CGFloat, views: [UIView])  -> [Constraint] {
-    return DistributeViews(views, spacing, .TopToBottom)
+public func DistributeTopToBottom(spacing spacing: CGFloat, views: [UIView])  -> [Constraint] {
+    return DistributeViews(views, spacing: spacing, direction: .TopToBottom)
 }

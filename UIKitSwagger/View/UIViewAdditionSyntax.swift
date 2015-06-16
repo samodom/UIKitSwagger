@@ -51,7 +51,6 @@ public func +=(view: UIView, addables: [UIViewAddable]) {
     var effects: [UIMotionEffect]
     var recognizers: [UIGestureRecognizer]
     (subviews, constraints, effects, recognizers) = splitAddablesIntoViewsConstraintsEffectsRecognizers(addables)
-
     for subview in subviews {
         view += subview
     }

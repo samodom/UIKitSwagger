@@ -48,7 +48,7 @@ internal func MatchDimension(items: [AutoLayoutAttributable], dimension: NSLayou
     AssertDimensionItemCount(items.count)
     AssertDimensionAttribute(dimension)
 
-    return ConstrainItemsToFirst(items, dimension)
+    return ConstrainItemsToFirst(items, attribute: dimension)
 }
 
 //  MARK: Alignment
@@ -70,14 +70,14 @@ private let validAlignmentAttributes: [NSLayoutAttribute] = [
 ]
 
 private func AssertAlignmentAttribute(attribute: NSLayoutAttribute) {
-    assert(contains(validAlignmentAttributes, attribute))
+    assert(validAlignmentAttributes.contains(attribute))
 }
 
 internal func AlignItems(items: [AutoLayoutAttributable], attribute: NSLayoutAttribute) -> [Constraint] {
     AssertAlignmentItemCount(items.count)
     AssertAlignmentAttribute(attribute)
 
-    return ConstrainItemsToFirst(items, attribute)
+    return ConstrainItemsToFirst(items, attribute: attribute)
 }
 
 
@@ -93,7 +93,7 @@ internal func DistributeViews(views: [UIView], spacing: CGFloat, direction: Dist
     let attributes = direction.attributePair()
     var constraints = [Constraint]()
     var firstItem: AutoLayoutAttributedItem
-    var secondView = views[0]
+    let secondView = views[0]
     var secondItem = secondView.attributedItemForLayoutAttribute(attributes.1)
 
     for view in views[1..<views.endIndex] {

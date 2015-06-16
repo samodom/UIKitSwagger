@@ -44,7 +44,7 @@ class RGBComponentsTests: XCTestCase {
     }
 
     func testGreenComponentWithRGBColor() {
-        XCTAssertEqualWithAccuracy(sampleRGBColor.green, randomGreenValue, ColorComponentValueTestAccuracy, "The green component of the RGB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleRGBColor.green, randomGreenValue, accuracy: ColorComponentValueTestAccuracy, "The green component of the RGB color should be provided")
     }
 
     func testGreenComponentWithHSBColor() {
@@ -56,7 +56,7 @@ class RGBComponentsTests: XCTestCase {
     }
 
     func testBlueComponentWithRGBColor() {
-        XCTAssertEqualWithAccuracy(sampleRGBColor.blue, randomBlueValue, ColorComponentValueTestAccuracy, "The blue component of the RGB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleRGBColor.blue, randomBlueValue, accuracy: ColorComponentValueTestAccuracy, "The blue component of the RGB color should be provided")
     }
 
     func testBlueComponentWithHSBColor() {

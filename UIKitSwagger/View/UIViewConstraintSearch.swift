@@ -68,15 +68,14 @@ public extension UIView {
       :param:       constraint Auto layout constraint to search for in the view's constraints.
     */
     public func hasConstraint(constraint: Constraint) -> Bool {
-        return contains(constraints() as! [Constraint], constraint)
+        return constraints.contains(constraint)
     }
 
 
     private typealias ConstraintFilter = Constraint -> Bool
 
     private func filteredConstraints(filter: ConstraintFilter) -> [Constraint]? {
-        let allConstraints = constraints() as! [Constraint]
-        let filteredConstraints = allConstraints.filter(filter)
+        let filteredConstraints = constraints.filter(filter)
         if filteredConstraints.count == 0 {
             return nil
         }

@@ -63,10 +63,10 @@ class ConstraintSearchTests: XCTestCase {
         constraints = superview.constraintsForItem(subview)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 4, "All constraints with the subview as an item should be returned")
-        XCTAssertTrue(contains(constraints!, constraint1), "The first constraint should be included")
-        XCTAssertTrue(contains(constraints!, constraint2), "The second constraint should be included")
-        XCTAssertTrue(contains(constraints!, constraint3), "The third constraint should be included")
-        XCTAssertTrue(contains(constraints!, constraint6), "The sixth constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint1), "The first constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint2), "The second constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint3), "The third constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint6), "The sixth constraint should be included")
     }
 
     func testMissingConstraintsForItem() {
@@ -78,9 +78,9 @@ class ConstraintSearchTests: XCTestCase {
         constraints = superview.constraintsForAttribute(.Leading)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 3, "All constraints with the leading attribute should be returned")
-        XCTAssertTrue(contains(constraints!, constraint1), "The first constraint should be included")
-        XCTAssertTrue(contains(constraints!, constraint3), "The third constraint should be included")
-        XCTAssertTrue(contains(constraints!, constraint6), "The sixth constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint1), "The first constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint3), "The third constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint6), "The sixth constraint should be included")
     }
 
     func testMissingConstraintsForAttribute() {
@@ -93,8 +93,8 @@ class ConstraintSearchTests: XCTestCase {
         constraints = superview.constraintsForAttributedItem(attributedItem)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 2, "All constraints with the subview as an item with center X attribute should be returned")
-        XCTAssertTrue(contains(constraints!, constraint3), "The third constraint should be included")
-        XCTAssertTrue(contains(constraints!, constraint6), "The sixth constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint3), "The third constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint6), "The sixth constraint should be included")
     }
 
     func testMissingConstraintsForItemAndAttribute() {
@@ -107,8 +107,8 @@ class ConstraintSearchTests: XCTestCase {
         constraints = superview.constraintsForItems(button, image)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 2, "All constraints with both the button and image as items should be returned")
-        XCTAssertTrue(contains(constraints!, constraint4), "The fourth constraint should be included")
-        XCTAssertTrue(contains(constraints!, constraint5), "The fifth constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint4), "The fourth constraint should be included")
+        XCTAssertTrue(constraints!.contains(constraint5), "The fifth constraint should be included")
     }
 
     func testMissingConstraintsForTwoItems() {
@@ -122,11 +122,11 @@ class ConstraintSearchTests: XCTestCase {
         constraints = superview.constraintsForAttributedItems(imageCenterY, buttonLeading)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 1, "Only the constraint with the image's center Y attribute and the button's leading attribute should be returned")
-        XCTAssertTrue(contains(constraints!, constraint4), "The fourth constraint is the expected result")
+        XCTAssertTrue(constraints!.contains(constraint4), "The fourth constraint is the expected result")
         constraints = superview.constraintsForAttributedItems(buttonLeading, imageCenterY)
         XCTAssertTrue(constraints != nil, "There should be an array of constraints returned")
         XCTAssertEqual(constraints!.count, 1, "Only the constraint with the image's center Y attribute and the button's leading attribute should be returned")
-        XCTAssertTrue(contains(constraints!, constraint4), "The fourth constraint is the expected result")
+        XCTAssertTrue(constraints!.contains(constraint4), "The fourth constraint is the expected result")
     }
 
     func testMissingConstraintsForTwoItemsAndAttributes() {

@@ -97,7 +97,7 @@ public func RemoveConstraints(constraints: [Constraint]) {
 }
 
 
-private func ViewControllerContainingView(view: UIView, #layoutGuide: UILayoutSupport) -> UIViewController? {
+private func ViewControllerContainingView(view: UIView, layoutGuide: UILayoutSupport) -> UIViewController? {
     let rootController = view.window?.rootViewController
     if rootController == nil {
         return nil

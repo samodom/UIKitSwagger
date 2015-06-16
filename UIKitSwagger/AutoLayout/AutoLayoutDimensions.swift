@@ -31,7 +31,7 @@ public func MatchWidths(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func MatchWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return MatchDimension(items, .Width)
+    return MatchDimension(items, dimension: .Width)
 }
 
 /**
@@ -42,7 +42,7 @@ public func MatchWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func ConstrainWidths(width: CGFloat, items: AutoLayoutAttributable...) -> [Constraint] {
-    return ConstrainWidths(width, items)
+    return ConstrainWidths(width, items: items)
 }
 
 /**
@@ -53,7 +53,7 @@ public func ConstrainWidths(width: CGFloat, items: AutoLayoutAttributable...) ->
   :returns:     The constraints that were applied.
 */
 public func ConstrainWidths(width: CGFloat, items: [AutoLayoutAttributable]) -> [Constraint] {
-    return ConstrainDimension(items, .Width, width)
+    return ConstrainDimension(items, dimension: .Width, value: width)
 }
 
 /**
@@ -65,7 +65,7 @@ public func ConstrainWidths(width: CGFloat, items: [AutoLayoutAttributable]) -> 
   :returns:     The constraints that were applied.
 */
 public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: AutoLayoutAttributable...) -> [Constraint] {
-    return ConstrainWidths(interval, items)
+    return ConstrainWidths(interval, items: items)
 }
 
 /**
@@ -77,7 +77,7 @@ public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: AutoLayout
   :returns:     The constraints that were applied.
 */
 public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [Constraint] {
-    return ConstrainDimension(items, .Width, interval)
+    return ConstrainDimension(items, dimension: .Width, interval: interval)
 }
 
 
@@ -104,7 +104,7 @@ public func MatchHeights(items: AutoLayoutAttributable...) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func MatchHeights(items: [AutoLayoutAttributable]) -> [Constraint] {
-    return MatchDimension(items, .Height)
+    return MatchDimension(items, dimension: .Height)
 }
 
 /**
@@ -115,7 +115,7 @@ public func MatchHeights(items: [AutoLayoutAttributable]) -> [Constraint] {
   :returns:     The constraints that were applied.
 */
 public func ConstrainHeights(height: CGFloat, items: AutoLayoutAttributable...) -> [Constraint] {
-    return ConstrainHeights(height, items)
+    return ConstrainHeights(height, items: items)
 }
 
 /**
@@ -126,7 +126,7 @@ public func ConstrainHeights(height: CGFloat, items: AutoLayoutAttributable...) 
   :returns:     The constraints that were applied.
 */
 public func ConstrainHeights(height: CGFloat, items: [AutoLayoutAttributable]) -> [Constraint] {
-    return ConstrainDimension(items, .Height, height)
+    return ConstrainDimension(items, dimension: .Height, value: height)
 }
 
 /**
@@ -138,7 +138,7 @@ public func ConstrainHeights(height: CGFloat, items: [AutoLayoutAttributable]) -
   :returns:     The constraints that were applied.
 */
 public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: AutoLayoutAttributable...) -> [Constraint] {
-    return ConstrainHeights(interval, items)
+    return ConstrainHeights(interval, items: items)
 }
 
 /**
@@ -150,7 +150,7 @@ public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: AutoLayou
   :returns:     The constraints that were applied.
 */
 public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [Constraint] {
-    return ConstrainDimension(items, .Height, interval)
+    return ConstrainDimension(items, dimension: .Height, interval: interval)
 }
 
 

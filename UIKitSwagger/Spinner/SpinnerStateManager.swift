@@ -78,7 +78,7 @@ public class SpinnerStateManager {
     */
     public func stop() {
         switch currentState {
-        case .Started(let clients):
+        case .Started(_):
             removeClient()
             stopAnimatingIfNeeded()
 

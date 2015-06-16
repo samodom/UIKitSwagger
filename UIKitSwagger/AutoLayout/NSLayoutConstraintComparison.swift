@@ -16,7 +16,7 @@ public typealias Constraint = NSLayoutConstraint
 /**
   Constraints should be equatable and we match them in a property-by-property manner.  The priority and identifier are not considered in the comparison.
 */
-extension Constraint: Equatable  {
+extension Constraint  {
 
     private func componentsMatch(other: Constraint) -> Bool {
         if (firstAttribute != other.firstAttribute || secondAttribute != other.secondAttribute || relation != other.relation) {

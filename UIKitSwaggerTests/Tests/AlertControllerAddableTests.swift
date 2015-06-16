@@ -52,25 +52,25 @@ class AlertControllerAddableTests: XCTestCase {
 
     func testAddingAlertActionWithOperator() {
         alertController += action1
-        XCTAssertEqual(alertController.actions as! [UIAlertAction], [action1], "The action should be added to the controller")
+        XCTAssertEqual(alertController.actions, [action1], "The action should be added to the controller")
 
         actionSheetController += action2
-        XCTAssertEqual(actionSheetController.actions as! [UIAlertAction], [action2], "The action should be added to the controller")
+        XCTAssertEqual(actionSheetController.actions, [action2], "The action should be added to the controller")
     }
 
     func testAddingAlertActionArrayWithOperator() {
         let actions = [action1, action2, action3] as [UIAlertAction]
         alertController += actions
-        XCTAssertEqual(alertController.actions as! [UIAlertAction], actions, "The actions should be added in the provided order")
+        XCTAssertEqual(alertController.actions, actions, "The actions should be added in the provided order")
 
-        actionSheetController += actions
-        XCTAssertEqual(actionSheetController.actions as! [UIAlertAction], actions, "The actions should be added in the provided order")
+        actionSheetController += actions    
+        XCTAssertEqual(actionSheetController.actions, actions, "The actions should be added in the provided order")
     }
 
     func testAddingTextFieldWithOperator() {
         alertController += configurationHandler1
         XCTAssertTrue(field1 != nil, "The configuration handler should be passed the text field")
-        XCTAssertEqual(alertController.textFields as! [UITextField], [field1!], "The text field should be added to the controller using the configuration handler")
+        XCTAssertEqual(alertController.textFields!, [field1!], "The text field should be added to the controller using the configuration handler")
     }
 
     func testAddingTextFieldArrayWithOperator() {
@@ -78,7 +78,7 @@ class AlertControllerAddableTests: XCTestCase {
         XCTAssertTrue(field1 != nil, "Each configuration handler should be passed a text field")
         XCTAssertTrue(field2 != nil, "Each configuration handler should be passed a text field")
         XCTAssertTrue(field3 != nil, "Each configuration handler should be passed a text field")
-        XCTAssertEqual(alertController.textFields as! [UITextField], [field1!, field2!, field3!], "The text field should be added to the controller using the configuration handler")
+        XCTAssertEqual(alertController.textFields!, [field1!, field2!, field3!], "The text field should be added to the controller using the configuration handler")
     }
 
 }

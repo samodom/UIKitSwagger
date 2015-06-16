@@ -84,6 +84,6 @@ public extension UIColor {
     internal let ColorComponentValueTestAccuracy = CGFloat(FLT_EPSILON)
 #endif
 
-internal func componentValuesEqualWithinTolerance(value1: CGFloat, value2: CGFloat) -> Bool {
+internal func componentValuesEqualWithinTolerance(value1: CGFloat, _ value2: CGFloat) -> Bool {
     return fabs(value1 - value2) < ColorComponentValueTestAccuracy
 }

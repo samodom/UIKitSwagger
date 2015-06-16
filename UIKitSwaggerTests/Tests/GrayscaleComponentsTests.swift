@@ -38,7 +38,7 @@ class GrayscaleComponentsTests: XCTestCase {
     }
 
     func testWhiteComponentWithMonochromeColor() {
-        XCTAssertEqualWithAccuracy(sampleMonochromeColor.white, randomWhiteValue, ColorComponentValueTestAccuracy, "The white component of the monochrome color should be provided")
+        XCTAssertEqualWithAccuracy(sampleMonochromeColor.white, randomWhiteValue, accuracy: ColorComponentValueTestAccuracy, "The white component of the monochrome color should be provided")
     }
     
     //  MARK: - Components structure

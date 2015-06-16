@@ -47,58 +47,50 @@ class ViewAddableSyntaxTests: XCTestCase {
         view.addSubview(subview1)
         view.addSubview(subview2)
         view += constraint1
-        let allConstraints = view.constraints() as! [Constraint]
-        XCTAssertTrue(contains(allConstraints, constraint1), "The supplied constraint operand should be added to the view")
+        XCTAssertTrue(view.constraints.contains(constraint1), "The supplied constraint operand should be added to the view")
     }
 
     func testAddingConstraintArrayWithOperator() {
         view.addSubview(subview1)
         view.addSubview(subview2)
         view += [constraint1, constraint2]
-        let allConstraints = view.constraints() as! [Constraint]
-        XCTAssertTrue(contains(allConstraints, constraint1), "Each supplied constraint should be added to the view")
-        XCTAssertTrue(contains(allConstraints, constraint2), "Each supplied constraint should be added to the view")
+        XCTAssertTrue(view.constraints.contains(constraint1), "Each supplied constraint should be added to the view")
+        XCTAssertTrue(view.constraints.contains(constraint2), "Each supplied constraint should be added to the view")
     }
 
     func testAddingMotionEffectWithOperator() {
         subview1 += effect1
-        let allEffects = subview1.motionEffects as! [UIMotionEffect]!
-        XCTAssertTrue(contains(allEffects, effect1), "The supplied motion effect operand should be added to the view")
+        XCTAssertTrue(subview1.motionEffects.contains(effect1), "The supplied motion effect operand should be added to the view")
     }
 
     func testAddingMotionEffectArrayWithOperator() {
         subview1 += [effect1, effect2]
-        let allEffects = subview1.motionEffects as! [UIMotionEffect]!
-        XCTAssertTrue(contains(allEffects, effect1), "Each supplied motion effect should be added to the view")
-        XCTAssertTrue(contains(allEffects, effect2), "Each supplied motion effect should be added to the view")
+        XCTAssertTrue(subview1.motionEffects.contains(effect1), "Each supplied motion effect should be added to the view")
+        XCTAssertTrue(subview1.motionEffects.contains(effect2), "Each supplied motion effect should be added to the view")
     }
 
     func testAddingGestureRecognizerWithOperator() {
         view += recognizer1
-        let allRecognizers = view.gestureRecognizers as! [UIGestureRecognizer]!
-        XCTAssertTrue(contains(allRecognizers, recognizer1), "The supplied gesture recognizer operand should be added to the view")
+        XCTAssertTrue(view.gestureRecognizers!.contains(recognizer1), "The supplied gesture recognizer operand should be added to the view")
     }
 
     func testAddingGestureRecognizerArrayWithOperator() {
         view += [recognizer1, recognizer2]
-        let allRecognizers = view.gestureRecognizers as! [UIGestureRecognizer]!
-        XCTAssertTrue(contains(allRecognizers, recognizer1), "Each supplied gesture recognizer should be added to the view")
-        XCTAssertTrue(contains(allRecognizers, recognizer2), "Each supplied gesture recognizer should be added to the view")
+        XCTAssertTrue(view.gestureRecognizers!.contains(recognizer1), "Each supplied gesture recognizer should be added to the view")
+        XCTAssertTrue(view.gestureRecognizers!.contains(recognizer2), "Each supplied gesture recognizer should be added to the view")
     }
 
     func testAddingMixOfAddablesWithOperator() {
-        view += [effect1, recognizer2, subview1, constraint2, effect2, constraint1, subview2, recognizer1]
+        let addables = [effect1, recognizer2, subview1, constraint2, effect2, constraint1, subview2, recognizer1] as [UIViewAddable]
+        view += addables
         XCTAssertEqual(subview1.superview!, view, "Each supplied subview should be added to the view")
         XCTAssertEqual(subview2.superview!, view, "Each supplied subview should be added to the view")
-        let allConstraints = view.constraints() as! [Constraint]
-        XCTAssertTrue(contains(allConstraints, constraint1), "Each supplied constraint should be added to the view")
-        XCTAssertTrue(contains(allConstraints, constraint2), "Each supplied constraint should be added to the view")
-        let allEffects = view.motionEffects as! [UIMotionEffect]!
-        XCTAssertTrue(contains(allEffects, effect1), "Each supplied motion effect should be added to the view")
-        XCTAssertTrue(contains(allEffects, effect2), "Each supplied motion effect should be added to the view")
-        let allRecognizers = view.gestureRecognizers as! [UIGestureRecognizer]!
-        XCTAssertTrue(contains(allRecognizers, recognizer1), "Each supplied gesture recognizer should be added to the view")
-        XCTAssertTrue(contains(allRecognizers, recognizer2), "Each supplied gesture recognizer should be added to the view")
+        XCTAssertTrue(view.constraints.contains(constraint1), "Each supplied constraint should be added to the view")
+        XCTAssertTrue(view.constraints.contains(constraint2), "Each supplied constraint should be added to the view")
+        XCTAssertTrue(view.motionEffects.contains(effect1), "Each supplied motion effect should be added to the view")
+        XCTAssertTrue(view.motionEffects.contains(effect2), "Each supplied motion effect should be added to the view")
+        XCTAssertTrue(view.gestureRecognizers!.contains(recognizer1), "Each supplied gesture recognizer should be added to the view")
+        XCTAssertTrue(view.gestureRecognizers!.contains(recognizer2), "Each supplied gesture recognizer should be added to the view")
     }
 
     func testRemovingSubviewWithOperator() {
@@ -120,8 +112,7 @@ class ViewAddableSyntaxTests: XCTestCase {
         view.addSubview(subview2)
         view.addConstraint(constraint1)
         view -= constraint1
-        let allConstraints = view.constraints() as! [Constraint]
-        XCTAssertFalse(contains(allConstraints, constraint1), "The supplied constraint operand should be removed from the view")
+        XCTAssertFalse(view.constraints.contains(constraint1), "The supplied constraint operand should be removed from the view")
     }
 
     func testRemovingConstraintArrayWithOperator() {
@@ -130,41 +121,36 @@ class ViewAddableSyntaxTests: XCTestCase {
         view.addConstraint(constraint1)
         view.addConstraint(constraint2)
         view -= [constraint1, constraint2]
-        let allConstraints = view.constraints() as! [Constraint]
-        XCTAssertFalse(contains(allConstraints, constraint1), "Each supplied constraint should be removed from the view")
-        XCTAssertFalse(contains(allConstraints, constraint2), "Each supplied constraint should be removed from the view")
+        XCTAssertFalse(view.constraints.contains(constraint1), "Each supplied constraint should be removed from the view")
+        XCTAssertFalse(view.constraints.contains(constraint2), "Each supplied constraint should be removed from the view")
     }
 
     func testRemovingMotionEffectWithOperator() {
         subview1.addMotionEffect(effect1)
         subview1 -= effect1
-        let allEffects = subview1.motionEffects as! [UIMotionEffect]!
-        XCTAssertFalse(contains(allEffects, effect1), "The supplied motion effect operand should be removed from the view")
+        XCTAssertFalse(subview1.motionEffects.contains(effect1), "The supplied motion effect operand should be removed from the view")
     }
 
     func testRemovingMotionEffectArrayWithOperator() {
         subview1.addMotionEffect(effect1)
         subview1.addMotionEffect(effect2)
         subview1 -= [effect1, effect2]
-        let allEffects = subview1.motionEffects as! [UIMotionEffect]!
-        XCTAssertFalse(contains(allEffects, effect1), "Each supplied motion effect should be removed from the view")
-        XCTAssertFalse(contains(allEffects, effect2), "Each supplied motion effect should be removed from the view")
+        XCTAssertFalse(subview1.motionEffects.contains(effect1), "Each supplied motion effect should be removed from the view")
+        XCTAssertFalse(subview1.motionEffects.contains(effect2), "Each supplied motion effect should be removed from the view")
     }
 
     func testRemovingGestureRecognizerWithOperator() {
         view.addGestureRecognizer(recognizer1)
         view -= recognizer1
-        let allRecognizers = view.gestureRecognizers as! [UIGestureRecognizer]!
-        XCTAssertFalse(contains(allRecognizers, recognizer1), "The supplied gesture recognizer operand should be removed from the view")
+        XCTAssertFalse(view.gestureRecognizers!.contains(recognizer1), "The supplied gesture recognizer operand should be removed from the view")
     }
 
     func testRemovingGestureRecognizerArrayWithOperator() {
         view.addGestureRecognizer(recognizer1)
         view.addGestureRecognizer(recognizer2)
         view -= [recognizer1, recognizer2]
-        let allRecognizers = view.gestureRecognizers as! [UIGestureRecognizer]!
-        XCTAssertFalse(contains(allRecognizers, recognizer1), "Each supplied gesture recognizer should be removed from the view")
-        XCTAssertFalse(contains(allRecognizers, recognizer2), "Each supplied gesture recognizer should be removed from the view")
+        XCTAssertFalse(view.gestureRecognizers!.contains(recognizer1), "Each supplied gesture recognizer should be removed from the view")
+        XCTAssertFalse(view.gestureRecognizers!.contains(recognizer2), "Each supplied gesture recognizer should be removed from the view")
     }
 
     func testRemovingMixOfAddablesWithOperator() {
@@ -173,11 +159,10 @@ class ViewAddableSyntaxTests: XCTestCase {
         view -= addables
         XCTAssertNil(subview1.superview, "Each supplied subview should be removed from the view")
         XCTAssertNil(subview2.superview, "Each supplied subview should be removed from the view")
-        let allConstraints = view.constraints() as! [Constraint]
-        XCTAssertFalse(contains(allConstraints, constraint1), "Each supplied constraint should be removed from the view")
-        XCTAssertFalse(contains(allConstraints, constraint2), "Each supplied constraint should be removed from the view")
-        XCTAssertEqual(view.motionEffects!.count, 0, "Each supplied motion effect should be removed from the view")
-        XCTAssertEqual(view.gestureRecognizers!.count, 0, "Each supplied gesture recognizer should be removed from the view")
+        XCTAssertFalse(view.constraints.contains(constraint1), "Each supplied constraint should be removed from the view")
+        XCTAssertFalse(view.constraints.contains(constraint2), "Each supplied constraint should be removed from the view")
+        XCTAssertEqual(view.motionEffects.count, 0, "Each supplied motion effect should be removed from the view")
+        XCTAssertNil(view.gestureRecognizers, "Each supplied gesture recognizer should be removed from the view")
     }
 
 }

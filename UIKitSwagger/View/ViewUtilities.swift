@@ -68,6 +68,6 @@ public func DoNotTranslateMasks(views: UIView...) {
 */
 public func DoNotTranslateMasks(views: [UIView]) {
     for view in views {
-        view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        view.translatesAutoresizingMaskIntoConstraints = false
     }
 }

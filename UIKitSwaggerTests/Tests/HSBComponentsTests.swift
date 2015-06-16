@@ -36,7 +36,7 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testHueComponentWithHSBColor() {
-        XCTAssertEqualWithAccuracy(sampleHSBColor.hue, randomHueValue, ColorComponentValueTestAccuracy, "The hue component of the HSB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleHSBColor.hue, randomHueValue, accuracy: ColorComponentValueTestAccuracy, "The hue component of the HSB color should be provided")
     }
 
     func testHueComponentWithMonochromeColor() {
@@ -48,7 +48,7 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testSaturationComponentWithHSBColor() {
-        XCTAssertEqualWithAccuracy(sampleHSBColor.saturation, randomSaturationValue, ColorComponentValueTestAccuracy, "The saturation component of the HSB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleHSBColor.saturation, randomSaturationValue, accuracy: ColorComponentValueTestAccuracy, "The saturation component of the HSB color should be provided")
     }
 
     func testSaturationComponentWithMonochromeColor() {
@@ -60,7 +60,7 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testBrightnessComponentWithHSBColor() {
-        XCTAssertEqualWithAccuracy(sampleHSBColor.brightness, randomBrightnessValue, ColorComponentValueTestAccuracy, "The brightness component of the HSB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleHSBColor.brightness, randomBrightnessValue, accuracy: ColorComponentValueTestAccuracy, "The brightness component of the HSB color should be provided")
     }
 
     func testBrightnessComponentWithMonochromeColor() {
