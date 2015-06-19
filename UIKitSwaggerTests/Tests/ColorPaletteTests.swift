@@ -20,7 +20,11 @@ class ColorPaletteTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        colors = ["red": red, "blue": blue, "green": green]
+        colors = [
+            "red": red,
+            "blue": blue,
+            "green": green
+        ]
     }
 
     override func tearDown() {

@@ -16,16 +16,13 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
     let gravityBehavior = UIGravityBehavior()
     let collisionBehavior = UICollisionBehavior()
     let pushBehavior = UIPushBehavior()
-    var dynamicItem1: UIView!
-    var dynamicItem2: UIView!
-    var dynamicItem3: UIView!
+    let dynamicItem1 = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+    let dynamicItem2 = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+    let dynamicItem3 = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: 10))
 
     override func setUp() {
         super.setUp()
 
-        dynamicItem1 = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        dynamicItem2 = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        dynamicItem3 = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: 10))
         animator.addBehavior(itemBehavior)
         animator.addBehavior(gravityBehavior)
         animator.addBehavior(collisionBehavior)

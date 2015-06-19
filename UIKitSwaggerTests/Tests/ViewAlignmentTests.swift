@@ -26,7 +26,6 @@ class ViewAlignmentTests: XCTestCase {
 
         let window = UIApplication.sharedApplication().delegate!.window!
         controller = window!.rootViewController
-        controller.loadView()
         view = controller.view
         view.addSubview(subview1)
         view.addSubview(subview2)
@@ -36,6 +35,10 @@ class ViewAlignmentTests: XCTestCase {
     }
     
     override func tearDown() {
+        subview1.removeFromSuperview()
+        subview2.removeFromSuperview()
+        view.clearConstraints()
+        
         super.tearDown()
     }
 

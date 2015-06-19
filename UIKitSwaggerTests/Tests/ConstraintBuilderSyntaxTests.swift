@@ -21,7 +21,6 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        controller.loadView()
         rootView = controller.view
         rootView.addSubview(subview)
     }
@@ -238,11 +237,11 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         XCTAssertEqual(constraint.identifier!, "square", "The '~' symbol should allow setting of constraint identifiers")
     }
 
-    func testClearingIdentifierConstraint() {
+    func testClearingConstraintIdentifier() {
         constraint = rootView.height =* rootView.width
         constraint.identifier = "square"
         constraint ~ nil
-        XCTAssertTrue(constraint.identifier == nil, "The '~' symbol with a nil value should allow clearing of constraint identifiers")
+        XCTAssertNil(constraint.identifier, "The '~' symbol with a nil value should allow clearing of constraint identifiers")
     }
 
 }

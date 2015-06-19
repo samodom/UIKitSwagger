@@ -9,6 +9,8 @@
 import UIKit
 import XCTest
 
+private let genericActionHandler: UIAlertActionHandler = { (_: UIAlertAction!) -> Void in return }
+
 class AlertControllerAddableTests: XCTestCase {
 
     let alertController = UIAlertController(title: "Alert", message: "Message", preferredStyle: .Alert)
@@ -17,7 +19,6 @@ class AlertControllerAddableTests: XCTestCase {
     var action1: UIAlertAction!
     var action2: UIAlertAction!
     var action3: UIAlertAction!
-    var genericActionHandler: UIAlertActionHandler!
 
     var field1: UITextField?
     var field2: UITextField?
@@ -29,21 +30,13 @@ class AlertControllerAddableTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        genericActionHandler = { (_: UIAlertAction!) -> Void in
-        }
         action1 = UIAlertAction(title: "Action 1", style: .Default, handler: genericActionHandler)
         action2 = UIAlertAction(title: "Action 2", style: .Destructive, handler: genericActionHandler)
         action3 = UIAlertAction(title: "Action 3", style: .Cancel, handler: genericActionHandler)
 
-        configurationHandler1 = { (field: UITextField!) -> Void in
-            self.field1 = field
-        }
-        configurationHandler2 = { (field: UITextField!) -> Void in
-            self.field2 = field
-        }
-        configurationHandler3 = { (field: UITextField!) -> Void in
-            self.field3 = field
-        }
+        configurationHandler1 = { self.field1 = $0 }
+        configurationHandler2 = { self.field2 = $0 }
+        configurationHandler3 = { self.field3 = $0 }
     }
     
     override func tearDown() {
@@ -63,21 +56,21 @@ class AlertControllerAddableTests: XCTestCase {
         alertController += actions
         XCTAssertEqual(alertController.actions, actions, "The actions should be added in the provided order")
 
-        actionSheetController += actions    
+        actionSheetController += actions
         XCTAssertEqual(actionSheetController.actions, actions, "The actions should be added in the provided order")
     }
 
     func testAddingTextFieldWithOperator() {
         alertController += configurationHandler1
-        XCTAssertTrue(field1 != nil, "The configuration handler should be passed the text field")
+        XCTAssertNotNil(field1, "The configuration handler should be passed the text field")
         XCTAssertEqual(alertController.textFields!, [field1!], "The text field should be added to the controller using the configuration handler")
     }
 
     func testAddingTextFieldArrayWithOperator() {
         alertController += [configurationHandler1, configurationHandler2, configurationHandler3]
-        XCTAssertTrue(field1 != nil, "Each configuration handler should be passed a text field")
-        XCTAssertTrue(field2 != nil, "Each configuration handler should be passed a text field")
-        XCTAssertTrue(field3 != nil, "Each configuration handler should be passed a text field")
+        XCTAssertNotNil(field1, "Each configuration handler should be passed a text field")
+        XCTAssertNotNil(field2, "Each configuration handler should be passed a text field")
+        XCTAssertNotNil(field3, "Each configuration handler should be passed a text field")
         XCTAssertEqual(alertController.textFields!, [field1!, field2!, field3!], "The text field should be added to the controller using the configuration handler")
     }
 

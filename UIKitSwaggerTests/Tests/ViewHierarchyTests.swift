@@ -51,7 +51,7 @@ class ViewHierarchyExtensionsTests: XCTestCase {
     }
 
     func testViewSubscriptingReturnsNilForIndexBeyondRange() {
-        XCTAssertTrue(rootView[4] == nil, "Out-of-range indices should return a nil value instead of raising an exception")
+        XCTAssertNil(rootView[4], "Out-of-range indices should return a nil value instead of raising an exception")
     }
 
     func testViewSubscriptingReplacesSubviewAtIndex() {
@@ -68,7 +68,7 @@ class ViewHierarchyExtensionsTests: XCTestCase {
     func testViewSubscriptingRemovesSubviewAtIndex() {
         rootView[1] = nil
         XCTAssertEqual(rootView.subviews.count, 2, "There should now be two subviews left")
-        XCTAssertTrue(subview1.superview == nil, "The removed subview should no longer have a superview")
+        XCTAssertNil(subview1.superview, "The removed subview should no longer have a superview")
     }
 
     func testValidSubviewSwapping() {

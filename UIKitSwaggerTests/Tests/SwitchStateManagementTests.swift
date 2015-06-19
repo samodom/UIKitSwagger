@@ -11,8 +11,8 @@ import XCTest
 
 class SwitchStateManagementTests: XCTestCase {
 
-    let toggle1 = TestSwitch()
-    let toggle2 = TestSwitch()
+    private let toggle1 = TestSwitch()
+    private let toggle2 = TestSwitch()
 
     override func setUp() {
         super.setUp()
@@ -135,7 +135,7 @@ class SwitchStateManagementTests: XCTestCase {
 
 }
 
-class TestSwitch: UISwitch {
+private class TestSwitch: UISwitch {
     var toggleAnimated = false
 
     override func setOn(on: Bool, animated: Bool) {

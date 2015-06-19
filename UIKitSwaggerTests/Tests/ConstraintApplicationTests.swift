@@ -28,7 +28,6 @@ class ConstraintApplicationTests: XCTestCase {
 
         let window = UIApplication.sharedApplication().delegate!.window!
         viewController = window!.rootViewController
-        viewController.loadView()
         view = viewController.view
         child1.addSubview(grandchild1)
         child2.addSubview(grandchild2)
@@ -37,6 +36,10 @@ class ConstraintApplicationTests: XCTestCase {
     }
     
     override func tearDown() {
+        child1.removeFromSuperview()
+        child2.removeFromSuperview()
+        view.clearConstraints()
+        
         super.tearDown()
     }
 
@@ -99,7 +102,7 @@ class ConstraintApplicationTests: XCTestCase {
     func testRemovingConstraintFromView() {
         let constraint = child1.height =* 14.42
         constraint.apply()
-        XCTAssertTrue(child1.constraints.contains(constraint), "Just making sure the constraint has been added")
+        assert(child1.constraints.contains(constraint), "Just making sure the constraint has been added")
         constraint.remove()
         XCTAssertFalse(child1.constraints.contains(constraint), "The constraint should be removed")
     }

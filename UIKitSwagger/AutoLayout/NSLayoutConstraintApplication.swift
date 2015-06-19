@@ -33,7 +33,8 @@ public extension NSLayoutConstraint {
             return firstItem as? UIView
         }
 
-        if let firstView = firstItem as? UIView, let secondView = secondItem as? UIView {
+        if let firstView = firstItem as? UIView,
+            secondView = secondItem as? UIView {
             return firstView.firstCommonAncestor(secondView)
         }
 

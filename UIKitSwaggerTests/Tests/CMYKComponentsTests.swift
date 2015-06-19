@@ -323,16 +323,11 @@ class CMYKComponentsTests: XCTestCase {
             key: randomKeyValue,
             alpha: randomAlphaValue
         )
-        let rgbComponents = components.asRGBComponents()
-        let expectedColor = rgbComponents.color()
-        XCTAssertEqual(color, expectedColor, "The component values should be used to create an instance of UIColor")
+        XCTAssertEqual(color, components.asRGBComponents().color(), "The component values should be used to create an instance of UIColor")
     }
 
     func testColorCreationWithCMYKComponents() {
-        let color = components.color()
-        let rgbComponents = components.asRGBComponents()
-        let expectedColor = rgbComponents.color()
-        XCTAssertEqual(color, expectedColor, "The components should create an instance of UIColor using its component values")
+        XCTAssertEqual(components.color(), components.asRGBComponents().color(), "The components should create an instance of UIColor using its component values")
     }
 
 }

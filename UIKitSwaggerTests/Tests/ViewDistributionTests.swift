@@ -16,7 +16,6 @@ class ViewDistributionTests: XCTestCase {
     let button = UIButton()
     let slider = UISlider()
     let toggle = UISwitch()
-    var appliedConstraints: [Constraint]!
     var returnedConstraints: [Constraint]!
 
     override func setUp() {
@@ -24,7 +23,6 @@ class ViewDistributionTests: XCTestCase {
 
         let window = UIApplication.sharedApplication().delegate!.window!
         controller = window!.rootViewController
-        controller.loadView()
         superview = controller.view
         superview.addSubview(button)
         superview.addSubview(slider)
@@ -32,6 +30,11 @@ class ViewDistributionTests: XCTestCase {
     }
     
     override func tearDown() {
+        button.removeFromSuperview()
+        slider.removeFromSuperview()
+        toggle.removeFromSuperview()
+        superview.clearConstraints()
+        
         super.tearDown()
     }
 
@@ -41,10 +44,10 @@ class ViewDistributionTests: XCTestCase {
         returnedConstraints = DistributeLeftToRight(button, slider, toggle)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.left =* button.right
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be pinned to the right side of the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be pinned to the right side of the button")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
         expected = toggle.left =* slider.right
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be pinned to the right side of the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be pinned to the right side of the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -52,10 +55,10 @@ class ViewDistributionTests: XCTestCase {
         returnedConstraints = DistributeLeftToRight(spacing: 14, views: button, slider, toggle)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.left =* button.right + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be 14 pt to the right of the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be 14 pt to the right of the button")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
         expected = toggle.left =* slider.right + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be 14 pt to the right of the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be 14 pt to the right of the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -64,9 +67,9 @@ class ViewDistributionTests: XCTestCase {
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.left =* button.right
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be pinned to the right side of the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be pinned to the right side of the button")
         expected = toggle.left =* slider.right
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be pinned to the right side of the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be pinned to the right side of the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -74,10 +77,10 @@ class ViewDistributionTests: XCTestCase {
         returnedConstraints = DistributeLeftToRight(spacing: 14, views: [button, slider, toggle])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.left =* button.right + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be 14 pt to the right of the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be 14 pt to the right of the button")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
         expected = toggle.left =* slider.right + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be 14 pt to the right of the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be 14 pt to the right of the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -88,9 +91,9 @@ class ViewDistributionTests: XCTestCase {
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.leading =* button.trailing
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be pinned to the right side of the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be pinned to the right side of the button")
         expected = toggle.leading =* slider.trailing
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be pinned to the right side of the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be pinned to the right side of the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -98,10 +101,10 @@ class ViewDistributionTests: XCTestCase {
         returnedConstraints = DistributeLeadingToTrailing(spacing: 14, views: button, slider, toggle)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.leading =* button.trailing + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be 14 pt from the trailing side of the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be 14 pt from the trailing side of the button")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
         expected = toggle.leading =* slider.trailing + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be 14 pt from the trailing side of the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be 14 pt from the trailing side of the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -109,10 +112,10 @@ class ViewDistributionTests: XCTestCase {
         returnedConstraints = DistributeLeadingToTrailing([button, slider, toggle])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.leading =* button.trailing
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be pinned to the right side of the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be pinned to the right side of the button")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
         expected = toggle.leading =* slider.trailing
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be pinned to the right side of the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be pinned to the right side of the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -120,10 +123,10 @@ class ViewDistributionTests: XCTestCase {
         returnedConstraints = DistributeLeadingToTrailing(spacing: 14, views: [button, slider, toggle])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.leading =* button.trailing + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be 14 pt to the trailing side of the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be 14 pt to the trailing side of the button")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
         expected = toggle.leading =* slider.trailing + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be 14 pt to the trailing side of the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be 14 pt to the trailing side of the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -133,10 +136,10 @@ class ViewDistributionTests: XCTestCase {
         returnedConstraints = DistributeTopToBottom(button, slider, toggle)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.top =* button.bottom
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be pinned to the bottom side of the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be pinned to the bottom side of the button")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
         expected = toggle.top =* slider.bottom
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be pinned to the bottom side of the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be pinned to the bottom side of the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -144,10 +147,10 @@ class ViewDistributionTests: XCTestCase {
         returnedConstraints = DistributeTopToBottom(spacing: 14, views: button, slider, toggle)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.top =* button.bottom + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be 14 pt underneath the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be 14 pt underneath the button")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
         expected = toggle.top =* slider.bottom + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be 14 pt underneath the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be 14 pt underneath the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -155,10 +158,10 @@ class ViewDistributionTests: XCTestCase {
         returnedConstraints = DistributeTopToBottom([button, slider, toggle])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.top =* button.bottom
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be pinned to the bottom side of the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be pinned to the bottom side of the button")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
         expected = toggle.top =* slider.bottom
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be pinned to the bottom side of the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be pinned to the bottom side of the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
@@ -166,10 +169,10 @@ class ViewDistributionTests: XCTestCase {
         returnedConstraints = DistributeTopToBottom(spacing: 14, views: [button, slider, toggle])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = slider.top =* button.bottom + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The slider should be 14 pt underneath the button")
+        XCTAssertTrue(superview.constraints.contains(expected), "The slider should be 14 pt underneath the button")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
         expected = toggle.top =* slider.bottom + 14
-        XCTAssertTrue(appliedConstraints.contains(expected), "The toggle should be 14 pt underneath the slider")
+        XCTAssertTrue(superview.constraints.contains(expected), "The toggle should be 14 pt underneath the slider")
         XCTAssertTrue(returnedConstraints.contains(expected), "The applied constraint should be returned to the caller")
     }
 
