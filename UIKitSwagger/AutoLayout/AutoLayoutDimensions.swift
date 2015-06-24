@@ -18,7 +18,7 @@ import UIKit
   :param:       items Two or more items that are to maintain the same width.
   :returns:     The constraints that were applied.
 */
-public func MatchWidths(items: AutoLayoutAttributable...) -> [Constraint] {
+public func MatchWidths(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return MatchWidths(items)
 }
 
@@ -30,7 +30,7 @@ public func MatchWidths(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to maintain the same width.
   :returns:     The constraints that were applied.
 */
-public func MatchWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func MatchWidths(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return MatchDimension(items, dimension: .Width)
 }
 
@@ -41,7 +41,7 @@ public func MatchWidths(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items One or more items that are to maintain a constant width.
   :returns:     The constraints that were applied.
 */
-public func ConstrainWidths(width: CGFloat, items: AutoLayoutAttributable...) -> [Constraint] {
+public func ConstrainWidths(width: CGFloat, items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return ConstrainWidths(width, items: items)
 }
 
@@ -52,7 +52,7 @@ public func ConstrainWidths(width: CGFloat, items: AutoLayoutAttributable...) ->
   :param:       items Array of items that are to maintain a constant width.
   :returns:     The constraints that were applied.
 */
-public func ConstrainWidths(width: CGFloat, items: [AutoLayoutAttributable]) -> [Constraint] {
+public func ConstrainWidths(width: CGFloat, items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return ConstrainDimension(items, dimension: .Width, value: width)
 }
 
@@ -64,7 +64,7 @@ public func ConstrainWidths(width: CGFloat, items: [AutoLayoutAttributable]) -> 
   :param:       interval A closed interval representing the minimum and maximum widths for this view.
   :returns:     The constraints that were applied.
 */
-public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: AutoLayoutAttributable...) -> [Constraint] {
+public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return ConstrainWidths(interval, items: items)
 }
 
@@ -76,7 +76,7 @@ public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: AutoLayout
   :param:       interval A closed interval representing the minimum and maximum widths for this view.
   :returns:     The constraints that were applied.
 */
-public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [Constraint] {
+public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return ConstrainDimension(items, dimension: .Width, interval: interval)
 }
 
@@ -91,7 +91,7 @@ public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: [AutoLayou
   :param:       items Two or more items that are to maintain the same height.
   :returns:     The constraints that were applied.
 */
-public func MatchHeights(items: AutoLayoutAttributable...) -> [Constraint] {
+public func MatchHeights(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return MatchHeights(items)
 }
 
@@ -103,7 +103,7 @@ public func MatchHeights(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to maintain the same height.
   :returns:     The constraints that were applied.
 */
-public func MatchHeights(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func MatchHeights(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return MatchDimension(items, dimension: .Height)
 }
 
@@ -114,7 +114,7 @@ public func MatchHeights(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items One or more items that are to maintain a constant height.
   :returns:     The constraints that were applied.
 */
-public func ConstrainHeights(height: CGFloat, items: AutoLayoutAttributable...) -> [Constraint] {
+public func ConstrainHeights(height: CGFloat, items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return ConstrainHeights(height, items: items)
 }
 
@@ -125,7 +125,7 @@ public func ConstrainHeights(height: CGFloat, items: AutoLayoutAttributable...) 
   :param:       items Array of more items that are to maintain a constant height.
   :returns:     The constraints that were applied.
 */
-public func ConstrainHeights(height: CGFloat, items: [AutoLayoutAttributable]) -> [Constraint] {
+public func ConstrainHeights(height: CGFloat, items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return ConstrainDimension(items, dimension: .Height, value: height)
 }
 
@@ -137,7 +137,7 @@ public func ConstrainHeights(height: CGFloat, items: [AutoLayoutAttributable]) -
   :param:       interval A closed interval representing the minimum and maximum widths for this view.
   :returns:     The constraints that were applied.
 */
-public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: AutoLayoutAttributable...) -> [Constraint] {
+public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return ConstrainHeights(interval, items: items)
 }
 
@@ -149,7 +149,7 @@ public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: AutoLayou
   :param:       interval A closed interval representing the minimum and maximum widths for this view.
   :returns:     The constraints that were applied.
 */
-public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [Constraint] {
+public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return ConstrainDimension(items, dimension: .Height, interval: interval)
 }
 
@@ -164,7 +164,7 @@ public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: [AutoLayo
   :param:        items Two or more items that are to maintain the same size.
   :returns:       The constraints that were applied.
 */
-public func MatchSizes(items: AutoLayoutAttributable...) -> [Constraint] {
+public func MatchSizes(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return MatchSizes(items)
 }
 
@@ -176,6 +176,6 @@ public func MatchSizes(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to maintain the same size.
   :returns:     The constraints that were applied.
 */
-public func MatchSizes(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func MatchSizes(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return MatchWidths(items) + MatchHeights(items)
 }

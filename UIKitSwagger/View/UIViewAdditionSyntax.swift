@@ -11,7 +11,7 @@ import UIKit
 public protocol UIViewAddable { }
 
 extension UIView: UIViewAddable { }
-extension Constraint: UIViewAddable { }
+extension NSLayoutConstraint: UIViewAddable { }
 extension UIMotionEffect: UIViewAddable { }
 extension UIGestureRecognizer: UIViewAddable { }
 
@@ -26,7 +26,7 @@ public func +=(view: UIView, addable: UIViewAddable) {
     case let subview as UIView:
         view.addSubview(subview)
 
-    case let constraint as Constraint:
+    case let constraint as NSLayoutConstraint:
         view.addConstraint(constraint)
 
     case let effect as UIMotionEffect:
@@ -46,27 +46,7 @@ public func +=(view: UIView, addable: UIViewAddable) {
   This is done to avoid adding constraints for which the view is unprepared.
 */
 public func +=(view: UIView, addables: [UIViewAddable]) {
-    var subviews: [UIView]
-    var constraints: [Constraint]
-    var effects: [UIMotionEffect]
-    var recognizers: [UIGestureRecognizer]
-    (subviews, constraints, effects, recognizers) = splitAddablesIntoViewsConstraintsEffectsRecognizers(addables)
-
-    for subview in subviews {
-        view += subview
-    }
-
-    for constraint in constraints {
-        view += constraint
-    }
-
-    for effect in effects {
-        view += effect
-    }
-
-    for recognizer in recognizers {
-        view += recognizer
-    }
+    groupAddables(addables).map { view += $0 }
 }
 
 /**
@@ -77,7 +57,7 @@ public func -=(view: UIView, removable: UIViewRemovable) {
     case let subview as UIView:
         subview.removeFromSuperview()
 
-    case let constraint as Constraint:
+    case let constraint as NSLayoutConstraint:
         view.removeConstraint(constraint)
 
     case let effect as UIMotionEffect:
@@ -97,44 +77,24 @@ public func -=(view: UIView, removable: UIViewRemovable) {
   This is done to avoid leaving invalid constraints in the view.
 */
 public func -=(view: UIView, removables: [UIViewRemovable]) {
-    var subviews: [UIView]
-    var constraints: [Constraint]
-    var effects: [UIMotionEffect]
-    var recognizers: [UIGestureRecognizer]
-    (subviews, constraints, effects, recognizers) = splitAddablesIntoViewsConstraintsEffectsRecognizers(removables)
-
-    for constraint in constraints {
-        view -= constraint
-    }
-
-    for subview in subviews {
-        view -= subview
-    }
-
-    for effect in effects {
-        view -= effect
-    }
-
-    for recognizer in recognizers {
-        view -= recognizer
-    }
+    groupAddables(removables).map { view -= $0 }
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////
 
-private func splitAddablesIntoViewsConstraintsEffectsRecognizers(addables: [UIViewAddable]) -> ([UIView], [Constraint], [UIMotionEffect], [UIGestureRecognizer]) {
-    var views = [UIView]()
-    var constraints = [Constraint]()
-    var effects = [UIMotionEffect]()
-    var recognizers = [UIGestureRecognizer]()
+private func groupAddables(addables: [UIViewAddable]) -> [UIViewAddable] {
+    var views = [UIViewAddable]()
+    var constraints = [UIViewAddable]()
+    var effects = [UIViewAddable]()
+    var recognizers = [UIViewAddable]()
 
     for addable in addables {
         switch addable {
         case let view as UIView:
             views.append(view)
 
-        case let constraint as Constraint:
+        case let constraint as NSLayoutConstraint:
             constraints.append(constraint)
 
         case let effect as UIMotionEffect:
@@ -148,5 +108,5 @@ private func splitAddablesIntoViewsConstraintsEffectsRecognizers(addables: [UIVi
         }
     }
 
-    return (views, constraints, effects, recognizers)
+    return views + constraints + effects + recognizers
 }

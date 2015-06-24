@@ -8,22 +8,16 @@
 
 import UIKit
 
-/**
-  We need a more concise way to refer to layout constraints instead of `NSLayoutConstraint` and this is it!
-*/
-public typealias Constraint = NSLayoutConstraint
-
-
-extension Constraint  {
+extension NSLayoutConstraint  {
 
     /**
       Constraints should be equatable beyond reference comparison and we match them in a property-by-property manner.
     */
     override public func isEqual(object: AnyObject?) -> Bool {
         guard self !== object else { return true }
-        guard object is Constraint else { return false }
+        guard object is NSLayoutConstraint else { return false }
 
-        let otherConstraint = object as! Constraint
+        let otherConstraint = object as! NSLayoutConstraint
         guard priority == otherConstraint.priority else { return false }
 
         if componentsMatch(otherConstraint) {
@@ -37,7 +31,7 @@ extension Constraint  {
         return false
     }
 
-    private func componentsMatch(otherConstraint: Constraint) -> Bool {
+    private func componentsMatch(otherConstraint: NSLayoutConstraint) -> Bool {
         guard firstItem === otherConstraint.firstItem else { return false }
         guard firstAttribute == otherConstraint.firstAttribute else { return false }
         guard secondItem === otherConstraint.secondItem else { return false }
@@ -62,7 +56,7 @@ extension Constraint  {
 */
 infix operator ==* { }
 
-public func ==* (lhs: Constraint, rhs: Constraint) -> Bool {
+public func ==* (lhs: NSLayoutConstraint, rhs: NSLayoutConstraint) -> Bool {
     return
         lhs == rhs &&
         lhs.identifier == rhs.identifier

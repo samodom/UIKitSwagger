@@ -8,20 +8,4 @@
 
 import UIKit
 
-extension UILabel: UIKitEnablable {
-
-    /**
-      Convenience method to enable a label.
-    */
-    public func enable() {
-        enabled = true
-    }
-
-    /**
-      Convenience method to disable a label.
-    */
-    public func disable() {
-        enabled = false
-    }
-
-}
+extension UILabel: UIKitEnablable { }

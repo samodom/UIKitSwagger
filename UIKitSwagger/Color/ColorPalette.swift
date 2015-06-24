@@ -93,10 +93,7 @@ public extension ColorPalette {
       Subscript convenience for retrieving, adding, replacing and clearing colors in the palette.
     */
     public subscript(name: String) -> UIColor? {
-        get {
-            return colorNamed(name)
-        }
-
+        get { return colorNamed(name) }
         set {
             newValue == nil ? removeColorNamed(name) : addColor(newValue!, named: name)
         }

@@ -15,9 +15,9 @@ public struct UIColorGrayscaleComponents: UIColorComponents {
     public let white: CGFloat
     public let alpha: CGFloat
 
-    public init(white: CGFloat, alpha: CGFloat! = 1) {
-        self.white = white
-        self.alpha = alpha
+    public init(white w: CGFloat, alpha a: CGFloat! = 1) {
+        white = w
+        alpha = a
     }
 
     /**

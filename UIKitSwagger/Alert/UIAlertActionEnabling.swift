@@ -8,20 +8,4 @@
 
 import UIKit
 
-extension UIAlertAction: UIKitEnablable {
-
-    /**
-      Convenience method to enable an alert action.
-    */
-    public func enable() {
-        enabled = true
-    }
-
-    /**
-      Convenience method to disable an alert action.
-    */
-    public func disable() {
-        enabled = false
-    }
-
-}
+extension UIAlertAction: UIKitEnablable { }

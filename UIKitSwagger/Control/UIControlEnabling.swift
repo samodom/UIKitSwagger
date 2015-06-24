@@ -8,20 +8,4 @@
 
 import UIKit
 
-extension UIControl: UIKitEnablable {
-
-    /**
-      Convenience method to enable a control.
-    */
-    public func enable() {
-        enabled = true
-    }
-
-    /**
-      Convenience method to disable a control.
-    */
-    public func disable() {
-        enabled = false
-    }
-
-}
+extension UIControl: UIKitEnablable { }

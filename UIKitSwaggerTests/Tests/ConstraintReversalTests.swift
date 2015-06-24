@@ -8,12 +8,13 @@
 
 import XCTest
 import UIKit
+@testable import UIKitSwagger
 
 class ConstraintReversalTests: XCTestCase {
 
-    var constraint: Constraint!
-    var reversed: Constraint!
-    var positive: Constraint!
+    var constraint: NSLayoutConstraint!
+    var reversed: NSLayoutConstraint!
+    var positive: NSLayoutConstraint!
 
     let viewOne = UIView()
     let viewTwo = UIView()
@@ -29,13 +30,8 @@ class ConstraintReversalTests: XCTestCase {
         super.tearDown()
     }
 
-    private func setAdditionalConstraintProperties(constraint: Constraint) {
-        constraint.identifier = identifier
-        constraint.priority = priority
-    }
-
     func testCannotReverseConstraintWithZeroMultiplier() {
-        constraint = Constraint(
+        constraint = NSLayoutConstraint(
             item: viewOne,
             attribute: .Width,
             relatedBy: .Equal,
@@ -44,11 +40,13 @@ class ConstraintReversalTests: XCTestCase {
             multiplier: 0,
             constant: 14
         )
+        constraint.priority = priority
+        constraint.identifier = identifier
         XCTAssertNil(constraint.reversed(), "Cannot reverse a constraint with zero multiplier")
     }
 
     func testCannotReverseConstraintWithoutSecondItemAndAttribute() {
-        constraint = Constraint(
+        constraint = NSLayoutConstraint(
             item: viewOne,
             attribute: .Width,
             relatedBy: .Equal,
@@ -57,11 +55,13 @@ class ConstraintReversalTests: XCTestCase {
             multiplier: 2,
             constant: 14
         )
+        constraint.priority = priority
+        constraint.identifier = identifier
         XCTAssertNil(constraint.reversed(), "Cannot reverse a constraint without a second attribute")
     }
 
     func testEqualReversal() {
-        constraint = Constraint(
+        constraint = NSLayoutConstraint(
             item: viewOne,
             attribute: .Width,
             relatedBy: .Equal,
@@ -70,7 +70,9 @@ class ConstraintReversalTests: XCTestCase {
             multiplier: 2,
             constant: 14
         )
-        setAdditionalConstraintProperties(constraint)
+        constraint.priority = priority
+        constraint.identifier = identifier
+
         reversed = constraint.reversed()
         XCTAssertEqual(reversed.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
         XCTAssertEqual(reversed.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
@@ -79,12 +81,12 @@ class ConstraintReversalTests: XCTestCase {
         XCTAssertEqual(reversed.secondAttribute, constraint.firstAttribute, "The original first attribute should be the second attribute when reversed")
         XCTAssertEqual(reversed.multiplier, 1 / constraint.multiplier, "The original multiplier should be inverted when reversed")
         XCTAssertEqual(reversed.constant, -constraint.constant / constraint.multiplier, "The original constant should be negated and divided by the multiplier")
-        XCTAssertEqual(reversed.identifier!, identifier, "The original identifier should be copied to the reversed constraint")
+        XCTAssertNil(reversed.identifier, "The identifier should not be copied to the reversed constraint")
         XCTAssertEqual(reversed.priority, priority, "The original priority should be copied to the reversed constraint")
     }
 
     func testGreaterThanOrEqualPositiveMultiplierReversal() {
-        constraint = Constraint(
+        constraint = NSLayoutConstraint(
             item: viewOne,
             attribute: .Width,
             relatedBy: .GreaterThanOrEqual,
@@ -93,7 +95,9 @@ class ConstraintReversalTests: XCTestCase {
             multiplier: 2,
             constant: 14
         )
-        setAdditionalConstraintProperties(constraint)
+        constraint.priority = priority
+        constraint.identifier = identifier
+
         reversed = constraint.reversed()
         XCTAssertEqual(reversed.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
         XCTAssertEqual(reversed.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
@@ -102,12 +106,12 @@ class ConstraintReversalTests: XCTestCase {
         XCTAssertEqual(reversed.secondAttribute, constraint.firstAttribute, "The original first attribute should be the second attribute when reversed")
         XCTAssertEqual(reversed.multiplier, 1 / constraint.multiplier, "The original multiplier should be inverted when reversed")
         XCTAssertEqual(reversed.constant, -constraint.constant / constraint.multiplier, "The original constant should be negated and divided by the multiplier")
-        XCTAssertEqual(reversed.identifier!, identifier, "The original identifier should be copied to the reversed constraint")
+        XCTAssertNil(reversed.identifier, "The identifier should not be copied to the reversed constraint")
         XCTAssertEqual(reversed.priority, priority, "The original priority should be copied to the reversed constraint")
     }
 
     func testGreaterThanOrEqualNegativeMultiplierReversal() {
-        constraint = Constraint(
+        constraint = NSLayoutConstraint(
             item: viewOne,
             attribute: .Width,
             relatedBy: .GreaterThanOrEqual,
@@ -116,7 +120,9 @@ class ConstraintReversalTests: XCTestCase {
             multiplier: -2,
             constant: 14
         )
-        setAdditionalConstraintProperties(constraint)
+        constraint.priority = priority
+        constraint.identifier = identifier
+
         reversed = constraint.reversed()
         XCTAssertEqual(reversed.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
         XCTAssertEqual(reversed.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
@@ -125,12 +131,12 @@ class ConstraintReversalTests: XCTestCase {
         XCTAssertEqual(reversed.secondAttribute, constraint.firstAttribute, "The original first attribute should be the second attribute when reversed")
         XCTAssertEqual(reversed.multiplier, 1 / constraint.multiplier, "The original multiplier should be inverted when reversed")
         XCTAssertEqual(reversed.constant, -constraint.constant / constraint.multiplier, "The original constant should be negated and divided by the multiplier")
-        XCTAssertEqual(reversed.identifier!, identifier, "The original identifier should be copied to the reversed constraint")
+        XCTAssertNil(reversed.identifier, "The identifier should not be copied to the reversed constraint")
         XCTAssertEqual(reversed.priority, priority, "The original priority should be copied to the reversed constraint")
     }
 
     func testLessThanOrEqualPositiveMultiplierReversal() {
-        constraint = Constraint(
+        constraint = NSLayoutConstraint(
             item: viewOne,
             attribute: .Width,
             relatedBy: .LessThanOrEqual,
@@ -139,7 +145,9 @@ class ConstraintReversalTests: XCTestCase {
             multiplier: 2,
             constant: 14
         )
-        setAdditionalConstraintProperties(constraint)
+        constraint.priority = priority
+        constraint.identifier = identifier
+
         reversed = constraint.reversed()
         XCTAssertEqual(reversed.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
         XCTAssertEqual(reversed.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
@@ -148,12 +156,12 @@ class ConstraintReversalTests: XCTestCase {
         XCTAssertEqual(reversed.secondAttribute, constraint.firstAttribute, "The original first attribute should be the second attribute when reversed")
         XCTAssertEqual(reversed.multiplier, 1 / constraint.multiplier, "The original multiplier should be inverted when reversed")
         XCTAssertEqual(reversed.constant, -constraint.constant / constraint.multiplier, "The original constant should be negated and divided by the multiplier")
-        XCTAssertEqual(reversed.identifier!, identifier, "The original identifier should be copied to the reversed constraint")
+        XCTAssertNil(reversed.identifier, "The identifier should not be copied to the reversed constraint")
         XCTAssertEqual(reversed.priority, priority, "The original priority should be copied to the reversed constraint")
     }
 
     func testLessThanOrEqualNegativeMultiplierReversal() {
-        constraint = Constraint(
+        constraint = NSLayoutConstraint(
             item: viewOne,
             attribute: .Width,
             relatedBy: .LessThanOrEqual,
@@ -162,7 +170,9 @@ class ConstraintReversalTests: XCTestCase {
             multiplier: -2,
             constant: 14
         )
-        setAdditionalConstraintProperties(constraint)
+        constraint.priority = priority
+        constraint.identifier = identifier
+
         reversed = constraint.reversed()
         XCTAssertEqual(reversed.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
         XCTAssertEqual(reversed.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
@@ -171,14 +181,14 @@ class ConstraintReversalTests: XCTestCase {
         XCTAssertEqual(reversed.secondAttribute, constraint.firstAttribute, "The original first attribute should be the second attribute when reversed")
         XCTAssertEqual(reversed.multiplier, 1 / constraint.multiplier, "The original multiplier should be inverted when reversed")
         XCTAssertEqual(reversed.constant, -constraint.constant / constraint.multiplier, "The original constant should be negated and divided by the multiplier")
-        XCTAssertEqual(reversed.identifier!, identifier, "The original identifier should be copied to the reversed constraint")
+        XCTAssertNil(reversed.identifier, "The identifier should not be copied to the reversed constraint")
         XCTAssertEqual(reversed.priority, priority, "The original priority should be copied to the reversed constraint")
     }
 
     //  Getting positive-constant constraints
 
     func testZeroConstantConstraintNotReversed() {
-        constraint = Constraint(
+        constraint = NSLayoutConstraint(
             item: viewOne,
             attribute: .Width,
             relatedBy: .Equal,
@@ -187,12 +197,15 @@ class ConstraintReversalTests: XCTestCase {
             multiplier: 0,
             constant: 14
         )
+        constraint.priority = priority
+        constraint.identifier = identifier
+
         positive = constraint.makeConstantPositive()
         XCTAssertTrue(constraint === positive, "The same constraint should be returned if the constant is zero")
     }
 
     func testPositiveConstantConstraintNotReversed() {
-        constraint = Constraint(
+        constraint = NSLayoutConstraint(
             item: viewOne,
             attribute: .Width,
             relatedBy: .Equal,
@@ -201,12 +214,15 @@ class ConstraintReversalTests: XCTestCase {
             multiplier: 2,
             constant: 14
         )
+        constraint.priority = priority
+        constraint.identifier = identifier
+
         positive = constraint.makeConstantPositive()
         XCTAssertTrue(constraint === positive, "The same constraint should be returned if the constant is already positive")
     }
 
     func testNegativeConstantConstraintReversed() {
-        constraint = Constraint(
+        constraint = NSLayoutConstraint(
             item: viewOne,
             attribute: .Width,
             relatedBy: .Equal,
@@ -215,7 +231,9 @@ class ConstraintReversalTests: XCTestCase {
             multiplier: 2,
             constant: -14
         )
-        setAdditionalConstraintProperties(constraint)
+        constraint.priority = priority
+        constraint.identifier = identifier
+
         positive = constraint.makeConstantPositive()
         XCTAssertTrue(constraint !== positive, "The same constraint should not be returned if the constant is negative")
         XCTAssertEqual(positive.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
@@ -225,7 +243,7 @@ class ConstraintReversalTests: XCTestCase {
         XCTAssertEqual(positive.secondAttribute, constraint.firstAttribute, "The original first attribute should be the second attribute when reversed")
         XCTAssertEqual(positive.multiplier, 1 / constraint.multiplier, "The original multiplier should be inverted when reversed")
         XCTAssertEqual(positive.constant, -constraint.constant / constraint.multiplier, "The original constant should be negated and divided by the multiplier")
-        XCTAssertEqual(positive.identifier!, identifier, "The original identifier should be copied to the reversed constraint")
+        XCTAssertNil(positive.identifier, "The original identifier should be copied to the reversed constraint")
         XCTAssertEqual(positive.priority, priority, "The original priority should be copied to the reversed constraint")
     }
 

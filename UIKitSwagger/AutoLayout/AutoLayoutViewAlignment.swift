@@ -16,7 +16,7 @@ import UIKit
   :param:       items Two or more items that are to be left-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignLeft(items: AutoLayoutAttributable...) -> [Constraint] {
+public func AlignLeft(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return AlignLeft(items)
 }
 
@@ -28,7 +28,7 @@ public func AlignLeft(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to be left-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignLeft(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func AlignLeft(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return AlignItems(items, attribute: .Left)
 }
 
@@ -40,7 +40,7 @@ public func AlignLeft(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items Two or more items that are to be leading-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignLeading(items: AutoLayoutAttributable...) -> [Constraint] {
+public func AlignLeading(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return AlignLeading(items)
 }
 
@@ -52,7 +52,7 @@ public func AlignLeading(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to be leading-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignLeading(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func AlignLeading(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return AlignItems(items, attribute: .Leading)
 }
 
@@ -64,7 +64,7 @@ public func AlignLeading(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items Two or more items that are to be right-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignRight(items: AutoLayoutAttributable...) -> [Constraint] {
+public func AlignRight(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return AlignRight(items)
 }
 
@@ -76,7 +76,7 @@ public func AlignRight(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to be right-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignRight(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func AlignRight(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return AlignItems(items, attribute: .Right)
 }
 
@@ -88,7 +88,7 @@ public func AlignRight(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items Two or more items that are to be trailing-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignTrailing(items: AutoLayoutAttributable...) -> [Constraint] {
+public func AlignTrailing(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return AlignTrailing(items)
 }
 
@@ -100,7 +100,7 @@ public func AlignTrailing(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to be trailing-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignTrailing(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func AlignTrailing(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return AlignItems(items, attribute: .Trailing)
 }
 
@@ -112,7 +112,7 @@ public func AlignTrailing(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items Two or more items that are to be top-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignTop(items: AutoLayoutAttributable...) -> [Constraint] {
+public func AlignTop(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return AlignTop(items)
 }
 
@@ -124,7 +124,7 @@ public func AlignTop(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to be top-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignTop(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func AlignTop(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return AlignItems(items, attribute: .Top)
 }
 
@@ -136,7 +136,7 @@ public func AlignTop(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items Two or more items that are to be bottom-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignBottom(items: AutoLayoutAttributable...) -> [Constraint] {
+public func AlignBottom(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return AlignBottom(items)
 }
 
@@ -148,7 +148,7 @@ public func AlignBottom(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to be bottom-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignBottom(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func AlignBottom(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return AlignItems(items, attribute: .Bottom)
 }
 
@@ -160,7 +160,7 @@ public func AlignBottom(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items Two or more items that are to be horizontally aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignHorizontally(items: AutoLayoutAttributable...) -> [Constraint] {
+public func AlignHorizontally(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return AlignHorizontally(items)
 }
 
@@ -172,7 +172,7 @@ public func AlignHorizontally(items: AutoLayoutAttributable...) -> [Constraint] 
   :param:       items Array of two or more items that are to be horizontally aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignHorizontally(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func AlignHorizontally(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return AlignItems(items, attribute: .CenterX)
 }
 
@@ -184,7 +184,7 @@ public func AlignHorizontally(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items Two or more items that are to be vertically aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignVertically(items: AutoLayoutAttributable...) -> [Constraint] {
+public func AlignVertically(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return AlignVertically(items)
 }
 
@@ -196,7 +196,7 @@ public func AlignVertically(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to be vertically aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignVertically(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func AlignVertically(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return AlignItems(items, attribute: .CenterY)
 }
 
@@ -208,7 +208,7 @@ public func AlignVertically(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items Two or more items that are to be horizontally and vertically aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignCenters(items: AutoLayoutAttributable...) -> [Constraint] {
+public func AlignCenters(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return AlignCenters(items)
 }
 
@@ -220,10 +220,8 @@ public func AlignCenters(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to be horizontally and vertically aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignCenters(items: [AutoLayoutAttributable]) -> [Constraint] {
-    var constraints = AlignItems(items, attribute: .CenterX)
-    constraints += AlignItems(items, attribute: .CenterY)
-    return constraints
+public func AlignCenters(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
+    return AlignItems(items, attribute: .CenterX) + AlignItems(items, attribute: .CenterY)
 }
 
 /**
@@ -234,7 +232,7 @@ public func AlignCenters(items: [AutoLayoutAttributable]) -> [Constraint] {
   :param:       items Two or more items that are to be baseline-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignBaselines(items: AutoLayoutAttributable...) -> [Constraint] {
+public func AlignBaselines(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
     return AlignBaselines(items)
 }
 
@@ -246,6 +244,6 @@ public func AlignBaselines(items: AutoLayoutAttributable...) -> [Constraint] {
   :param:       items Array of two or more items that are to be baseline-aligned.
   :returns:     The constraints that were applied.
 */
-public func AlignBaselines(items: [AutoLayoutAttributable]) -> [Constraint] {
+public func AlignBaselines(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
     return AlignItems(items, attribute: .Baseline)
 }

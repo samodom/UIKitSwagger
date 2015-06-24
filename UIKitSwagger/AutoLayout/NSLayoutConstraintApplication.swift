@@ -14,24 +14,20 @@ public extension NSLayoutConstraint {
       Applies constraint to the appropriate view: either the first common ancestor in the view hierarchy or the root view of a view controller if a layout guide is used.
     */
     public func apply() {
-        if let view = viewForConstraintApplication() {
-            view.addConstraint(self)
-        }
+        guard let view = viewForConstraintApplication() else { return }
+        view.addConstraint(self)
     }
 
     /**
       Removes constraint from view to which it is applied.
     */
     public func remove() {
-        if let view = viewForConstraintApplication() {
-            view.removeConstraint(self)
-        }
+        guard let view = viewForConstraintApplication() else { return }
+        view.removeConstraint(self)
     }
 
     private func viewForConstraintApplication() -> UIView? {
-        if secondItem == nil {
-            return firstItem as? UIView
-        }
+        guard secondItem != nil else { return firstItem as? UIView }
 
         if let firstView = firstItem as? UIView,
             secondView = secondItem as? UIView {
@@ -61,7 +57,7 @@ public extension NSLayoutConstraint {
 
   :param:       constraints One or more NSLayoutConstraints to be applied.
 */
-public func ApplyConstraints(constraints: Constraint...) {
+public func ApplyConstraints(constraints: NSLayoutConstraint...) {
     ApplyConstraints(constraints)
 }
 
@@ -70,10 +66,8 @@ public func ApplyConstraints(constraints: Constraint...) {
 
   :param:       constraints Array of NSLayoutConstraints to be applied.
 */
-public func ApplyConstraints(constraints: [Constraint]) {
-    for constraint in constraints {
-        constraint.apply()
-    }
+public func ApplyConstraints(constraints: [NSLayoutConstraint]) {
+    constraints.map { $0.apply() }
 }
 
 
@@ -82,7 +76,7 @@ public func ApplyConstraints(constraints: [Constraint]) {
 
   :param:       constraints One or more NSLayoutConstraints to be removed.
 */
-public func RemoveConstraints(constraints: Constraint...) {
+public func RemoveConstraints(constraints: NSLayoutConstraint...) {
     RemoveConstraints(constraints)
 }
 
@@ -91,18 +85,12 @@ public func RemoveConstraints(constraints: Constraint...) {
 
   :param:       constraints Array of NSLayoutConstraints to be removed.
 */
-public func RemoveConstraints(constraints: [Constraint]) {
-    for constraint in constraints {
-        constraint.remove()
-    }
+public func RemoveConstraints(constraints: [NSLayoutConstraint]) {
+    constraints.map { $0.remove() }
 }
 
 
 private func ViewControllerContainingView(view: UIView, layoutGuide: UILayoutSupport) -> UIViewController? {
-    let rootController = view.window?.rootViewController
-    if rootController == nil {
-        return nil
-    }
-
-    return view.isDescendantOfView(rootController!.view) ? rootController : nil
+    guard let rootController = view.window?.rootViewController else { return nil }
+    return view.isDescendantOfView(rootController.view) ? rootController : nil
 }

@@ -13,7 +13,7 @@ import UIKit
 
   :param:       constraints One or more constraints that are to be activated.
 */
-public func ActivateConstraints(constraints: Constraint...) {
+public func ActivateConstraints(constraints: NSLayoutConstraint...) {
     ActivateConstraints(constraints)
 }
 
@@ -22,7 +22,7 @@ public func ActivateConstraints(constraints: Constraint...) {
 
   :param:       constraints Array of constraints that are to be activated.
 */
-public func ActivateConstraints(constraints: [Constraint]) {
+public func ActivateConstraints(constraints: [NSLayoutConstraint]) {
     for constraint in constraints {
         constraint.active = true
     }
@@ -33,7 +33,7 @@ public func ActivateConstraints(constraints: [Constraint]) {
 
   :param:       constraints One or more constraints that are to be deactivated.
 */
-public func DeactivateConstraints(constraints: Constraint...) {
+public func DeactivateConstraints(constraints: NSLayoutConstraint...) {
     DeactivateConstraints(constraints)
 }
 
@@ -42,7 +42,7 @@ public func DeactivateConstraints(constraints: Constraint...) {
 
   :param:       constraints Array of constraints that are to be deactivated.
 */
-public func DeactivateConstraints(constraints: [Constraint]) {
+public func DeactivateConstraints(constraints: [NSLayoutConstraint]) {
     for constraint in constraints {
         constraint.active = false
     }

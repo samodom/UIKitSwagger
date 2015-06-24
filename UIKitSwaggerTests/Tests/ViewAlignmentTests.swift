@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class ViewAlignmentTests: XCTestCase {
 
@@ -18,8 +19,8 @@ class ViewAlignmentTests: XCTestCase {
     let label1 = UILabel()
     let label2 = UILabel()
     let label3 = UILabel()
-    var appliedConstraints: [Constraint]!
-    var returnedConstraints: [Constraint]!
+    var appliedConstraints: [NSLayoutConstraint]!
+    var returnedConstraints: [NSLayoutConstraint]!
 
     override func setUp() {
         super.setUp()

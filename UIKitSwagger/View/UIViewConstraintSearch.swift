@@ -16,8 +16,8 @@ public extension UIView {
       :param:       item Layout item for which to search among this view's constraints.
       :returns:     One or more constraints where either item in the constraint matches the provided item, if found.
     */
-    public func constraintsForItem(item: AnyObject) -> [Constraint]? {
-        return filteredConstraints({ $0.hasItem(item) })
+    public func constraintsForItem(item: AnyObject) -> [NSLayoutConstraint] {
+        return constraints.filter { $0.hasItem(item) }
     }
 
     /**
@@ -26,8 +26,8 @@ public extension UIView {
       :param:       attribute Layout attribute for which to search among this view's constraints.
       :returns:     One or more constraints where either attribute in the constraint matches the provided attribute, if found.
     */
-    public func constraintsForAttribute(attribute: NSLayoutAttribute) -> [Constraint]? {
-        return filteredConstraints({ $0.hasAttribute(attribute) })
+    public func constraintsForAttribute(attribute: NSLayoutAttribute) -> [NSLayoutConstraint] {
+        return constraints.filter { $0.hasAttribute(attribute) }
     }
 
     /**
@@ -37,8 +37,8 @@ public extension UIView {
       :param:       attribute Layout attribute of `item` for which to search among this view's constraints.
       :returns:     One or more constraints where the item/attribute in the constraint match the provided item/attribute, if found.
     */
-    public func constraintsForAttributedItem(attributedItem: AutoLayoutAttributedItem) -> [Constraint]? {
-        return filteredConstraints({ $0.hasAttributedItem(attributedItem) })
+    public func constraintsForAttributedItem(attributedItem: AutoLayoutAttributedItem) -> [NSLayoutConstraint] {
+        return constraints.filter { $0.hasAttributedItem(attributedItem) }
     }
 
     /**
@@ -47,8 +47,8 @@ public extension UIView {
       :param:       items Pair of layout items for which to search among this view's constraints.
       :returns:     One or more constraints where the items in the constraint match the provided item, if found.
     */
-    public func constraintsForItems(itemOne: AnyObject, _ itemTwo: AnyObject) -> [Constraint]? {
-        return filteredConstraints({ $0.hasItems(itemOne, itemTwo) })
+    public func constraintsForItems(itemOne: AnyObject, _ itemTwo: AnyObject) -> [NSLayoutConstraint] {
+        return constraints.filter { $0.hasItems(itemOne, itemTwo) }
     }
 
     /**
@@ -57,8 +57,8 @@ public extension UIView {
       :param:       attributedItems Pair of layout item/attribute pairs for which to search among this view's constraints.
       :returns:     One or more constraints where the item/attribute in the constraint match the provided item/attribute pairs, if found.
     */
-    public func constraintsForAttributedItems(itemOne: AutoLayoutAttributedItem, _ itemTwo: AutoLayoutAttributedItem) -> [Constraint]? {
-        return filteredConstraints({ $0.hasAttributedItems(itemOne, itemTwo) })
+    public func constraintsForAttributedItems(itemOne: AutoLayoutAttributedItem, _ itemTwo: AutoLayoutAttributedItem) -> [NSLayoutConstraint] {
+        return constraints.filter { $0.hasAttributedItems(itemOne, itemTwo) }
     }
 
     /**
@@ -67,20 +67,8 @@ public extension UIView {
 
       :param:       constraint Auto layout constraint to search for in the view's constraints.
     */
-    public func hasConstraint(constraint: Constraint) -> Bool {
+    public func hasConstraint(constraint: NSLayoutConstraint) -> Bool {
         return constraints.contains(constraint)
     }
 
-
-    private typealias ConstraintFilter = Constraint -> Bool
-
-    private func filteredConstraints(filter: ConstraintFilter) -> [Constraint]? {
-        let filteredConstraints = constraints.filter(filter)
-        if filteredConstraints.count == 0 {
-            return nil
-        }
-        else {
-            return filteredConstraints
-        }
-    }
 }

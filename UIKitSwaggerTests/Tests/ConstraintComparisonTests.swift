@@ -8,6 +8,7 @@
 
 import XCTest
 import UIKit
+@testable import UIKitSwagger
 
 class ConstraintComparisonTests: XCTestCase {
 
@@ -32,7 +33,7 @@ class ConstraintComparisonTests: XCTestCase {
             constant: 42.0
         )
         constraintOne.priority = 140
-        constraintOne.identifier = "Sample Constraint"
+        constraintOne.identifier = identifier
     }
     
     override func tearDown() {

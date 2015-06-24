@@ -17,11 +17,11 @@ public struct UIColorHSBComponents: UIColorComponents {
     public let brightness: CGFloat
     public let alpha: CGFloat
 
-    public init(hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat! = 1) {
-        self.hue = hue
-        self.saturation = saturation
-        self.brightness = brightness
-        self.alpha = alpha
+    public init(hue h: CGFloat, saturation s: CGFloat, brightness b: CGFloat, alpha a: CGFloat! = 1) {
+        hue = h
+        saturation = s
+        brightness = b
+        alpha = a
     }
 
     /**

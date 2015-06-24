@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class ConstraintActivationTests: XCTestCase {
 
@@ -15,9 +16,9 @@ class ConstraintActivationTests: XCTestCase {
     let subview1 = UIView()
     let subview2 = UIView()
     let subview3 = UIView()
-    var constraint1: Constraint!
-    var constraint2: Constraint!
-    var constraint3: Constraint!
+    var constraint1: NSLayoutConstraint!
+    var constraint2: NSLayoutConstraint!
+    var constraint3: NSLayoutConstraint!
 
     override func setUp() {
         super.setUp()

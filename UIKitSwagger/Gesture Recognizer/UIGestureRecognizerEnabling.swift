@@ -8,20 +8,4 @@
 
 import UIKit
 
-extension UIGestureRecognizer: UIKitEnablable {
-
-    /**
-      Convenience method to enable a gesture recognizer.
-    */
-    public func enable() {
-        enabled = true
-    }
-
-    /**
-      Convenience method to disable a gesture recognizer.
-    */
-    public func disable() {
-        enabled = false
-    }
-
-}
+extension UIGestureRecognizer: UIKitEnablable { }

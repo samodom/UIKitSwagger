@@ -66,7 +66,7 @@ public class SpinnerStateManager {
         case .Started(let clientCount):
             currentState = .Started(clientCount + 1)
 
-        default:
+        case .Detached:
             break
         }
     }

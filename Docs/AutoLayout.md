@@ -2,25 +2,19 @@ Auto Layout Convenience
 =======================
 
 
-> In the source code and this documentation, the following type alias is used:
->
-> `typealias Constraint = NSLayoutConstraint`
-
-> In addition, `AutoLayoutAttributedItem` represents a pair consisting of an Auto Layout item (view or view controller layout guide) and an `NSLayoutAttribute`
-
-
 ## Enhancements to Constraints
 
 
 ### Equality
 
-Compare two constraints with respect to the items, attributes, relation, multiplier and constant.  It even tries the reverse of one operand to truly determine equivalency.  In addition, the `==*` operator can be used to compare constraints for extended equivalency by comparing constraint priorities and identifiers.
+Compare two constraints with respect to the items and their attributes, the equivalence relation, the multiplier and constant, and the priority.  It even tries the reverse of one operand to truly determine equivalency.  Constraint identifiers are not used in checking equivalence, but the `==*` operator can be used to compare constraints for identify by using normal equivalence *plus* identifiers.
 
 
 ### Reversal
 
 Want to reverse the items in a constraint to produce an equivalent constraint?  Note that some constraints are not reversible.
-- `reversed() -> Constraint?`
+ - `reversed() -> NSLayoutConstraint?`
+ - `makeConstantPositive() -> NSLayoutConstraint`
 
 
 ## Real Auto Layout Syntax
@@ -67,7 +61,7 @@ Global top-level functions that use a variadic list or array of constraints:
 And for good measure, a method to remove all of a view's constraints without having to use this cumbersome one-liner:
 
 ```swift
-view.removeConstraints(view.constraints())
+view.removeConstraints(view.constraints)
 ```
 
 This can now be written as:
@@ -92,38 +86,38 @@ Similar to constraint application, one should be able to activate or deactivate 
 
  Don't clutter your view controller code trying to find a particular constraint to remove!   Finding constraints is much easier with these methods on `UIView`:
 
-  - `constraintsForItem(AnyObject) -> [Constraint]?`
-  - `constraintsForAttribute(NSLayoutAttribute) -> [Constraint]?`
-  - `constraintsForAttributedItem(AutoLayoutAttributedItem) -> [Constraint]?`
-  - `constraintsForItems(AnyObject, AnyObject) -> [Constraint]?`
-  - `constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [Constraint]?`
+  - `constraintsForItem(AnyObject) -> [NSLayoutConstraint]`
+  - `constraintsForAttribute(NSLayoutAttribute) -> [NSLayoutConstraint]`
+  - `constraintsForAttributedItem(AutoLayoutAttributedItem) -> [NSLayoutConstraint]`
+  - `constraintsForItems(AnyObject, AnyObject) -> [NSLayoutConstraint]`
+  - `constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [NSLayoutConstraint]`
 
  Also, you can check for an applied constraint (or equivalent) using this method:
 
-  - `hasConstraint(Constraint) -> Bool`
+  - `hasConstraint(NSLayoutConstraint) -> Bool`
 
 
 ### Alignment Functions
 
 Common alignment tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically align views.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  Each method accepts a variadic list or array of items returns the constraints that it applies.
- - `AlignLeft(...) -> [Constraint]`
- - `AlignLeading(...) -> [Constraint]`
- - `AlignRight(...) -> [Constraint]`
- - `AlignTrailing(...) -> [Constraint]`
- - `AlignTop(...) -> [Constraint]`
- - `AlignBottom(...) -> [Constraint]`
- - `AlignHorizontally(...) -> [Constraint]`
- - `AlignVertically(...) -> [Constraint]`
- - `AlignCenters(...) -> [Constraint]`
- - `AlignBaselines(...) -> [Constraint]`
+ - `AlignLeft(...) -> [NSLayoutConstraint]`
+ - `AlignLeading(...) -> [NSLayoutConstraint]`
+ - `AlignRight(...) -> [NSLayoutConstraint]`
+ - `AlignTrailing(...) -> [NSLayoutConstraint]`
+ - `AlignTop(...) -> [NSLayoutConstraint]`
+ - `AlignBottom(...) -> [NSLayoutConstraint]`
+ - `AlignHorizontally(...) -> [NSLayoutConstraint]`
+ - `AlignVertically(...) -> [NSLayoutConstraint]`
+ - `AlignCenters(...) -> [NSLayoutConstraint]`
+ - `AlignBaselines(...) -> [NSLayoutConstraint]`
 
 
 ### Distribution Functions
 
 Common distribution tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically distribute views.  Functions that accept a numeric argument use the provided value for spacing between items.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  All of these functions accept a number and a variadic list or array of views and return the constraints that they apply.
- - `DistributeLeftToRight(...) -> [Constraint]`
- - `DistributeLeadingToTrailing(...) -> [Constraint]`
- - `DistributeTopToBottom(...) -> [Constraint]`
+ - `DistributeLeftToRight(...) -> [NSLayoutConstraint]`
+ - `DistributeLeadingToTrailing(...) -> [NSLayoutConstraint]`
+ - `DistributeTopToBottom(...) -> [NSLayoutConstraint]`
 
 
 ### Dimensions
@@ -146,12 +140,12 @@ Restricting a view's width or height to a constant or range is easy enough:
 The dimensions of a view can be constrained to a particular aspect ratio with or without an offset.  These functions create and apply the necessary constraints, then return them to the caller for use as variables.
 
 Methods on NSLayoutConstraint:
- - `constrainWidthToHeight(CGFloat, CGFloat) -> Constraint`
- - `constrainHeightToWidth(CGFloat, CGFloat) -> Constraint`
+ - `constrainWidthToHeight(CGFloat, CGFloat) -> NSLayoutConstraint`
+ - `constrainHeightToWidth(CGFloat, CGFloat) -> NSLayoutConstraint`
 
 Global top-level functions (the produced constraints are defined with respect to the appropriate attribute of the first item listed or the provided constant/interval).  These functions accept a variadic list or array of items:
- - `MatchWidths(...) -> [Constraint]`
- - `ConstrainWidths(...) -> [Constraint]`
- - `MatchHeights(...) -> [Constraint]`
- - `ConstrainHeights(...) -> [Constraint]`
- - `MatchSizes(...) -> [Constraint]`
+ - `MatchWidths(...) -> [NSLayoutConstraint]`
+ - `ConstrainWidths(...) -> [NSLayoutConstraint]`
+ - `MatchHeights(...) -> [NSLayoutConstraint]`
+ - `ConstrainHeights(...) -> [NSLayoutConstraint]`
+ - `MatchSizes(...) -> [NSLayoutConstraint]`

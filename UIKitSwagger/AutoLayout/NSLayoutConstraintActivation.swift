@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension Constraint {
+public extension NSLayoutConstraint {
 
     /**
       Convenience method to activate an auto layout constraint.

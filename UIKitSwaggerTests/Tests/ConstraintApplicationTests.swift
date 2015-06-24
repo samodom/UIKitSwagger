@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class ConstraintApplicationTests: XCTestCase {
 
@@ -19,9 +20,9 @@ class ConstraintApplicationTests: XCTestCase {
     let grandchild2 = UIView()
     let unrelatedView = UIView()
 
-    var child1ToGrandchild1: Constraint!
-    var viewToGrandchild2: Constraint!
-    var child1ToController: Constraint!
+    var child1ToGrandchild1: NSLayoutConstraint!
+    var viewToGrandchild2: NSLayoutConstraint!
+    var child1ToController: NSLayoutConstraint!
 
     override func setUp() {
         super.setUp()

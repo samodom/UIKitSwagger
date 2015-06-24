@@ -8,8 +8,7 @@
 
 import UIKit
 import XCTest
-
-private let genericActionHandler: UIAlertActionHandler = { (_: UIAlertAction!) -> Void in return }
+@testable import UIKitSwagger
 
 class AlertControllerAddableTests: XCTestCase {
 
@@ -30,9 +29,9 @@ class AlertControllerAddableTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        action1 = UIAlertAction(title: "Action 1", style: .Default, handler: genericActionHandler)
-        action2 = UIAlertAction(title: "Action 2", style: .Destructive, handler: genericActionHandler)
-        action3 = UIAlertAction(title: "Action 3", style: .Cancel, handler: genericActionHandler)
+        action1 = UIAlertAction(title: "Action 1", style: .Default, handler: UIAlertActionHandler())
+        action2 = UIAlertAction(title: "Action 2", style: .Destructive, handler: UIAlertActionHandler())
+        action3 = UIAlertAction(title: "Action 3", style: .Cancel, handler: UIAlertActionHandler())
 
         configurationHandler1 = { self.field1 = $0 }
         configurationHandler2 = { self.field2 = $0 }

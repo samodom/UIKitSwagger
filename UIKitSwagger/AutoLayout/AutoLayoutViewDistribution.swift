@@ -19,7 +19,7 @@ import UIKit
   :param:       views Two or more items that are to be horizontally distributed.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeftToRight(views: UIView...)  -> [Constraint] {
+public func DistributeLeftToRight(views: UIView...)  -> [NSLayoutConstraint] {
     return DistributeLeftToRight(views)
 }
 
@@ -32,7 +32,7 @@ public func DistributeLeftToRight(views: UIView...)  -> [Constraint] {
   :param:       views An array of two or more items that are to be horizontally distributed.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeftToRight(views: [UIView])  -> [Constraint] {
+public func DistributeLeftToRight(views: [UIView])  -> [NSLayoutConstraint] {
     return DistributeLeftToRight(spacing: 0, views: views)
 }
 
@@ -46,7 +46,7 @@ public func DistributeLeftToRight(views: [UIView])  -> [Constraint] {
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeftToRight(spacing spacing: CGFloat, views: UIView...)  -> [Constraint] {
+public func DistributeLeftToRight(spacing spacing: CGFloat, views: UIView...)  -> [NSLayoutConstraint] {
     return DistributeLeftToRight(spacing: spacing, views: views)
 }
 
@@ -60,7 +60,7 @@ public func DistributeLeftToRight(spacing spacing: CGFloat, views: UIView...)  -
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeftToRight(spacing spacing: CGFloat, views: [UIView])  -> [Constraint] {
+public func DistributeLeftToRight(spacing spacing: CGFloat, views: [UIView])  -> [NSLayoutConstraint] {
     return DistributeViews(views, spacing: spacing, direction: .LeftToRight)
 }
 
@@ -75,7 +75,7 @@ public func DistributeLeftToRight(spacing spacing: CGFloat, views: [UIView])  ->
   :param:       views Two or more items that are to be horizontally distributed.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeadingToTrailing(views: UIView...)  -> [Constraint] {
+public func DistributeLeadingToTrailing(views: UIView...)  -> [NSLayoutConstraint] {
     return DistributeLeadingToTrailing(views)
 }
 
@@ -88,7 +88,7 @@ public func DistributeLeadingToTrailing(views: UIView...)  -> [Constraint] {
   :param:       views An array of two or more items that are to be horizontally distributed.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeadingToTrailing(views: [UIView])  -> [Constraint] {
+public func DistributeLeadingToTrailing(views: [UIView])  -> [NSLayoutConstraint] {
     return DistributeLeadingToTrailing(spacing: 0, views: views)
 }
 
@@ -102,7 +102,7 @@ public func DistributeLeadingToTrailing(views: [UIView])  -> [Constraint] {
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeadingToTrailing(spacing spacing: CGFloat, views: UIView...)  -> [Constraint] {
+public func DistributeLeadingToTrailing(spacing spacing: CGFloat, views: UIView...)  -> [NSLayoutConstraint] {
     return DistributeLeadingToTrailing(spacing: spacing, views: views)
 }
 
@@ -116,7 +116,7 @@ public func DistributeLeadingToTrailing(spacing spacing: CGFloat, views: UIView.
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeLeadingToTrailing(spacing spacing: CGFloat, views: [UIView])  -> [Constraint] {
+public func DistributeLeadingToTrailing(spacing spacing: CGFloat, views: [UIView])  -> [NSLayoutConstraint] {
     return DistributeViews(views, spacing: spacing, direction: .LeadingToTrailing)
 }
 
@@ -131,7 +131,7 @@ public func DistributeLeadingToTrailing(spacing spacing: CGFloat, views: [UIView
   :param:       views Two or more items that are to be vertically distributed.
   :returns:     The constraints that were applied.
 */
-public func DistributeTopToBottom(views: UIView...)  -> [Constraint] {
+public func DistributeTopToBottom(views: UIView...)  -> [NSLayoutConstraint] {
     return DistributeTopToBottom(views)
 }
 
@@ -144,7 +144,7 @@ public func DistributeTopToBottom(views: UIView...)  -> [Constraint] {
   :param:       views An array of two or more items that are to be vertically distributed.
   :returns:     The constraints that were applied.
 */
-public func DistributeTopToBottom(views: [UIView])  -> [Constraint] {
+public func DistributeTopToBottom(views: [UIView])  -> [NSLayoutConstraint] {
     return DistributeTopToBottom(spacing: 0, views: views)
 }
 
@@ -158,7 +158,7 @@ public func DistributeTopToBottom(views: [UIView])  -> [Constraint] {
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeTopToBottom(spacing spacing: CGFloat, views: UIView...)  -> [Constraint] {
+public func DistributeTopToBottom(spacing spacing: CGFloat, views: UIView...)  -> [NSLayoutConstraint] {
     return DistributeTopToBottom(spacing: spacing, views: views)
 }
 
@@ -172,6 +172,6 @@ public func DistributeTopToBottom(spacing spacing: CGFloat, views: UIView...)  -
   :param:       spacing Constant to use for spacing between the views.
   :returns:     The constraints that were applied.
 */
-public func DistributeTopToBottom(spacing spacing: CGFloat, views: [UIView])  -> [Constraint] {
+public func DistributeTopToBottom(spacing spacing: CGFloat, views: [UIView])  -> [NSLayoutConstraint] {
     return DistributeViews(views, spacing: spacing, direction: .TopToBottom)
 }

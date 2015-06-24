@@ -65,19 +65,19 @@ public func -(multiple: AutoLayoutAttributedItemScalarMultiple, constant: CGFloa
 */
 infix operator =* { }
 
-public func =*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> Constraint {
+public func =*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> NSLayoutConstraint {
     return BuildConstantRelationConstraint(item: attributedItem, constant: constant)
 }
 
-public func =*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> Constraint {
+public func =*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> NSLayoutConstraint {
     return attributedItem1 =* 1 * attributedItem2
 }
 
-public func =*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> Constraint {
+public func =*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> NSLayoutConstraint {
     return attributedItem =* multiple + 0.0
 }
 
-public func =*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> Constraint {
+public func =*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> NSLayoutConstraint {
     return BuildConstraintFromOperands(attributedItem, offset: offset)
 }
 
@@ -87,19 +87,19 @@ public func =*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttri
 */
 infix operator >=* { }
 
-public func >=*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> Constraint {
+public func >=*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> NSLayoutConstraint {
     return BuildConstantRelationConstraint(item: attributedItem, constant: constant, relation: .GreaterThanOrEqual)
 }
 
-public func >=*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> Constraint {
+public func >=*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> NSLayoutConstraint {
     return attributedItem1 >=* 1 * attributedItem2
 }
 
-public func >=*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> Constraint {
+public func >=*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> NSLayoutConstraint {
     return attributedItem >=* multiple + 0.0
 }
 
-public func >=*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> Constraint {
+public func >=*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> NSLayoutConstraint {
     return BuildConstraintFromOperands(attributedItem, offset: offset, relation: .GreaterThanOrEqual)
 }
 
@@ -109,29 +109,45 @@ public func >=*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttr
 */
 infix operator <=* { }
 
-public func <=*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> Constraint {
+public func <=*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> NSLayoutConstraint {
     return BuildConstantRelationConstraint(item: attributedItem, constant: constant, relation: .LessThanOrEqual)
 }
 
-public func <=*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> Constraint {
+public func <=*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> NSLayoutConstraint {
     return attributedItem1 <=* 1 * attributedItem2
 }
 
-public func <=*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> Constraint {
+public func <=*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> NSLayoutConstraint {
     return attributedItem <=* multiple + 0.0
 }
 
-public func <=*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> Constraint {
+public func <=*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> NSLayoutConstraint {
     return BuildConstraintFromOperands(attributedItem, offset: offset, relation: .LessThanOrEqual)
 }
 
 
-private func BuildConstantRelationConstraint(item attributedItem: AutoLayoutAttributedItem, constant: CGFloat, relation: NSLayoutRelation = .Equal) -> Constraint {
-    return Constraint(item: attributedItem.item, attribute: attributedItem.attribute, relatedBy: relation, toItem: nil, attribute: .NotAnAttribute, multiplier: 0.0, constant: constant)
+private func BuildConstantRelationConstraint(item attributedItem: AutoLayoutAttributedItem, constant: CGFloat, relation: NSLayoutRelation = .Equal) -> NSLayoutConstraint {
+    return NSLayoutConstraint(
+        item: attributedItem.item,
+        attribute: attributedItem.attribute,
+        relatedBy: relation,
+        toItem: nil,
+        attribute: .NotAnAttribute,
+        multiplier: 0.0,
+        constant: constant
+    )
 }
 
-private func BuildConstraintFromOperands(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset, relation: NSLayoutRelation = .Equal) -> Constraint {
-    return Constraint(item: attributedItem.item, attribute: attributedItem.attribute, relatedBy: relation, toItem: offset.attributedItem.attributedItem.item, attribute: offset.attributedItem.attributedItem.attribute, multiplier: offset.attributedItem.coefficient, constant: offset.constant)
+private func BuildConstraintFromOperands(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset, relation: NSLayoutRelation = .Equal) -> NSLayoutConstraint {
+    return NSLayoutConstraint(
+        item: attributedItem.item,
+        attribute: attributedItem.attribute,
+        relatedBy: relation,
+        toItem: offset.attributedItem.attributedItem.item,
+        attribute: offset.attributedItem.attributedItem.attribute,
+        multiplier: offset.attributedItem.coefficient,
+        constant: offset.constant
+    )
 }
 
 
@@ -140,10 +156,10 @@ private func BuildConstraintFromOperands(attributedItem: AutoLayoutAttributedIte
 */
 infix operator ~ { }
 
-public func ~(constraint: Constraint, priority: UILayoutPriority) {
+public func ~(constraint: NSLayoutConstraint, priority: UILayoutPriority) {
     constraint.priority = priority
 }
 
-public func ~(constraint: Constraint, identifier: String?) {
+public func ~(constraint: NSLayoutConstraint, identifier: String?) {
     constraint.identifier = identifier
 }

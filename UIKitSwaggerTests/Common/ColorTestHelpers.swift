@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@testable import UIKitSwagger
 
 //  MARK: - Sample Color Values
 

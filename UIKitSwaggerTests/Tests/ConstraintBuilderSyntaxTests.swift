@@ -8,13 +8,14 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class ConstraintBuilderSyntaxTests: XCTestCase {
 
     var controller = UIViewController()
     var rootView: UIView!
     let subview = UIView()
-    var constraint: Constraint!
+    var constraint: NSLayoutConstraint!
     var multiple: AutoLayoutAttributedItemScalarMultiple!
     var offset: AutoLayoutAttributedItemOffset!
 
@@ -131,31 +132,71 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
 
     func testCreatingEqualConstraintWithConstantOnly() {
         constraint = rootView.height =* 14.42
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 0.0, constant: 14.42)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .Equal,
+            toItem: nil,
+            attribute: .NotAnAttribute,
+            multiplier: 0.0,
+            constant: 14.42
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingEqualConstraintWithAttributedItemOnly() {
         constraint = rootView.height =* rootView.width
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .Equal, toItem: rootView, attribute: .Width, multiplier: 1.0, constant: 0.0)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .Equal,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 1.0,
+            constant: 0.0
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingEqualConstraintWithAttributedItemScalarMultipleOnly() {
         constraint = rootView.height =* 2 * rootView.width
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .Equal, toItem: rootView, attribute: .Width, multiplier: 2.0, constant: 0.0)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .Equal,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 2.0,
+            constant: 0.0
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingEqualConstraintWithAttributedItemAndConstant() {
         constraint = rootView.height =* rootView.width + 14.42
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .Equal, toItem: rootView, attribute: .Width, multiplier: 1.0, constant: 14.42)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .Equal,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 1.0,
+            constant: 14.42
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingEqualConstraintWithAttributedItemScalarMultipleAndConstant() {
         constraint = rootView.height =* 1.4 * rootView.width + 14.42
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .Equal, toItem: rootView, attribute: .Width, multiplier: 1.4, constant: 14.42)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .Equal,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 1.4,
+            constant: 14.42
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
@@ -163,31 +204,71 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
 
     func testCreatingGTEConstraintWithConstantOnly() {
         constraint = rootView.height >=* 14.42
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: nil, attribute: .NotAnAttribute, multiplier: 0.0, constant: 14.42)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .GreaterThanOrEqual,
+            toItem: nil,
+            attribute: .NotAnAttribute,
+            multiplier: 0.0,
+            constant: 14.42
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingGTEConstraintWithAttributedItemOnly() {
         constraint = rootView.height >=* rootView.width
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: rootView, attribute: .Width, multiplier: 1.0, constant: 0.0)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .GreaterThanOrEqual,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 1.0,
+            constant: 0.0
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingGTEConstraintWithAttributedItemScalarMultipleOnly() {
         constraint = rootView.height >=* 2 * rootView.width
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: rootView, attribute: .Width, multiplier: 2.0, constant: 0.0)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .GreaterThanOrEqual,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 2.0,
+            constant: 0.0
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingGTEConstraintWithAttributedItemAndConstant() {
         constraint = rootView.height >=* rootView.width + 14.42
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: rootView, attribute: .Width, multiplier: 1.0, constant: 14.42)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .GreaterThanOrEqual,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 1.0,
+            constant: 14.42
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingGTEConstraintWithAttributedItemScalarMultipleAndConstant() {
         constraint = rootView.height >=* 1.4 * rootView.width + 14.42
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .GreaterThanOrEqual, toItem: rootView, attribute: .Width, multiplier: 1.4, constant: 14.42)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .GreaterThanOrEqual,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 1.4,
+            constant: 14.42
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
@@ -195,31 +276,71 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
 
     func testCreatingLTEConstraintWithConstantOnly() {
         constraint = rootView.height <=* 14.42
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .LessThanOrEqual, toItem: nil, attribute: .NotAnAttribute, multiplier: 0.0, constant: 14.42)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .LessThanOrEqual,
+            toItem: nil,
+            attribute: .NotAnAttribute,
+            multiplier: 0.0,
+            constant: 14.42
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingLTEConstraintWithAttributedItemOnly() {
         constraint = rootView.height <=* rootView.width
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .LessThanOrEqual, toItem: rootView, attribute: .Width, multiplier: 1.0, constant: 0.0)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .LessThanOrEqual,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 1.0,
+            constant: 0.0
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingLTEConstraintWithAttributedItemScalarMultipleOnly() {
         constraint = rootView.height <=* 2 * rootView.width
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .LessThanOrEqual, toItem: rootView, attribute: .Width, multiplier: 2.0, constant: 0.0)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .LessThanOrEqual,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 2.0,
+            constant: 0.0
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingLTEConstraintWithAttributedItemAndConstant() {
         constraint = rootView.height <=* rootView.width + 14.42
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .LessThanOrEqual, toItem: rootView, attribute: .Width, multiplier: 1.0, constant: 14.42)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .LessThanOrEqual,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 1.0,
+            constant: 14.42
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 
     func testCreatingLTEConstraintWithAttributedItemScalarMultipleAndConstant() {
         constraint = rootView.height <=* 1.4 * rootView.width + 14.42
-        let expected = Constraint(item: rootView, attribute: .Height, relatedBy: .LessThanOrEqual, toItem: rootView, attribute: .Width, multiplier: 1.4, constant: 14.42)
+        let expected = NSLayoutConstraint(
+            item: rootView,
+            attribute: .Height,
+            relatedBy: .LessThanOrEqual,
+            toItem: rootView,
+            attribute: .Width,
+            multiplier: 1.4,
+            constant: 14.42
+        )
         XCTAssertEqual(constraint, expected, "The syntax should produce a constraint expressing the same relation")
     }
 

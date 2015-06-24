@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 //  See `ColorTestHelpers.swift` for colors and values used herein.
 

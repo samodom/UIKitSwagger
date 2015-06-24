@@ -8,14 +8,15 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class ViewAddableSyntaxTests: XCTestCase {
 
     let view = UIView()
     var subview1 = UIView()
     var subview2 = UIView()
-    var constraint1: Constraint!
-    var constraint2: Constraint!
+    var constraint1: NSLayoutConstraint!
+    var constraint2: NSLayoutConstraint!
     var effect1 = UIInterpolatingMotionEffect()
     var effect2 = UIInterpolatingMotionEffect()
     var recognizer1 = UIGestureRecognizer()

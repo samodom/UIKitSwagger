@@ -18,12 +18,12 @@ public struct UIColorCMYKComponents: UIColorComponents {
     public let key: CGFloat
     public let alpha: CGFloat
 
-    public init(cyan: CGFloat, magenta: CGFloat, yellow: CGFloat, key: CGFloat, alpha: CGFloat! = 1) {
-        self.cyan = cyan
-        self.magenta = magenta
-        self.yellow = yellow
-        self.key = key
-        self.alpha = alpha
+    public init(cyan c: CGFloat, magenta m: CGFloat, yellow y: CGFloat, key k: CGFloat, alpha a: CGFloat! = 1) {
+        cyan = c
+        magenta = m
+        yellow = y
+        key = k
+        alpha = a
     }
 
     /**

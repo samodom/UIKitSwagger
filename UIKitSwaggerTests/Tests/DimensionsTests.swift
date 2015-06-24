@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class DimensionsTests: XCTestCase {
 
@@ -15,8 +16,8 @@ class DimensionsTests: XCTestCase {
     var view1 = UIView()
     var view2 = UIView()
     var view3 = UIView()
-    var returnedConstraint: Constraint!
-    var returnedConstraints: [Constraint]!
+    var returnedConstraint: NSLayoutConstraint!
+    var returnedConstraints: [NSLayoutConstraint]!
 
     override func setUp() {
         super.setUp()

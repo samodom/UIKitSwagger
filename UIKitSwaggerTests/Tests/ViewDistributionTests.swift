@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class ViewDistributionTests: XCTestCase {
 
@@ -16,7 +17,7 @@ class ViewDistributionTests: XCTestCase {
     let button = UIButton()
     let slider = UISlider()
     let toggle = UISwitch()
-    var returnedConstraints: [Constraint]!
+    var returnedConstraints: [NSLayoutConstraint]!
 
     override func setUp() {
         super.setUp()
