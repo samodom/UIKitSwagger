@@ -11,6 +11,7 @@ import UIKit
 public protocol UIViewAddable { }
 
 extension UIView: UIViewAddable { }
+extension UILayoutGuide: UIViewAddable { }
 extension NSLayoutConstraint: UIViewAddable { }
 extension UIMotionEffect: UIViewAddable { }
 extension UIGestureRecognizer: UIViewAddable { }
@@ -25,6 +26,9 @@ public func +=(view: UIView, addable: UIViewAddable) {
     switch addable {
     case let subview as UIView:
         view.addSubview(subview)
+
+    case let guide as UILayoutGuide:
+        view.addLayoutGuide(guide)
 
     case let constraint as NSLayoutConstraint:
         view.addConstraint(constraint)
@@ -46,7 +50,9 @@ public func +=(view: UIView, addable: UIViewAddable) {
   This is done to avoid adding constraints for which the view is unprepared.
 */
 public func +=(view: UIView, addables: [UIViewAddable]) {
-    groupAddables(addables).map { view += $0 }
+    for addable in groupAddables(addables) {
+        view += addable
+    }
 }
 
 /**
@@ -56,6 +62,9 @@ public func -=(view: UIView, removable: UIViewRemovable) {
     switch removable {
     case let subview as UIView:
         subview.removeFromSuperview()
+
+    case let guide as UILayoutGuide:
+        view.removeLayoutGuide(guide)
 
     case let constraint as NSLayoutConstraint:
         view.removeConstraint(constraint)
@@ -77,7 +86,9 @@ public func -=(view: UIView, removable: UIViewRemovable) {
   This is done to avoid leaving invalid constraints in the view.
 */
 public func -=(view: UIView, removables: [UIViewRemovable]) {
-    groupAddables(removables).map { view -= $0 }
+    for removable in groupRemovables(removables) {
+        view -= removable
+    }
 }
 
 
@@ -85,6 +96,7 @@ public func -=(view: UIView, removables: [UIViewRemovable]) {
 
 private func groupAddables(addables: [UIViewAddable]) -> [UIViewAddable] {
     var views = [UIViewAddable]()
+    var guides = [UIViewAddable]()
     var constraints = [UIViewAddable]()
     var effects = [UIViewAddable]()
     var recognizers = [UIViewAddable]()
@@ -93,6 +105,9 @@ private func groupAddables(addables: [UIViewAddable]) -> [UIViewAddable] {
         switch addable {
         case let view as UIView:
             views.append(view)
+
+        case let guide as UILayoutGuide:
+            guides.append(guide)
 
         case let constraint as NSLayoutConstraint:
             constraints.append(constraint)
@@ -108,5 +123,11 @@ private func groupAddables(addables: [UIViewAddable]) -> [UIViewAddable] {
         }
     }
 
-    return views + constraints + effects + recognizers
+    let elements = views + guides
+    let modifiers = constraints + effects + recognizers
+    return elements + modifiers
+}
+
+private func groupRemovables(removables: [UIViewRemovable]) -> [UIViewRemovable] {
+    return groupAddables(removables).reverse()
 }

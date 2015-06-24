@@ -41,10 +41,11 @@ A few simple functions for hiding or showing views in a single statement are pro
 
 If UIView has an `add...` method for something, then you can use the `+=` syntax to add it and the `-=` syntax to remove it.  This includes subviews, auto layout constraints, motion effects and gesture recognizers.
 
-As such, the empty protocol `UIViewAddable` exists and has declared conformance from `UIView`, `NSLayoutConstraint`, `UIMotionEffect` and `UIGestureRecognizer`.  For purity, a type alias has been created for the same items when being removed: `typealias UIViewRemovable = UIViewAddable`
+As such, the empty protocol `UIViewAddable` exists and has declared conformance from `UIView`, `UILayoutGuide`, `NSLayoutConstraint`, `UIMotionEffect` and `UIGestureRecognizer`.  For purity, a type alias has been created for the same items when being removed: `typealias UIViewRemovable = UIViewAddable`
 
 ```swift
 view -= someSubview
+view += spacer
 view += someConstraint
 view -= aMotionEffect
 view += myTapGetureRecognizer
@@ -53,8 +54,8 @@ view += myTapGetureRecognizer
 Not only can you add and remove individual addables, you can also provide an array of just one type of addable or any mix of addables to be added or removed in one step.
 
 ```swift
-view -= [pinnedToLeft, rotationRecognizer, wobbler, marginAlignment1 ,marginAlignment2]
-view += [subview, button, centeringConstraint, tapper, wiggler]
+view -= [pinnedToLeft, spacer, rotationRecognizer, wobbler, marginAlignment1 ,marginAlignment2]
+view += [subview, button, centeringConstraint, tapper, ghostBox, wiggler]
 ```
 
-When mixed addables are added, the views are added before the constraints to ensure that the view is ready for the constraints.  When removables are being removed, the constraints are removed before the views for similar reasons.
+When mixed addables are added, the elements (views and layout guides) are added before the modifiers (constraints, effects, recognizers) to ensure that the view is ready for the modifiers.  When removables are being removed, the reverse order is respected for similar reasons.
