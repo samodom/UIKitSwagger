@@ -9,6 +9,7 @@
 import UIKit
 
 internal extension NSLayoutConstraint {
+
     internal func hasItem(item: AnyObject) -> Bool {
         return firstItem.isEqual(item) || (secondItem != nil && secondItem!.isEqual(item))
     }
@@ -43,4 +44,5 @@ internal extension NSLayoutConstraint {
     internal func hasAttributedItems(itemOne: AutoLayoutAttributedItem, _ itemTwo: AutoLayoutAttributedItem) -> Bool {
         return hasAttributedItem(itemOne) && hasAttributedItem(itemTwo)
     }
+
 }

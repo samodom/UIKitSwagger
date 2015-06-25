@@ -2,13 +2,13 @@ UIKitSwagger Changelog
 ======================
 
 #### v0.7.0 ()
- - Updated for Swift 2
- - Updated for iOS 9
- - Layout constraint equivalence now accounts for priority
+ - Updated for Swift 2.
+ - Updated for iOS 9.
+ - Layout constraint equivalence now accounts for priority.
  - Constraint searches no longer return optional arrays of constraints.  Missing constraints will now yield an empty array.
- - The `Constraint` typealias has been removed
- - Making a positive constant constraint from one that is already non-negative will return the original constraint
- - Layout guides are now addable/removable to/from views using the `+=` and `-=` syntax.  The are added and remove along with views to make sure that modifier items make sense.
+ - The `Constraint` typealias has been removed.
+ - Making a positive constant constraint from one that is already non-negative will return the original constraint.
+ - Layout guides are now addable/removable to/from views using the `+=` and `-=` syntax.  They are added and removed along with views to make sure that modifier items make sense.
 
 
 ##### v0.6.1 (Sunday, March 22, 2015)

@@ -48,7 +48,7 @@ view -= someSubview
 view += spacer
 view += someConstraint
 view -= aMotionEffect
-view += myTapGetureRecognizer
+view += myTapGestureRecognizer
 ```
 
 Not only can you add and remove individual addables, you can also provide an array of just one type of addable or any mix of addables to be added or removed in one step.
