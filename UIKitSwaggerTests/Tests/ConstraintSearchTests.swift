@@ -46,7 +46,9 @@ class ConstraintSearchTests: XCTestCase {
     
     override func tearDown() {
         subview.removeFromSuperview()
-        superview.clearConstraints()
+        if constraints != nil {
+            DeactivateConstraints(constraints!)
+        }
 
         super.tearDown()
     }
@@ -107,14 +109,17 @@ class ConstraintSearchTests: XCTestCase {
             constant: 3.4
         )
 
-        superview.addConstraints([constraint1, constraint2, constraint3, constraint4, constraint5, constraint6])
+        ActivateConstraints([constraint1, constraint2, constraint3, constraint4, constraint5, constraint6])
     }
 
     func testConstraintSearchByItem() {
         constraints = superview.constraintsForItem(subview)
-        XCTAssertEqual(constraints!.count, 4, "All constraints with the subview as an item should be returned")
+        XCTAssertEqual(constraints!.count, 2, "All constraints with the subview as an item should be returned")
         XCTAssertTrue(constraints!.contains(constraint1), "The first constraint should be included")
         XCTAssertTrue(constraints!.contains(constraint2), "The second constraint should be included")
+
+        constraints = subview.constraintsForItem(subview)
+        XCTAssertEqual(constraints!.count, 2, "All constraints with the subview as an item should be returned")
         XCTAssertTrue(constraints!.contains(constraint3), "The third constraint should be included")
         XCTAssertTrue(constraints!.contains(constraint6), "The sixth constraint should be included")
     }
@@ -126,8 +131,11 @@ class ConstraintSearchTests: XCTestCase {
 
     func testConstraintSearchByAttribute() {
         constraints = superview.constraintsForAttribute(.Leading)
-        XCTAssertEqual(constraints!.count, 3, "All constraints with the leading attribute should be returned")
+        XCTAssertEqual(constraints!.count, 1, "All constraints with the leading attribute should be returned")
         XCTAssertTrue(constraints!.contains(constraint1), "The first constraint should be included")
+
+        constraints = subview.constraintsForAttribute(.Leading)
+        XCTAssertEqual(constraints!.count, 2, "All constraints with the leading attribute should be returned")
         XCTAssertTrue(constraints!.contains(constraint3), "The third constraint should be included")
         XCTAssertTrue(constraints!.contains(constraint6), "The sixth constraint should be included")
     }
@@ -139,7 +147,7 @@ class ConstraintSearchTests: XCTestCase {
 
     func testConstraintSearchByItemAndAttribute() {
         let attributedItem = AutoLayoutAttributedItem(subview, .CenterX)
-        constraints = superview.constraintsForAttributedItem(attributedItem)
+        constraints = subview.constraintsForAttributedItem(attributedItem)
         XCTAssertEqual(constraints!.count, 2, "All constraints with the subview as an item with center X attribute should be returned")
         XCTAssertTrue(constraints!.contains(constraint3), "The third constraint should be included")
         XCTAssertTrue(constraints!.contains(constraint6), "The sixth constraint should be included")
@@ -152,7 +160,7 @@ class ConstraintSearchTests: XCTestCase {
     }
 
     func testConstraintSearchByTwoItems() {
-        constraints = superview.constraintsForItems(button, image)
+        constraints = subview.constraintsForItems(button, image)
         XCTAssertEqual(constraints!.count, 2, "All constraints with both the button and image as items should be returned")
         XCTAssertTrue(constraints!.contains(constraint4), "The fourth constraint should be included")
         XCTAssertTrue(constraints!.contains(constraint5), "The fifth constraint should be included")
@@ -166,10 +174,10 @@ class ConstraintSearchTests: XCTestCase {
     func testConstraintSearchByTwoItemsAndAttributes() {
         let imageCenterY = AutoLayoutAttributedItem(image, .CenterY)
         let buttonLeading = AutoLayoutAttributedItem(button, .Top)
-        constraints = superview.constraintsForAttributedItems(imageCenterY, buttonLeading)
+        constraints = subview.constraintsForAttributedItems(imageCenterY, buttonLeading)
         XCTAssertEqual(constraints.count, 1, "Only the constraint with the image's center Y attribute and the button's leading attribute should be returned")
         XCTAssertTrue(constraints.contains(constraint4), "The fourth constraint is the expected result")
-        constraints = superview.constraintsForAttributedItems(buttonLeading, imageCenterY)
+        constraints = subview.constraintsForAttributedItems(buttonLeading, imageCenterY)
         XCTAssertEqual(constraints.count, 1, "Only the constraint with the image's center Y attribute and the button's leading attribute should be returned")
         XCTAssertTrue(constraints.contains(constraint4), "The fourth constraint is the expected result")
     }

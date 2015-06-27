@@ -14,7 +14,7 @@ public extension UIView {
       Convenience method for clearing all of the view's constraints.
     */
     public func clearConstraints() {
-        removeConstraints(constraints)
+        DeactivateConstraints(constraints)
     }
 
 }

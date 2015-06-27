@@ -19,13 +19,16 @@ Want to reverse the items in a constraint to produce an equivalent constraint?  
 
 ## Real Auto Layout Syntax
 
-You can now build your constraints in Swift with a real syntax the same way that you use the `init(item:attribute:relatedBy:toItem:attribute:multiplier:constant:)` initializer.  The `*` and `+` operators provide the scalar multiples and constant offsets, respectively.  The `=*`, `>=*` and `<=*` operators specify "equal", "greater than or equal" and "less than or equal" relations, respectively.
+You can now build your constraints in Swift with a real syntax the same way that you use the `init(item:attribute:relatedBy:toItem:attribute:multiplier:constant:)` initializer.  The `*` and `+` operators provide the scalar multiples and constant offsets, respectively.  The `=*`, `>=*` and `<=*` operators specify "equal", "greater than or equal" and "less than or equal" relations, respectively.  The syntax works with views and layout guides**.
 
 ```swift
 let constraint1 = button.centerX =* 2 * view.leftMargin + 14.5
 let constraint2 = button.height <=* 20
-let constraint3 = button.width >=* button.height + 4
+let constraint3 = spacer.top >=* controller.top + 4
 ```
+
+** Including the top and bottom layout guides for a view controller; the other attributes use the root view's corresponding attributes. Layout guides use their bottom attribute for the baseline attributes and non-margin equivalents for margin attributes (i.e., left for left margin).
+
 
 Additionally, the two modifiable attributes of a constraint can be manipulated with the tilde operator (`~`) as follows:
 
@@ -45,18 +48,6 @@ Tired of calling `setTranslatesAutoresizingMaskIntoConstraints(false)` on so man
  - `DoNotTranslateMasks(...)`
 
 
-### Blindly Apply/Remove Constraints
-
-Instead of figuring out where to add constraints, just apply them!  And instead of figuring out where they are applied before removing them, just remove them!  The correct view is figured out for you automatically - even if a view controller layout guide is involved.
-
-Methods on NSLayoutConstraint:
- - `apply()`
- - `remove()`
-
-Global top-level functions that use a variadic list or array of constraints:
- - `ApplyConstraints(...)`
- - `RemoveConstraints(...)`
-
 And for good measure, a method to remove all of a view's constraints without having to use this cumbersome one-liner:
 
 ```swift
@@ -68,15 +59,15 @@ This can now be written as:
 ```swift
 view.clearConstraints()
 ```
-
-
-### Activation Functions
+### Constraint Activation
 
 Convenience methods for activating and deactivating constraints:
+
  - `activate()`
  - `deactivate()`
 
-Similar to constraint application, one should be able to activate or deactivate multiple constraints in a single statement using a variadic list or array of constraints:
+Activate or deactivate multiple constraints in a single statement using a variadic list or array of constraints:
+
  - `ActivateConstraints(...)`
  - `DeactivateConstraints(...)`
 
@@ -91,14 +82,14 @@ Similar to constraint application, one should be able to activate or deactivate 
   - `constraintsForItems(AnyObject, AnyObject) -> [NSLayoutConstraint]`
   - `constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [NSLayoutConstraint]`
 
- Also, you can check for an applied constraint (or equivalent) using this method:
+ Also, you can check for an active constraint (or equivalent) using this method:
 
   - `hasConstraint(NSLayoutConstraint) -> Bool`
 
 
 ### Alignment Functions
 
-Common alignment tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically align views.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  Each method accepts a variadic list or array of items returns the constraints that it applies.
+Common alignment tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically align views.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  Each method accepts a variadic list or array of items returns the constraints that it activates.
  - `AlignLeft(...) -> [NSLayoutConstraint]`
  - `AlignLeading(...) -> [NSLayoutConstraint]`
  - `AlignRight(...) -> [NSLayoutConstraint]`
@@ -113,7 +104,7 @@ Common alignment tasks can be performed without creating constraints manually.  
 
 ### Distribution Functions
 
-Common distribution tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically distribute views.  Functions that accept a numeric argument use the provided value for spacing between items.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  All of these functions accept a number and a variadic list or array of views and return the constraints that they apply.
+Common distribution tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically distribute views.  Functions that accept a numeric argument use the provided value for spacing between items.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  All of these functions accept a number and a variadic list or array of views and return the constraints that they activate.
  - `DistributeLeftToRight(...) -> [NSLayoutConstraint]`
  - `DistributeLeadingToTrailing(...) -> [NSLayoutConstraint]`
  - `DistributeTopToBottom(...) -> [NSLayoutConstraint]`
@@ -121,10 +112,9 @@ Common distribution tasks can be performed without creating constraints manually
 
 ### Dimensions
 
-
 #### Single Dimension
 
-Restricting a view's width or height to a constant or range is easy enough:
+Restricting a view's width or height to a constant or range is easy enough and the returned constraints are automatically activated:
 
  - `constrainWidth(160)`
  - `constrainWidth(120 ... 160)`
@@ -136,7 +126,7 @@ Restricting a view's width or height to a constant or range is easy enough:
 
 #### Aspect Ratios
 
-The dimensions of a view can be constrained to a particular aspect ratio with or without an offset.  These functions create and apply the necessary constraints, then return them to the caller for use as variables.
+The dimensions of a view can be constrained to a particular aspect ratio with or without an offset.  These functions create and activate the necessary constraints, then return them to the caller for use as variables.
 
 Methods on NSLayoutConstraint:
  - `constrainWidthToHeight(CGFloat, CGFloat) -> NSLayoutConstraint`

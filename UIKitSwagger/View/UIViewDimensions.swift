@@ -19,7 +19,7 @@ public extension UIView {
     */
     public func constrainWidth(width: CGFloat) -> NSLayoutConstraint {
         let constraint = self.width =* width
-        constraint.apply()
+        constraint.activate()
         return constraint
     }
 
@@ -35,7 +35,7 @@ public extension UIView {
             self.width >=* interval.start,
             self.width <=* interval.end
         ]
-        ApplyConstraints(constraints)
+        ActivateConstraints(constraints)
         return constraints
     }
 
@@ -48,7 +48,7 @@ public extension UIView {
     */
     public func constrainHeight(height: CGFloat) -> NSLayoutConstraint {
         let constraint = self.height =* height
-        constraint.apply()
+        constraint.activate()
         return constraint
     }
 
@@ -64,7 +64,7 @@ public extension UIView {
             self.height >=* interval.start,
             self.height <=* interval.end
         ]
-        ApplyConstraints(constraints)
+        ActivateConstraints(constraints)
         return constraints
     }
 
@@ -92,7 +92,7 @@ public extension UIView {
     public func constrainHeightToWidth(aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> NSLayoutConstraint {
         assert(aspectRatio != 0)
         let constraint = self.height =* aspectRatio * self.width + offset
-        constraint.apply()
+        constraint.activate()
         return constraint
     }
 

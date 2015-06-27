@@ -17,8 +17,6 @@ class ViewAddableSyntaxTests: XCTestCase {
     var subview2 = UIView()
     var guide1 = UILayoutGuide()
     var guide2 = UILayoutGuide()
-    var constraint1: NSLayoutConstraint!
-    var constraint2: NSLayoutConstraint!
     var effect1 = UIInterpolatingMotionEffect()
     var effect2 = UIInterpolatingMotionEffect()
     var recognizer1 = UIGestureRecognizer()
@@ -26,9 +24,6 @@ class ViewAddableSyntaxTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-
-        constraint1 = subview1.centerY =* subview2.centerY
-        constraint2 = guide2.centerXAnchor.constraintEqualToAnchor(guide1.centerXAnchor)
     }
     
     override func tearDown() {
@@ -57,20 +52,6 @@ class ViewAddableSyntaxTests: XCTestCase {
         XCTAssertEqual(guide2.owningView!, view, "Each supplied layout guide should be added to the view")
     }
 
-    func testAddingConstraintWithOperator() {
-        view.addSubview(subview1)
-        view.addSubview(subview2)
-        view += constraint1
-        XCTAssertEqual(view.constraints, [constraint1], "The supplied constraint operand should be added to the view")
-    }
-
-    func testAddingConstraintArrayWithOperator() {
-        view.addSubview(subview1)
-        view.addSubview(subview2)
-        view += [constraint1, constraint2]
-        XCTAssertEqual(view.constraints, [constraint1, constraint2], "Each supplied constraint should be added to the view")
-    }
-
     func testAddingMotionEffectWithOperator() {
         subview1 += effect1
         XCTAssertEqual(subview1.motionEffects, [effect1], "The supplied motion effect operand should be added to the view")
@@ -94,13 +75,11 @@ class ViewAddableSyntaxTests: XCTestCase {
     }
 
     func testAddingMixOfAddablesWithOperator() {
-        view += [effect1, recognizer2, subview1, guide2, constraint2, effect2, constraint1, subview2, recognizer1, guide1]
+        view += [effect1, recognizer2, subview1, guide2, effect2, subview2, recognizer1, guide1]
         XCTAssertEqual(subview1.superview!, view, "Each supplied subview should be added to the view")
         XCTAssertEqual(subview2.superview!, view, "Each supplied subview should be added to the view")
         XCTAssertEqual(guide1.owningView!, view, "Each supplied layout guide should be added to the view")
         XCTAssertEqual(guide2.owningView!, view, "Each supplied layout guide should be added to the view")
-        XCTAssertTrue(view.constraints.contains(constraint1), "Each supplied constraint should be added to the view")
-        XCTAssertTrue(view.constraints.contains(constraint2), "Each supplied constraint should be added to the view")
         XCTAssertTrue(view.motionEffects.contains(effect1), "Each supplied motion effect should be added to the view")
         XCTAssertTrue(view.motionEffects.contains(effect2), "Each supplied motion effect should be added to the view")
         XCTAssertTrue(view.gestureRecognizers!.contains(recognizer1), "Each supplied gesture recognizer should be added to the view")
@@ -135,25 +114,6 @@ class ViewAddableSyntaxTests: XCTestCase {
         XCTAssertNil(guide2.owningView, "Each supplied layout guide should be removed from the view")
     }
 
-     func testRemovingConstraintWithOperator() {
-        view.addSubview(subview1)
-        view.addSubview(subview2)
-        view.addConstraint(constraint1)
-        view -= constraint1
-        XCTAssertEqual(view.constraints.count, 0, "The supplied constraint operand should be removed from the view")
-    }
-
-    func testRemovingConstraintArrayWithOperator() {
-        view.addSubview(subview1)
-        view.addSubview(subview2)
-        view.addLayoutGuide(guide1)
-        view.addLayoutGuide(guide2)
-        view.addConstraint(constraint1)
-        view.addConstraint(constraint2)
-        view -= [constraint1, constraint2]
-        XCTAssertEqual(view.constraints.count, 0, "Each supplied constraint should be removed from the view")
-    }
-
     func testRemovingMotionEffectWithOperator() {
         subview1.addMotionEffect(effect1)
         subview1 -= effect1
@@ -181,8 +141,8 @@ class ViewAddableSyntaxTests: XCTestCase {
     }
 
     func testRemovingMixOfAddablesWithOperator() {
-        view += [effect1, recognizer2, subview1, guide2, constraint2, effect2, constraint1, subview2, recognizer1, guide1]
-        view -= [effect1, recognizer2, subview1, guide2, constraint2, effect2, constraint1, subview2, recognizer1, guide1]
+        view += [effect1, recognizer2, subview1, guide2, effect2, subview2, recognizer1, guide1]
+        view -= [effect1, recognizer2, subview1, guide2, effect2, subview2, recognizer1, guide1]
         XCTAssertNil(subview1.superview, "Each supplied subview should be removed from the view")
         XCTAssertNil(subview2.superview, "Each supplied subview should be removed from the view")
         XCTAssertNil(guide1.owningView, "Each supplied layout guide should be removed from the view")

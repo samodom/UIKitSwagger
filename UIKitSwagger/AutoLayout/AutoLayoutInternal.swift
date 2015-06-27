@@ -23,7 +23,7 @@ internal func ConstrainDimension(items: [AutoLayoutAttributable], dimension: NSL
     AssertDimensionAttribute(dimension)
 
     let constraints = items.map { ($0 as! AnyObject, dimension) =* value }
-    ApplyConstraints(constraints)
+    ActivateConstraints(constraints)
     return constraints
 }
 
@@ -35,7 +35,7 @@ internal func ConstrainDimension(items: [AutoLayoutAttributable], dimension: NSL
         return [attributedItem >=* interval.start, attributedItem <=* interval.end]
     }
 
-    ApplyConstraints(constraints)
+    ActivateConstraints(constraints)
     return constraints
 }
 
@@ -95,7 +95,7 @@ internal func DistributeViews(views: [UIView], spacing: CGFloat, direction: Dist
         anchor = view.attributedItemForLayoutAttribute(attributes.0)
         let constraint = anchor =* item + spacing
         constraints.append(constraint)
-        constraint.apply()
+        constraint.activate()
         item = view.attributedItemForLayoutAttribute(attributes.1)
     }
 
@@ -137,7 +137,7 @@ private func ConstrainItemsToFirst(items: [AutoLayoutAttributable], attribute: N
         let item = attributable.attributedItemForLayoutAttribute(attribute)
         let constraint = item =* anchor
         constraints.append(constraint)
-        constraint.apply()
+        constraint.activate()
     }
     
     return constraints

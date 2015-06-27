@@ -12,10 +12,10 @@ import XCTest
 
 class ConstraintActivationTests: XCTestCase {
 
-    let view = UIView()
-    let subview1 = UIView()
-    let subview2 = UIView()
-    let subview3 = UIView()
+    var controller: UIViewController!
+    var view: UIView!
+    let subview = UIView()
+    let guide = UILayoutGuide()
     var constraint1: NSLayoutConstraint!
     var constraint2: NSLayoutConstraint!
     var constraint3: NSLayoutConstraint!
@@ -23,26 +23,26 @@ class ConstraintActivationTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        view.addSubview(subview1)
-        view.addSubview(subview2)
-        view.addSubview(subview3)
+        let window = UIApplication.sharedApplication().delegate!.window!
+        controller = window!.rootViewController
+        view = controller.view
+        view.addSubview(subview)
+        view.addLayoutGuide(guide)
 
-        constraint1 = subview1.centerX =* view.centerX
-        constraint2 = subview2.centerX =* view.centerX
-        constraint3 = subview3.centerX =* view.centerX
-        ApplyConstraints(constraint1, constraint2, constraint3)
-
-        constraint1.active = false
-        constraint2.active = false
-        constraint3.active = false
+        constraint1 = subview.top =* controller.top
+        constraint2 = view.left =* subview.left - 10
+        constraint3 = guide.bottom =* controller.bottom + 10
     }
     
     override func tearDown() {
         super.tearDown()
+
+        subview.removeFromSuperview()
+        view.removeLayoutGuide(guide)
+        view.clearConstraints()
     }
 
     func testActivatingInactiveConstraint() {
-        constraint1.active = false
         constraint1.activate()
         XCTAssertTrue(constraint1.active, "The inactive constraint should be activated")
     }
@@ -60,7 +60,6 @@ class ConstraintActivationTests: XCTestCase {
     }
 
     func testNotActivatingInactiveConstraint() {
-        constraint1.active = false
         constraint1.deactivate()
         XCTAssertFalse(constraint1.active, "The inactive constraint should not be activated")
     }
