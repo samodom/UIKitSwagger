@@ -19,10 +19,7 @@ A bit of a DSL for UIKit
  - [Working with Steppers](Docs/Stepper.md)
  - [Color Convenience](Docs/Color.md) and a [ColorPalette](Docs/ColorPalette.md) class
  - [UIKit Dynamics](Docs/Dynamics.md)
- - [Enabling/Disabling Bar Items](Docs/BarItem.md)
- - [Enabling/Disabling Controls](Docs/Control.md)
- - [Enabling/Disabling Gesture Recognizers](Docs/GestureRecognizer.md)
- - [Enabling/Disabling Labels](Docs/Label.md)
+ - [Enabling/Disabling Various Items](Docs/EnableDisable.md)
  - [Managing An Activity Indicator View](Docs/SpinnerStateManager.md)
 
 
