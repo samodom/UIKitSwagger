@@ -27,7 +27,7 @@ let constraint2 = button.height <=* 20
 let constraint3 = spacer.top >=* controller.top + 4
 ```
 
-** Including the top and bottom layout guides for a view controller; the other attributes use the root view's corresponding attributes. Layout guides use their bottom attribute for the baseline attributes and non-margin equivalents for margin attributes (i.e., left for left margin).
+** Including the top and bottom layout guides for a view controller; the other attributes use the root view's corresponding attributes. Layout guides use their bottom attribute for the baseline attributes and non-margin equivalents for margin attributes (i.e., left for left margin).  Layout guides are available in iOS 9 and later only.
 
 
 Additionally, the two modifiable attributes of a constraint can be manipulated with the tilde operator (`~`) as follows:

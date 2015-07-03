@@ -2,9 +2,11 @@ UIKitSwagger
 ============
 
 
-![](https://img.shields.io/badge/platform-_iOS_8-lightgrey.svg?style=flat-square)
+![](https://img.shields.io/badge/platform-_iOS_8,_9-lightgrey.svg?style=flat-square)
 
-![](https://img.shields.io/badge/version-0.6.1-orange.svg?style=flat-square)
+![](https://img.shields.io/badge/language-Swift_2-orange.svg?style=flat-square)
+
+![](https://img.shields.io/badge/version-0.7.0-green.svg?style=flat-square)
 
 
 
