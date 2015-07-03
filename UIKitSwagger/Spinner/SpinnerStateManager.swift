@@ -89,14 +89,14 @@ public class SpinnerStateManager {
 
     private func removeClient() {
         switch currentState {
-        case .Stopped, .Detached:
-            assert(false, "Cannot remove a client from an unstarted state")
-
         case .Started(let clients) where clients == 1:
             currentState = .Stopped
 
         case .Started(let clients):
             currentState = .Started(clients - 1)
+
+        default:
+            break
         }
     }
 
