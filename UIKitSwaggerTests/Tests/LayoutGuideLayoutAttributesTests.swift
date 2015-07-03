@@ -9,6 +9,7 @@
 import XCTest
 @testable import UIKitSwagger
 
+@available(iOS 9.0, *)
 class LayoutGuideLayoutAttributesTests: XCTestCase {
     
 

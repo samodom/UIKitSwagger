@@ -15,8 +15,6 @@ class ViewAddableSyntaxTests: XCTestCase {
     let view = UIView()
     var subview1 = UIView()
     var subview2 = UIView()
-    var guide1 = UILayoutGuide()
-    var guide2 = UILayoutGuide()
     var effect1 = UIInterpolatingMotionEffect()
     var effect2 = UIInterpolatingMotionEffect()
     var recognizer1 = UIGestureRecognizer()
@@ -41,12 +39,17 @@ class ViewAddableSyntaxTests: XCTestCase {
         XCTAssertEqual(subview2.superview!, view, "Each supplied subview should be added to the view")
     }
 
+    @available(iOS 9.0, *)
     func testAddingLayoutGuideWithOperator() {
-        view += guide1
-        XCTAssertEqual(guide1.owningView!, view, "The supplied layout guide operand should be added to the view")
+        let guide = UILayoutGuide()
+        view += guide
+        XCTAssertEqual(guide.owningView!, view, "The supplied layout guide operand should be added to the view")
     }
 
+    @available(iOS 9.0, *)
     func testAddingLayoutGuideArrayWithOperator() {
+        let guide1 = UILayoutGuide()
+        let guide2 = UILayoutGuide()
         view += [guide1, guide2]
         XCTAssertEqual(guide1.owningView!, view, "Each supplied layout guide should be added to the view")
         XCTAssertEqual(guide2.owningView!, view, "Each supplied layout guide should be added to the view")
@@ -75,11 +78,21 @@ class ViewAddableSyntaxTests: XCTestCase {
     }
 
     func testAddingMixOfAddablesWithOperator() {
-        view += [effect1, recognizer2, subview1, guide2, effect2, subview2, recognizer1, guide1]
+        var addables = [effect1, recognizer2, subview1, effect2, subview2, recognizer1] as [UIViewAddable]
+        var guide1: UIViewAddable!
+        var guide2: UIViewAddable!
+        if #available(iOS 9.0, *) {
+            guide1 = UILayoutGuide()
+            guide2 = UILayoutGuide()
+            addables += [guide1, guide2]
+        }
+        view += addables
         XCTAssertEqual(subview1.superview!, view, "Each supplied subview should be added to the view")
         XCTAssertEqual(subview2.superview!, view, "Each supplied subview should be added to the view")
-        XCTAssertEqual(guide1.owningView!, view, "Each supplied layout guide should be added to the view")
-        XCTAssertEqual(guide2.owningView!, view, "Each supplied layout guide should be added to the view")
+        if #available(iOS 9.0, *) {
+            XCTAssertEqual((guide1 as! UILayoutGuide).owningView!, view, "Each supplied layout guide should be added to the view")
+            XCTAssertEqual((guide2 as! UILayoutGuide).owningView!, view, "Each supplied layout guide should be added to the view")
+        }
         XCTAssertTrue(view.motionEffects.contains(effect1), "Each supplied motion effect should be added to the view")
         XCTAssertTrue(view.motionEffects.contains(effect2), "Each supplied motion effect should be added to the view")
         XCTAssertTrue(view.gestureRecognizers!.contains(recognizer1), "Each supplied gesture recognizer should be added to the view")
@@ -100,13 +113,18 @@ class ViewAddableSyntaxTests: XCTestCase {
         XCTAssertNil(subview2.superview, "Each supplied subview should be removed from the view")
     }
 
+    @available(iOS 9.0, *)
     func testRemovingLayoutGuideWithOperator() {
-        view.addLayoutGuide(guide1)
-        view -= guide1
-        XCTAssertNil(guide1.owningView, "The supplied layout guide operand should be removed from the view")
+        let guide = UILayoutGuide()
+        view.addLayoutGuide(guide)
+        view -= guide
+        XCTAssertNil(guide.owningView, "The supplied layout guide operand should be removed from the view")
     }
 
+    @available(iOS 9.0, *)
     func testRemovingLayoutGuideArrayWithOperator() {
+        let guide1 = UILayoutGuide()
+        let guide2 = UILayoutGuide()
         view.addLayoutGuide(guide1)
         view.addLayoutGuide(guide2)
         view -= [guide1, guide2]
@@ -141,12 +159,22 @@ class ViewAddableSyntaxTests: XCTestCase {
     }
 
     func testRemovingMixOfAddablesWithOperator() {
-        view += [effect1, recognizer2, subview1, guide2, effect2, subview2, recognizer1, guide1]
-        view -= [effect1, recognizer2, subview1, guide2, effect2, subview2, recognizer1, guide1]
+        var addables = [effect1, recognizer2, subview1, effect2, subview2, recognizer1] as [UIViewAddable]
+        var guide1: UIViewAddable!
+        var guide2: UIViewAddable!
+        if #available(iOS 9.0, *) {
+            guide1 = UILayoutGuide()
+            guide2 = UILayoutGuide()
+            addables += [guide1, guide2]
+        }
+        view += addables
+        view -= addables
         XCTAssertNil(subview1.superview, "Each supplied subview should be removed from the view")
         XCTAssertNil(subview2.superview, "Each supplied subview should be removed from the view")
-        XCTAssertNil(guide1.owningView, "Each supplied layout guide should be removed from the view")
-        XCTAssertNil(guide2.owningView, "Each supplied layout guide should be removed from the view")
+        if #available(iOS 9.0, *) {
+            XCTAssertNil((guide1 as! UILayoutGuide).owningView, "Each supplied layout guide should be removed from the view")
+            XCTAssertNil((guide2 as! UILayoutGuide).owningView, "Each supplied layout guide should be removed from the view")
+        }
         XCTAssertEqual(view.constraints.count, 0, "Each supplied constraint should be removed from the view")
         XCTAssertEqual(view.motionEffects.count, 0, "Each supplied motion effect should be removed from the view")
 

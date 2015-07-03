@@ -15,7 +15,7 @@ class ConstraintActivationTests: XCTestCase {
     var controller: UIViewController!
     var view: UIView!
     let subview = UIView()
-    let guide = UILayoutGuide()
+    var guide: AnyObject!
     var constraint1: NSLayoutConstraint!
     var constraint2: NSLayoutConstraint!
     var constraint3: NSLayoutConstraint!
@@ -27,18 +27,25 @@ class ConstraintActivationTests: XCTestCase {
         controller = window!.rootViewController
         view = controller.view
         view.addSubview(subview)
-        view.addLayoutGuide(guide)
+        if #available(iOS 9.0, *) {
+            guide = UILayoutGuide()
+            view.addLayoutGuide(guide as! UILayoutGuide)
+        }
 
         constraint1 = subview.top =* controller.top
         constraint2 = view.left =* subview.left - 10
-        constraint3 = guide.bottom =* controller.bottom + 10
+        if #available(iOS 9.0, *) {
+            constraint3 = (guide as! UILayoutGuide).bottom =* controller.bottom + 10
+        }
     }
     
     override func tearDown() {
         super.tearDown()
 
         subview.removeFromSuperview()
-        view.removeLayoutGuide(guide)
+        if #available(iOS 9.0, *) {
+            view.removeLayoutGuide(guide as! UILayoutGuide)
+        }
         view.clearConstraints()
     }
 

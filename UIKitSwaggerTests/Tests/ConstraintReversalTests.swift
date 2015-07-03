@@ -17,15 +17,22 @@ class ConstraintReversalTests: XCTestCase {
     var positive: NSLayoutConstraint!
 
     let view = UIView()
-    let guide = UILayoutGuide()
+    var otherItem: AnyObject!
 
     let identifier = "Sample Identifier"
     let priority = UILayoutPriority(140)
 
     override func setUp() {
         super.setUp()
+
+        if #available(iOS 9.0, *) {
+            otherItem = UILayoutGuide()
+        }
+        else {
+            otherItem = UIView()
+        }
     }
-    
+
     override func tearDown() {
         super.tearDown()
     }
@@ -35,7 +42,7 @@ class ConstraintReversalTests: XCTestCase {
             item: view,
             attribute: .Width,
             relatedBy: .Equal,
-            toItem: guide,
+            toItem: otherItem,
             attribute: .Height,
             multiplier: 0,
             constant: 14
@@ -65,16 +72,21 @@ class ConstraintReversalTests: XCTestCase {
             item: view,
             attribute: .Width,
             relatedBy: .Equal,
-            toItem: guide,
+            toItem: otherItem,
             attribute: .Height,
             multiplier: 2,
             constant: 14
         )
         constraint.priority = priority
         constraint.identifier = identifier
-
         reversed = constraint.reversed()
-        XCTAssertEqual(reversed.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+
+        if #available(iOS 9.0, *) {
+            XCTAssertEqual(reversed.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+        }
+        else {
+            XCTAssertEqual(reversed.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
+        }
         XCTAssertEqual(reversed.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
         XCTAssertEqual(reversed.relation, .Equal, "The relation should remain Equal")
         XCTAssertEqual(reversed.secondItem! as! UIView, constraint.firstItem as! UIView, "The original first item should be the second item when reversed")
@@ -90,16 +102,21 @@ class ConstraintReversalTests: XCTestCase {
             item: view,
             attribute: .Width,
             relatedBy: .GreaterThanOrEqual,
-            toItem: guide,
+            toItem: otherItem,
             attribute: .Height,
             multiplier: 2,
             constant: 14
         )
         constraint.priority = priority
         constraint.identifier = identifier
-
         reversed = constraint.reversed()
-        XCTAssertEqual(reversed.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+
+        if #available(iOS 9.0, *) {
+            XCTAssertEqual(reversed.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+        }
+        else {
+            XCTAssertEqual(reversed.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
+        }
         XCTAssertEqual(reversed.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
         XCTAssertEqual(reversed.relation, .LessThanOrEqual, "The relation should change direction")
         XCTAssertEqual(reversed.secondItem! as! UIView, constraint.firstItem as! UIView, "The original first item should be the second item when reversed")
@@ -115,16 +132,21 @@ class ConstraintReversalTests: XCTestCase {
             item: view,
             attribute: .Width,
             relatedBy: .GreaterThanOrEqual,
-            toItem: guide,
+            toItem: otherItem,
             attribute: .Height,
             multiplier: -2,
             constant: 14
         )
         constraint.priority = priority
         constraint.identifier = identifier
-
         reversed = constraint.reversed()
-        XCTAssertEqual(reversed.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+
+        if #available(iOS 9.0, *) {
+            XCTAssertEqual(reversed.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+        }
+        else {
+            XCTAssertEqual(reversed.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
+        }
         XCTAssertEqual(reversed.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
         XCTAssertEqual(reversed.relation, .GreaterThanOrEqual, "The relation should not change direction")
         XCTAssertEqual(reversed.secondItem! as! UIView, constraint.firstItem as! UIView, "The original first item should be the second item when reversed")
@@ -140,16 +162,21 @@ class ConstraintReversalTests: XCTestCase {
             item: view,
             attribute: .Width,
             relatedBy: .LessThanOrEqual,
-            toItem: guide,
+            toItem: otherItem,
             attribute: .Height,
             multiplier: 2,
             constant: 14
         )
         constraint.priority = priority
         constraint.identifier = identifier
-
         reversed = constraint.reversed()
-        XCTAssertEqual(reversed.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+
+        if #available(iOS 9.0, *) {
+            XCTAssertEqual(reversed.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+        }
+        else {
+            XCTAssertEqual(reversed.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
+        }
         XCTAssertEqual(reversed.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
         XCTAssertEqual(reversed.relation, .GreaterThanOrEqual, "The relation should change direction")
         XCTAssertEqual(reversed.secondItem! as! UIView, constraint.firstItem as! UIView, "The original first item should be the second item when reversed")
@@ -165,16 +192,21 @@ class ConstraintReversalTests: XCTestCase {
             item: view,
             attribute: .Width,
             relatedBy: .LessThanOrEqual,
-            toItem: guide,
+            toItem: otherItem,
             attribute: .Height,
             multiplier: -2,
             constant: 14
         )
         constraint.priority = priority
         constraint.identifier = identifier
-
         reversed = constraint.reversed()
-        XCTAssertEqual(reversed.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+
+        if #available(iOS 9.0, *) {
+            XCTAssertEqual(reversed.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+        }
+        else {
+            XCTAssertEqual(reversed.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
+        }
         XCTAssertEqual(reversed.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
         XCTAssertEqual(reversed.relation, .LessThanOrEqual, "The relation should not change direction")
         XCTAssertEqual(reversed.secondItem! as! UIView, constraint.firstItem as! UIView, "The original first item should be the second item when reversed")
@@ -192,14 +224,13 @@ class ConstraintReversalTests: XCTestCase {
             item: view,
             attribute: .Width,
             relatedBy: .Equal,
-            toItem: guide,
+            toItem: otherItem,
             attribute: .Height,
             multiplier: 0,
             constant: 14
         )
         constraint.priority = priority
         constraint.identifier = identifier
-
         positive = constraint.makeConstantPositive()
         XCTAssertTrue(constraint === positive, "The same constraint should be returned if the constant is zero")
     }
@@ -209,14 +240,13 @@ class ConstraintReversalTests: XCTestCase {
             item: view,
             attribute: .Width,
             relatedBy: .Equal,
-            toItem: guide,
+            toItem: otherItem,
             attribute: .Height,
             multiplier: 2,
             constant: 14
         )
         constraint.priority = priority
         constraint.identifier = identifier
-
         positive = constraint.makeConstantPositive()
         XCTAssertTrue(constraint === positive, "The same constraint should be returned if the constant is already positive")
     }
@@ -226,17 +256,22 @@ class ConstraintReversalTests: XCTestCase {
             item: view,
             attribute: .Width,
             relatedBy: .Equal,
-            toItem: guide,
+            toItem: otherItem,
             attribute: .Height,
             multiplier: 2,
             constant: -14
         )
         constraint.priority = priority
         constraint.identifier = identifier
-
         positive = constraint.makeConstantPositive()
+
         XCTAssertTrue(constraint !== positive, "The same constraint should not be returned if the constant is negative")
-        XCTAssertEqual(positive.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+        if #available(iOS 9.0, *) {
+            XCTAssertEqual(positive.firstItem as! UILayoutGuide, constraint.secondItem! as! UILayoutGuide, "The original second item should be the first item when reversed")
+        }
+        else {
+            XCTAssertEqual(positive.firstItem as! UIView, constraint.secondItem! as! UIView, "The original second item should be the first item when reversed")
+        }
         XCTAssertEqual(positive.firstAttribute, constraint.secondAttribute, "The original second attribute should be the first attribute when reversed")
         XCTAssertEqual(positive.relation, .Equal, "The relation should remain Equal")
         XCTAssertEqual(positive.secondItem! as! UIView, constraint.firstItem as! UIView, "The original first item should be the second item when reversed")

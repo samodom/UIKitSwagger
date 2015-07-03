@@ -11,9 +11,11 @@ import UIKit
 public protocol UIViewAddable { }
 
 extension UIView: UIViewAddable { }
-extension UILayoutGuide: UIViewAddable { }
 extension UIMotionEffect: UIViewAddable { }
 extension UIGestureRecognizer: UIViewAddable { }
+
+@available(iOS 9.0, *)
+extension UILayoutGuide: UIViewAddable { }
 
 public typealias UIViewRemovable = UIViewAddable
 
@@ -22,12 +24,17 @@ public typealias UIViewRemovable = UIViewAddable
   An operator used to add a subview, layout guide, motion effect or gesture recognizer to a view.
 */
 public func +=(view: UIView, addable: UIViewAddable) {
+    if #available(iOS 9.0, *) {
+        if let guide = addable as? UILayoutGuide {
+            view.addLayoutGuide(guide)
+            return
+        }
+    }
+
     switch addable {
     case let subview as UIView:
         view.addSubview(subview)
 
-    case let guide as UILayoutGuide:
-        view.addLayoutGuide(guide)
 
     case let effect as UIMotionEffect:
         view.addMotionEffect(effect)
@@ -55,12 +62,16 @@ public func +=(view: UIView, addables: [UIViewAddable]) {
   An operator used to remove a subview, auto layout constraint, motion effect or gesture recognizer from a view.
 */
 public func -=(view: UIView, removable: UIViewRemovable) {
+    if #available(iOS 9.0, *) {
+        if let guide = removable as? UILayoutGuide {
+            view.removeLayoutGuide(guide)
+            return
+        }
+    }
+
     switch removable {
     case let subview as UIView:
         subview.removeFromSuperview()
-
-    case let guide as UILayoutGuide:
-        view.removeLayoutGuide(guide)
 
     case let effect as UIMotionEffect:
         view.removeMotionEffect(effect)
@@ -94,12 +105,16 @@ private func groupAddables(addables: [UIViewAddable]) -> [UIViewAddable] {
     var recognizers = [UIViewAddable]()
 
     for addable in addables {
+        if #available(iOS 9.0, *) {
+            if let guide = addable as? UILayoutGuide {
+                guides.append(guide)
+                continue
+            }
+        }
+
         switch addable {
         case let view as UIView:
             views.append(view)
-
-        case let guide as UILayoutGuide:
-            guides.append(guide)
 
         case let effect as UIMotionEffect:
             effects.append(effect)

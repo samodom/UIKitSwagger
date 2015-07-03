@@ -13,7 +13,7 @@ import UIKit
 class ConstraintComparisonTests: XCTestCase {
 
     let view = UIView()
-    let guide = UILayoutGuide()
+    var otherItem: AnyObject!
     let differentView = UIView()
     var constraintOne: NSLayoutConstraint!
     var constraintTwo: NSLayoutConstraint!
@@ -23,11 +23,18 @@ class ConstraintComparisonTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
+        if #available(iOS 9.0, *) {
+            otherItem = UILayoutGuide()
+        }
+        else {
+            otherItem = UIView()
+        }
+
         constraintOne = NSLayoutConstraint(
             item: view,
             attribute: .Leading,
             relatedBy: .Equal,
-            toItem: guide,
+            toItem: otherItem,
             attribute: .CenterX,
             multiplier: 14.0,
             constant: 42.0

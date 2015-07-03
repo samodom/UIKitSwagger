@@ -18,30 +18,22 @@ class ViewSubscriptingTests: XCTestCase {
     let subview1_0 = UIView()
     let subview1_1 = UIView()
     let subview1_0_0 = UIView()
-    let guide = UILayoutGuide()
 
     var ancestor: UIView!
 
     override func setUp() {
         super.setUp()
 
-        buildComplexViewHierarchy()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
-    func buildComplexViewHierarchy() {
         rootView.addSubview(subview0)
-
         rootView.addSubview(subview1)
         subview1.addSubview(subview1_0)
         subview1.addSubview(subview1_1)
         subview1_0.addSubview(subview1_0_0)
-        subview1_0.addLayoutGuide(guide)
-
         rootView.addSubview(subview2)
+    }
+    
+    override func tearDown() {
+        super.tearDown()
     }
 
     func testViewSubscriptingReturnsSubviewAtIndex() {
