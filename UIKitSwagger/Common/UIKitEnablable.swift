@@ -18,3 +18,9 @@ public extension UIKitEnablable {
     public mutating func enable() { enabled = true }
     public mutating func disable() { enabled = false }
 }
+
+extension UIBarItem: UIKitEnablable { }
+extension UIControl: UIKitEnablable { }
+extension UIGestureRecognizer: UIKitEnablable { }
+extension UILabel: UIKitEnablable { }
+extension UIAlertAction: UIKitEnablable { }
