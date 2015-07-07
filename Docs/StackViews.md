@@ -5,20 +5,20 @@ Working with Stack Views
 
 Shorten the syntax for creating stack views by using `StackHorizontally()` and `StackVertically()`:
 
-```
+```swift
 func StackHorizontally(
     views: [UIView],
     alignment: UIStackViewAlignment,
     distribution: UIStackViewDistribution,
     spacing: CGFloat
-)
+) -> UIStackView
 
 func StackVertically(
     views: [UIView],
     alignment: UIStackViewAlignment,
     distribution: UIStackViewDistribution,
     spacing: CGFloat
-)
+) -> UIStackView
 ```
 
 As with stack views created using the system constructor, the default values for the various parameters remain the same and can be omitted in the function call:
