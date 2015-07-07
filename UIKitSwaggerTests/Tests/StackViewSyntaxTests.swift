@@ -99,7 +99,7 @@ class StackViewSyntaxTests: XCTestCase {
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
         XCTAssertEqual(stackView.alignment, .Fill, "The stack view should use the default alignment")
         XCTAssertEqual(stackView.distribution, .Fill, "The stack view should use the default distribution")
-        XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the default spacing")
+        XCTAssertEqual(stackView.spacing, 0.0, "The stack view should use the default spacing")
     }
 
 
@@ -174,7 +174,7 @@ class StackViewSyntaxTests: XCTestCase {
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
         XCTAssertEqual(stackView.alignment, .Fill, "The stack view should use the default alignment")
         XCTAssertEqual(stackView.distribution, .Fill, "The stack view should use the default distribution")
-        XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the default spacing")
+        XCTAssertEqual(stackView.spacing, 0.0, "The stack view should use the default spacing")
     }
 
 }
