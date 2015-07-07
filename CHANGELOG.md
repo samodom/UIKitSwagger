@@ -16,6 +16,7 @@ UIKitSwagger Changelog
  - iOS 9 and later:
   - Layout guides are now supported in the constraint builder syntax. (iOS 9 and later)
   - Layout guides are now addable/removable to/from views using the `+=` and `-=` syntax.  They are added and removed along with views to make sure that modifier items make sense.
+  - Added simpler stack view creation functions
 
 
 #### v0.6.1 (Sunday, March 22, 2015)
