@@ -30,6 +30,15 @@ class StackViewSyntaxTests: XCTestCase {
 
     //  MARK: Horizontal
 
+    func testCreatingHorizontalStackViewWithoutSubviews() {
+        stackView = StackHorizontally([], alignment: .Center, distribution: .EqualSpacing, spacing: 14.0)
+        XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
+        XCTAssertEqual(stackView.arrangedSubviews, [], "The stack view should not contain any arranged subviews")
+        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
+    }
+
     func testCreatingHorizontalStackView() {
         stackView = StackHorizontally(arrangedViews, alignment: .Center, distribution: .EqualSpacing, spacing: 14.0)
         XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
@@ -104,6 +113,15 @@ class StackViewSyntaxTests: XCTestCase {
 
 
     //  MARK: Vertical
+
+    func testCreatingVerticalStackViewWithoutSubviews() {
+        stackView = StackVertically([], alignment: .Center, distribution: .EqualSpacing, spacing: 14.0)
+        XCTAssertEqual(stackView.axis, .Vertical, "The stack view should use the vertical layout axis")
+        XCTAssertEqual(stackView.arrangedSubviews, [], "The stack view should not contain any arranged subviews")
+        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
+    }
 
     func testCreatingVerticalStackView() {
         stackView = StackVertically(arrangedViews, alignment: .Center, distribution: .EqualSpacing, spacing: 14.0)
