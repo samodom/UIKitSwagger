@@ -1,5 +1,5 @@
 //
-//  UIColorCMYKComponents.swift
+//  CMYKComponents.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 2/28/14.
@@ -11,7 +11,7 @@ import UIKit
 /**
 Convenience structure to hold the cyan, magenta, yellow and alpha component values of an instance of `UIColor`.
 */
-public struct UIColorCMYKComponents: UIColorComponents {
+public struct CMYKComponents: ColorComponents {
     public let cyan: CGFloat
     public let magenta: CGFloat
     public let yellow: CGFloat
@@ -47,11 +47,11 @@ public struct UIColorCMYKComponents: UIColorComponents {
 /**
 Equatability of CMYK components.
 */
-extension UIColorCMYKComponents: Equatable {
+extension CMYKComponents: Equatable {
 
 }
 
-public func ==(lhs: UIColorCMYKComponents, rhs: UIColorCMYKComponents) -> Bool {
+public func ==(lhs: CMYKComponents, rhs: CMYKComponents) -> Bool {
     return componentValuesEqualWithinTolerance(lhs.cyan, rhs.cyan) &&
         componentValuesEqualWithinTolerance(lhs.magenta, rhs.magenta) &&
         componentValuesEqualWithinTolerance(lhs.yellow, rhs.yellow) &&
@@ -100,7 +100,7 @@ public extension UIColor {
     */
     public convenience init(cyan: CGFloat, magenta: CGFloat, yellow: CGFloat, key: CGFloat, alpha: CGFloat) {
         let cmykComponents =
-        UIColorCMYKComponents(
+        CMYKComponents(
             cyan: cyan,
             magenta: magenta,
             yellow: yellow,
@@ -134,11 +134,11 @@ public extension UIColor {
     Property that returns the CMYK components of the color in a structure.
     - note: This conversion may be lossy.
     */
-    public var cmykComponents: UIColorCMYKComponents {
+    public var cmykComponents: CMYKComponents {
         let components = rgbComponents
         let maximumRGBComponentValue = max(components.red, components.green, components.blue)
         if maximumRGBComponentValue > 0 {
-            return UIColorCMYKComponents(
+            return CMYKComponents(
                 cyan: 1 - (components.red / maximumRGBComponentValue),
                 magenta: 1 - (components.green / maximumRGBComponentValue),
                 yellow: 1 - (components.blue / maximumRGBComponentValue),
@@ -147,7 +147,7 @@ public extension UIColor {
             )
         }
         else {
-            return UIColorCMYKComponents(cyan: 0, magenta: 0, yellow: 0, key: 1, alpha: components.alpha)
+            return CMYKComponents(cyan: 0, magenta: 0, yellow: 0, key: 1, alpha: components.alpha)
         }
     }
 
@@ -156,26 +156,26 @@ public extension UIColor {
 /**
 Component conversion methods.
 */
-public extension UIColorCMYKComponents {
+public extension CMYKComponents {
 
     /**
     Converts CMYK components into RGB components.
     */
-    public func asRGBComponents() -> UIColorRGBComponents {
+    public func asRGBComponents() -> RGBComponents {
         return color().rgbComponents
     }
 
     /**
     Converts CMYK components into HSB components.
     */
-    public func asHSBComponents() -> UIColorHSBComponents {
+    public func asHSBComponents() -> HSBComponents {
         return color().hsbComponents
     }
 
     /**
     Converts CMYK components into grayscale components.
     */
-    public func asGrayscaleComponents() -> UIColorGrayscaleComponents {
+    public func asGrayscaleComponents() -> GrayscaleComponents {
         return color().grayscaleComponents
     }
     

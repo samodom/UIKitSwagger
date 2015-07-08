@@ -15,7 +15,7 @@ import XCTest
 class GrayscaleComponentsTests: XCTestCase {
 
     var components =
-    UIColorGrayscaleComponents(
+    GrayscaleComponents(
         white: randomWhiteValue,
         alpha: randomAlphaValue
     )
@@ -45,7 +45,7 @@ class GrayscaleComponentsTests: XCTestCase {
     //  MARK: - Components structure
 
     func testGrayscaleComponentStructureWithDefaultAlpha() {
-        components = UIColorGrayscaleComponents(white: randomWhiteValue)
+        components = GrayscaleComponents(white: randomWhiteValue)
         XCTAssertEqual(components.white, randomWhiteValue, "The components should include a white value")
         XCTAssertEqual(components.alpha, 1.0, "The components should use a default alpha value of 1.0")
     }
@@ -59,7 +59,7 @@ class GrayscaleComponentsTests: XCTestCase {
 
     func testEqualityOfGrayscaleComponentStructure() {
         let moreComponents =
-        UIColorGrayscaleComponents(
+        GrayscaleComponents(
             white: randomWhiteValue,
             alpha: randomAlphaValue
         )
@@ -68,7 +68,7 @@ class GrayscaleComponentsTests: XCTestCase {
 
     func testInequalityOfGrayscaleComponentsWithMismatchedWhiteValues() {
         let moreComponents =
-        UIColorGrayscaleComponents(
+        GrayscaleComponents(
             white: nudgeComponentValue(randomWhiteValue),
             alpha: randomAlphaValue
         )
@@ -77,7 +77,7 @@ class GrayscaleComponentsTests: XCTestCase {
 
     func testInequalityOfGrayscaleComponentsWithMismatchedAlphaValues() {
         let moreComponents =
-        UIColorGrayscaleComponents(
+        GrayscaleComponents(
             white: randomWhiteValue,
             alpha: nudgeComponentValue(randomAlphaValue)
         )
@@ -90,7 +90,7 @@ class GrayscaleComponentsTests: XCTestCase {
         var whiteValue = CGFloat(0)
         var alphaValue = CGFloat(0)
         sampleRGBColor.getWhite(&whiteValue, alpha: &alphaValue)
-        components = UIColorGrayscaleComponents(
+        components = GrayscaleComponents(
             white: whiteValue,
             alpha: alphaValue
         )
@@ -101,7 +101,7 @@ class GrayscaleComponentsTests: XCTestCase {
         var whiteValue = CGFloat(0)
         var alphaValue = CGFloat(0)
         sampleHSBColor.getWhite(&whiteValue, alpha: &alphaValue)
-        components = UIColorGrayscaleComponents(
+        components = GrayscaleComponents(
             white: whiteValue,
             alpha: alphaValue
         )

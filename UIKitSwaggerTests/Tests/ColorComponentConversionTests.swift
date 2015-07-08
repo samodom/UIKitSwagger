@@ -12,10 +12,10 @@ import XCTest
 
 class ColorComponentConversionTests: XCTestCase {
 
-    var rgbComponents: UIColorRGBComponents!
-    var hsbComponents: UIColorHSBComponents!
-    var grayscaleComponents: UIColorGrayscaleComponents!
-    var cmykComponents: UIColorCMYKComponents!
+    var rgbComponents: RGBComponents!
+    var hsbComponents: HSBComponents!
+    var grayscaleComponents: GrayscaleComponents!
+    var cmykComponents: CMYKComponents!
 
     override func setUp() {
         super.setUp()

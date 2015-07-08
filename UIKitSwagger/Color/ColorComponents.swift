@@ -1,5 +1,5 @@
 //
-//  UIColorComponents.swift
+//  ColorComponents.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/13/14.
@@ -12,7 +12,7 @@ import UIKit
 Protocol that unifies the various types of component sets used to identify and compose a color.
 - note: Any user-defined component types will not enjoy the luxury of having the convenience initializer on `UIColor` produce component-based colors using their type.
 */
-public protocol UIColorComponents {
+public protocol ColorComponents {
     func color() -> UIColor
 }
 

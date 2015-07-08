@@ -14,6 +14,7 @@ UIKitSwagger Changelog
  - Constraint-producing functions that added their constraints to the appropriate view now use activation to accomplish that task.
  - Removed `firstCommonAncestor` from UIView since constraint activation obviates the need for knowing where to apply a constraint.
  - Fixed a newly discovered constraint search bug.
+ - Removed `UIColor` from all color component type names
  - iOS 9 and later:
   - Layout guides are now supported in the constraint builder syntax. (iOS 9 and later)
   - Layout guides are now addable/removable to/from views using the `+=` and `-=` syntax.  They are added and removed along with views to make sure that modifier items make sense.

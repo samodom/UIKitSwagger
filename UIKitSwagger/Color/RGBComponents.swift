@@ -1,5 +1,5 @@
 //
-//  UIColorRGBComponents.swift
+//  RGBComponents.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/13/14.
@@ -11,7 +11,7 @@ import UIKit
 /**
 Convenience structure to hold the red, green, blue and alpha component values of an instance of `UIColor`.
 */
-public struct UIColorRGBComponents: UIColorComponents {
+public struct RGBComponents: ColorComponents {
     public let red: CGFloat
     public let green: CGFloat
     public let blue: CGFloat
@@ -35,11 +35,11 @@ public struct UIColorRGBComponents: UIColorComponents {
 /**
 Equatability of RGB components.
 */
-extension UIColorRGBComponents: Equatable {
+extension RGBComponents: Equatable {
 
 }
 
-public func ==(lhs: UIColorRGBComponents, rhs: UIColorRGBComponents) -> Bool {
+public func ==(lhs: RGBComponents, rhs: RGBComponents) -> Bool {
     return componentValuesEqualWithinTolerance(lhs.red, rhs.red) &&
         componentValuesEqualWithinTolerance(lhs.green, rhs.green) &&
         componentValuesEqualWithinTolerance(lhs.blue, rhs.blue) &&
@@ -51,14 +51,14 @@ public extension UIColor {
     /**
     Property that returns the RGB components of the color in a structure.
     */
-    public var rgbComponents: UIColorRGBComponents {
+    public var rgbComponents: RGBComponents {
         var redValue = CGFloat(0)
         var greenValue = CGFloat(0)
         var blueValue = CGFloat(0)
         var alphaValue = CGFloat(0)
 
         getRed(&redValue, green: &greenValue, blue: &blueValue, alpha: &alphaValue)
-        return UIColorRGBComponents(red: redValue, green: greenValue, blue: blueValue, alpha: alphaValue)
+        return RGBComponents(red: redValue, green: greenValue, blue: blueValue, alpha: alphaValue)
     }
 
 }
@@ -66,26 +66,26 @@ public extension UIColor {
 /**
 Component conversion methods.
 */
-public extension UIColorRGBComponents {
+public extension RGBComponents {
 
     /**
     Converts RGB components into HSB components.
     */
-    public func asHSBComponents() -> UIColorHSBComponents {
+    public func asHSBComponents() -> HSBComponents {
         return color().hsbComponents
     }
 
     /**
     Converts RGB components into grayscale components.
     */
-    public func asGrayscaleComponents() -> UIColorGrayscaleComponents {
+    public func asGrayscaleComponents() -> GrayscaleComponents {
         return color().grayscaleComponents
     }
 
     /**
     Converts RGB components into CMYK components.
     */
-    public func asCMYKComponents() -> UIColorCMYKComponents {
+    public func asCMYKComponents() -> CMYKComponents {
         return color().cmykComponents
     }
     
