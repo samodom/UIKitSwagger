@@ -70,7 +70,9 @@ public func -=(view: UIView, removable: UIViewRemovable) {
 
     switch removable {
     case let subview as UIView:
-        subview.removeFromSuperview()
+        if subview.superview == view {
+            subview.removeFromSuperview()
+        }
 
     case let effect as UIMotionEffect:
         view.removeMotionEffect(effect)

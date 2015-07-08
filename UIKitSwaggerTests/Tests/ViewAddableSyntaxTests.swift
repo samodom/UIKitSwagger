@@ -28,6 +28,8 @@ class ViewAddableSyntaxTests: XCTestCase {
         super.tearDown()
     }
 
+    //  MARK: Adding
+
     func testAddingSubviewWithOperator() {
         view += subview1
         XCTAssertEqual(subview1.superview!, view, "The supplied subview operand should be added to the view")
@@ -99,6 +101,14 @@ class ViewAddableSyntaxTests: XCTestCase {
         XCTAssertTrue(view.gestureRecognizers!.contains(recognizer2), "Each supplied gesture recognizer should be added to the view")
     }
 
+    //  MARK: Removing
+
+    func testCannotRemoveSubviewNotInView() {
+        subview1.addSubview(subview2)
+        view -= subview2
+        XCTAssertEqual(subview2.superview!, subview1, "The unowned subview operand should not be removed from its superview")
+    }
+
     func testRemovingSubviewWithOperator() {
         view.addSubview(subview1)
         view -= subview1
@@ -111,6 +121,14 @@ class ViewAddableSyntaxTests: XCTestCase {
         view -= [subview1, subview2]
         XCTAssertNil(subview1.superview, "Each supplied subview should be removed from the view")
         XCTAssertNil(subview2.superview, "Each supplied subview should be removed from the view")
+    }
+
+    @available(iOS 9.0, *)
+    func testCannotRemoveLayoutGuideNotInView() {
+        let guide = UILayoutGuide()
+        subview1.addLayoutGuide(guide)
+        view -= guide
+        XCTAssertEqual(guide.owningView!, subview1, "The unowned layout guide should not be removed from its owning view")
     }
 
     @available(iOS 9.0, *)
@@ -143,6 +161,12 @@ class ViewAddableSyntaxTests: XCTestCase {
         subview1.addMotionEffect(effect2)
         subview1 -= [effect1, effect2]
         XCTAssertEqual(subview1.motionEffects.count, 0, "Each supplied motion effect should be removed from the view")
+    }
+
+    func testCannotRemoveGestureRecognizerNotOwnedByView() {
+        subview1.addGestureRecognizer(recognizer1)
+        view -= recognizer1
+        XCTAssertEqual(recognizer1.view!, subview1, "The gesture recognizer should not be removed from its owning view")
     }
 
     func testRemovingGestureRecognizerWithOperator() {
