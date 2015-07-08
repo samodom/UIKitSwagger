@@ -10,14 +10,14 @@ import UIKit
 
 extension UIView {
 
+    /**
+    Integer-indexed subview subscripting.
+    - parameter index: (getter) Index of subview to get.  (setter) When non-negative, uses the provided view to replace the subview at the specified index.  Using any negative index is treated as moving the view to a new superview.
+    - returns: Subview at provided index (getter).
+    - note: When replacing a subview, there must exist a subview at the specified index -- otherwise, the operation is ignored.
+    */
     public subscript(index: Int) -> UIView? {
 
-        /**
-          Integer-indexed subview subscripting.
-        
-          :index:       Index of subview to return.
-          :returns:     Subview at provided index.
-        */
         get {
             switch index {
             case 0 ..< Int.max:
@@ -36,14 +36,6 @@ extension UIView {
             }
         }
 
-        /**
-          Integer-indexed subview subscripting.
-          When replacing a subview, there must exist a subview at the specified index.
-          Otherwise, the operation is ignored.
-
-          :param:       index When non-negative, uses the provided view to replace the subview at the specified index.  Using any negative index is treated as moving the view to a new superview.
-          :param:       newView When `index` is non-negative, this view will replace any existing subview at the index.  When `index` is negative, this view will become the new superview of the current view.
-        */
         set(newSuperview) {
             if index >= 0 {
                 let oldView = subviews[index]
@@ -68,13 +60,12 @@ extension UIView {
 public extension UIView {
 
     /**
-      Much less verbose method signature for exchanging subviews.
-
-      :param:       indexOne Index of first subview to swap.
-      :param:       indexTwo Index of second subview to swap.
+    Much less verbose method signature for exchanging subviews.
+    - parameter indexOne: Index of first subview to swap.
+    - parameter indexTwo: Index of second subview to swap.
     */
     public func swap(indexOne: Int, _ indexTwo: Int) {
         exchangeSubviewAtIndex(indexOne, withSubviewAtIndex: indexTwo)
     }
-
+    
 }

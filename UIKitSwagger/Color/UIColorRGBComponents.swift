@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-  Convenience structure to hold the red, green, blue and alpha component values of an instance of `UIColor`.
+Convenience structure to hold the red, green, blue and alpha component values of an instance of `UIColor`.
 */
 public struct UIColorRGBComponents: UIColorComponents {
     public let red: CGFloat
@@ -25,7 +25,7 @@ public struct UIColorRGBComponents: UIColorComponents {
     }
 
     /**
-      Required method for creating colors based on this component scheme.
+    Required method for creating colors based on this component scheme.
     */
     public func color() -> UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
@@ -33,7 +33,7 @@ public struct UIColorRGBComponents: UIColorComponents {
 }
 
 /**
-  Equatability of RGB components.
+Equatability of RGB components.
 */
 extension UIColorRGBComponents: Equatable {
 
@@ -49,7 +49,7 @@ public func ==(lhs: UIColorRGBComponents, rhs: UIColorRGBComponents) -> Bool {
 public extension UIColor {
 
     /**
-      Property that returns the RGB components of the color in a structure.
+    Property that returns the RGB components of the color in a structure.
     */
     public var rgbComponents: UIColorRGBComponents {
         var redValue = CGFloat(0)
@@ -64,29 +64,29 @@ public extension UIColor {
 }
 
 /**
-  Component conversion methods.
+Component conversion methods.
 */
 public extension UIColorRGBComponents {
 
     /**
-      Converts RGB components into HSB components.
+    Converts RGB components into HSB components.
     */
     public func asHSBComponents() -> UIColorHSBComponents {
         return color().hsbComponents
     }
 
     /**
-      Converts RGB components into grayscale components.
+    Converts RGB components into grayscale components.
     */
     public func asGrayscaleComponents() -> UIColorGrayscaleComponents {
         return color().grayscaleComponents
     }
 
     /**
-      Converts RGB components into CMYK components.
+    Converts RGB components into CMYK components.
     */
     public func asCMYKComponents() -> UIColorCMYKComponents {
         return color().cmykComponents
     }
-
+    
 }

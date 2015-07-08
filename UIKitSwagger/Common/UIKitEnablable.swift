@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+Protocol for encapsulating the ability to enable and disable something.
+*/
 public protocol UIKitEnablable {
     var enabled: Bool { get set }
     mutating func enable()

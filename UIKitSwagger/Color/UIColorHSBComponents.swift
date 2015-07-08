@@ -9,7 +9,7 @@
 import UIKit
 
 /**
-  Convenience structure to hold the hue, saturation, brightness and alpha component values of an instance of `UIColor`.
+Convenience structure to hold the hue, saturation, brightness and alpha component values of an instance of `UIColor`.
 */
 public struct UIColorHSBComponents: UIColorComponents {
     public let hue: CGFloat
@@ -25,7 +25,7 @@ public struct UIColorHSBComponents: UIColorComponents {
     }
 
     /**
-      Required method for creating colors based on this component scheme.
+    Required method for creating colors based on this component scheme.
     */
     public func color() -> UIColor {
         return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
@@ -33,7 +33,7 @@ public struct UIColorHSBComponents: UIColorComponents {
 }
 
 /**
-  Equatability of HSB components.
+Equatability of HSB components.
 */
 extension UIColorHSBComponents: Equatable {
 
@@ -49,7 +49,7 @@ public func ==(lhs: UIColorHSBComponents, rhs: UIColorHSBComponents) -> Bool {
 public extension UIColor {
 
     /**
-      Property that returns the HSB components of the color in a structure.
+    Property that returns the HSB components of the color in a structure.
     */
     public var hsbComponents: UIColorHSBComponents {
         var hueValue = CGFloat(0)
@@ -64,29 +64,29 @@ public extension UIColor {
 }
 
 /**
-  Component conversion methods.
+Component conversion methods.
 */
 public extension UIColorHSBComponents {
 
     /**
-      Converts HSB components into RGB components.
+    Converts HSB components into RGB components.
     */
     public func asRGBComponents() -> UIColorRGBComponents {
         return color().rgbComponents
     }
 
     /**
-      Converts HSB components into grayscale components.
+    Converts HSB components into grayscale components.
     */
     public func asGrayscaleComponents() -> UIColorGrayscaleComponents {
         return color().grayscaleComponents
     }
 
     /**
-      Converts HSB components into CNYK components.
+    Converts HSB components into CNYK components.
     */
     public func asCMYKComponents() -> UIColorCMYKComponents {
         return color().cmykComponents
     }
-
+    
 }

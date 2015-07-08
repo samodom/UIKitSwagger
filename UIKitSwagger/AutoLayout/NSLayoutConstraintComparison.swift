@@ -11,7 +11,8 @@ import UIKit
 extension NSLayoutConstraint  {
 
     /**
-      Constraints should be equatable beyond reference comparison and we match them in a property-by-property manner.
+    Constraints should be equatable beyond reference comparison and we match them in a property-by-property manner.
+    - parameter object: Another constraint to compare to this constraint.
     */
     override public func isEqual(object: AnyObject?) -> Bool {
         guard self !== object else { return true }
@@ -27,7 +28,7 @@ extension NSLayoutConstraint  {
         if let reverse = otherConstraint.reversed() {
             return componentsMatch(reverse)
         }
-        
+
         return false
     }
 
@@ -47,17 +48,17 @@ extension NSLayoutConstraint  {
 
         return true
     }
-    
+
 }
 
 
 /**
-  Global-level definition of the constraint identity operator
+Global-level definition of the constraint identity operator.
 */
 infix operator ==* { }
 
 public func ==* (lhs: NSLayoutConstraint, rhs: NSLayoutConstraint) -> Bool {
     return
         lhs == rhs &&
-        lhs.identifier == rhs.identifier
+            lhs.identifier == rhs.identifier
 }

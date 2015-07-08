@@ -11,14 +11,14 @@ import UIKit
 public extension NSLayoutConstraint {
 
     /**
-      Convenience method to activate an auto layout constraint.
+    Convenience method to activate an auto layout constraint.
     */
     public func activate() {
         active = true
     }
 
     /**
-      Convenience method to deactivate an auto layout constraint.
+    Convenience method to deactivate an auto layout constraint.
     */
     public func deactivate() {
         active = false

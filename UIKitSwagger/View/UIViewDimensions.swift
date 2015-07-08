@@ -11,11 +11,10 @@ import UIKit
 public extension UIView {
 
     /**
-      Convenience method for constraining the width of a view to a constant value.
-      The layout constraint created by this function is applied to this view.
-
-      :param:       width Width to maintain on view.
-      :returns:     The constraint that was applied to the view.
+    Convenience method for constraining the width of a view to a constant value.
+    - parameter width: Width to maintain on view.
+    - returns: The constraint that was created and activated.
+    - note: The layout constraint created by this method is automatically activated.
     */
     public func constrainWidth(width: CGFloat) -> NSLayoutConstraint {
         let constraint = self.width =* width
@@ -24,11 +23,10 @@ public extension UIView {
     }
 
     /**
-      Convenience method for constraining the width of a view to a range of value.
-      The layout constraints created by this function are applied to this view.
-
-      :param:       interval Range of width values to maintain on view.
-      :returns:     The constraints that were applied to the view.
+    Convenience method for constraining the width of a view to a range of value.
+    - parameter interval: Range of width values to maintain on view.
+    - returns: The constraints that were created and activated.
+    - note: The layout constraints created by this method are automatically activated.
     */
     public func constrainWidth(interval: ClosedInterval<CGFloat>) -> [NSLayoutConstraint] {
         let constraints = [
@@ -40,11 +38,10 @@ public extension UIView {
     }
 
     /**
-      Convenience method for constraining the height of a view to a constant value.
-      The layout constraint created by this function is applied to this view.
-
-      :param:       height Height to maintain on view.
-      :returns:     The constraint that was applied to the view.
+    Convenience method for constraining the height of a view to a constant value.
+    - parameter height: Height to maintain on view.
+    - returns: The constraint that was created and activated.
+    - note: The layout constraint created by this method is automatically activated.
     */
     public func constrainHeight(height: CGFloat) -> NSLayoutConstraint {
         let constraint = self.height =* height
@@ -53,11 +50,10 @@ public extension UIView {
     }
 
     /**
-      Convenience method for constraining the height of a view to a range of value.
-      The layout constraints created by this function are applied to this view.
-
-      :param:       interval Range of height values to maintain on view.
-      :returns:     The constraints that were applied to the view.
+    Convenience method for constraining the height of a view to a range of value.
+    - parameter interval: Range of height values to maintain on view.
+    - returns: The constraints that were created and activated.
+    - note: The layout constraints created by this method are automatically activated.
     */
     public func constrainHeight(interval: ClosedInterval<CGFloat>) -> [NSLayoutConstraint] {
         let constraints = [
@@ -69,12 +65,12 @@ public extension UIView {
     }
 
     /**
-      Convenience method for setting the aspect ratio on a view with or without an offset.
-      The layout constraint created by this function is applied to this view.  Using an aspect ratio of zero throws an error.
-
-      :param:       aspectRatio Aspect ratio to maintain between the width and height before the offset.
-      :param:       offset Offset value to add to the height multiple to get the final width.
-      :returns:     The constraint that was applied to the view.
+    Convenience method for setting the aspect ratio on a view with or without an offset.
+    - parameter aspectRatio: Aspect ratio to maintain between the width and height before the offset.
+    - parameter offset: Offset value to add to the height multiple to get the final width.
+    - returns: The constraint that was created and activated.
+    - note: The layout constraint created by this method is automatically activated.
+    - warning: Using an aspect ratio of zero throws an error.
     */
     public func constrainWidthToHeight(aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> NSLayoutConstraint {
         assert(aspectRatio != 0)
@@ -82,12 +78,12 @@ public extension UIView {
     }
 
     /**
-      Convenience method for setting the aspect ratio on a view with or without an offset.
-      The layout constraint created by this function is applied to this view.  Using an aspect ratio of zero throws an error.
-
-      :param:       aspectRatio Aspect ratio to maintain between the height and width before the offset.
-      :param:       offset Offset value to add to the width multiple to get the final height.
-      :returns:     The constraint that was applied to the view.
+    Convenience method for setting the aspect ratio on a view with or without an offset.
+    - parameter aspectRatio: Aspect ratio to maintain between the height and width before the offset.
+    - parameter offset: Offset value to add to the width multiple to get the final height.
+    - returns: The constraint that was created and activated.
+    - note: The layout constraint created by this method is automatically activated.
+    - warning: Using an aspect ratio of zero throws an error.
     */
     public func constrainHeightToWidth(aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> NSLayoutConstraint {
         assert(aspectRatio != 0)
