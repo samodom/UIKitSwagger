@@ -63,6 +63,38 @@ public extension UIColor {
 
 }
 
+public extension UIColor {
+
+    /**
+    Property to provide the red component value of the color.
+    */
+    public var red: CGFloat {
+        return rgbComponents.red
+    }
+
+    /**
+    Property to provide the green component value of the color.
+    */
+    public var green: CGFloat {
+        return rgbComponents.green
+    }
+
+    /**
+    Property to provide the blue component value of the color.
+    */
+    public var blue: CGFloat {
+        return rgbComponents.blue
+    }
+
+    /**
+    Property to provide the alpha component value of the color.
+    */
+    public var alpha: CGFloat {
+        return rgbComponents.alpha
+    }
+    
+}
+
 /**
 Component conversion methods.
 */

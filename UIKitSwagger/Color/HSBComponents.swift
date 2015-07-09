@@ -32,6 +32,31 @@ public struct HSBComponents: ColorComponents {
     }
 }
 
+public extension UIColor {
+
+    /**
+    Property to provide the hue component value of the color.
+    */
+    public var hue: CGFloat {
+        return hsbComponents.hue
+    }
+
+    /**
+    Property to provide the saturation component value of the color.
+    */
+    public var saturation: CGFloat {
+        return hsbComponents.saturation
+    }
+
+    /**
+    Property to provide the brightness component value of the color.
+    */
+    public var brightness: CGFloat {
+        return hsbComponents.brightness
+    }
+    
+}
+
 /**
 Equatability of HSB components.
 */

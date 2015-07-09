@@ -56,6 +56,17 @@ public extension UIColor {
 
 }
 
+public extension UIColor {
+
+    /**
+    Property to provide the white component value of the color.
+    */
+    public var white: CGFloat {
+        return grayscaleComponents.white
+    }
+    
+}
+
 /**
 Component conversion methods.
 */
