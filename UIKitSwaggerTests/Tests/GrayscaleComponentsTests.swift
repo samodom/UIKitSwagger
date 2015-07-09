@@ -14,8 +14,7 @@ import XCTest
 
 class GrayscaleComponentsTests: XCTestCase {
 
-    var components =
-    GrayscaleComponents(
+    var components = GrayscaleComponents(
         white: randomWhiteValue,
         alpha: randomAlphaValue
     )
@@ -58,8 +57,7 @@ class GrayscaleComponentsTests: XCTestCase {
     //  MARK: Equality
 
     func testEqualityOfGrayscaleComponentStructure() {
-        let moreComponents =
-        GrayscaleComponents(
+        let moreComponents = GrayscaleComponents(
             white: randomWhiteValue,
             alpha: randomAlphaValue
         )
@@ -67,8 +65,7 @@ class GrayscaleComponentsTests: XCTestCase {
     }
 
     func testInequalityOfGrayscaleComponentsWithMismatchedWhiteValues() {
-        let moreComponents =
-        GrayscaleComponents(
+        let moreComponents = GrayscaleComponents(
             white: nudgeComponentValue(randomWhiteValue),
             alpha: randomAlphaValue
         )
@@ -76,8 +73,7 @@ class GrayscaleComponentsTests: XCTestCase {
     }
 
     func testInequalityOfGrayscaleComponentsWithMismatchedAlphaValues() {
-        let moreComponents =
-        GrayscaleComponents(
+        let moreComponents = GrayscaleComponents(
             white: randomWhiteValue,
             alpha: nudgeComponentValue(randomAlphaValue)
         )

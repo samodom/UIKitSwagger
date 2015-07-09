@@ -80,7 +80,14 @@ class ViewAddableSyntaxTests: XCTestCase {
     }
 
     func testAddingMixOfAddablesWithOperator() {
-        var addables = [effect1, recognizer2, subview1, effect2, subview2, recognizer1] as [UIViewAddable]
+        var addables: [UIViewAddable] = [
+            effect1,
+            recognizer2,
+            subview1,
+            effect2,
+            subview2,
+            recognizer1
+        ]
         var guide1: UIViewAddable!
         var guide2: UIViewAddable!
         if #available(iOS 9.0, *) {
@@ -183,7 +190,14 @@ class ViewAddableSyntaxTests: XCTestCase {
     }
 
     func testRemovingMixOfAddablesWithOperator() {
-        var addables = [effect1, recognizer2, subview1, effect2, subview2, recognizer1] as [UIViewAddable]
+        var addables: [UIViewAddable] = [
+            effect1,
+            recognizer2,
+            subview1,
+            effect2,
+            subview2,
+            recognizer1
+        ]
         var guide1: UIViewAddable!
         var guide2: UIViewAddable!
         if #available(iOS 9.0, *) {

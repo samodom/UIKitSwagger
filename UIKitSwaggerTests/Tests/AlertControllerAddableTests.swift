@@ -12,8 +12,16 @@ import XCTest
 
 class AlertControllerAddableTests: XCTestCase {
 
-    let alertController = UIAlertController(title: "Alert", message: "Message", preferredStyle: .Alert)
-    let actionSheetController = UIAlertController(title: "Alert Sheet", message: "Message", preferredStyle: .ActionSheet)
+    let alertController = UIAlertController(
+        title: "Alert",
+        message: "Message",
+        preferredStyle: .Alert
+    )
+    let actionSheetController = UIAlertController(
+        title: "Alert Sheet",
+        message: "Message",
+        preferredStyle: .ActionSheet
+    )
 
     var action1: UIAlertAction!
     var action2: UIAlertAction!
@@ -29,9 +37,21 @@ class AlertControllerAddableTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        action1 = UIAlertAction(title: "Action 1", style: .Default, handler: UIAlertActionHandler())
-        action2 = UIAlertAction(title: "Action 2", style: .Destructive, handler: UIAlertActionHandler())
-        action3 = UIAlertAction(title: "Action 3", style: .Cancel, handler: UIAlertActionHandler())
+        action1 = UIAlertAction(
+            title: "Action 1",
+            style: .Default,
+            handler: UIAlertActionHandler()
+        )
+        action2 = UIAlertAction(
+            title: "Action 2",
+            style: .Destructive,
+            handler: UIAlertActionHandler()
+        )
+        action3 = UIAlertAction(
+            title: "Action 3",
+            style: .Cancel,
+            handler: UIAlertActionHandler()
+        )
 
         configurationHandler1 = { self.field1 = $0 }
         configurationHandler2 = { self.field2 = $0 }

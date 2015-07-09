@@ -11,8 +11,17 @@ import XCTest
 
 class BarItemEnablingTests: XCTestCase {
 
-    var enabledBarItem = UIBarButtonItem(title: "Sample", style: .Plain, target: nil, action: "sampleAction")
-    var disabledBarItem = UITabBarItem(title: "Sample", image: nil, tag: 14)
+    var enabledBarItem = UIBarButtonItem(
+        title: "Sample",
+        style: .Plain,
+        target: nil,
+        action: "sampleAction"
+    )
+    var disabledBarItem = UITabBarItem(
+        title: "Sample",
+        image: nil,
+        tag: 14
+    )
 
     override func setUp() {
         super.setUp()
