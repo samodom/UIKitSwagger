@@ -53,6 +53,8 @@
 		0A8028091A34257C00816792 /* BarItemEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8028081A34257C00816792 /* BarItemEnablingTests.swift */; };
 		0A8028131A342EEA00816792 /* ControlEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8028111A342EEA00816792 /* ControlEnablingTests.swift */; };
 		0A9032261A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9032251A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift */; };
+		0A9137311B50303600428632 /* LayoutDirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9137301B50303600428632 /* LayoutDirectionTests.swift */; };
+		0A9137331B50312300428632 /* LayoutDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9137321B50312300428632 /* LayoutDirection.swift */; };
 		0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */; };
 		0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */; };
 		0AA580591A3D29EB0061D882 /* RGBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA580581A3D29EB0061D882 /* RGBComponents.swift */; };
@@ -158,6 +160,8 @@
 		0A8028081A34257C00816792 /* BarItemEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarItemEnablingTests.swift; sourceTree = "<group>"; };
 		0A8028111A342EEA00816792 /* ControlEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlEnablingTests.swift; sourceTree = "<group>"; };
 		0A9032251A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicBehaviorItemAdditionSyntaxTests.swift; sourceTree = "<group>"; };
+		0A9137301B50303600428632 /* LayoutDirectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDirectionTests.swift; sourceTree = "<group>"; };
+		0A9137321B50312300428632 /* LayoutDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDirection.swift; sourceTree = "<group>"; };
 		0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHideTests.swift; sourceTree = "<group>"; };
 		0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewUtilities.swift; sourceTree = "<group>"; };
 		0AA580581A3D29EB0061D882 /* RGBComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBComponents.swift; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 				0ACED1711AA384420073E42C /* GrayscaleComponentsTests.swift */,
 				0ACED16F1AA384360073E42C /* HSBComponentsTests.swift */,
 				0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */,
+				0A9137301B50303600428632 /* LayoutDirectionTests.swift */,
 				0A63DFDC1B3B4C5100B68DC0 /* LayoutGuideLayoutAttributesTests.swift */,
 				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
 				0ACED16D1AA383A70073E42C /* RGBComponentsTests.swift */,
@@ -347,6 +352,7 @@
 				0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */,
 				0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */,
 				0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */,
+				0A9137321B50312300428632 /* LayoutDirection.swift */,
 				0AD6F25A1A34394000D863A2 /* NSLayoutConstraintActivation.swift */,
 				0A3BB99F19EB71F00075B32A /* NSLayoutConstraintComparison.swift */,
 				0A52547A1B34CF1600BC39DC /* NSLayoutConstraintReversal.swift */,
@@ -656,6 +662,7 @@
 				0A3BB9A219EB71F00075B32A /* NSLayoutConstraintComparison.swift in Sources */,
 				0ACADAE71A3A8C6700CF49F8 /* UIAlertControllerAdditionSyntax.swift in Sources */,
 				0A5F12F81A285EB600694C56 /* UIViewDimensions.swift in Sources */,
+				0A9137331B50312300428632 /* LayoutDirection.swift in Sources */,
 				0AA580591A3D29EB0061D882 /* RGBComponents.swift in Sources */,
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0ACADAF31A3BF4A500CF49F8 /* UISliderInterval.swift in Sources */,
@@ -709,6 +716,7 @@
 				0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */,
 				0A5A29781A73351D003CB7EE /* SpinnerStateManagerTests.swift in Sources */,
 				0A67BADA1A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift in Sources */,
+				0A9137311B50303600428632 /* LayoutDirectionTests.swift in Sources */,
 				0ACED1801AA3E8A40073E42C /* CMYKComponentsTests.swift in Sources */,
 				0AC4A8D91A27FCF800EBCCB8 /* ViewAlignmentTests.swift in Sources */,
 				0A63F7431A3D51F0001FBFF7 /* ColorPaletteTests.swift in Sources */,
