@@ -83,10 +83,10 @@ internal func AssertDistributionItemCount(count: Int) {
     assert(count > 1, "Multiple views are required for distribution")
 }
 
-internal func DistributeViews(views: [UIView], spacing: CGFloat, direction: DistributionDirection)  -> [NSLayoutConstraint] {
+internal func DistributeViews(views: [UIView], spacing: CGFloat, direction: LayoutDirection)  -> [NSLayoutConstraint] {
     AssertDistributionItemCount(views.count)
 
-    let attributes = direction.attributePair()
+    let attributes = direction.attributePair
     var constraints = [NSLayoutConstraint]()
     var anchor: AutoLayoutAttributedItem
     var item = views.first!.attributedItemForLayoutAttribute(attributes.1)
@@ -100,25 +100,6 @@ internal func DistributeViews(views: [UIView], spacing: CGFloat, direction: Dist
     }
 
     return constraints
-}
-
-internal enum DistributionDirection {
-    case LeftToRight
-    case LeadingToTrailing
-    case TopToBottom
-
-    private func attributePair() -> (NSLayoutAttribute, NSLayoutAttribute) {
-        switch self {
-        case .LeftToRight:
-            return (.Left, .Right)
-
-        case .LeadingToTrailing:
-            return (.Leading, .Trailing)
-
-        case .TopToBottom:
-            return (.Top, .Bottom)
-        }
-    }
 }
 
 
