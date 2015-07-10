@@ -22,6 +22,10 @@ internal enum LayoutDirection: Int {
         let defaultPair = DirectedAttributePairMapping[defaultDirection]!
         return reversed ? reverseAttributePair(defaultPair) : defaultPair
     }
+
+    internal var axis: UILayoutConstraintAxis {
+        return abs(rawValue) == 3 ? .Vertical : .Horizontal
+    }
 }
 
 internal prefix func -(direction: LayoutDirection) -> LayoutDirection {
