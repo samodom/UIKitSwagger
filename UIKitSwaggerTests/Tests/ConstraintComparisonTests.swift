@@ -49,6 +49,10 @@ class ConstraintComparisonTests: XCTestCase {
 
     //  MARK: Equivalency
 
+    func testNonConstraintIsUnequal() {
+        XCTAssertNotEqual(constraintOne, NSObject(), "A constraint and any other object type should be considered unequal")
+    }
+
     func testIdenticalContraintsAreEqual() {
         XCTAssertEqual(constraintOne, constraintOne, "A constraint should be considered equal to itself")
     }

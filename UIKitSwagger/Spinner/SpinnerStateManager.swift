@@ -74,14 +74,7 @@ public class SpinnerStateManager {
     - note: If it is animating and has multiple clients, the client count is decreased by one (1) and the spinner will continue to animate.  If a spinner is not attached to the manager, the stop event is ignored.
     */
     public func stop() {
-        switch currentState {
-        case .Started(_):
-            removeClient()
-            stopAnimatingIfNeeded()
-
-        default:
-            break
-        }
+        removeClient()
     }
 
     private func removeClient() {
@@ -95,6 +88,8 @@ public class SpinnerStateManager {
         default:
             break
         }
+
+        stopAnimatingIfNeeded()
     }
 
     private func stopAnimatingIfNeeded() {

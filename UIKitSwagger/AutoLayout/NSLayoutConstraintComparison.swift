@@ -15,8 +15,8 @@ extension NSLayoutConstraint  {
     - parameter object: Another constraint to compare to this constraint.
     */
     override public func isEqual(object: AnyObject?) -> Bool {
-        guard self !== object else { return true }
         guard object is NSLayoutConstraint else { return false }
+        guard self !== object else { return true }
 
         let otherConstraint = object as! NSLayoutConstraint
         guard priority == otherConstraint.priority else { return false }

@@ -35,7 +35,6 @@ public func +=(view: UIView, addable: UIViewAddable) {
     case let subview as UIView:
         view.addSubview(subview)
 
-
     case let effect as UIMotionEffect:
         view.addMotionEffect(effect)
 
