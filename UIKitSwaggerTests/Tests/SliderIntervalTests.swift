@@ -26,10 +26,6 @@ class SliderIntervalTests: XCTestCase {
         slider.maximumValue = initialMaximum
     }
 
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testSliderHasInterval() {
         interval = slider.interval
         XCTAssertEqual(interval.start, slider.minimumValue, "The start of the interval should be the slider's minimum value")

@@ -20,10 +20,6 @@ class AlertActionEnablingTests: XCTestCase {
         enabledAction.enabled = true
         disabledAction.enabled = false
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     func testEnablingDisabledAlertAction() {
         disabledAction.enable()

@@ -28,10 +28,6 @@ class ColorPaletteTests: XCTestCase {
         ]
     }
 
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testCreatingEmptyPalette() {
         XCTAssertEqual(palette.numberOfColors, 0, "There should be no colors in an empty palette")
     }

@@ -27,14 +27,6 @@ class CMYKComponentsTests: XCTestCase {
     var expectedYellow = CGFloat(0)
     var expectedKey = CGFloat(0)
 
-    override func setUp() {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
-
     private func computeExpectedCMYKValuesForColor(color: UIColor) {
         let maximumValue = max(color.red, color.green, color.blue)
         if maximumValue > 0 {

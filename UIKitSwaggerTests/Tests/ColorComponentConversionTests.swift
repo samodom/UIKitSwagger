@@ -17,14 +17,6 @@ class ColorComponentConversionTests: XCTestCase {
     var grayscaleComponents: GrayscaleComponents!
     var cmykComponents: CMYKComponents!
 
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
     //  MARK: RGB -> ...
 
     func testRGBtoHSBConversion() {

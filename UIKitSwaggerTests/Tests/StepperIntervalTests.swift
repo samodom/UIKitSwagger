@@ -26,10 +26,6 @@ class StepperIntervalTests: XCTestCase {
         stepper.maximumValue = initialMaximum
     }
 
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testStepperHasInterval() {
         interval = stepper.interval
         XCTAssertEqual(interval.start, stepper.minimumValue, "The start of the interval should be the stepper's minimum value")

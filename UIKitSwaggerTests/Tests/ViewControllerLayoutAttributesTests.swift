@@ -22,10 +22,6 @@ class ViewControllerLayoutAttributesTests: XCTestCase {
         controller = window!.rootViewController
     }
 
-    override func tearDown() {
-        super.tearDown()
-    }
-
     //  MARK: Properties
 
     func testLeftAttributedItem() {

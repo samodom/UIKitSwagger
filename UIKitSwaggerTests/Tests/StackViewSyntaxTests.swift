@@ -23,10 +23,6 @@ class StackViewSyntaxTests: XCTestCase {
 
         arrangedViews = [view1, view2, view3]
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     //  MARK: Horizontal
 

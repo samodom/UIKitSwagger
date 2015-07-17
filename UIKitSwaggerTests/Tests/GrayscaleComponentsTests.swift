@@ -19,14 +19,6 @@ class GrayscaleComponentsTests: XCTestCase {
         alpha: randomAlphaValue
     )
 
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
     //  MARK: - Component values
 
     func testWhiteComponentWithRGBColor() {

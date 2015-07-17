@@ -42,10 +42,6 @@ class ConstraintComparisonTests: XCTestCase {
         constraintOne.priority = 140
         constraintOne.identifier = identifier
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     //  MARK: Equivalency
 

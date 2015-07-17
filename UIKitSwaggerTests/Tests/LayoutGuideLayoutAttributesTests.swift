@@ -16,14 +16,6 @@ class LayoutGuideLayoutAttributesTests: XCTestCase {
     var attributedItem: AutoLayoutAttributedItem!
     let guide = UILayoutGuide()
 
-    override func setUp() {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
-
     //  MARK: Properties
 
     func testLeftAttributedItem() {

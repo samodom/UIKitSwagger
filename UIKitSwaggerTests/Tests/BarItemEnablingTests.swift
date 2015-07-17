@@ -29,14 +29,8 @@ class BarItemEnablingTests: XCTestCase {
         enabledBarItem.enabled = true
         disabledBarItem.enabled = false
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
-    private func sampleAction() {
-
-    }
+    private func sampleAction() { }
 
     func testEnablingDisabledBarItem() {
         disabledBarItem.enable()

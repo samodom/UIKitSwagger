@@ -15,14 +15,6 @@ class SpinnerStateManagerTests: XCTestCase {
     var spinnerManager = SpinnerStateManager()
     var spinner: UIActivityIndicatorView = UIActivityIndicatorView()
 
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testManagerDoesNotHaveSpinnerByDefault() {
         XCTAssertNil(spinnerManager.spinner, "The manager should not have a spinner by default")
 

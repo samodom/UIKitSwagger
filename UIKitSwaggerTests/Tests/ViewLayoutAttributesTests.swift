@@ -15,14 +15,6 @@ class ViewLayoutAttributesTests: XCTestCase {
     var attributedItem: AutoLayoutAttributedItem!
     let view = UIView()
 
-    override func setUp() {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
-
     //  MARK: Properties
 
     func testLeftAttributedItem() {

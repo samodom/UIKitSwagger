@@ -17,14 +17,6 @@ class DynamicAnimatorAdditionSyntaxTests: XCTestCase {
     let behavior2 = UIDynamicBehavior()
     let behavior3 = UIDynamicBehavior()
 
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testAddingDynamicBehaviorWithOperator() {
         animator += behavior1
         XCTAssertEqual(animator.behaviors, [behavior1], "The behavior should be added to the animator")

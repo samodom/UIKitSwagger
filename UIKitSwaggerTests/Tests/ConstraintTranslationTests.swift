@@ -28,10 +28,6 @@ class ConstraintTranslationTests: XCTestCase {
         assert(image.translatesAutoresizingMaskIntoConstraints)
         assert(label.translatesAutoresizingMaskIntoConstraints)
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     func testTurningOffTranslationWithSingleItem() {
         DoNotTranslateMasks(view)

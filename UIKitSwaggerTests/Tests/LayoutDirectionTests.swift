@@ -14,14 +14,6 @@ class LayoutDirectionTests: XCTestCase {
     var direction: LayoutDirection!
     var opposite: LayoutDirection!
 
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testCreatingDirectionFromRawValues() {
         for raw in -10 ... 10 {
             direction = LayoutDirection(rawValue: raw)

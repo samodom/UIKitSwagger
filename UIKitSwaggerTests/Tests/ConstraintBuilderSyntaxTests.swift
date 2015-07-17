@@ -36,10 +36,6 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         }
 
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     //  MARK: Right-side operands
 

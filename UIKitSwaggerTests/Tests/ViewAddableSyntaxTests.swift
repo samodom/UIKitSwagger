@@ -20,14 +20,6 @@ class ViewAddableSyntaxTests: XCTestCase {
     var recognizer1 = UIGestureRecognizer()
     var recognizer2 = UIGestureRecognizer()
 
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
     //  MARK: Adding
 
     func testAddingSubviewWithOperator() {

@@ -16,14 +16,6 @@ class ShowHideTests: XCTestCase {
     var viewTwo = UIView()
     var viewThree = UIView()
 
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
     private func hideAll() {
         viewOne.hidden = true
         viewTwo.hidden = true

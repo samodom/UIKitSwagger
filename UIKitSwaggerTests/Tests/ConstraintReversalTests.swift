@@ -33,10 +33,6 @@ class ConstraintReversalTests: XCTestCase {
         }
     }
 
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testCannotReverseConstraintWithZeroMultiplier() {
         constraint = NSLayoutConstraint(
             item: view,

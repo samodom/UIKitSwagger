@@ -30,10 +30,6 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
         animator.addBehavior(pushBehavior)
     }
 
-    override func tearDown() {
-        super.tearDown()
-    }
-
     //  MARK: UIDynamicItemBehavior
 
     func testAddingDynamicItemToItemBehavior() {

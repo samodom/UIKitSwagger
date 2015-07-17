@@ -14,14 +14,6 @@ class SwitchStateManagementTests: XCTestCase {
     private let toggle1 = TestSwitch()
     private let toggle2 = TestSwitch()
 
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testOffIsNotOn() {
         toggle1.on = true
         XCTAssertFalse(toggle1.off, "The `off` property should represent the opposite of the `on` property")

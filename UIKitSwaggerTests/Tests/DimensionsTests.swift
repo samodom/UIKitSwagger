@@ -26,10 +26,6 @@ class DimensionsTests: XCTestCase {
         superview.addSubview(view2)
         superview.addSubview(view3)
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     //  MARK: Constraining height
 

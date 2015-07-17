@@ -31,10 +31,6 @@ class ViewSubscriptingTests: XCTestCase {
         grandchild1.addSubview(greatGrandchild)
         rootView.addSubview(child3)
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     func testViewSubscriptingReturnsSubviewAtIndex() {
         XCTAssertEqual(rootView[0]!, child1, "The subview at index 0 should be child1")
