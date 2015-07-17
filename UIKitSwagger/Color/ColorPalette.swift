@@ -92,12 +92,7 @@ public extension ColorPalette {
     public subscript(name: String) -> UIColor? {
         get { return colorNamed(name) }
         set {
-            if let newColor = newValue {
-                addColor(newColor, named: name)
-            }
-            else {
-                removeColorNamed(name)
-            }
+            newValue == nil ? removeColorNamed(name) : addColor(newValue!, named: name)
         }
     }
     

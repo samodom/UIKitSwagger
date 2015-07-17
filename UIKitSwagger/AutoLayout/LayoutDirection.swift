@@ -24,7 +24,7 @@ internal enum LayoutDirection: Int {
     }
 
     internal var axis: UILayoutConstraintAxis {
-        return abs(rawValue) == 3 ? .Vertical : .Horizontal
+        return abs(rawValue) == LayoutDirection.TopToBottom.rawValue ? .Vertical : .Horizontal
     }
 }
 

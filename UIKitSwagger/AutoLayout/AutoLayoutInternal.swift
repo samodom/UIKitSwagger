@@ -11,7 +11,7 @@ import UIKit
 
 //  MARK: Dimensions and aspect ratio
 
-internal func AssertDimensionItemCount(count: Int) {
+private func AssertDimensionItemCount(count: Int) {
     assert(count > 1, "Multiple views are required for constraining dimensions")
 }
 
@@ -87,19 +87,15 @@ internal func DistributeViews(views: [UIView], spacing: CGFloat, direction: Layo
     AssertDistributionItemCount(views.count)
 
     let attributes = direction.attributePair
-    var constraints = [NSLayoutConstraint]()
-    var anchor: AutoLayoutAttributedItem
-    var item = views.first!.attributedItemForLayoutAttribute(attributes.1)
+    let pairs = zip(dropLast(views), dropFirst(views))
 
-    for view in views[1..<views.endIndex] {
-        anchor = view.attributedItemForLayoutAttribute(attributes.0)
-        let constraint = anchor =* item + spacing
-        constraints.append(constraint)
+    return pairs.map {
+        let dependent = $0.1.attributedItemForLayoutAttribute(attributes.0)
+        let independent = $0.0.attributedItemForLayoutAttribute(attributes.1)
+        let constraint = dependent =* independent + spacing
         constraint.activate()
-        item = view.attributedItemForLayoutAttribute(attributes.1)
+        return constraint
     }
-
-    return constraints
 }
 
 
@@ -111,15 +107,12 @@ private func AssertLayoutItemCount(count: Int) {
 
 private func ConstrainItemsToFirst(items: [AutoLayoutAttributable], attribute: NSLayoutAttribute) -> [NSLayoutConstraint] {
     AssertLayoutItemCount(items.count)
+    let dependent = items.first!.attributedItemForLayoutAttribute(attribute)
 
-    var constraints = [NSLayoutConstraint]()
-    let anchor = items.first!.attributedItemForLayoutAttribute(attribute)
-    for attributable in items[1..<items.endIndex] {
-        let item = attributable.attributedItemForLayoutAttribute(attribute)
-        let constraint = item =* anchor
-        constraints.append(constraint)
+    return dropFirst(items).map {
+        let independent = $0.attributedItemForLayoutAttribute(attribute)
+        let constraint = dependent =* independent
         constraint.activate()
+        return constraint
     }
-    
-    return constraints
 }

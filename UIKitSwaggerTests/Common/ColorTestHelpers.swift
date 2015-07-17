@@ -71,9 +71,12 @@ internal func randomComponentValue() -> CGFloat {
 
     createGenerator()
     let randomValue = CGFloat(drand48())
-    assert(randomValue >= 0)
-    assert(randomValue <= 1)
+    assert(isNormalized(randomValue))
     return randomValue
+}
+
+private func isNormalized<F: FloatingPointType>(value: F) -> Bool {
+    return (F(0) ... F(1)).contains(value)
 }
 
 internal func nudgeComponentValue(value: CGFloat) -> CGFloat {
