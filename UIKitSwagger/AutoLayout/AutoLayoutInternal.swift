@@ -87,7 +87,7 @@ internal func DistributeViews(views: [UIView], spacing: CGFloat, direction: Layo
     AssertDistributionItemCount(views.count)
 
     let attributes = direction.attributePair
-    let pairs = zip(dropLast(views), dropFirst(views))
+    let pairs = zip(views.dropLast(), views.dropFirst())
 
     return pairs.map {
         let dependent = $0.1.attributedItemForLayoutAttribute(attributes.0)
@@ -109,7 +109,7 @@ private func ConstrainItemsToFirst(items: [AutoLayoutAttributable], attribute: N
     AssertLayoutItemCount(items.count)
     let dependent = items.first!.attributedItemForLayoutAttribute(attribute)
 
-    return dropFirst(items).map {
+    return items.dropFirst().map {
         let independent = $0.attributedItemForLayoutAttribute(attribute)
         let constraint = dependent =* independent
         constraint.activate()
