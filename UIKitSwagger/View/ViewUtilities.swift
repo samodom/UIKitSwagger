@@ -23,9 +23,7 @@ Utility function for hiding an array of views.
 - warning: This method does not explicitly use the main thread.
 */
 public func HideViews(views: [UIView]) {
-    for view in views {
-        view.hidden = true
-    }
+    views.forEach { $0.hidden = true }
 }
 
 /**
@@ -43,9 +41,7 @@ Utility function for showing an array of views.
 - warning: This method does not explicitly use the main thread.
 */
 public func ShowViews(views: [UIView]) {
-    for view in views {
-        view.hidden = false
-    }
+    views.forEach { $0.hidden = false }
 }
 
 /**
@@ -61,7 +57,5 @@ Utility function for turning off autoresizing-mask-to-constraint translation for
 - parameter views: An array of views on which to turn off translation.
 */
 public func DoNotTranslateMasks(views: [UIView]) {
-    for view in views {
-        view.translatesAutoresizingMaskIntoConstraints = false
-    }
+    views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 }

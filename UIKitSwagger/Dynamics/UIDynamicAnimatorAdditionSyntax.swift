@@ -23,9 +23,7 @@ Convenience operator for adding an array of dynamic behaviors to an animator.
 - parameter behaviors: Array of dynamic behaviors to add to the animator.
 */
 public func +=(animator: UIDynamicAnimator, behaviors: [UIDynamicBehavior]) {
-    for behavior in behaviors {
-        animator += behavior
-    }
+    behaviors.forEach { animator += $0 }
 }
 
 /**
@@ -43,7 +41,5 @@ Convenience operator for removing an array of dynamic behaviors from an animator
 - parameter behavior: Array of dynamic behaviors to remove from the animator.
 */
 public func -=(animator: UIDynamicAnimator, behaviors: [UIDynamicBehavior]) {
-    for behavior in behaviors {
-        animator -= behavior
-    }
+    behaviors.forEach { animator -= $0 }
 }

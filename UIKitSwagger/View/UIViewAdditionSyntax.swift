@@ -51,9 +51,7 @@ An operator used to add an array of subviews, layout guides, motion effects and 
 - note: The order in which the items are applied is not necessarily the order in which they are provided in the array.  This is done to avoid adding modifiers for which the view is unprepared.
 */
 public func +=(view: UIView, addables: [UIViewAddable]) {
-    for addable in groupAddables(addables) {
-        view += addable
-    }
+    groupAddables(addables).forEach { view += $0 }
 }
 
 /**
@@ -89,9 +87,7 @@ An operator used to remove an array of subviews, layout guides, motion effects a
 - note: The order in which the items are removed is not necessarily the order in which they are provided in the array.  This is done to avoid leaving invalid modifiers in the view.
 */
 public func -=(view: UIView, removables: [UIViewRemovable]) {
-    for removable in groupRemovables(removables) {
-        view -= removable
-    }
+    groupRemovables(removables).forEach { view -= $0 }
 }
 
 
@@ -126,9 +122,7 @@ private func groupAddables(addables: [UIViewAddable]) -> [UIViewAddable] {
         }
     }
 
-    let elements = views + guides
-    let modifiers = effects + recognizers
-    return elements + modifiers
+    return views + guides + effects + recognizers
 }
 
 private func groupRemovables(removables: [UIViewRemovable]) -> [UIViewRemovable] {

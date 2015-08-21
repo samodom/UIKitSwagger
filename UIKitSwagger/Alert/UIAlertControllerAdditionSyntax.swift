@@ -27,9 +27,7 @@ An operator used to add an array of alert actions to an alert controller.
 - note: The actions are added in the same order as they are provided in the array.
 */
 public func +=(controller: UIAlertController, actions: [UIAlertAction]) {
-    for action in actions {
-        controller += action
-    }
+    actions.forEach { controller += $0 }
 }
 
 /**
@@ -52,9 +50,7 @@ An operator used to add an array of text fields to an alert controller using con
 */
 public func +=(controller: UIAlertController, textFieldConfigurationHandlers: [UIAlertTextFieldConfigurationHandler]) {
     AssertAlertControllerCanAddTextFields(controller)
-    for handler in textFieldConfigurationHandlers {
-        controller += handler
-    }
+    textFieldConfigurationHandlers.forEach { controller += $0 }
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -21,9 +21,7 @@ Convenience method for activating an array of layout constraints.
 - parameter constraints: Array of constraints that are to be activated.
 */
 public func ActivateConstraints(constraints: [NSLayoutConstraint]) {
-    for constraint in constraints {
-        constraint.active = true
-    }
+    constraints.forEach { $0.active = true }
 }
 
 /**
@@ -39,7 +37,5 @@ Convenience method for deactivating an array of layout constraints.
 - parameter constraints: Array of constraints that are to be deactivated.
 */
 public func DeactivateConstraints(constraints: [NSLayoutConstraint]) {
-    for constraint in constraints {
-        constraint.active = false
-    }
+    constraints.forEach { $0.active = false }
 }

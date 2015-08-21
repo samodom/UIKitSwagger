@@ -33,9 +33,7 @@ Convenience operator for adding an array of dynamic items to a dynamic behavior.
 - parameter items: Dynamic items to add to the behavior.
 */
 public func +=(behavior: UIDynamicBehaviorItemAdditive, items: [UIDynamicItem]) {
-    for item in items {
-        behavior += item
-    }
+    items.forEach { behavior += $0 }
 }
 
 /**
@@ -53,7 +51,5 @@ Convenience operator for removing an array of dynamic items from a dynamic behav
 - parameter items: Dynamic item to remove from the behavior.
 */
 public func -=(behavior: UIDynamicBehaviorItemAdditive, items: [UIDynamicItem]) {
-    for item in items {
-        behavior -= item
-    }
+    items.forEach { behavior -= $0 }
 }

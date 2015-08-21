@@ -23,9 +23,7 @@ Convenience operator for adding an array of dynamic behaviors to a parent behavi
 - parameter behaviors: Array of child dynamic behaviors to add to the parent behavior.
 */
 public func +=(parentBehavior: UIDynamicBehavior, behaviors: [UIDynamicBehavior]) {
-    for behavior in behaviors {
-        parentBehavior += behavior
-    }
+    behaviors.forEach { parentBehavior += $0 }
 }
 
 /**
@@ -43,7 +41,5 @@ Convenience operator for removing an array of dynamic behaviors from a parent be
 - parameter behaviors: Array of child dynamic behaviors to remove from the parent behavior.
 */
 public func -=(parentBehavior: UIDynamicBehavior, behaviors: [UIDynamicBehavior]) {
-    for behavior in behaviors {
-        parentBehavior -= behavior
-    }
+    behaviors.forEach { parentBehavior -= $0 }
 }
