@@ -32,10 +32,10 @@ class StackViewSyntaxTests: XCTestCase {
             distribution: .EqualSpacing,
             spacing: 14.0
         )
-        XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Horizontal, "The stack view should use the horizontal layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, [], "The stack view should not contain any arranged subviews")
-        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
-        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.EqualSpacing, "The stack view should use the provided distribution")
         XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
     }
 
@@ -45,10 +45,10 @@ class StackViewSyntaxTests: XCTestCase {
             distribution: .EqualSpacing,
             spacing: 14.0
         )
-        XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Horizontal, "The stack view should use the horizontal layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
-        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.EqualSpacing, "The stack view should use the provided distribution")
         XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
     }
 
@@ -57,10 +57,10 @@ class StackViewSyntaxTests: XCTestCase {
             distribution: .EqualSpacing,
             spacing: 14.0
         )
-        XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Horizontal, "The stack view should use the horizontal layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Fill, "The stack view should use the default alignment")
-        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Fill, "The stack view should use the default alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.EqualSpacing, "The stack view should use the provided distribution")
         XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
     }
 
@@ -69,10 +69,10 @@ class StackViewSyntaxTests: XCTestCase {
             alignment: .Center,
             spacing: 14.0
         )
-        XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Horizontal, "The stack view should use the horizontal layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
-        XCTAssertEqual(stackView.distribution, .Fill, "The stack view should use the default distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.Fill, "The stack view should use the default distribution")
         XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
     }
 
@@ -81,46 +81,46 @@ class StackViewSyntaxTests: XCTestCase {
             alignment: .Center,
             distribution: .EqualSpacing
         )
-        XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Horizontal, "The stack view should use the horizontal layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
-        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.EqualSpacing, "The stack view should use the provided distribution")
         XCTAssertEqual(stackView.spacing, 0.0, "The stack view should use the default spacing")
     }
 
     func testCreatingHorizontalStackViewWithAlignmentOnly() {
         stackView = StackHorizontally(arrangedViews, alignment: .Center)
-        XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Horizontal, "The stack view should use the horizontal layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
-        XCTAssertEqual(stackView.distribution, .Fill, "The stack view should use the default distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.Fill, "The stack view should use the default distribution")
         XCTAssertEqual(stackView.spacing, 0.0, "The stack view should use the default spacing")
     }
 
     func testCreatingHorizontalStackViewWithDistributionOnly() {
         stackView = StackHorizontally(arrangedViews, distribution: .EqualSpacing)
-        XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Horizontal, "The stack view should use the horizontal layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Fill, "The stack view should use the default alignment")
-        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Fill, "The stack view should use the default alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.EqualSpacing, "The stack view should use the provided distribution")
         XCTAssertEqual(stackView.spacing, 0.0, "The stack view should use the default spacing")
     }
 
     func testCreatingHorizontalStackViewWithSpacingOnly() {
         stackView = StackHorizontally(arrangedViews, spacing: 14.0)
-        XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Horizontal, "The stack view should use the horizontal layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Fill, "The stack view should use the default alignment")
-        XCTAssertEqual(stackView.distribution, .Fill, "The stack view should use the default distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Fill, "The stack view should use the default alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.Fill, "The stack view should use the default distribution")
         XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
     }
 
     func testCreatingHorizontalStackViewWithViewsOnly() {
         stackView = StackHorizontally(arrangedViews)
-        XCTAssertEqual(stackView.axis, .Horizontal, "The stack view should use the horizontal layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Horizontal, "The stack view should use the horizontal layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Fill, "The stack view should use the default alignment")
-        XCTAssertEqual(stackView.distribution, .Fill, "The stack view should use the default distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Fill, "The stack view should use the default alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.Fill, "The stack view should use the default distribution")
         XCTAssertEqual(stackView.spacing, 0.0, "The stack view should use the default spacing")
     }
 
@@ -133,10 +133,10 @@ class StackViewSyntaxTests: XCTestCase {
             distribution: .EqualSpacing,
             spacing: 14.0
         )
-        XCTAssertEqual(stackView.axis, .Vertical, "The stack view should use the vertical layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Vertical, "The stack view should use the vertical layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, [], "The stack view should not contain any arranged subviews")
-        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
-        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.EqualSpacing, "The stack view should use the provided distribution")
         XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
     }
 
@@ -146,10 +146,10 @@ class StackViewSyntaxTests: XCTestCase {
             distribution: .EqualSpacing,
             spacing: 14.0
         )
-        XCTAssertEqual(stackView.axis, .Vertical, "The stack view should use the vertical layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Vertical, "The stack view should use the vertical layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
-        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.EqualSpacing, "The stack view should use the provided distribution")
         XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
     }
 
@@ -158,10 +158,10 @@ class StackViewSyntaxTests: XCTestCase {
             distribution: .EqualSpacing,
             spacing: 14.0
         )
-        XCTAssertEqual(stackView.axis, .Vertical, "The stack view should use the vertical layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Vertical, "The stack view should use the vertical layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Fill, "The stack view should use the default alignment")
-        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Fill, "The stack view should use the default alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.EqualSpacing, "The stack view should use the provided distribution")
         XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
     }
 
@@ -170,10 +170,10 @@ class StackViewSyntaxTests: XCTestCase {
             alignment: .Center,
             spacing: 14.0
         )
-        XCTAssertEqual(stackView.axis, .Vertical, "The stack view should use the vertical layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Vertical, "The stack view should use the vertical layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
-        XCTAssertEqual(stackView.distribution, .Fill, "The stack view should use the default distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.Fill, "The stack view should use the default distribution")
         XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
     }
 
@@ -182,46 +182,46 @@ class StackViewSyntaxTests: XCTestCase {
             alignment: .Center,
             distribution: .EqualSpacing
         )
-        XCTAssertEqual(stackView.axis, .Vertical, "The stack view should use the vertical layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Vertical, "The stack view should use the vertical layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
-        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.EqualSpacing, "The stack view should use the provided distribution")
         XCTAssertEqual(stackView.spacing, 0.0, "The stack view should use the default spacing")
     }
 
     func testCreatingVerticalStackViewWithAlignmentOnly() {
         stackView = StackVertically(arrangedViews, alignment: .Center)
-        XCTAssertEqual(stackView.axis, .Vertical, "The stack view should use the vertical layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Vertical, "The stack view should use the vertical layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Center, "The stack view should use the provided alignment")
-        XCTAssertEqual(stackView.distribution, .Fill, "The stack view should use the default distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Center, "The stack view should use the provided alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.Fill, "The stack view should use the default distribution")
         XCTAssertEqual(stackView.spacing, 0.0, "The stack view should use the default spacing")
     }
 
     func testCreatingVerticalStackViewWithDistributionOnly() {
         stackView = StackVertically(arrangedViews, distribution: .EqualSpacing)
-        XCTAssertEqual(stackView.axis, .Vertical, "The stack view should use the vertical layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Vertical, "The stack view should use the vertical layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Fill, "The stack view should use the default alignment")
-        XCTAssertEqual(stackView.distribution, .EqualSpacing, "The stack view should use the provided distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Fill, "The stack view should use the default alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.EqualSpacing, "The stack view should use the provided distribution")
         XCTAssertEqual(stackView.spacing, 0.0, "The stack view should use the default spacing")
     }
 
     func testCreatingVerticalStackViewWithSpacingOnly() {
         stackView = StackVertically(arrangedViews, spacing: 14.0)
-        XCTAssertEqual(stackView.axis, .Vertical, "The stack view should use the vertical layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Vertical, "The stack view should use the vertical layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Fill, "The stack view should use the default alignment")
-        XCTAssertEqual(stackView.distribution, .Fill, "The stack view should use the default distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Fill, "The stack view should use the default alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.Fill, "The stack view should use the default distribution")
         XCTAssertEqual(stackView.spacing, 14.0, "The stack view should use the provided spacing")
     }
 
     func testCreatingVerticalStackViewWithViewsOnly() {
         stackView = StackVertically(arrangedViews)
-        XCTAssertEqual(stackView.axis, .Vertical, "The stack view should use the vertical layout axis")
+        XCTAssertEqual(stackView.axis, UILayoutConstraintAxis.Vertical, "The stack view should use the vertical layout axis")
         XCTAssertEqual(stackView.arrangedSubviews, arrangedViews, "The stack view should contain the same arrangement of subviews provided")
-        XCTAssertEqual(stackView.alignment, .Fill, "The stack view should use the default alignment")
-        XCTAssertEqual(stackView.distribution, .Fill, "The stack view should use the default distribution")
+        XCTAssertEqual(stackView.alignment, UIStackViewAlignment.Fill, "The stack view should use the default alignment")
+        XCTAssertEqual(stackView.distribution, UIStackViewDistribution.Fill, "The stack view should use the default distribution")
         XCTAssertEqual(stackView.spacing, 0.0, "The stack view should use the default spacing")
     }
 
