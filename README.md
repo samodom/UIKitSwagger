@@ -26,3 +26,14 @@ A bit of a DSL for UIKit
 
 
 Available as a [CocoaPod](http://cocoapods.org)
+
+---
+
+Tests run successfully on iOS 9 simulators, but since the `@available` syntax does not appear to currently work in test suites, tests will not run on iOS 8 simulators.  In order to run all of the tests available for iOS 8, you will need to disable all of the following tests:
+- `LayoutGuideLayoutAttributesTests` (entire test class)
+- `StackViewSyntaxTests` (entire test class)
+- `ViewAddableSyntaxTests.testAddingLayoutGuideArrayWithOperator()`
+- `ViewAddableSyntaxTests.testAddingLayoutGuideWithOperator()`
+- `ViewAddableSyntaxTests.testCannotRemoveLayoutGuideNotInView()`
+- `ViewAddableSyntaxTests.testRemovingLayoutGuideArrayWithOperator()`
+- `ViewAddableSyntaxTests.testRemovingLayoutGuideWithOperator()`

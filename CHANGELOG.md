@@ -1,7 +1,9 @@
 UIKitSwagger Changelog
 ======================
 
-#### v0.7.0 ()
+### Version 7
+
+##### v0.7.0 ()
  - Updated for Swift 2.
  - Updated for iOS 9 -- still supporting back to iOS 8.
  - Improved documentation for better Quick Help support.
@@ -15,17 +17,19 @@ UIKitSwagger Changelog
  - Removed `firstCommonAncestor` from UIView since constraint activation obviates the need for knowing where to apply a constraint.
  - Fixed a newly discovered constraint search bug.
  - Removed `UIColor` from all color component type names
- - iOS 9 and later:
+ - **iOS 9 and later:**
   - Layout guides are now supported in the constraint builder syntax. (iOS 9 and later)
   - Layout guides are now addable/removable to/from views using the `+=` and `-=` syntax.  They are added and removed along with views to make sure that modifier items make sense.
   - Added simpler stack view creation functions
 
 
-#### v0.6.1 (Sunday, March 22, 2015)
+### Version 6
+
+##### v0.6.1 (Sunday, March 22, 2015)
  - Added MatchSizes() method to Auto Layout
 
 
-#### v0.6.0 (Saturday, March 7, 2015)
+##### v0.6.0 (Saturday, March 7, 2015)
  - Added color count and color dictionary properties to `ColorPalette`
  - Added formal initializers for color component types
  - Removed component-type-based initializer on UIColor
@@ -38,7 +42,9 @@ UIKitSwagger Changelog
  - Changed deployment target to 8.0
 
 
-#### v0.5.2 (Tuesday, February 10, 2015)
+### Version 5
+
+##### v0.5.2 (Tuesday, February 10, 2015)
  - Updated for Swift 1.2
  - Added a multi-client manager for a `UIActivityIndicatorView` called `SpinnerStateManager`
  - Made color aliases global constants instead of variables
