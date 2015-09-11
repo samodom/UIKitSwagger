@@ -3,9 +3,9 @@ UIKitSwagger Changelog
 
 ### Version 7
 
-##### v0.7.0 ()
+##### v0.7.0 (Friday, September 11, 2015)
  - Updated for Swift 2.
- - Updated for iOS 9 -- still supporting back to iOS 8.
+ - Updated for iOS 9 -- still supporting back to iOS 8 except for new iOS 9 features.
  - Improved documentation for better Quick Help support.
  - Layout constraint equivalence now accounts for priority.
  - Constraint searches no longer return optional arrays of constraints.  Missing constraints will now yield an empty array.
