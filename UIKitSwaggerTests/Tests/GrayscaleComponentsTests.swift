@@ -8,24 +8,16 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 //  See `ColorTestHelpers.swift` for colors and values used herein.
 
 class GrayscaleComponentsTests: XCTestCase {
 
-    var components =
-    UIColorGrayscaleComponents(
+    var components = GrayscaleComponents(
         white: randomWhiteValue,
         alpha: randomAlphaValue
     )
-
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     //  MARK: - Component values
 
@@ -38,13 +30,13 @@ class GrayscaleComponentsTests: XCTestCase {
     }
 
     func testWhiteComponentWithMonochromeColor() {
-        XCTAssertEqualWithAccuracy(sampleMonochromeColor.white, randomWhiteValue, ColorComponentValueTestAccuracy, "The white component of the monochrome color should be provided")
+        XCTAssertEqualWithAccuracy(sampleMonochromeColor.white, randomWhiteValue, accuracy: ColorComponentValueTestAccuracy, "The white component of the monochrome color should be provided")
     }
     
     //  MARK: - Components structure
 
     func testGrayscaleComponentStructureWithDefaultAlpha() {
-        components = UIColorGrayscaleComponents(white: randomWhiteValue)
+        components = GrayscaleComponents(white: randomWhiteValue)
         XCTAssertEqual(components.white, randomWhiteValue, "The components should include a white value")
         XCTAssertEqual(components.alpha, 1.0, "The components should use a default alpha value of 1.0")
     }
@@ -57,8 +49,7 @@ class GrayscaleComponentsTests: XCTestCase {
     //  MARK: Equality
 
     func testEqualityOfGrayscaleComponentStructure() {
-        let moreComponents =
-        UIColorGrayscaleComponents(
+        let moreComponents = GrayscaleComponents(
             white: randomWhiteValue,
             alpha: randomAlphaValue
         )
@@ -66,8 +57,7 @@ class GrayscaleComponentsTests: XCTestCase {
     }
 
     func testInequalityOfGrayscaleComponentsWithMismatchedWhiteValues() {
-        let moreComponents =
-        UIColorGrayscaleComponents(
+        let moreComponents = GrayscaleComponents(
             white: nudgeComponentValue(randomWhiteValue),
             alpha: randomAlphaValue
         )
@@ -75,8 +65,7 @@ class GrayscaleComponentsTests: XCTestCase {
     }
 
     func testInequalityOfGrayscaleComponentsWithMismatchedAlphaValues() {
-        let moreComponents =
-        UIColorGrayscaleComponents(
+        let moreComponents = GrayscaleComponents(
             white: randomWhiteValue,
             alpha: nudgeComponentValue(randomAlphaValue)
         )
@@ -89,7 +78,7 @@ class GrayscaleComponentsTests: XCTestCase {
         var whiteValue = CGFloat(0)
         var alphaValue = CGFloat(0)
         sampleRGBColor.getWhite(&whiteValue, alpha: &alphaValue)
-        components = UIColorGrayscaleComponents(
+        components = GrayscaleComponents(
             white: whiteValue,
             alpha: alphaValue
         )
@@ -100,7 +89,7 @@ class GrayscaleComponentsTests: XCTestCase {
         var whiteValue = CGFloat(0)
         var alphaValue = CGFloat(0)
         sampleHSBColor.getWhite(&whiteValue, alpha: &alphaValue)
-        components = UIColorGrayscaleComponents(
+        components = GrayscaleComponents(
             white: whiteValue,
             alpha: alphaValue
         )

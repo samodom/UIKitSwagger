@@ -8,13 +8,13 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 //  See `ColorTestHelpers.swift` for colors and values used herein.
 
 class CMYKComponentsTests: XCTestCase {
 
-    var components =
-    UIColorCMYKComponents(
+    var components = CMYKComponents(
         cyan: randomCyanValue,
         magenta: randomMagentaValue,
         yellow: randomYellowValue,
@@ -26,14 +26,6 @@ class CMYKComponentsTests: XCTestCase {
     var expectedMagenta = CGFloat(0)
     var expectedYellow = CGFloat(0)
     var expectedKey = CGFloat(0)
-
-    override func setUp() {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
 
     private func computeExpectedCMYKValuesForColor(color: UIColor) {
         let maximumValue = max(color.red, color.green, color.blue)
@@ -148,7 +140,7 @@ class CMYKComponentsTests: XCTestCase {
     //  MARK: - Components structure
 
     func testCMYKComponentStructureWithDefaultAlpha() {
-        components = UIColorCMYKComponents(
+        components = CMYKComponents(
             cyan: randomCyanValue,
             magenta: randomMagentaValue,
             yellow: randomYellowValue,
@@ -172,8 +164,7 @@ class CMYKComponentsTests: XCTestCase {
     //  MARK: Equality
 
     func testEqualityOfCMYKComponentStructure() {
-        let moreComponents =
-        UIColorCMYKComponents(
+        let moreComponents = CMYKComponents(
             cyan: randomCyanValue,
             magenta: randomMagentaValue,
             yellow: randomYellowValue,
@@ -184,8 +175,7 @@ class CMYKComponentsTests: XCTestCase {
     }
 
     func testInequalityOfCMYKComponentsWithMismatchedCyanValues() {
-        let moreComponents =
-        UIColorCMYKComponents(
+        let moreComponents = CMYKComponents(
             cyan: nudgeComponentValue(randomCyanValue),
             magenta: randomMagentaValue,
             yellow: randomYellowValue,
@@ -196,8 +186,7 @@ class CMYKComponentsTests: XCTestCase {
     }
 
     func testInequalityOfCMYKComponentsWithMismatchedMagentaValues() {
-        let moreComponents =
-        UIColorCMYKComponents(
+        let moreComponents = CMYKComponents(
             cyan: randomCyanValue,
             magenta: nudgeComponentValue(randomMagentaValue),
             yellow: randomYellowValue, 
@@ -208,8 +197,7 @@ class CMYKComponentsTests: XCTestCase {
     }
 
     func testInequalityOfCMYKComponentsWithMismatchedYellowValues() {
-        let moreComponents =
-        UIColorCMYKComponents(
+        let moreComponents = CMYKComponents(
             cyan: randomCyanValue,
             magenta: randomMagentaValue,
             yellow: nudgeComponentValue(randomYellowValue),
@@ -220,8 +208,7 @@ class CMYKComponentsTests: XCTestCase {
     }
 
     func testInequalityOfCMYKComponentsWithMismatchedKeyValues() {
-        let moreComponents =
-        UIColorCMYKComponents(
+        let moreComponents = CMYKComponents(
             cyan: randomCyanValue,
             magenta: randomMagentaValue,
             yellow: randomYellowValue,
@@ -232,8 +219,7 @@ class CMYKComponentsTests: XCTestCase {
     }
 
     func testInequalityOfCMYKComponentsWithMismatchedAlphaValues() {
-        let moreComponents =
-        UIColorCMYKComponents(
+        let moreComponents = CMYKComponents(
             cyan: randomCyanValue,
             magenta: randomMagentaValue,
             yellow: randomYellowValue,
@@ -247,19 +233,37 @@ class CMYKComponentsTests: XCTestCase {
 
     func testCMYKComponentsWithRGBColor() {
         computeExpectedCMYKValuesForColor(sampleRGBColor)
-        components = UIColorCMYKComponents(cyan: expectedCyan, magenta: expectedMagenta, yellow: expectedYellow, key: expectedKey, alpha: randomAlphaValue)
+        components = CMYKComponents(
+            cyan: expectedCyan,
+            magenta: expectedMagenta,
+            yellow: expectedYellow,
+            key: expectedKey,
+            alpha: randomAlphaValue
+        )
         XCTAssertEqual(sampleRGBColor.cmykComponents, components, "The cyan, magenta, yellow, key and alpha components of the color should be provided")
     }
 
     func testCMYKComponentsWithHSBColor() {
         computeExpectedCMYKValuesForColor(sampleHSBColor)
-        components = UIColorCMYKComponents(cyan: expectedCyan, magenta: expectedMagenta, yellow: expectedYellow, key: expectedKey, alpha: randomAlphaValue)
+        components = CMYKComponents(
+            cyan: expectedCyan,
+            magenta: expectedMagenta,
+            yellow: expectedYellow,
+            key: expectedKey,
+            alpha: randomAlphaValue
+        )
         XCTAssertEqual(sampleHSBColor.cmykComponents, components, "The cyan, magenta, yellow, key and alpha components of the color should be provided")
     }
 
     func testCMYKComponentsWithMonochromeColor() {
         expectedKey = 1 - sampleMonochromeColor.white
-        components = UIColorCMYKComponents(cyan: 0, magenta: 0, yellow: 0, key: expectedKey, alpha: randomAlphaValue)
+        components = CMYKComponents(
+            cyan: 0,
+            magenta: 0,
+            yellow: 0,
+            key: expectedKey,
+            alpha: randomAlphaValue
+        )
         XCTAssertEqual(sampleMonochromeColor.cmykComponents, components, "The cyan, magenta, yellow, key and alpha components of the color should be provided")
     }
 
@@ -267,49 +271,97 @@ class CMYKComponentsTests: XCTestCase {
 
     func testCMYKComponentsWithBlackColor() {
         components = Black.cmykComponents
-        let expected = UIColorCMYKComponents(cyan: 0, magenta: 0, yellow: 0, key: 1, alpha: 1)
+        let expected = CMYKComponents(
+            cyan: 0,
+            magenta: 0,
+            yellow: 0,
+            key: 1,
+            alpha: 1
+        )
         XCTAssertEqual(components, expected, "Black should produce the appropriate CMYK components")
     }
 
     func testCMYKComponentsWithWhiteColor() {
         components = White.cmykComponents
-        let expected = UIColorCMYKComponents(cyan: 0, magenta: 0, yellow: 0, key: 0, alpha: 1)
+        let expected = CMYKComponents(
+            cyan: 0,
+            magenta: 0,
+            yellow: 0,
+            key: 0,
+            alpha: 1
+        )
         XCTAssertEqual(components, expected, "White should produce the appropriate CMYK components")
     }
 
     func testCMYKComponentsWithRedColor() {
         components = Red.cmykComponents
-        let expected = UIColorCMYKComponents(cyan: 0, magenta: 1, yellow: 1, key: 0, alpha: 1)
+        let expected = CMYKComponents(
+            cyan: 0,
+            magenta: 1,
+            yellow: 1,
+            key: 0,
+            alpha: 1
+        )
         XCTAssertEqual(components, expected, "Red should produce the appropriate CMYK components")
     }
 
     func testCMYKComponentsWithGreenColor() {
         components = Green.cmykComponents
-        let expected = UIColorCMYKComponents(cyan: 1, magenta: 0, yellow: 1, key: 0, alpha: 1)
+        let expected = CMYKComponents(
+            cyan: 1,
+            magenta: 0,
+            yellow: 1,
+            key: 0,
+            alpha: 1
+        )
         XCTAssertEqual(components, expected, "Green should produce the appropriate CMYK components")
     }
 
     func testCMYKComponentsWithBlueColor() {
         components = Blue.cmykComponents
-        let expected = UIColorCMYKComponents(cyan: 1, magenta: 1, yellow: 0, key: 0, alpha: 1)
+        let expected = CMYKComponents(
+            cyan: 1,
+            magenta: 1,
+            yellow: 0,
+            key: 0,
+            alpha: 1
+        )
         XCTAssertEqual(components, expected, "Blue should produce the appropriate CMYK components")
     }
 
     func testCMYKComponentsWithCyanColor() {
         components = Cyan.cmykComponents
-        let expected = UIColorCMYKComponents(cyan: 1, magenta: 0, yellow: 0, key: 0, alpha: 1)
+        let expected = CMYKComponents(
+            cyan: 1,
+            magenta: 0,
+            yellow: 0,
+            key: 0,
+            alpha: 1
+        )
         XCTAssertEqual(components, expected, "Cyan should produce the appropriate CMYK components")
     }
 
     func testCMYKComponentsWithMagentaColor() {
         components = Magenta.cmykComponents
-        let expected = UIColorCMYKComponents(cyan: 0, magenta: 1, yellow: 0, key: 0, alpha: 1)
+        let expected = CMYKComponents(
+            cyan: 0,
+            magenta: 1,
+            yellow: 0,
+            key: 0,
+            alpha: 1
+        )
         XCTAssertEqual(components, expected, "Magenta should produce the appropriate CMYK components")
     }
 
     func testCMYKComponentsWithYellowColor() {
         components = Yellow.cmykComponents
-        let expected = UIColorCMYKComponents(cyan: 0, magenta: 0, yellow: 1, key: 0, alpha: 1)
+        let expected = CMYKComponents(
+            cyan: 0,
+            magenta: 0,
+            yellow: 1,
+            key: 0,
+            alpha: 1
+        )
         XCTAssertEqual(components, expected, "Yellow should produce the appropriate CMYK components")
     }
 
@@ -323,16 +375,11 @@ class CMYKComponentsTests: XCTestCase {
             key: randomKeyValue,
             alpha: randomAlphaValue
         )
-        let rgbComponents = components.asRGBComponents()
-        let expectedColor = rgbComponents.color()
-        XCTAssertEqual(color, expectedColor, "The component values should be used to create an instance of UIColor")
+        XCTAssertEqual(color, components.asRGBComponents().color(), "The component values should be used to create an instance of UIColor")
     }
 
     func testColorCreationWithCMYKComponents() {
-        let color = components.color()
-        let rgbComponents = components.asRGBComponents()
-        let expectedColor = rgbComponents.color()
-        XCTAssertEqual(color, expectedColor, "The components should create an instance of UIColor using its component values")
+        XCTAssertEqual(components.color(), components.asRGBComponents().color(), "The components should create an instance of UIColor using its component values")
     }
 
 }

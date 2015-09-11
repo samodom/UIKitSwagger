@@ -11,23 +11,29 @@ import UIKit
 public protocol UIViewAddable { }
 
 extension UIView: UIViewAddable { }
-extension Constraint: UIViewAddable { }
 extension UIMotionEffect: UIViewAddable { }
 extension UIGestureRecognizer: UIViewAddable { }
+
+@available(iOS 9.0, *)
+extension UILayoutGuide: UIViewAddable { }
 
 public typealias UIViewRemovable = UIViewAddable
 
 
 /**
-  An operator used to add a subview, auto layout constraint, motion effect or gesture recognizer to a view.
+An operator used to add a subview, layout guide, motion effect or gesture recognizer to a view.
 */
 public func +=(view: UIView, addable: UIViewAddable) {
+    if #available(iOS 9.0, *) {
+        if let guide = addable as? UILayoutGuide {
+            view.addLayoutGuide(guide)
+            return
+        }
+    }
+
     switch addable {
     case let subview as UIView:
         view.addSubview(subview)
-
-    case let constraint as Constraint:
-        view.addConstraint(constraint)
 
     case let effect as UIMotionEffect:
         view.addMotionEffect(effect)
@@ -41,43 +47,29 @@ public func +=(view: UIView, addable: UIViewAddable) {
 }
 
 /**
-  An operator used to add an array of subviews, auto layout constraints, motion effects and gesture recognizers to a view.
-  @discussion       The order in which the items are applied is not necessarily the order in which they are provided in the array.  This is done to avoid adding constraints for which the view is unprepared.
+An operator used to add an array of subviews, layout guides, motion effects and gesture recognizers to a view.
+- note: The order in which the items are applied is not necessarily the order in which they are provided in the array.  This is done to avoid adding modifiers for which the view is unprepared.
 */
 public func +=(view: UIView, addables: [UIViewAddable]) {
-    var subviews: [UIView]
-    var constraints: [Constraint]
-    var effects: [UIMotionEffect]
-    var recognizers: [UIGestureRecognizer]
-    (subviews, constraints, effects, recognizers) = splitAddablesIntoViewsConstraintsEffectsRecognizers(addables)
-
-    for subview in subviews {
-        view += subview
-    }
-
-    for constraint in constraints {
-        view += constraint
-    }
-
-    for effect in effects {
-        view += effect
-    }
-
-    for recognizer in recognizers {
-        view += recognizer
-    }
+    groupAddables(addables).forEach { view += $0 }
 }
 
 /**
 An operator used to remove a subview, auto layout constraint, motion effect or gesture recognizer from a view.
 */
 public func -=(view: UIView, removable: UIViewRemovable) {
+    if #available(iOS 9.0, *) {
+        if let guide = removable as? UILayoutGuide {
+            view.removeLayoutGuide(guide)
+            return
+        }
+    }
+
     switch removable {
     case let subview as UIView:
-        subview.removeFromSuperview()
-
-    case let constraint as Constraint:
-        view.removeConstraint(constraint)
+        if subview.superview == view {
+            subview.removeFromSuperview()
+        }
 
     case let effect as UIMotionEffect:
         view.removeMotionEffect(effect)
@@ -91,49 +83,33 @@ public func -=(view: UIView, removable: UIViewRemovable) {
 }
 
 /**
-  An operator used to remove an array of subviews, auto layout constraints, motion effects and gesture recognizers from a view.
-  @discussion       The order in which the items are removed is not necessarily the order in which they are provided in the array.  This is done to avoid leaving invalid constraints in the view.
+An operator used to remove an array of subviews, layout guides, motion effects and gesture recognizers from a view.
+- note: The order in which the items are removed is not necessarily the order in which they are provided in the array.  This is done to avoid leaving invalid modifiers in the view.
 */
 public func -=(view: UIView, removables: [UIViewRemovable]) {
-    var subviews: [UIView]
-    var constraints: [Constraint]
-    var effects: [UIMotionEffect]
-    var recognizers: [UIGestureRecognizer]
-    (subviews, constraints, effects, recognizers) = splitAddablesIntoViewsConstraintsEffectsRecognizers(removables)
-
-    for constraint in constraints {
-        view -= constraint
-    }
-
-    for subview in subviews {
-        view -= subview
-    }
-
-    for effect in effects {
-        view -= effect
-    }
-
-    for recognizer in recognizers {
-        view -= recognizer
-    }
+    groupRemovables(removables).forEach { view -= $0 }
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////
 
-private func splitAddablesIntoViewsConstraintsEffectsRecognizers(addables: [UIViewAddable]) -> ([UIView], [Constraint], [UIMotionEffect], [UIGestureRecognizer]) {
-    var views = [UIView]()
-    var constraints = [Constraint]()
-    var effects = [UIMotionEffect]()
-    var recognizers = [UIGestureRecognizer]()
+private func groupAddables(addables: [UIViewAddable]) -> [UIViewAddable] {
+    var views = [UIViewAddable]()
+    var guides = [UIViewAddable]()
+    var effects = [UIViewAddable]()
+    var recognizers = [UIViewAddable]()
 
     for addable in addables {
+        if #available(iOS 9.0, *) {
+            if let guide = addable as? UILayoutGuide {
+                guides.append(guide)
+                continue
+            }
+        }
+
         switch addable {
         case let view as UIView:
             views.append(view)
-
-        case let constraint as Constraint:
-            constraints.append(constraint)
 
         case let effect as UIMotionEffect:
             effects.append(effect)
@@ -146,5 +122,9 @@ private func splitAddablesIntoViewsConstraintsEffectsRecognizers(addables: [UIVi
         }
     }
 
-    return (views, constraints, effects, recognizers)
+    return views + guides + effects + recognizers
+}
+
+private func groupRemovables(removables: [UIViewRemovable]) -> [UIViewRemovable] {
+    return groupAddables(removables).reverse()
 }

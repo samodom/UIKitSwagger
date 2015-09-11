@@ -8,8 +8,22 @@
 
 import Foundation
 
+/**
+Protocol for encapsulating the ability to enable and disable something.
+*/
 public protocol UIKitEnablable {
     var enabled: Bool { get set }
-    func enable()
-    func disable()
+    mutating func enable()
+    mutating func disable()
 }
+
+public extension UIKitEnablable {
+    public mutating func enable() { enabled = true }
+    public mutating func disable() { enabled = false }
+}
+
+extension UIBarItem: UIKitEnablable { }
+extension UIControl: UIKitEnablable { }
+extension UIGestureRecognizer: UIKitEnablable { }
+extension UILabel: UIKitEnablable { }
+extension UIAlertAction: UIKitEnablable { }

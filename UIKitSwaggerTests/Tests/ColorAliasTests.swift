@@ -8,16 +8,9 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class ColorAliasTests: XCTestCase {
-
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     func testBlackColorAlias() {
         XCTAssertEqual(Black, UIColor.blackColor(), "The constant alias `Black` should equal the black color")

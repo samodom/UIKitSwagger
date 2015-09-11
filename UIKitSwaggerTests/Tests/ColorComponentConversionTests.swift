@@ -8,21 +8,14 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class ColorComponentConversionTests: XCTestCase {
 
-    var rgbComponents: UIColorRGBComponents!
-    var hsbComponents: UIColorHSBComponents!
-    var grayscaleComponents: UIColorGrayscaleComponents!
-    var cmykComponents: UIColorCMYKComponents!
-
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
+    var rgbComponents: RGBComponents!
+    var hsbComponents: HSBComponents!
+    var grayscaleComponents: GrayscaleComponents!
+    var cmykComponents: CMYKComponents!
 
     //  MARK: RGB -> ...
 

@@ -7,10 +7,10 @@ Getting color information from an instance of `UIColor` is as easy as it could p
 
 **Component Structure**
 
-The following component structures are provided for convenience.  Each one conforms to `Equatable` and a protocol called `UIColorComponents`.
+The following component structures are provided for convenience.  Each one conforms to `Equatable` and a protocol called `ColorComponents`.
 
 ```swift
-struct UIColorRGBComponents {
+struct RGBComponents {
     let red: CGFloat
     let green: CGFloat
     let blue: CGFloat
@@ -19,7 +19,7 @@ struct UIColorRGBComponents {
 ```
 
 ```swift
-struct UIColorHSBComponents {
+struct HSBComponents {
     let hue: CGFloat
     let saturation: CGFloat
     let brightness: CGFloat
@@ -28,14 +28,14 @@ struct UIColorHSBComponents {
 ```
 
 ```swift
-struct UIColorGrayscaleComponents {
+struct GrayscaleComponents {
     let white: CGFloat
     let alpha: CGFloat
 }
 ```
 
 ```swift
-struct UIColorCMYKComponents {
+struct CMYKComponents {
     let cyan: CGFloat
     let magenta: CGFloat
     let yellow: CGFloat
@@ -47,25 +47,25 @@ struct UIColorCMYKComponents {
 
 Convert component types with these methods:
 
- - `UIColorRGBComponents.asHSBComponents() -> UIColorHSBComponents`
- - `UIColorRGBComponents.asGrayscaleComponents() -> UIColorGrayscaleComponents`
- - `UIColorRGBComponents.asCMYKComponents() -> UIColorCMYKComponents`
- - `UIColorHSBComponents.asRGBComponents() -> UIColorRGBComponents`
- - `UIColorHSBComponents.asGrayscaleComponents() -> UIColorGrayscaleComponents`
- - `UIColorHSBComponents.asCMYKComponents() -> UIColorCMYKComponents`
- - `UIColorGrayscaleComponents.asRGComponents() -> UIColorRGBComponents`
- - `UIColorGrayscaleComponents.asHSBComponents() -> UIColorHSBComponents`
- - `UIColorGrayscaleComponents.asCMYKComponents() -> UIColorCMYKComponents`
- - `UIColorCMYKComponents.asRGBComponents() -> UIColorRGBComponents`
- - `UIColorCMYKComponents.asHSBComponents() -> UIColorHSBComponents`
- - `UIColorCMYKComponents.asGrayscaleComponents() -> UIColorGrayscaleComponents`
+ - `RGBComponents.asHSBComponents() -> HSBComponents`
+ - `RGBComponents.asGrayscaleComponents() -> GrayscaleComponents`
+ - `RGBComponents.asCMYKComponents() -> CMYKComponents`
+ - `HSBComponents.asRGBComponents() -> RGBComponents`
+ - `HSBComponents.asGrayscaleComponents() -> GrayscaleComponents`
+ - `HSBComponents.asCMYKComponents() -> CMYKComponents`
+ - `GrayscaleComponents.asRGComponents() -> RGBComponents`
+ - `GrayscaleComponents.asHSBComponents() -> HSBComponents`
+ - `GrayscaleComponents.asCMYKComponents() -> CMYKComponents`
+ - `CMYKComponents.asRGBComponents() -> RGBComponents`
+ - `CMYKComponents.asHSBComponents() -> HSBComponents`
+ - `CMYKComponents.asGrayscaleComponents() -> GrayscaleComponents`
 
 
 These component structures can be retrieved from an existing color using the following properties:
- - `var rgbComponents: UIColorRGBComponents`
- - `var hsbComponents: UIColorHSBComponents`
- - `var grayscaleComponents: UIColorGrayscaleComponents`
- - `var cmykComponents: UIColorCMYKComponents`
+ - `var rgbComponents: RGBComponents`
+ - `var hsbComponents: HSBComponents`
+ - `var grayscaleComponents: GrayscaleComponents`
+ - `var cmykComponents: CMYKComponents`
 
 Each component scheme also has a method to produce a color:
  - `func color() -> UIColor`

@@ -11,74 +11,62 @@ import UIKit
 public extension UISwitch {
 
     /**
-      Convenience property that always represents the boolean negation of the `on` property.
+    Convenience property that always represents the boolean negation of the `on` property.
     */
     public var off: Bool {
-        get {
-            return !on
-        }
-        set {
-            on = !newValue
-        }
+        get { return !on }
+        set { on = !newValue }
     }
 
     /**
-      Convenience method to set the `off` property with or without animation to match the similar method for the `on` property.
-      @param        off Boolean value representing whether or not the switch should be off or not.
-      @animated     Boolean value indicating whether or not the changing of the boolean value should be animated.
+    Convenience method to set the `off` property with or without animation to match the similar method for the `on` property.
+    - parameter off: Boolean value representing whether or not the switch should be off or not.
+    - parameter animated: Boolean value indicating whether or not the changing of the boolean value should be animated.
     */
     public func setOff(off: Bool, animated: Bool) {
         setOn(!off, animated: animated)
     }
 
     /**
-      Method to explicitly turn the switch on without animation.
+    Method to explicitly turn the switch on without animation.
     */
     public func turnOn() {
-        if !on {
-            toggle()
-        }
+        on = true
     }
 
     /**
-      Method to explicitly turn the switch on with animation.
+    Method to explicitly turn the switch on with animation.
     */
     public func animateOn() {
-        if !on {
-            animateToggle()
-        }
+        setOn(true, animated: true)
     }
 
     /**
-      Method to explicitly turn the switch off without animation.
+    Method to explicitly turn the switch off without animation.
     */
     public func turnOff() {
-        if on {
-            toggle()
-        }
+        off = true
     }
 
     /**
-      Method to explicitly turn the switch off with animation.
+    Method to explicitly turn the switch off with animation.
     */
     public func animateOff() {
-        if on {
-            animateToggle()
-        }
+        setOff(true, animated: true)
     }
 
     /**
-      Method to explicitly toggle the switch without animation.
+    Method to explicitly toggle the switch without animation.
     */
     public func toggle() {
         on = !on
     }
 
     /**
-      Method to explicitly toggle the switch with animation.
+    Method to explicitly toggle the switch with animation.
     */
     public func animateToggle() {
         setOn(!on, animated: true)
     }
-
+    
 }

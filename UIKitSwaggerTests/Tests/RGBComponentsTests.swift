@@ -8,26 +8,18 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 //  See `ColorTestHelpers.swift` for colors and values used herein.
 
 class RGBComponentsTests: XCTestCase {
 
-    var components =
-    UIColorRGBComponents(
+    var components = RGBComponents(
         red: randomRedValue,
         green: randomGreenValue,
         blue: randomBlueValue,
         alpha: randomAlphaValue
     )
-
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     //  MARK: - Component values
 
@@ -44,7 +36,7 @@ class RGBComponentsTests: XCTestCase {
     }
 
     func testGreenComponentWithRGBColor() {
-        XCTAssertEqualWithAccuracy(sampleRGBColor.green, randomGreenValue, ColorComponentValueTestAccuracy, "The green component of the RGB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleRGBColor.green, randomGreenValue, accuracy: ColorComponentValueTestAccuracy, "The green component of the RGB color should be provided")
     }
 
     func testGreenComponentWithHSBColor() {
@@ -56,7 +48,7 @@ class RGBComponentsTests: XCTestCase {
     }
 
     func testBlueComponentWithRGBColor() {
-        XCTAssertEqualWithAccuracy(sampleRGBColor.blue, randomBlueValue, ColorComponentValueTestAccuracy, "The blue component of the RGB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleRGBColor.blue, randomBlueValue, accuracy: ColorComponentValueTestAccuracy, "The blue component of the RGB color should be provided")
     }
 
     func testBlueComponentWithHSBColor() {
@@ -82,7 +74,7 @@ class RGBComponentsTests: XCTestCase {
     //  MARK: - Components structure
 
     func testRGBComponentStructureWithDefaultAlpha() {
-        components = UIColorRGBComponents(
+        components = RGBComponents(
             red: randomRedValue,
             green: randomGreenValue,
             blue: randomBlueValue
@@ -103,8 +95,7 @@ class RGBComponentsTests: XCTestCase {
     //  MARK:  Equality
 
     func testEqualityOfRGBComponentStructure() {
-        let moreComponents =
-        UIColorRGBComponents(
+        let moreComponents = RGBComponents(
             red: randomRedValue,
             green: randomGreenValue,
             blue: randomBlueValue,
@@ -114,8 +105,7 @@ class RGBComponentsTests: XCTestCase {
     }
 
     func testInequalityOfRGBComponentsWithMismatchedRedValues() {
-        let moreComponents =
-        UIColorRGBComponents(
+        let moreComponents = RGBComponents(
             red: nudgeComponentValue(randomRedValue),
             green: randomGreenValue,
             blue: randomBlueValue,
@@ -125,8 +115,7 @@ class RGBComponentsTests: XCTestCase {
     }
 
     func testInequalityOfRGBComponentsWithMismatchedGreenValues() {
-        let moreComponents =
-        UIColorRGBComponents(
+        let moreComponents = RGBComponents(
             red: randomRedValue,
             green: nudgeComponentValue(randomGreenValue),
             blue: randomBlueValue,
@@ -136,8 +125,7 @@ class RGBComponentsTests: XCTestCase {
     }
 
     func testInequalityOfRGBComponentsWithMismatchedBlueValues() {
-        let moreComponents =
-        UIColorRGBComponents(
+        let moreComponents = RGBComponents(
             red: randomRedValue,
             green: randomGreenValue,
             blue: nudgeComponentValue(randomBlueValue),
@@ -147,8 +135,7 @@ class RGBComponentsTests: XCTestCase {
     }
 
     func testInequalityOfRGBComponentsWithMismatchedAlphaValues() {
-        let moreComponents =
-        UIColorRGBComponents(
+        let moreComponents = RGBComponents(
             red: randomRedValue,
             green: randomGreenValue,
             blue: randomBlueValue,
@@ -168,8 +155,12 @@ class RGBComponentsTests: XCTestCase {
         var greenValue = CGFloat(0)
         var blueValue = CGFloat(0)
         var alphaValue = CGFloat(0)
-        sampleHSBColor.getRed(&redValue, green: &greenValue, blue: &blueValue, alpha: &alphaValue)
-        components = UIColorRGBComponents(
+        sampleHSBColor.getRed(&redValue,
+            green: &greenValue,
+            blue: &blueValue,
+            alpha: &alphaValue
+        )
+        components = RGBComponents(
             red: redValue,
             green: greenValue,
             blue: blueValue,
@@ -183,8 +174,12 @@ class RGBComponentsTests: XCTestCase {
         var greenValue = CGFloat(0)
         var blueValue = CGFloat(0)
         var alphaValue = CGFloat(0)
-        sampleMonochromeColor.getRed(&redValue, green: &greenValue, blue: &blueValue, alpha: &alphaValue)
-        components = UIColorRGBComponents(
+        sampleMonochromeColor.getRed(&redValue,
+            green: &greenValue,
+            blue: &blueValue,
+            alpha: &alphaValue
+        )
+        components = RGBComponents(
             red: redValue,
             green: greenValue,
             blue: blueValue,

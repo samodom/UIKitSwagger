@@ -20,10 +20,6 @@ class GestureRecognizerEnablingTests: XCTestCase {
         enabledRecognizer.enabled = true
         disabledRecognizer.enabled = false
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     func testEnablingDisabledGestureRecognizer() {
         disabledRecognizer.enable()

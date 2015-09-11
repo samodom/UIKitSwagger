@@ -20,10 +20,6 @@ class LabelEnablingTests: XCTestCase {
         enabledLabel.enabled = true
         disabledLabel.enabled = false
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     func testEnablingDisabledLabel() {
         disabledLabel.enable()

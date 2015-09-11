@@ -8,91 +8,57 @@
 
 import UIKit
 
-/**
-  We need a more concise way to refer to layout constraints instead of `NSLayoutConstraint` and this is it!
-*/
-public typealias Constraint = NSLayoutConstraint
+extension NSLayoutConstraint  {
 
-/**
-  Constraints should be equatable and we match them in a property-by-property manner.  The priority and identifier are not considered in the comparison.
-*/
-extension Constraint: Equatable  {
+    /**
+    Constraints should be equatable beyond reference comparison and we match them in a property-by-property manner.
+    - parameter object: Another constraint to compare to this constraint.
+    */
+    override public func isEqual(object: AnyObject?) -> Bool {
+        guard object is NSLayoutConstraint else { return false }
+        guard self !== object else { return true }
 
-    private func componentsMatch(other: Constraint) -> Bool {
-        if (firstAttribute != other.firstAttribute || secondAttribute != other.secondAttribute || relation != other.relation) {
-            return false
+        let otherConstraint = object as! NSLayoutConstraint
+        guard priority == otherConstraint.priority else { return false }
+
+        if componentsMatch(otherConstraint) {
+            return true
         }
 
-        let doubleAccuracy = 0.00001
-        if Double(abs(multiplier - other.multiplier)) > doubleAccuracy || Double(abs(constant - other.constant)) > doubleAccuracy {
-            return false
+        if let reverse = otherConstraint.reversed() {
+            return componentsMatch(reverse)
         }
 
-        return firstItem === other.firstItem && secondItem === other.secondItem
+        return false
+    }
+
+    private func componentsMatch(otherConstraint: NSLayoutConstraint) -> Bool {
+        guard firstItem === otherConstraint.firstItem else { return false }
+        guard firstAttribute == otherConstraint.firstAttribute else { return false }
+        guard secondItem === otherConstraint.secondItem else { return false }
+        guard secondAttribute == otherConstraint.secondAttribute else { return false }
+        guard relation == otherConstraint.relation else { return false }
+
+        func valueWithinTolerance(value1: CGFloat, _ value2: CGFloat) -> Bool {
+            return Double(abs(value1 - value2)) < 1e-5
+        }
+
+        guard valueWithinTolerance(multiplier, otherConstraint.multiplier) else { return false }
+        guard valueWithinTolerance(constant, otherConstraint.constant) else { return false }
+
+        return true
     }
 
 }
 
-/**
-  Global-level definition of the constraint equality operator overload
-*/
-public func == (lhs: Constraint, rhs: Constraint) -> Bool {
-    if lhs === rhs {
-        return true
-    }
-
-    if lhs.componentsMatch(rhs) {
-        return true
-    }
-
-    if let reverse = rhs.reversed() {
-        return lhs.componentsMatch(reverse)
-    }
-
-    return false
-}
 
 /**
-  Global-level definition of the constraint identity operator
+Global-level definition of the constraint identity operator.
 */
 infix operator ==* { }
 
-public func ==* (lhs: Constraint, rhs: Constraint) -> Bool {
-    return lhs == rhs && lhs.priority == rhs.priority && lhs.identifier == rhs.identifier
-}
-
-private extension NSLayoutRelation {
-    private func reversed() -> NSLayoutRelation {
-        return NSLayoutRelation(rawValue: -rawValue)!
-    }
-}
-
-public extension Constraint {
-
-    /**
-      This method reverses a constraint from the form y R mx + b, where R is a layout relation, to the form x = (y - b) / m, where m != 0
-    */
-    public func reversed() -> Constraint? {
-        if isIrreversible() {
-            return nil
-        }
-
-        let newRelation = multiplier < 0 ? relation : relation.reversed()
-        let newMultiplier = 1 / multiplier
-        let newConstant = -constant / multiplier
-
-        return Constraint(item: secondItem!, attribute: secondAttribute, relatedBy: newRelation, toItem: firstItem, attribute: firstAttribute, multiplier: newMultiplier, constant: newConstant)
-    }
-
-    private func isIrreversible() -> Bool {
-        return (multiplier == 0.0) || (secondItem == nil) || (secondAttribute == .NotAnAttribute)
-    }
-
-    /**
-      In order to work with positive constants, you may need to reverse a constraint.  In case you want to make sure you've always got a positive constant without checking yourself, this won't reverse your constraint if the constant is already non-negative.
-    */
-    public func makeConstantPositive() -> Constraint? {
-        return constant < 0 ? reversed() : self
-    }
-
+public func ==* (lhs: NSLayoutConstraint, rhs: NSLayoutConstraint) -> Bool {
+    return
+        lhs == rhs &&
+            lhs.identifier == rhs.identifier
 }

@@ -11,130 +11,143 @@ import UIKit
 //  MARK: Left-to-right distribution
 
 /**
-  Convenience method for horizontally distributing two or more items without any spacing.  The constraints that are applied use the left and right side attributes of the views.
-  @param        views Two or more items that are to be horizontally distributed.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for horizontally distributing two or more items without any spacing.
+- parameter views: Two or more items that are to be horizontally distributed.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the left and right side attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeLeftToRight(views: UIView...)  -> [Constraint] {
+public func DistributeLeftToRight(views: UIView...)  -> [NSLayoutConstraint] {
     return DistributeLeftToRight(views)
 }
 
 /**
-  Convenience method for horizontally distributing an array of items without any spacing.  The constraints that are applied use the left and right side attributes of the views.
-  @param        views An array of two or more items that are to be horizontally distributed.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for horizontally distributing an array of items without any spacing.
+- parameter views: An array of two or more items that are to be horizontally distributed.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the left and right side attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeLeftToRight(views: [UIView])  -> [Constraint] {
-    return DistributeLeftToRight(spacing: 0, views)
+public func DistributeLeftToRight(views: [UIView])  -> [NSLayoutConstraint] {
+    return DistributeLeftToRight(spacing: 0, views: views)
 }
 
 /**
-  Convenience method for horizontally distributing two or more items with constant spacing.  The constraints that are applied use the left and right side attributes of the views.
-  @param        views Two or more items that are to be horizontally distributed.
-  @param        spacing Constant to use for spacing between the views.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for horizontally distributing two or more items with constant spacing.
+- parameter views: Two or more items that are to be horizontally distributed.
+- parameter spacing: Constant to use for spacing between the views.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the left and right side attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeLeftToRight(#spacing: CGFloat, views: UIView...)  -> [Constraint] {
-    return DistributeLeftToRight(spacing: spacing, views)
+public func DistributeLeftToRight(spacing spacing: CGFloat, views: UIView...)  -> [NSLayoutConstraint] {
+    return DistributeLeftToRight(spacing: spacing, views: views)
 }
 
 /**
-  Convenience method for horizontally distributing an array of items with constant spacing.  The constraints that are applied use the left and right side attributes of the views.
-  @param        views An array of two or more items that are to be horizontally distributed.
-  @param        spacing Constant to use for spacing between the views.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for horizontally distributing an array of items with constant spacing.
+- parameter views: An array of two or more items that are to be horizontally distributed.
+- parameter spacing: Constant to use for spacing between the views.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the left and right side attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeLeftToRight(#spacing: CGFloat, views: [UIView])  -> [Constraint] {
-    return DistributeViews(views, spacing, .LeftToRight)
+public func DistributeLeftToRight(spacing spacing: CGFloat, views: [UIView])  -> [NSLayoutConstraint] {
+    return DistributeViews(views, spacing: spacing, direction: .LeftToRight)
 }
 
 //  MARK: Leading-to-trailing distribution
 
 /**
-  Convenience method for horizontally distributing two or more items without any spacing.  The constraints that are applied use the leading and trailing attributes of the views.
-  @param        views Two or more items that are to be horizontally distributed.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for horizontally distributing two or more items without any spacing.
+- parameter views: Two or more items that are to be horizontally distributed.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the leading and trailing attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeLeadingToTrailing(views: UIView...)  -> [Constraint] {
+public func DistributeLeadingToTrailing(views: UIView...)  -> [NSLayoutConstraint] {
     return DistributeLeadingToTrailing(views)
 }
 
 /**
-  Convenience method for horizontally distributing an array of items without any spacing.  The constraints that are applied use the leading and trailing attributes of the views.
-  @param        views An array of two or more items that are to be horizontally distributed.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for horizontally distributing an array of items without any spacing.
+- parameter views: An array of two or more items that are to be horizontally distributed.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the leading and trailing attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeLeadingToTrailing(views: [UIView])  -> [Constraint] {
-    return DistributeLeadingToTrailing(spacing: 0, views)
+public func DistributeLeadingToTrailing(views: [UIView])  -> [NSLayoutConstraint] {
+    return DistributeLeadingToTrailing(spacing: 0, views: views)
 }
 
 /**
-  Convenience method for horizontally distributing two or more items with constant spacing.  The constraints that are applied use the leading and trailing attributes of the views.
-  @param        views Two or more items that are to be horizontally distributed.
-  @param        spacing Constant to use for spacing between the views.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for horizontally distributing two or more items with constant spacing.
+- parameter views: Two or more items that are to be horizontally distributed.
+- parameter spacing: Constant to use for spacing between the views.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the leading and trailing attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeLeadingToTrailing(#spacing: CGFloat, views: UIView...)  -> [Constraint] {
-    return DistributeLeadingToTrailing(spacing: spacing, views)
+public func DistributeLeadingToTrailing(spacing spacing: CGFloat, views: UIView...)  -> [NSLayoutConstraint] {
+    return DistributeLeadingToTrailing(spacing: spacing, views: views)
 }
 
 /**
-  Convenience method for horizontally distributing an array of items with constant spacing.  The constraints that are applied use the leading and trailing attributes of the views.
-  @param        views An array of two or more items that are to be horizontally distributed.
-  @param        spacing Constant to use for spacing between the views.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for horizontally distributing an array of items with constant spacing.
+- parameter views: An array of two or more items that are to be horizontally distributed.
+- parameter spacing: Constant to use for spacing between the views.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the leading and trailing attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeLeadingToTrailing(#spacing: CGFloat, views: [UIView])  -> [Constraint] {
-    return DistributeViews(views, spacing, .LeadingToTrailing)
+public func DistributeLeadingToTrailing(spacing spacing: CGFloat, views: [UIView])  -> [NSLayoutConstraint] {
+    return DistributeViews(views, spacing: spacing, direction: .LeadingToTrailing)
 }
 
 //  MARK: Top-to-bottom distribution
 
 /**
-  Convenience method for vertically distributing two or more items without any spacing.  The constraints that are applied use the top and bottom side attributes of the views.
-  @param        views Two or more items that are to be vertically distributed.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for vertically distributing two or more items without any spacing.
+- parameter views: Two or more items that are to be vertically distributed.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the top and bottom side attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeTopToBottom(views: UIView...)  -> [Constraint] {
+public func DistributeTopToBottom(views: UIView...)  -> [NSLayoutConstraint] {
     return DistributeTopToBottom(views)
 }
 
 /**
-  Convenience method for vertically distributing an array of items without any spacing.  The constraints that are applied use the top and bottom side attributes of the views.
-  @param        views An array of two or more items that are to be vertically distributed.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for vertically distributing an array of items without any spacing.
+- parameter views: An array of two or more items that are to be vertically distributed.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the top and bottom side attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeTopToBottom(views: [UIView])  -> [Constraint] {
-    return DistributeTopToBottom(spacing: 0, views)
+public func DistributeTopToBottom(views: [UIView])  -> [NSLayoutConstraint] {
+    return DistributeTopToBottom(spacing: 0, views: views)
 }
 
 /**
-  Convenience method for vertically distributing two or more items with constant spacing.  The constraints that are applied use the top and bottom side attributes of the views.
-  @param        views Two or more items that are to be vertically distributed.
-  @param        spacing Constant to use for spacing between the views.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for vertically distributing two or more items with constant spacing.
+- parameter views: Two or more items that are to be vertically distributed.
+- parameter spacing: Constant to use for spacing between the views.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the top and bottom side attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeTopToBottom(#spacing: CGFloat, views: UIView...)  -> [Constraint] {
-    return DistributeTopToBottom(spacing: spacing, views)
+public func DistributeTopToBottom(spacing spacing: CGFloat, views: UIView...)  -> [NSLayoutConstraint] {
+    return DistributeTopToBottom(spacing: spacing, views: views)
 }
 
 /**
-  Convenience method for vertically distributing an array of items with constant spacing.  The constraints that are applied use the top and bottom side attributes of the views.
-  @param        views An array of two or more items that are to be vertically distributed.
-  @param        spacing Constant to use for spacing between the views.
-  @return       The constraints that were applied.
-  @discussion   The layout constraints created by this function are applied to the appropriate view.  If fewer than two items are provided, an error is thrown.
+Convenience method for vertically distributing an array of items with constant spacing.
+- parameter views: An array of two or more items that are to be vertically distributed.
+- parameter spacing: Constant to use for spacing between the views.
+- returns: The constraints that were created and activated.
+- note: The constraints that are created use the top and bottom side attributes of the views.  The layout constraints created by this function are automatically activated.
+- warning: If fewer than two items are provided, an error is thrown.
 */
-public func DistributeTopToBottom(#spacing: CGFloat, views: [UIView])  -> [Constraint] {
-    return DistributeViews(views, spacing, .TopToBottom)
+public func DistributeTopToBottom(spacing spacing: CGFloat, views: [UIView])  -> [NSLayoutConstraint] {
+    return DistributeViews(views, spacing: spacing, direction: .TopToBottom)
 }

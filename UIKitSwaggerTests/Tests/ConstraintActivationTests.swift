@@ -8,40 +8,51 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class ConstraintActivationTests: XCTestCase {
 
-    let view = UIView()
-    let subview1 = UIView()
-    let subview2 = UIView()
-    let subview3 = UIView()
-    var constraint1: Constraint!
-    var constraint2: Constraint!
-    var constraint3: Constraint!
+    var controller: UIViewController!
+    var view: UIView!
+    let subview = UIView()
+    var guide: AnyObject!
+    var constraint1: NSLayoutConstraint!
+    var constraint2: NSLayoutConstraint!
+    var constraint3: NSLayoutConstraint!
 
     override func setUp() {
         super.setUp()
 
-        view.addSubview(subview1)
-        view.addSubview(subview2)
-        view.addSubview(subview3)
+        let window = UIApplication.sharedApplication().delegate!.window!
+        controller = window!.rootViewController
+        view = controller.view
+        view.addSubview(subview)
+        if #available(iOS 9.0, *) {
+            guide = UILayoutGuide()
+            view.addLayoutGuide(guide as! UILayoutGuide)
+        }
 
-        constraint1 = subview1.centerX =* view.centerX
-        constraint2 = subview2.centerX =* view.centerX
-        constraint3 = subview3.centerX =* view.centerX
-        ApplyConstraints(constraint1, constraint2, constraint3)
-
-        constraint1.active = false
-        constraint2.active = false
-        constraint3.active = false
+        constraint1 = subview.top =* controller.top
+        constraint2 = view.left =* subview.left - 10
+        if #available(iOS 9.0, *) {
+            constraint3 = (guide as! UILayoutGuide).bottom =* controller.bottom + 10
+        }
+        else {
+            constraint3 = subview.centerX =* view.centerX
+        }
     }
     
     override func tearDown() {
         super.tearDown()
+
+        subview.removeFromSuperview()
+        if #available(iOS 9.0, *) {
+            view.removeLayoutGuide(guide as! UILayoutGuide)
+        }
+        view.clearConstraints()
     }
 
     func testActivatingInactiveConstraint() {
-        constraint1.active = false
         constraint1.activate()
         XCTAssertTrue(constraint1.active, "The inactive constraint should be activated")
     }
@@ -59,7 +70,6 @@ class ConstraintActivationTests: XCTestCase {
     }
 
     func testNotActivatingInactiveConstraint() {
-        constraint1.active = false
         constraint1.deactivate()
         XCTAssertFalse(constraint1.active, "The inactive constraint should not be activated")
     }

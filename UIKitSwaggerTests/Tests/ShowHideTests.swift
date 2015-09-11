@@ -8,20 +8,13 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class ShowHideTests: XCTestCase {
 
     var viewOne = UIView()
     var viewTwo = UIView()
     var viewThree = UIView()
-
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     private func hideAll() {
         viewOne.hidden = true

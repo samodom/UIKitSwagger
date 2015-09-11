@@ -8,26 +8,18 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 //  See `ColorTestHelpers.swift` for colors and values used herein.
 
 class HSBComponentsTests: XCTestCase {
 
-    var components =
-    UIColorHSBComponents(
+    var components = HSBComponents(
         hue: randomHueValue,
         saturation: randomSaturationValue,
         brightness: randomBrightnessValue,
         alpha: randomAlphaValue
     )
-
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     //  MARK: - Component values
 
@@ -36,7 +28,7 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testHueComponentWithHSBColor() {
-        XCTAssertEqualWithAccuracy(sampleHSBColor.hue, randomHueValue, ColorComponentValueTestAccuracy, "The hue component of the HSB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleHSBColor.hue, randomHueValue, accuracy: ColorComponentValueTestAccuracy, "The hue component of the HSB color should be provided")
     }
 
     func testHueComponentWithMonochromeColor() {
@@ -48,7 +40,7 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testSaturationComponentWithHSBColor() {
-        XCTAssertEqualWithAccuracy(sampleHSBColor.saturation, randomSaturationValue, ColorComponentValueTestAccuracy, "The saturation component of the HSB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleHSBColor.saturation, randomSaturationValue, accuracy: ColorComponentValueTestAccuracy, "The saturation component of the HSB color should be provided")
     }
 
     func testSaturationComponentWithMonochromeColor() {
@@ -60,7 +52,7 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testBrightnessComponentWithHSBColor() {
-        XCTAssertEqualWithAccuracy(sampleHSBColor.brightness, randomBrightnessValue, ColorComponentValueTestAccuracy, "The brightness component of the HSB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleHSBColor.brightness, randomBrightnessValue, accuracy: ColorComponentValueTestAccuracy, "The brightness component of the HSB color should be provided")
     }
 
     func testBrightnessComponentWithMonochromeColor() {
@@ -70,7 +62,7 @@ class HSBComponentsTests: XCTestCase {
     //  MARK: Components structure
 
     func testHSBComponentStructureWithDefaultAlpha() {
-        components = UIColorHSBComponents(
+        components = HSBComponents(
             hue: randomHueValue,
             saturation: randomSaturationValue,
             brightness: randomBrightnessValue
@@ -91,8 +83,7 @@ class HSBComponentsTests: XCTestCase {
     //  MARK: Equality
 
     func testEqualityOfHSBComponentStructure() {
-        let moreComponents =
-        UIColorHSBComponents(
+        let moreComponents = HSBComponents(
             hue: randomHueValue,
             saturation: randomSaturationValue,
             brightness: randomBrightnessValue,
@@ -102,8 +93,7 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testInequalityOfHSBComponentsWithMismatchedHueValues() {
-        let moreComponents =
-        UIColorHSBComponents(
+        let moreComponents = HSBComponents(
             hue: nudgeComponentValue(randomHueValue),
             saturation: randomSaturationValue,
             brightness: randomBrightnessValue,
@@ -113,8 +103,7 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testInequalityOfHSBComponentsWithMismatchedSaturationValues() {
-        let moreComponents =
-        UIColorHSBComponents(
+        let moreComponents = HSBComponents(
             hue: randomHueValue,
             saturation: nudgeComponentValue(randomSaturationValue),
             brightness: randomBrightnessValue,
@@ -124,8 +113,7 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testInequalityOfHSBComponentsWithMismatchedBrightnessValues() {
-        let moreComponents =
-        UIColorHSBComponents(
+        let moreComponents = HSBComponents(
             hue: randomHueValue,
             saturation: randomSaturationValue,
             brightness: nudgeComponentValue(randomBrightnessValue),
@@ -135,8 +123,7 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testInequalityOfHSBComponentsWithMismatchedAlphaValues() {
-        let moreComponents =
-        UIColorHSBComponents(
+        let moreComponents = HSBComponents(
             hue: randomHueValue,
             saturation: randomSaturationValue,
             brightness: randomBrightnessValue,
@@ -152,8 +139,12 @@ class HSBComponentsTests: XCTestCase {
         var saturationValue = CGFloat(0)
         var brightnessValue = CGFloat(0)
         var alphaValue = CGFloat(0)
-        sampleRGBColor.getHue(&hueValue, saturation: &saturationValue, brightness: &brightnessValue, alpha: &alphaValue)
-        components = UIColorHSBComponents(
+        sampleRGBColor.getHue(&hueValue,
+            saturation: &saturationValue,
+            brightness: &brightnessValue,
+            alpha: &alphaValue
+        )
+        components = HSBComponents(
             hue: hueValue,
             saturation: saturationValue,
             brightness: brightnessValue,
@@ -171,8 +162,12 @@ class HSBComponentsTests: XCTestCase {
         var saturationValue = CGFloat(0)
         var brightnessValue = CGFloat(0)
         var alphaValue = CGFloat(0)
-        sampleMonochromeColor.getHue(&hueValue, saturation: &saturationValue, brightness: &brightnessValue, alpha: &alphaValue)
-        components = UIColorHSBComponents(
+        sampleMonochromeColor.getHue(&hueValue,
+            saturation: &saturationValue,
+            brightness: &brightnessValue,
+            alpha: &alphaValue
+        )
+        components = HSBComponents(
             hue: hueValue,
             saturation: saturationValue,
             brightness: brightnessValue,

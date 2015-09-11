@@ -8,27 +8,20 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class SpinnerStateManagerTests: XCTestCase {
 
     var spinnerManager = SpinnerStateManager()
-    var spinner: UIActivityIndicatorView! = UIActivityIndicatorView()
-
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
+    var spinner: UIActivityIndicatorView = UIActivityIndicatorView()
 
     func testManagerDoesNotHaveSpinnerByDefault() {
         XCTAssertNil(spinnerManager.spinner, "The manager should not have a spinner by default")
-        switch spinnerManager.currentState {
-        case .Detached:
-            break
 
-        default:
+        if case .Detached = spinnerManager.currentState {
+            return
+        }
+        else {
             XCTFail("The manager should be in the detached state by default")
         }
     }
@@ -36,11 +29,11 @@ class SpinnerStateManagerTests: XCTestCase {
     func testSettingStoppedSpinner() {
         spinnerManager.spinner = spinner
         XCTAssertEqual(spinnerManager.spinner!, spinner, "The manager should have a weak reference to an activity indicator view")
-        switch spinnerManager.currentState {
-        case .Stopped:
-            break
 
-        default:
+        if case .Stopped = spinnerManager.currentState {
+            return
+        }
+        else {
             XCTFail("The manager should be in the stopped state after adding a stopped spinner")
         }
     }
@@ -49,11 +42,11 @@ class SpinnerStateManagerTests: XCTestCase {
         spinner.startAnimating()
         assert(spinner.isAnimating(), "Just checking that it is really spinning")
         spinnerManager.spinner = spinner
-        switch spinnerManager.currentState {
-        case .Started(let count):
-            XCTAssertEqual(count, 1, "The manager should indicate that it is started but assumes a single client")
 
-        default:
+        if case .Started(let count) = spinnerManager.currentState {
+            XCTAssertEqual(count, 1, "The manager should indicate that it is started but assumes a single client")
+        }
+        else {
             XCTFail("The manager should be in the started state after adding a started spinner")
         }
     }
@@ -61,11 +54,11 @@ class SpinnerStateManagerTests: XCTestCase {
     func testCreatingManagerWithStoppedSpinner() {
         spinnerManager = SpinnerStateManager(spinner)
         XCTAssertEqual(spinnerManager.spinner!, spinner, "The manager should be created with a weak reference to the activity indicator view")
-        switch spinnerManager.currentState {
-        case .Stopped:
-            break
 
-        default:
+        if case .Stopped = spinnerManager.currentState {
+            return
+        }
+        else {
             XCTFail("The manager should be in the stopped state after being created with a stopped spinner")
         }
     }
@@ -74,11 +67,11 @@ class SpinnerStateManagerTests: XCTestCase {
         spinner.startAnimating()
         spinnerManager = SpinnerStateManager(spinner)
         assert(spinner.isAnimating(), "Just checking that it is really spinning")
-        switch spinnerManager.currentState {
-        case .Started(let count):
-            XCTAssertEqual(count, 1, "The manager should indicate that it is started but assumes a single client")
 
-        default:
+        if case .Started(let count) = spinnerManager.currentState {
+            XCTAssertEqual(count, 1, "The manager should indicate that it is started but assumes a single client")
+        }
+        else {
             XCTFail("The manager should be in the started state after being created with a started spinner")
         }
     }
@@ -87,22 +80,22 @@ class SpinnerStateManagerTests: XCTestCase {
         spinnerManager = SpinnerStateManager(spinner)
         spinnerManager.spinner = nil
         XCTAssertNil(spinnerManager.spinner, "Just checking it actually gets nilled")
-        switch spinnerManager.currentState {
-        case .Detached:
-            break
 
-        default:
+        if case .Detached = spinnerManager.currentState {
+            return
+        }
+        else {
             XCTFail("The manager should change to the detached state when the spinner is removed")
         }
     }
 
     func testStartingDetachedSpinner() {
         spinnerManager.start()
-        switch spinnerManager.currentState {
-        case .Detached:
-            break
 
-        default:
+        if case .Detached = spinnerManager.currentState {
+            return
+        }
+        else {
             XCTFail("The manager should still be in the detached state without a spinner")
         }
     }
@@ -111,11 +104,11 @@ class SpinnerStateManagerTests: XCTestCase {
         spinnerManager.spinner = spinner
         spinnerManager.start()
         XCTAssertTrue(spinner.isAnimating(), "The spinner should now be animating")
-        switch spinnerManager.currentState {
-        case .Started(let clients):
-            XCTAssertEqual(clients, 1, "The number of clients should be set when starting a stopped spinner")
 
-        default:
+        if case .Started(let count) = spinnerManager.currentState {
+            XCTAssertEqual(count, 1, "The number of clients should be set when starting a stopped spinner")
+        }
+        else {
             XCTFail("The manager should now be in the started state with a single client")
         }
     }
@@ -125,11 +118,11 @@ class SpinnerStateManagerTests: XCTestCase {
         spinnerManager.start()
         spinnerManager.start()
         XCTAssertTrue(spinner.isAnimating(), "The spinner should still be animating")
-        switch spinnerManager.currentState {
-        case .Started(let clients):
-            XCTAssertEqual(clients, 2, "The number of clients should be increased when starting a started spinner")
 
-        default:
+        if case .Started(let count) = spinnerManager.currentState {
+            XCTAssertEqual(count, 2, "The number of clients should be increased when starting a started spinner")
+        }
+        else {
             XCTFail("The manager should now be in the started state with two clients")
         }
 
@@ -140,11 +133,11 @@ class SpinnerStateManagerTests: XCTestCase {
         spinnerManager.start()
         spinnerManager.stop()
         XCTAssertFalse(spinner.isAnimating(), "The spinner should no longer be animating")
-        switch spinnerManager.currentState {
-        case .Stopped:
-            break
 
-        default:
+        if case .Stopped = spinnerManager.currentState {
+            return
+        }
+        else {
             XCTFail("The manager should now be in the stopped state")
         }
     }
@@ -155,21 +148,21 @@ class SpinnerStateManagerTests: XCTestCase {
         spinnerManager.start()
         spinnerManager.stop()
         XCTAssertTrue(spinner.isAnimating(), "The spinner should still be animating")
-        switch spinnerManager.currentState {
-        case .Started(let clients):
-            XCTAssertEqual(clients, 1, "The client count should be decreased")
 
-        default:
+        if case .Started(let count) = spinnerManager.currentState {
+            XCTAssertEqual(count, 1, "The client count should be decreased")
+        }
+        else {
             XCTFail("The manager should still be in the started state with a single client")
         }
 
         spinnerManager.stop()
         XCTAssertFalse(spinner.isAnimating(), "The spinner should no longer be animating")
-        switch spinnerManager.currentState {
-        case .Stopped:
-            break
 
-        default:
+        if case .Stopped = spinnerManager.currentState {
+            return
+        }
+        else {
             XCTFail("The manager should now be stopped")
         }
     }
@@ -178,22 +171,22 @@ class SpinnerStateManagerTests: XCTestCase {
         spinnerManager.spinner = spinner
         spinnerManager.stop()
         XCTAssertFalse(spinner.isAnimating(), "The spinner should still not be animating")
-        switch spinnerManager.currentState {
-        case .Stopped:
-            break
 
-        default:
+        if case .Stopped = spinnerManager.currentState {
+            return
+        }
+        else {
             XCTFail("The manager should still be in the stopped state")
         }
     }
 
     func testStoppingDetachedSpinner() {
         spinnerManager.stop()
-        switch spinnerManager.currentState {
-        case .Detached:
-            break
 
-        default:
+        if case .Detached = spinnerManager.currentState {
+            return
+        }
+        else {
             XCTFail("The manager should still be in the detached state")
         }
     }

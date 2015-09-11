@@ -9,59 +9,53 @@
 import UIKit
 
 /**
-  Utility function for hiding one or more views.
-  @param        views One or more views to hide.
-  @discussion   This method does not explicitly use the main thread.
+Utility function for hiding one or more views.
+- parameter views: One or more views to hide.
+- warning: This method does not explicitly use the main thread.
 */
 public func HideViews(views: UIView...) {
     HideViews(views)
 }
 
 /**
-  Utility function for hiding an array of views.
-  @param        views An array of views to hide.
-  @discussion   This method does not explicitly use the main thread.
+Utility function for hiding an array of views.
+- parameter views: An array of views to hide.
+- warning: This method does not explicitly use the main thread.
 */
 public func HideViews(views: [UIView]) {
-    for view in views {
-        view.hidden = true
-    }
+    views.forEach { $0.hidden = true }
 }
 
 /**
-  Utility function for showing one or more views.
-  @param        views One or more views to show.
-  @discussion   This method does not explicitly use the main thread.
+Utility function for showing one or more views.
+- parameter views: One or more views to show.
+- warning: This method does not explicitly use the main thread.
 */
 public func ShowViews(views: UIView...) {
     ShowViews(views)
 }
 
 /**
-  Utility function for showing an array of views.
-  @param        views An array of views to show.
-  @discussion   This method does not explicitly use the main thread.
+Utility function for showing an array of views.
+- parameter views: An array of views to show.
+- warning: This method does not explicitly use the main thread.
 */
 public func ShowViews(views: [UIView]) {
-    for view in views {
-        view.hidden = false
-    }
+    views.forEach { $0.hidden = false }
 }
 
 /**
-  Utility function for turning off autoresizing-mask-to-constraint translation for one or more views.
-  @param        views One or more views on which to turn off translation.
+Utility function for turning off autoresizing-mask-to-constraint translation for one or more views.
+- parameter views: One or more views on which to turn off translation.
 */
 public func DoNotTranslateMasks(views: UIView...) {
     DoNotTranslateMasks(views)
 }
 
 /**
-  Utility function for turning off autoresizing-mask-to-constraint translation for an array of views.
-  @param        views An array of views on which to turn off translation.
+Utility function for turning off autoresizing-mask-to-constraint translation for an array of views.
+- parameter views: An array of views on which to turn off translation.
 */
 public func DoNotTranslateMasks(views: [UIView]) {
-    for view in views {
-        view.setTranslatesAutoresizingMaskIntoConstraints(false)
-    }
+    views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 }

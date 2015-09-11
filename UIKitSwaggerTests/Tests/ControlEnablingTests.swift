@@ -20,10 +20,6 @@ class ControlEnablingTests: XCTestCase {
         enabledControl.enabled = true
         disabledControl.enabled = false
     }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
 
     func testEnablingDisabledControl() {
         disabledControl.enable()

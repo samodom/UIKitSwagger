@@ -10,6 +10,9 @@ import UIKit
 
 public extension UISlider {
 
+    /**
+    Property representing the closed interval `minimumValue ... maximumValue`.
+    */
     public var interval: ClosedInterval<Float> {
         get {
             return minimumValue ... maximumValue

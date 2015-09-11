@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import UIKitSwagger
 
 class MainThreadUpdatesTests: XCTestCase {
 
@@ -19,10 +20,6 @@ class MainThreadUpdatesTests: XCTestCase {
         super.setUp()
 
         mainThreadExpectation = expectationWithDescription("main thread execution")
-    }
-    
-    override func tearDown() {
-        super.tearDown()
     }
 
     func testMainThreadExecutionClosureSyntax() {

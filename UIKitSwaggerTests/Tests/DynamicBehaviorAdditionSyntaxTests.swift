@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+@testable import UIKitSwagger
 
 class DynamicBehaviorAdditionSyntaxTests: XCTestCase {
 
@@ -16,22 +17,14 @@ class DynamicBehaviorAdditionSyntaxTests: XCTestCase {
     let behavior2 = UIDynamicBehavior()
     let behavior3 = UIDynamicBehavior()
 
-    override func setUp() {
-        super.setUp()
-    }
-
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testAddingDynamicBehaviorWithOperator() {
         parentBehavior += behavior1
-        XCTAssertEqual(parentBehavior.childBehaviors as! [UIDynamicBehavior], [behavior1], "The behavior should be added to the parent behavior")
+        XCTAssertEqual(parentBehavior.childBehaviors, [behavior1], "The behavior should be added to the parent behavior")
     }
 
     func testAddingDynamicBehaviorArrayWithOperator() {
         parentBehavior += [behavior1, behavior2, behavior3]
-        XCTAssertEqual(parentBehavior.childBehaviors as! [UIDynamicBehavior], [behavior1, behavior2, behavior3], "The behaviors should be added to the parent behavior in the order provided")
+        XCTAssertEqual(parentBehavior.childBehaviors, [behavior1, behavior2, behavior3], "The behaviors should be added to the parent behavior in the order provided")
     }
 
     func testRemovingDynamicBehaviorWithOperator() {
@@ -39,7 +32,7 @@ class DynamicBehaviorAdditionSyntaxTests: XCTestCase {
         parentBehavior.addChildBehavior(behavior2)
         parentBehavior.addChildBehavior(behavior3)
         parentBehavior -= behavior2
-        XCTAssertEqual(parentBehavior.childBehaviors as! [UIDynamicBehavior], [behavior1, behavior3], "The behavior should be removed from the parent behavior")
+        XCTAssertEqual(parentBehavior.childBehaviors, [behavior1, behavior3], "The behavior should be removed from the parent behavior")
     }
 
     func testRemovingDynamicBehaviorArrayWithOperator() {
@@ -47,7 +40,7 @@ class DynamicBehaviorAdditionSyntaxTests: XCTestCase {
         parentBehavior.addChildBehavior(behavior2)
         parentBehavior.addChildBehavior(behavior3)
         parentBehavior -= [behavior1, behavior3]
-        XCTAssertEqual(parentBehavior.childBehaviors as! [UIDynamicBehavior], [behavior2], "The behaviors should be removed from the parent behavior")
+        XCTAssertEqual(parentBehavior.childBehaviors, [behavior2], "The behaviors should be removed from the parent behavior")
     }
     
 }
