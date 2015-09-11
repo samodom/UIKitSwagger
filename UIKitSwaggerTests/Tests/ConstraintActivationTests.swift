@@ -37,6 +37,9 @@ class ConstraintActivationTests: XCTestCase {
         if #available(iOS 9.0, *) {
             constraint3 = (guide as! UILayoutGuide).bottom =* controller.bottom + 10
         }
+        else {
+            constraint3 = subview.centerX =* view.centerX
+        }
     }
     
     override func tearDown() {
