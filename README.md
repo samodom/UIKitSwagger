@@ -10,7 +10,7 @@ UIKitSwagger
 
 A bit of a DSL for UIKit
 
- - [Working with Views](Docs/Views.md) and [Stack Views](Docs/StackViews.dm) in particular
+ - [Working with Views](Docs/Views.md) and [Stack Views](Docs/StackViews.md) in particular
  - [Auto Layout Convenience](Docs/AutoLayout.md)
  - [Concurrency](Docs/Concurrency.md)
  - [Working with Alert Controllers](Docs/Alerts.md)
