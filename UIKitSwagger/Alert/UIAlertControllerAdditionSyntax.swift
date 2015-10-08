@@ -8,8 +8,8 @@
 
 import UIKit
 
-public typealias UIAlertTextFieldConfigurationHandler = (UITextField -> Void)?
-public typealias UIAlertActionHandler = (UIAlertAction -> Void)?
+public typealias UIAlertTextFieldConfigurationHandler = UITextField -> Void
+public typealias UIAlertActionHandler = UIAlertAction -> Void
 
 /**
 An operator used to add an alert action to an alert controller.

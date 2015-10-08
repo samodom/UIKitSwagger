@@ -19,21 +19,23 @@ class MainThreadUpdatesTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        mainThreadExpectation = expectationWithDescription("main thread execution")
+        mainThreadExpectation = expectationWithDescription("Main thread execution completed")
     }
 
     func testMainThreadExecutionClosureSyntax() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            XCTAssertFalse(NSThread.isMainThread(), "Making sure we aren't running on the main thread")
+        dispatch_async(BackgroundQueue) {
+            assert(!NSThread.isMainThread())
+
             !{
                 self.executionCount++
                 self.executedOnMainThread = NSThread.isMainThread()
                 self.mainThreadExpectation.fulfill()
             }
-            XCTAssertFalse(NSThread.isMainThread(), "Making sure we aren't running on the main thread")
+
+            assert(!NSThread.isMainThread())
         }
 
-        waitForExpectationsWithTimeout(MinimumTestExpectationWaitTime) { (_) -> () in
+        waitForExpectationsWithTimeout(MaximumTestExpectationWaitTime) { _ in
             XCTAssertTrue(self.executedOnMainThread, "The provided closure should be executed on the main thread")
             XCTAssertEqual(self.executionCount, 1, "The function should only be executed once")
         }
@@ -46,13 +48,15 @@ class MainThreadUpdatesTests: XCTestCase {
     }
 
     func testMainThreadExecutionFunctionSyntax() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-            XCTAssertFalse(NSThread.isMainThread(), "Making sure we aren't running on the main thread")
+        dispatch_async(BackgroundQueue) {
+            assert(!NSThread.isMainThread())
+
             !self.sampleExecutableStatement
-            XCTAssertFalse(NSThread.isMainThread(), "Making sure we aren't running on the main thread")
+
+            assert(!NSThread.isMainThread())
         }
 
-        waitForExpectationsWithTimeout(MinimumTestExpectationWaitTime) { (_) -> () in
+        waitForExpectationsWithTimeout(MaximumTestExpectationWaitTime) {  _ in
             XCTAssertTrue(self.executedOnMainThread, "The provided function should be executed on the main thread")
             XCTAssertEqual(self.executionCount, 1, "The function should only be executed once")
         }

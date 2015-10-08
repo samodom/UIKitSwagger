@@ -26,17 +26,17 @@ class AlertControllerAddableTests: XCTestCase {
     var action1 = UIAlertAction(
         title: "Action 1",
         style: .Default,
-        handler: UIAlertActionHandler()
+        handler: { _ in }
     )
     var action2 = UIAlertAction(
         title: "Action 2",
         style: .Destructive,
-        handler: UIAlertActionHandler()
+        handler: { _ in }
     )
     var action3 = UIAlertAction(
         title: "Action 3",
         style: .Cancel,
-        handler: UIAlertActionHandler()
+        handler: { _ in }
     )
 
     var field1: UITextField?
