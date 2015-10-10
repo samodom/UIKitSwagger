@@ -39,7 +39,7 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 |`constraint ~ nil`|`contraint.identifier = nil`|
 
 
-## Views Enhancements and Utilities
+## View Enhancements and Utilities
 
 ### Turning Off Translation
 
@@ -102,9 +102,54 @@ Common alignment tasks can be performed without creating constraints manually.  
  - `AlignBaselines(...) -> [NSLayoutConstraint]`
 
 
+### Filling Methods
+
+Constraints for pinning a view to any or all sides of its superview can be accomplished with various alignment function calls, but it is easier to ask a view to fill its superview.  Layout can be arranged relative to margins, horizontal or vertical directions can be specified, or edges can be excluded.
+
+- `fillSuperview()`
+- `fillSuperview(inDirections: LayoutDirection..., respectMargins: Bool)`
+- `fillSuperview(excludeEdges: LayoutEdges..., respectMargins: Bool)`
+
+> When the `respectMargins` flag is not provided, the default behavior is to not create constraints relative to the superview's margins.
+
+> When a horizontal direction is used but unspecified, the default value is `.LeadingToTrailing`.
+
+> When edges are excluded, the horizontal direction is inferred from the first horizontal edge provided.
+
+>  Mixing horizontal directions is not allowed.
+
+#### Layout Direction
+
+In order to specify a horizontal or vertical direction with left/right and leading/trailing variations, a new enumerated type is available called `LayoutDirection`.  Each direction has an integer equivalent that is the negative of its opposite direction.
+
+```swift
+enum LayoutDirection: Int {
+    case LeftToRight = 1
+    case RightToLeft = -1
+    case LeadingToTrailing = 2
+    case TrailingToLeading = -2
+    case TopToBottom = 3
+    case BottomToTop = -3
+}
+```
+
+#### Layout Edges
+
+Layout edges are similar to layout anchors except that they only encompass the extents of a view.
+
+```swift
+public enum LayoutEdge {
+    case Leading, Trailing
+    case Left, Right
+    case Top, Bottom
+}
+```
+
+
 ### Distribution Functions
 
 Common distribution tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically distribute views.  Functions that accept a numeric argument use the provided value for spacing between items.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  All of these functions accept a number and a variadic list or array of views and return the constraints that they activate.
+
  - `DistributeLeftToRight(...) -> [NSLayoutConstraint]`
  - `DistributeLeadingToTrailing(...) -> [NSLayoutConstraint]`
  - `DistributeTopToBottom(...) -> [NSLayoutConstraint]`
