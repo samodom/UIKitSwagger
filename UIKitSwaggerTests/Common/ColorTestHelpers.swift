@@ -62,20 +62,20 @@ private var onceToken: dispatch_once_t = 0
 internal func randomComponentValue() -> CGFloat {
 
     func createGenerator() {
-        dispatch_once(&onceToken, { () -> Void in
-            var now: time_t = 0
+        dispatch_once(&onceToken) {
+            var now = time_t(0)
             time(&now)
             srand48(now);
-        })
+        }
     }
 
     createGenerator()
     let randomValue = CGFloat(drand48())
-    assert(isNormalized(randomValue))
+    assert(floatingValueIsNormalized(randomValue))
     return randomValue
 }
 
-private func isNormalized<F: FloatingPointType>(value: F) -> Bool {
+private func floatingValueIsNormalized<F: FloatingPointType>(value: F) -> Bool {
     return (F(0) ... F(1)).contains(value)
 }
 
