@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal enum LayoutDirection: Int {
+public enum LayoutDirection: Int {
     case LeftToRight = 1
     case RightToLeft = -1
     case LeadingToTrailing = 2
