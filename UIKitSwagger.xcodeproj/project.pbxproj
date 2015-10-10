@@ -30,6 +30,8 @@
 		0A5A297B1A73368B003CB7EE /* SpinnerStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A297A1A73368B003CB7EE /* SpinnerStateManager.swift */; };
 		0A5BD0F71A3D0C5F00793312 /* ColorAliasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */; };
 		0A5BD0FA1A3D0C9200793312 /* ColorAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */; };
+		0A5D73681BC995FD005DEB73 /* LayoutEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D73671BC995FD005DEB73 /* LayoutEdge.swift */; };
+		0A5D736A1BC9973E005DEB73 /* LayoutEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D73691BC9973E005DEB73 /* LayoutEdgeTests.swift */; };
 		0A5F12F31A285D1000694C56 /* DimensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F21A285D1000694C56 /* DimensionsTests.swift */; };
 		0A5F12F81A285EB600694C56 /* UIViewDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewDimensions.swift */; };
 		0A63DFDE1B3B59A100B68DC0 /* LayoutGuideLayoutAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A63DFDC1B3B4C5100B68DC0 /* LayoutGuideLayoutAttributesTests.swift */; };
@@ -137,6 +139,8 @@
 		0A5A297A1A73368B003CB7EE /* SpinnerStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerStateManager.swift; sourceTree = "<group>"; };
 		0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAliasTests.swift; sourceTree = "<group>"; };
 		0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAliases.swift; sourceTree = "<group>"; };
+		0A5D73671BC995FD005DEB73 /* LayoutEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEdge.swift; sourceTree = "<group>"; };
+		0A5D73691BC9973E005DEB73 /* LayoutEdgeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEdgeTests.swift; sourceTree = "<group>"; };
 		0A5F12F21A285D1000694C56 /* DimensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionsTests.swift; sourceTree = "<group>"; };
 		0A5F12F71A285EB600694C56 /* UIViewDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewDimensions.swift; sourceTree = "<group>"; };
 		0A63DFDC1B3B4C5100B68DC0 /* LayoutGuideLayoutAttributesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutGuideLayoutAttributesTests.swift; sourceTree = "<group>"; };
@@ -323,6 +327,7 @@
 				0ACED16F1AA384360073E42C /* HSBComponentsTests.swift */,
 				0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */,
 				0A9137301B50303600428632 /* LayoutDirectionTests.swift */,
+				0A5D73691BC9973E005DEB73 /* LayoutEdgeTests.swift */,
 				0A63DFDC1B3B4C5100B68DC0 /* LayoutGuideLayoutAttributesTests.swift */,
 				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
 				0ACED16D1AA383A70073E42C /* RGBComponentsTests.swift */,
@@ -353,6 +358,7 @@
 				0AC4A8DA1A27FE2100EBCCB8 /* AutoLayoutViewAlignment.swift */,
 				0A754C091A2848100077DB3A /* AutoLayoutViewDistribution.swift */,
 				0A9137321B50312300428632 /* LayoutDirection.swift */,
+				0A5D73671BC995FD005DEB73 /* LayoutEdge.swift */,
 				0AD6F25A1A34394000D863A2 /* NSLayoutConstraintActivation.swift */,
 				0A3BB99F19EB71F00075B32A /* NSLayoutConstraintComparison.swift */,
 				0A52547A1B34CF1600BC39DC /* NSLayoutConstraintReversal.swift */,
@@ -653,6 +659,7 @@
 				0AF2A0851A28640D00A5C0F9 /* AutoLayoutDimensions.swift in Sources */,
 				0A9B69101A05799200F3FFC2 /* ViewUtilities.swift in Sources */,
 				0AF2A08A1A28FFD700A5C0F9 /* AutoLayoutConstraintActivation.swift in Sources */,
+				0A5D73681BC995FD005DEB73 /* LayoutEdge.swift in Sources */,
 				0A4CF44C1A22E32200D6F4F8 /* UIViewAutoLayoutAttributes.swift in Sources */,
 				0A52547B1B34CF1600BC39DC /* NSLayoutConstraintReversal.swift in Sources */,
 				0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */,
@@ -694,6 +701,7 @@
 				0ACED17F1AA3E4E10073E42C /* RGBComponentsTests.swift in Sources */,
 				0ACADAF01A3BF0E500CF49F8 /* SliderIntervalTests.swift in Sources */,
 				0A10F28D1A3D147700715C7A /* ColorComponentConversionTests.swift in Sources */,
+				0A5D736A1BC9973E005DEB73 /* LayoutEdgeTests.swift in Sources */,
 				0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */,
 				0ADD2B021B4C7175002F822D /* StackViewSyntaxTests.swift in Sources */,
 				0ACED17D1AA388350073E42C /* ColorTestHelpers.swift in Sources */,
