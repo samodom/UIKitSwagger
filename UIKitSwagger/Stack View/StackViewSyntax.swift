@@ -9,13 +9,13 @@
 import UIKit
 
 /**
-Convenience method for creating horizontal stack views.
-- parameter views: Arranged subviews to add to the stack view.
-- parameter alignment: Alignment of arranged subviews along layout axis.  Default value is .Fill.
-- parameter distribution: Distribution of arranged subviews along layout axis.  Default value is .Fill.
-- parameter spacing: Spacing between arranged subviews for distribution along layout axis.  Default value is 0.0.
-- returns: The stack view that was created and configured according to the provided parameters.
-*/
+ Convenience method for creating horizontal stack views.
+ - parameter views: Arranged subviews to add to the stack view.
+ - parameter alignment: Alignment of arranged subviews along layout axis.  Default value is .Fill.
+ - parameter distribution: Distribution of arranged subviews along layout axis.  Default value is .Fill.
+ - parameter spacing: Spacing between arranged subviews for distribution along layout axis.  Default value is 0.0.
+ - returns: The stack view that was created and configured according to the provided parameters.
+ */
 @available(iOS 9.0, *)
 public func StackHorizontally(views: [UIView], alignment: UIStackViewAlignment = .Fill, distribution: UIStackViewDistribution = .Fill,
     spacing: CGFloat = 0.0) -> UIStackView {
@@ -23,13 +23,13 @@ public func StackHorizontally(views: [UIView], alignment: UIStackViewAlignment =
 }
 
 /**
-Convenience method for creating vertical stack views.
-- parameter views: Arranged subviews to add to the stack view.
-- parameter alignment: Alignment of arranged subviews along layout axis.  Default value is .Fill.
-- parameter distribution: Distribution of arranged subviews along layout axis.  Default value is .Fill.
-- parameter spacing: Spacing between arranged subviews for distribution along layout axis.  Default value is 0.0.
-- returns: The stack view that was created and configured according to the provided parameters.
-*/
+ Convenience method for creating vertical stack views.
+ - parameter views: Arranged subviews to add to the stack view.
+ - parameter alignment: Alignment of arranged subviews along layout axis.  Default value is .Fill.
+ - parameter distribution: Distribution of arranged subviews along layout axis.  Default value is .Fill.
+ - parameter spacing: Spacing between arranged subviews for distribution along layout axis.  Default value is 0.0.
+ - returns: The stack view that was created and configured according to the provided parameters.
+ */
 @available(iOS 9.0, *)
 public func StackVertically(views: [UIView], alignment: UIStackViewAlignment = .Fill, distribution: UIStackViewDistribution = .Fill,
     spacing: CGFloat = 0.0) -> UIStackView {

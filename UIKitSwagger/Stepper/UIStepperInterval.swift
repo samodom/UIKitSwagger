@@ -11,8 +11,8 @@ import UIKit
 public extension UIStepper {
 
     /**
-    Property representing the closed interval `minimumValue ... maximumValue`.
-    */
+     Property representing the closed interval `minimumValue ... maximumValue`.
+     */
     public var interval: ClosedInterval<Double> {
         get {
             return minimumValue ... maximumValue
@@ -26,5 +26,5 @@ public extension UIStepper {
             }
         }
     }
-    
+
 }

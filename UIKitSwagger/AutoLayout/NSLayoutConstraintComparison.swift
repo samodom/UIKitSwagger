@@ -11,9 +11,9 @@ import UIKit
 extension NSLayoutConstraint  {
 
     /**
-    Constraints should be equatable beyond reference comparison and we match them in a property-by-property manner.
-    - parameter object: Another constraint to compare to this constraint.
-    */
+     Constraints should be equatable beyond reference comparison and we match them in a property-by-property manner.
+     - parameter object: Another constraint to compare to this constraint.
+     */
     override public func isEqual(object: AnyObject?) -> Bool {
         guard object is NSLayoutConstraint else { return false }
         guard self !== object else { return true }
@@ -53,8 +53,8 @@ extension NSLayoutConstraint  {
 
 
 /**
-Global-level definition of the constraint identity operator.
-*/
+ Global-level definition of the constraint identity operator.
+ */
 infix operator ==* { }
 
 public func ==* (lhs: NSLayoutConstraint, rhs: NSLayoutConstraint) -> Bool {

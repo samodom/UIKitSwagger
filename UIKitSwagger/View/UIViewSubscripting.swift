@@ -11,11 +11,11 @@ import UIKit
 extension UIView {
 
     /**
-    Integer-indexed subview subscripting.
-    - parameter index: (getter) Index of subview to get.  (setter) When non-negative, uses the provided view to replace the subview at the specified index.  Using any negative index is treated as moving the view to a new superview.
-    - returns: Subview at provided index (getter).
-    - note: When replacing a subview, there must exist a subview at the specified index -- otherwise, the operation is ignored.
-    */
+     Integer-indexed subview subscripting.
+     - parameter index: (getter) Index of subview to get.  (setter) When non-negative, uses the provided view to replace the subview at the specified index.  Using any negative index is treated as moving the view to a new superview.
+     - returns: Subview at provided index (getter).
+     - note: When replacing a subview, there must exist a subview at the specified index -- otherwise, the operation is ignored.
+     */
     public subscript(index: Int) -> UIView? {
 
         get {
@@ -60,10 +60,10 @@ extension UIView {
 public extension UIView {
 
     /**
-    Much less verbose method signature for exchanging subviews.
-    - parameter indexOne: Index of first subview to swap.
-    - parameter indexTwo: Index of second subview to swap.
-    */
+     Much less verbose method signature for exchanging subviews.
+     - parameter indexOne: Index of first subview to swap.
+     - parameter indexTwo: Index of second subview to swap.
+     */
     public func swap(indexOne: Int, _ indexTwo: Int) {
         exchangeSubviewAtIndex(indexOne, withSubviewAtIndex: indexTwo)
     }

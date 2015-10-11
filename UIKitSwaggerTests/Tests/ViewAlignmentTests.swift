@@ -19,7 +19,6 @@ class ViewAlignmentTests: XCTestCase {
     let label1 = UILabel()
     let label2 = UILabel()
     let label3 = UILabel()
-    var appliedConstraints: [NSLayoutConstraint]!
     var returnedConstraints: [NSLayoutConstraint]!
 
     override func setUp() {

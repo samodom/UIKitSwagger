@@ -117,10 +117,10 @@ extension UILayoutGuide: AutoLayoutAttributable {
 
         case .CenterXWithinMargins:
             return centerX
-
+            
         case .CenterYWithinMargins:
             return centerY
-
+            
         default:
             return (self, attribute)
         }

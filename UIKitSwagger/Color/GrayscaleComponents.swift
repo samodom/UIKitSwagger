@@ -9,8 +9,8 @@
 import UIKit
 
 /**
-Convenience structure to hold the white and alpha component values of an instance of `UIColor`.
-*/
+ Convenience structure to hold the white and alpha component values of an instance of `UIColor`.
+ */
 public struct GrayscaleComponents: ColorComponents {
     public let white: CGFloat
     public let alpha: CGFloat
@@ -21,16 +21,16 @@ public struct GrayscaleComponents: ColorComponents {
     }
 
     /**
-    Required method for creating colors based on this component scheme.
-    */
+     Required method for creating colors based on this component scheme.
+     */
     public func color() -> UIColor {
         return UIColor(white: white, alpha: alpha)
     }
 }
 
 /**
-Equatability of grayscale components.
-*/
+ Equatability of grayscale components.
+ */
 extension GrayscaleComponents: Equatable {
 
 }
@@ -43,8 +43,8 @@ public func ==(lhs: GrayscaleComponents, rhs: GrayscaleComponents) -> Bool {
 public extension UIColor {
 
     /**
-    Property that returns the grayscale components of the color in a structure.
-    */
+     Property that returns the grayscale components of the color in a structure.
+     */
     public var grayscaleComponents: GrayscaleComponents {
         var whiteValue = CGFloat(0)
         var alphaValue = CGFloat(0)
@@ -59,36 +59,36 @@ public extension UIColor {
 public extension UIColor {
 
     /**
-    Property to provide the white component value of the color.
-    */
+     Property to provide the white component value of the color.
+     */
     public var white: CGFloat {
         return grayscaleComponents.white
     }
-    
+
 }
 
 /**
-Component conversion methods.
-*/
+ Component conversion methods.
+ */
 public extension GrayscaleComponents {
 
     /**
-    Converts grayscale components into RGB components.
-    */
+     Converts grayscale components into RGB components.
+     */
     public func asRGBComponents() -> RGBComponents {
         return color().rgbComponents
     }
 
     /**
-    Converts grayscale components into HSB components.
-    */
+     Converts grayscale components into HSB components.
+     */
     public func asHSBComponents() -> HSBComponents {
         return color().hsbComponents
     }
 
     /**
-    Converts grayscale components into CMYK components.
-    */
+     Converts grayscale components into CMYK components.
+     */
     public func asCMYKComponents() -> CMYKComponents {
         return color().cmykComponents
     }
