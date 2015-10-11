@@ -27,4 +27,26 @@ public enum LayoutEdge {
         }
     }
 
+    internal func getLayoutAttribute(usingMargins useMargins: Bool) -> NSLayoutAttribute {
+        switch self {
+        case .Left:
+            return useMargins ? .LeftMargin : .Left
+
+        case .Right:
+            return useMargins ? .RightMargin : .Right
+
+        case .Leading:
+            return useMargins ? .LeadingMargin : .Leading
+
+        case .Trailing:
+            return useMargins ? .TrailingMargin : .Trailing
+
+        case .Top:
+            return useMargins ? .TopMargin : .Top
+
+        case .Bottom:
+            return useMargins ? .BottomMargin : .Bottom
+        }
+    }
+
 }

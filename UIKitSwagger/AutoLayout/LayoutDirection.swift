@@ -8,6 +8,9 @@
 
 import UIKit
 
+/**
+ Enumerated integer type for layout directions in both possible orders.
+ */
 public enum LayoutDirection: Int {
     case LeftToRight = 1
     case RightToLeft = -1
@@ -26,6 +29,20 @@ public enum LayoutDirection: Int {
     internal var axis: UILayoutConstraintAxis {
         return abs(rawValue) == LayoutDirection.TopToBottom.rawValue ? .Vertical : .Horizontal
     }
+
+    internal var layoutEdges: Set<LayoutEdge> {
+        switch self {
+        case .LeftToRight, .RightToLeft:
+            return [.Left, .Right]
+
+        case .LeadingToTrailing, .TrailingToLeading:
+            return [.Leading, .Trailing]
+
+        case .TopToBottom, .BottomToTop:
+            return [.Top, .Bottom]
+        }
+    }
+
 }
 
 internal prefix func -(direction: LayoutDirection) -> LayoutDirection {
