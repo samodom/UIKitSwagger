@@ -8,6 +8,45 @@
 
 import UIKit
 
+
+public extension NSLayoutConstraint {
+
+    /**
+     Convenience method to activate an auto layout constraint.
+     */
+    public func activate() {
+        active = true
+    }
+
+    /**
+     Convenience method to deactivate an auto layout constraint.
+     */
+    public func deactivate() {
+        active = false
+    }
+
+}
+
+
+public extension Array where Element: NSLayoutConstraint {
+
+    /**
+     Convenience method to activate each auto layout constraint in an array.
+     */
+    public func activate() {
+        forEach { $0.activate() }
+    }
+
+    /**
+     Convenience method to deactivate each auto layout constraint in an array.
+     */
+    public func deactivate() {
+        forEach { $0.deactivate() }
+    }
+
+}
+
+
 /**
  Convenience method for activating one or more layout constraints.
  - parameter constraints: One or more constraints that are to be activated.

@@ -61,7 +61,7 @@ view.clearConstraints()
 ```
 ### Constraint Activation
 
-Convenience methods for activating and deactivating constraints:
+Convenience methods for activating and deactivating constraints that work on single constraints *and* arrays of constraints:
 
  - `activate()`
  - `deactivate()`

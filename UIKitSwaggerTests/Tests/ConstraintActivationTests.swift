@@ -19,6 +19,7 @@ class ConstraintActivationTests: XCTestCase {
     var constraint1: NSLayoutConstraint!
     var constraint2: NSLayoutConstraint!
     var constraint3: NSLayoutConstraint!
+    var constraintArray: [NSLayoutConstraint]!
 
     override func setUp() {
         super.setUp()
@@ -40,6 +41,8 @@ class ConstraintActivationTests: XCTestCase {
         else {
             constraint3 = subview.centerX =* view.centerX
         }
+
+        constraintArray = [constraint1, constraint2, constraint3]
     }
     
     override func tearDown() {
@@ -92,8 +95,15 @@ class ConstraintActivationTests: XCTestCase {
         XCTAssertTrue(constraint3.active, "Each constraint should be activated")
     }
 
-    func testActivationOfConstraintArray() {
-        ActivateConstraints([constraint1, constraint2, constraint3])
+    func testActivationOfConstraintArrayWithFunction() {
+        ActivateConstraints(constraintArray)
+        XCTAssertTrue(constraint1.active, "Each constraint should be activated")
+        XCTAssertTrue(constraint2.active, "Each constraint should be activated")
+        XCTAssertTrue(constraint3.active, "Each constraint should be activated")
+    }
+
+    func testActivationOfConstraintArrayWithMethod() {
+        constraintArray.activate()
         XCTAssertTrue(constraint1.active, "Each constraint should be activated")
         XCTAssertTrue(constraint2.active, "Each constraint should be activated")
         XCTAssertTrue(constraint3.active, "Each constraint should be activated")
@@ -120,7 +130,7 @@ class ConstraintActivationTests: XCTestCase {
         XCTAssertFalse(constraint3.active, "Each constraint should be deactivated")
     }
 
-    func testDeactivationOfConstraintArray() {
+    func testDeactivationOfConstraintArrayWithFunction() {
         constraint1.active = true
         constraint2.active = true
         constraint3.active = true
@@ -129,5 +139,15 @@ class ConstraintActivationTests: XCTestCase {
         XCTAssertFalse(constraint2.active, "Each constraint should be deactivated")
         XCTAssertFalse(constraint3.active, "Each constraint should be deactivated")
     }
-    
+
+    func testDeactivationOfConstraintArrayWithMethod() {
+        constraint1.active = true
+        constraint2.active = true
+        constraint3.active = true
+        [constraint1, constraint2, constraint3].deactivate()
+        XCTAssertFalse(constraint1.active, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint2.active, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint3.active, "Each constraint should be deactivated")
+    }
+
 }
