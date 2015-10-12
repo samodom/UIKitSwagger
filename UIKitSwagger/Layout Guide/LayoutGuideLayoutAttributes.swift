@@ -1,5 +1,5 @@
 //
-//  UILayoutGuideAutoLayoutAttributes.swift
+//  LayoutGuideLayoutAttributes.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 06/24/15.

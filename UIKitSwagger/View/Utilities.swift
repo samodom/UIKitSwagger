@@ -1,5 +1,5 @@
 //
-//  ViewUtilities.swift
+//  Utilities.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 11/1/14.

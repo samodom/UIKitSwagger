@@ -1,5 +1,5 @@
 //
-//  NSLayoutConstraintComparison.swift
+//  ConstraintComparison.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 6/21/14.

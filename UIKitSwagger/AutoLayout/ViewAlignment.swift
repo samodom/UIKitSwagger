@@ -1,5 +1,5 @@
 //
-//  AutoLayoutViewAlignment.swift
+//  ViewAlignment.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 11/27/14.

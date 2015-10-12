@@ -1,5 +1,5 @@
 //
-//  UIViewAdditionSyntax.swift
+//  ViewAdditionSyntax.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/5/14.

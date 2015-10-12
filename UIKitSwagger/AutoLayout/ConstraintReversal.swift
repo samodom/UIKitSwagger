@@ -1,5 +1,5 @@
 //
-//  NSLayoutConstraintReversal.swift
+//  ConstraintReversal.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 6/19/15.

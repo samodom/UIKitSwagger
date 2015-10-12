@@ -1,5 +1,5 @@
 //
-//  AutoLayoutConstraintActivation.swift
+//  ConstraintActivation.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 11/28/14.

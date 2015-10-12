@@ -1,19 +1,19 @@
 //
-//  UIStepperInterval.swift
+//  SliderInterval.swift
 //  UIKitSwagger
 //
-//  Created by Sam Odom on 12/13/14.
+//  Created by Sam Odom on 12/12/14.
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
 import UIKit
 
-public extension UIStepper {
+public extension UISlider {
 
     /**
      Property representing the closed interval `minimumValue ... maximumValue`.
      */
-    public var interval: ClosedInterval<Double> {
+    public var interval: ClosedInterval<Float> {
         get {
             return minimumValue ... maximumValue
         }
@@ -26,5 +26,5 @@ public extension UIStepper {
             }
         }
     }
-
+    
 }

@@ -1,5 +1,5 @@
 //
-//  UIViewSubscripting.swift
+//  Subscripting.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 6/23/14.

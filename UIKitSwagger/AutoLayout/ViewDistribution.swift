@@ -1,5 +1,5 @@
 //
-//  AutoLayoutViewDistribution.swift
+//  ViewDistribution.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 11/28/14.

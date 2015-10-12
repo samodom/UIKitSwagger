@@ -1,5 +1,5 @@
 //
-//  UIViewControllerAutoLayoutAttributes.swift
+//  ViewControllerLayoutAttributes.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 11/23/14.

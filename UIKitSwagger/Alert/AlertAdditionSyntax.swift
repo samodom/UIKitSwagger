@@ -1,5 +1,5 @@
 //
-//  UIAlertControllerAdditionSyntax.swift
+//  AlertAdditionSyntax.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/11/14.

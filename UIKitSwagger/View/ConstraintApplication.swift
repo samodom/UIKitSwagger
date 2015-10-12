@@ -1,5 +1,5 @@
 //
-//  UIViewConstraintApplication.swift
+//  ConstraintApplication.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/16/14.

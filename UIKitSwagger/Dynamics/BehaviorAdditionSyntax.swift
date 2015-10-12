@@ -1,5 +1,5 @@
 //
-//  UIDynamicBehaviorAdditionSyntax.swift
+//  BehaviorAdditionSyntax.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/14/14.

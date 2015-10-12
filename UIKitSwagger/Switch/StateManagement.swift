@@ -1,5 +1,5 @@
 //
-//  UISwitchStateManagement.swift
+//  StateManagement.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/12/14.

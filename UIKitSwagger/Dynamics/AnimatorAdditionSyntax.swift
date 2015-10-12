@@ -1,5 +1,5 @@
 //
-//  UIDynamicAnimatorAdditionSyntax.swift
+//  AnimatorAdditionSyntax.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 12/14/14.
