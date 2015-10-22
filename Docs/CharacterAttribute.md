@@ -26,7 +26,7 @@ enum CharacterAttribute: (String, AnyObject) {
     StrikethroughColor(UIColor)
     Obliqueness(CGFloat)
     Expansion(CGFloat)
-    WritingDirection(NSWritingDirection, NSTextWritingDirectionEmbedding)
+    WritingDirection([Int]])
     UseVerticalGlyphForm(Bool)
 }
 ```
@@ -61,9 +61,9 @@ Each of these keys has a corresponding case in the `CharacterAttribute` enumerat
 
 In order to use the enumeration with attributed string creation and manipulation, several methods are provided.
 
-1.  The first is the `rawValue` property of the enumeration.  It provides the key/value pair that would be used in an attribute dictionary.
+1.  The first is the `keyValuePair` property of the enumeration.  It provides the key/value pair that would be used in an attribute dictionary.
 
-1.  The second is the `init(rawValue: (String, AnyObject))` initializer that converts a key/value pair into an enumeration value.
+1.  The second is the `init?(name: String, value: AnyObject)` initializer that converts a key/value pair into an enumeration value if possible.
 
 1.  The third is a property for representing the attribute as a single-element dictionary: `var attributeDictionary: [String: AnyObject]`.
 
