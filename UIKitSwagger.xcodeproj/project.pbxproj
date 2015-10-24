@@ -21,6 +21,8 @@
 		0A3BB9A219EB71F00075B32A /* ConstraintComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99F19EB71F00075B32A /* ConstraintComparison.swift */; };
 		0A3BB9AB19EB740F0075B32A /* ConstraintSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AA19EB740F0075B32A /* ConstraintSearch.swift */; };
 		0A3F1B4E1A4112F500195B8F /* ConstraintApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F1B4D1A4112F500195B8F /* ConstraintApplication.swift */; };
+		0A4136631BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4136621BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift */; };
+		0A4136671BDB11DC008DEB64 /* CharacterAttributeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4136661BDB11DC008DEB64 /* CharacterAttributeDictionary.swift */; };
 		0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */; };
 		0A4CF44C1A22E32200D6F4F8 /* ViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */; };
 		0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */; };
@@ -131,6 +133,8 @@
 		0A3BB99F19EB71F00075B32A /* ConstraintComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintComparison.swift; sourceTree = "<group>"; };
 		0A3BB9AA19EB740F0075B32A /* ConstraintSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSearch.swift; sourceTree = "<group>"; };
 		0A3F1B4D1A4112F500195B8F /* ConstraintApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintApplication.swift; sourceTree = "<group>"; };
+		0A4136621BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeDictionaryTests.swift; sourceTree = "<group>"; };
+		0A4136661BDB11DC008DEB64 /* CharacterAttributeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeDictionary.swift; sourceTree = "<group>"; };
 		0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutAttributesTests.swift; sourceTree = "<group>"; };
 		0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutAttributes.swift; sourceTree = "<group>"; };
 		0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutAttributable.swift; sourceTree = "<group>"; };
@@ -310,6 +314,7 @@
 				0A8028021A3421E000816792 /* AlertActionEnablingTests.swift */,
 				0ACADAE41A3A8AB800CF49F8 /* AlertControllerAddableTests.swift */,
 				0A8028081A34257C00816792 /* BarItemEnablingTests.swift */,
+				0A4136621BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift */,
 				0A9048281BD70A6100193D7A /* CharacterAttributeTests.swift */,
 				0ACED1731AA3844D0073E42C /* CMYKComponentsTests.swift */,
 				0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */,
@@ -444,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				0A90482B1BD70D4000193D7A /* CharacterAttribute.swift */,
+				0A4136661BDB11DC008DEB64 /* CharacterAttributeDictionary.swift */,
 			);
 			path = "Attributed String";
 			sourceTree = "<group>";
@@ -668,6 +674,7 @@
 				0AC37F951A29595300E1C943 /* Concurrency.swift in Sources */,
 				0AF2A0851A28640D00A5C0F9 /* LayoutDimensions.swift in Sources */,
 				0A9B69101A05799200F3FFC2 /* Utilities.swift in Sources */,
+				0A4136671BDB11DC008DEB64 /* CharacterAttributeDictionary.swift in Sources */,
 				0AF2A08A1A28FFD700A5C0F9 /* ConstraintActivation.swift in Sources */,
 				0A5D73681BC995FD005DEB73 /* LayoutEdge.swift in Sources */,
 				0A4CF44C1A22E32200D6F4F8 /* ViewLayoutAttributes.swift in Sources */,
@@ -722,6 +729,7 @@
 				0ACED1721AA384420073E42C /* GrayscaleComponentsTests.swift in Sources */,
 				0A5D736C1BC9996A005DEB73 /* ViewFillingTests.swift in Sources */,
 				0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */,
+				0A4136631BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift in Sources */,
 				0A9048291BD70A6100193D7A /* CharacterAttributeTests.swift in Sources */,
 				0A63DFE31B3CABEC00B68DC0 /* ViewSubscriptingTests.swift in Sources */,
 				0A5F12F31A285D1000694C56 /* DimensionsTests.swift in Sources */,
