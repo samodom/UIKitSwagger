@@ -125,95 +125,84 @@ public enum CharacterAttribute {
         }
     }
 
-    public var keyValuePair: (String, AnyObject) {
-        let key: String
-        let value: AnyObject
-        switch self {
-        case .Font(let font):
-            key = NSFontAttributeName
-            value = font
+}
 
-        case .ParagraphStyle(let style):
-            key = NSParagraphStyleAttributeName
-            value = style
 
-        case .ForegroundColor(let color):
-            key = NSForegroundColorAttributeName
-            value = color
+extension CharacterAttribute: Hashable {
 
-        case .BackgroundColor(let color):
-            key = NSBackgroundColorAttributeName
-            value = color
+    public var hashValue: Int {
+        let (key, value) = keyValuePair
+        return key.hashValue ^ value.hashValue
+    }
 
-        case .UseLigatures(let shouldUseLigatures):
-            key = NSLigatureAttributeName
-            value = shouldUseLigatures
+}
 
-        case .Kern(let kern):
-            key = NSKernAttributeName
-            value = kern
+public func ==(lhs: CharacterAttribute, rhs: CharacterAttribute) -> Bool {
+    switch (lhs, rhs) {
+    case let (.Font(font1), .Font(font2)):
+        return font1 == font2
 
-        case .StrikethroughStyle(let style):
-            key = NSStrikethroughStyleAttributeName
-            value = style.rawValue
+    case let (.ParagraphStyle(style1), .ParagraphStyle(style2)):
+        return style1 == style2
 
-        case .UnderlineStyle(let style):
-            key = NSUnderlineStyleAttributeName
-            value = style.rawValue
+    case let (.ForegroundColor(color1), .ForegroundColor(color2)):
+        return color1 == color2
 
-        case .StrokeColor(let color):
-            key = NSStrokeColorAttributeName
-            value = color
+    case let (.BackgroundColor(color1), .BackgroundColor(color2)):
+        return color1 == color2
 
-        case .StrokeWidth(let width):
-            key = NSStrokeWidthAttributeName
-            value = width
+    case let (.UseLigatures(flag1), .UseLigatures(flag2)):
+        return flag1 == flag2
 
-        case .Shadow(let shadow):
-            key = NSShadowAttributeName
-            value = shadow
+    case let (.Kern(kern1), .Kern(kern2)):
+        return kern1 == kern2
 
-        case .TextEffect(let effect):
-            key = NSTextEffectAttributeName
-            value = effect
+    case let (.StrikethroughStyle(style1), .StrikethroughStyle(style2)):
+        return style1 == style2
 
-        case .Attachment(let attachment):
-            key = NSAttachmentAttributeName
-            value = attachment
+    case let (.UnderlineStyle(style1), .UnderlineStyle(style2)):
+        return style1 == style2
 
-        case .Link(let link):
-            key = NSLinkAttributeName
-            value = link
+    case let (.StrokeColor(color1), .StrokeColor(color2)):
+        return color1 == color2
 
-        case .BaselineOffset(let offset):
-            key = NSBaselineOffsetAttributeName
-            value = offset
+    case let (.StrokeWidth(width1), .StrokeWidth(width2)):
+        return width1 == width2
 
-        case .StrikethroughColor(let color):
-            key = NSStrikethroughColorAttributeName
-            value = color
+    case let (.Shadow(shadow1), .Shadow(shadow2)):
+        return shadow1 == shadow2
 
-        case .UnderlineColor(let color):
-            key = NSUnderlineColorAttributeName
-            value = color
+    case let (.TextEffect(effect1), .TextEffect(effect2)):
+        return effect1 == effect2
 
-        case .Obliqueness(let obliqueness):
-            key = NSObliquenessAttributeName
-            value = obliqueness
+    case let (.Attachment(attachment1), .Attachment(attachment2)):
+        return attachment1 == attachment2
 
-        case .Expansion(let expansion):
-            key = NSExpansionAttributeName
-            value = expansion
+    case let (.Link(link1), .Link(link2)):
+        return link1 == link2
 
-        case .WritingDirection(let overrides):
-            key = NSWritingDirectionAttributeName
-            value = overrides
+    case let (.BaselineOffset(offset1), .BaselineOffset(offset2)):
+        return offset1 == offset2
 
-        case .UseVerticalGlyphForm(let shouldUseVerticalGlyphForm):
-            key = NSVerticalGlyphFormAttributeName
-            value = shouldUseVerticalGlyphForm
-        }
+    case let (.StrikethroughColor(color1), .StrikethroughColor(color2)):
+        return color1 == color2
 
-        return (key, value)
+    case let (.UnderlineColor(color1), .UnderlineColor(color2)):
+        return color1 == color2
+
+    case let (.Obliqueness(obliqueness1), .Obliqueness(obliqueness2)):
+        return obliqueness1 == obliqueness2
+
+    case let (.Expansion(expansion1), .Expansion(expansion2)):
+        return expansion1 == expansion2
+
+    case let (.WritingDirection(overrides1), .WritingDirection(overrides2)):
+        return overrides1 == overrides2
+
+    case let (.UseVerticalGlyphForm(useVertical1), .UseVerticalGlyphForm(useVertical2)):
+        return useVertical1 == useVertical2
+
+    default:
+        return false
     }
 }
