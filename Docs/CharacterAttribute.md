@@ -32,40 +32,36 @@ When working with attributed strings, there are a number of keys that are used t
 | `UseVerticalGlyphForm(Bool)` | `NSVerticalGlyphFormAttributeName` |
 
 
-### Using with existing APIs
-
-> The typealias `CharacterAttributeDictionary` has been defined to represent the type `[String: AnyObject]`.
+## Using with existing APIs
 
 In order to use the enumeration with attributed string creation and manipulation, several methods and properties are provided.
 
-#### `CharacterAttribute`
+### `CharacterAttribute`
+> The typealias `CharacterAttributeDictionary` has been defined to represent the type `[String: AnyObject]`.
 
-* `init?(name: String, value: AnyObject)`
-> Creates an attribute from a key/value pair if possible.
+| Method | `init?(name: String, value: AnyObject)` |
+|:--|:--|
+| **Description** | Creates an attribute from a key/value pair if possible. |
 
-* `var keyValuePair: (String, AnyObject)`
-> Provides the key and value that would be used in an attribute dictionary.
+| Property | `var keyValuePair: (String, AnyObject)` |
+|:--|:--|
+| **Description** | Provides the key and value that would be used in an attribute dictionary. |
 
-* `var attributeDictionary: CharacterAttributeDictionary`
-> Represents the attribute as a single-element dictionary.
-
-
-#### `NSAttributedString`
-
-* `init(string:attributes:)`
-> Uses any collection whose elements are of type `CharacterAttribute` to create an attributed string.
+| Property | `var attributeDictionary: CharacterAttributeDictionary` |
+|:--|:--|
+| **Description** | Represents the attribute as a single-element dictionary. |
 
 
-#### `NSMutableAttributedString`
+### `NSAttributedString`
+> The typealias `CharacterAttributeSet` has been defined to represent a set of character attributes:
+>
+> `typealias CharacterAttributeSet = Set<CharacterAttribute>`
+>
+> The typealias `AttributedCharacterRange` has been defined to represent the results pair for attribute searches based on a character index:
+>
+> `typealias AttributedCharacterRange = (attributes: CharacterAttributeSet, range: Range<String.Index>)`
 
-* `init(string:attributes:)`
-> Inherited from `NSAttributedString`
 
-* `addAttribute(_:value:range:)`
-> Adds a character attribute to an attributed string over a specified range.
-
-* `addAttributes(_:range:)`
-> Adds any collection whose elements are of type `CharacterAttribute` to an attributed string over a specified range.
-
-* `setAttributes(_:range:)`
-> Sets any collection whose elements are of type `CharacterAttribute` to an attributed string over a specified range.
+| Method | `init(string:characterAttributes:)` |
+|:-------|:------------------------------------|
+| **Description** | Uses any collection that generates `CharacterAttribute` elements to create an attributed string.  Compare to `init(string:attributes:)`|
