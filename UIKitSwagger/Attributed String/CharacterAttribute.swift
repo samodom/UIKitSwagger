@@ -8,6 +8,8 @@
 
 import UIKit
 
+public typealias CharacterAttributeSet = Set<CharacterAttribute>
+
 public enum CharacterAttribute {
 
     case Font(UIFont)
