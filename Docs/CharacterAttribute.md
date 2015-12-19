@@ -72,5 +72,10 @@ In order to use the enumeration with attributed string creation and manipulation
 
 | Method | `characterAttributeAtIndex(_:named:) -> CharacterAttribute?`
 |:--|:--|
-| **Description** | Returns the named character attribute of the character at a given index |
+| **Description** | Returns the named character attribute of the character at a given index.  Compare to `attribute(_:atIndex:effectiveRange) -> AnyObject?`. |
 | **Subscript** | Subscripting may be used in the following form: `[Int, named: String]` |
+
+| Method | `characterAttributesAtIndex(_) -> CharacterAttributeSet` |
+|:--|:--|
+| **Description** | Returns all character attributes defined on the attributed string at the specified index. |
+| **Subscript** | Subscripting may be used in the following form: `[Int]`. |
