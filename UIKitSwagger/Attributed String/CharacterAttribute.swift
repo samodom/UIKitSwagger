@@ -8,32 +8,128 @@
 
 import UIKit
 
+/**
+ Type alias for a set of character attributes.
+ */
 public typealias CharacterAttributeSet = Set<CharacterAttribute>
 
+//public typealias AttributedCharacterRange = (attributes: CharacterAttributeSet, range: Range<String.CharacterView.Index>)
+
+/**
+ Enumerated type representing the various dictionary elements used with attributed string creation and manipulation.
+*/
 public enum CharacterAttribute {
 
+    /**
+     Attribute case corresponding to the dictionary key `NSFontAttributeName`.
+     */
     case Font(UIFont)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSParagraphStyleAttributeName`.
+     */
     case ParagraphStyle(NSParagraphStyle)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSForegroundColorAttributeName`.
+     */
     case ForegroundColor(UIColor)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSForegroundColorAttributeName`.
+     */
     case BackgroundColor(UIColor)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSLigatureAttributeName`.
+     */
     case UseLigatures(Bool)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSKernAttributeName`.
+     */
     case Kern(CGFloat)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSStrikethroughStyleAttributeName`.
+     */
     case StrikethroughStyle(NSUnderlineStyle)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSUnderlineStyleAttributeName`.
+     */
     case UnderlineStyle(NSUnderlineStyle)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSStrokeColorAttributeName`.
+     */
     case StrokeColor(UIColor)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSStrokeWidthAttributeName`.
+     */
     case StrokeWidth(CGFloat)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSShadowAttributeName`.
+     */
     case Shadow(NSShadow)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSTextEffectAttributeName`.
+     */
     case TextEffect(String)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSAttachmentAttributeName`.
+     */
     case Attachment(NSTextAttachment)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSLinkAttributeName`.
+     */
     case Link(NSURL)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSBaselineOffsetAttributeName`.
+     */
     case BaselineOffset(CGFloat)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSStrikethroughColorAttributeName`.
+     */
     case StrikethroughColor(UIColor)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSUnderlineColorAttributeName`.
+     */
     case UnderlineColor(UIColor)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSObliquenessAttributeName`.
+     */
     case Obliqueness(CGFloat)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSExpansionAttributeName`.
+     */
     case Expansion(CGFloat)
+
+    /**
+     Attribute case corresponding to the dictionary key `NSWritingDirectionAttributeName`.
+     */
     case WritingDirection([Int])
+
+    /**
+     Attribute case corresponding to the dictionary key `NSVerticalGlyphFormAttributeName`.
+     */
     case UseVerticalGlyphForm(Bool)
 
+    /**
+     Initializes a new character attribute using the provided key and associated value.
+     - parameter name: Must be a valid attribute dictionary key.
+     - parameter value: Must be a valid instance of the appropriate associated type.
+     */
     public init?(name: String, value: AnyObject) {
         switch name {
         case NSFontAttributeName:

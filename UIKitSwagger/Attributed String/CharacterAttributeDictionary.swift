@@ -8,10 +8,16 @@
 
 import UIKit
 
+/**
+ Type alias for the attribute dictionary used by attributed strings.
+ */
 public typealias CharacterAttributeDictionary = [String: AnyObject]
 
 public extension CharacterAttribute {
 
+    /**
+     Provides a key/value pair that can be used in an attribute dictionary.
+     */
     public var keyValuePair: (String, AnyObject) {
         let key: String
         let value: AnyObject
@@ -103,7 +109,10 @@ public extension CharacterAttribute {
         
         return (key, value)
     }
-    
+
+    /**
+     Represents the attribute as a single-element dictionary.
+     */
     public var attributeDictionary: CharacterAttributeDictionary {
         return Dictionary(dictionaryLiteral: keyValuePair)
     }
