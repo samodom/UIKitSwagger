@@ -39,7 +39,7 @@ class CharacterAttributeStringTests: XCTestCase {
         ]
     }
 
-    //  MARK: Immutable
+    //  MARK: - Immutable
 
     func testCreatingAttributedStringWithSetOfAttributes() {
         expectedString = NSAttributedString(string: text, attributes: attributeDictionary)
@@ -51,6 +51,52 @@ class CharacterAttributeStringTests: XCTestCase {
         expectedString = NSAttributedString(string: text, attributes: attributeDictionary)
         attributedString = NSAttributedString(string: text, characterAttributes: characterAttributeArray)
         XCTAssertEqual(attributedString, expectedString, "Should be able to create an attributed string using an array of character attributes")
+    }
+
+    //  MARK: Retrieving attributes
+
+    func testRetrievingCharacterAttributeAtIndex() {
+        attributedString = NSAttributedString(string: text, attributes: attributeDictionary)
+        if let attribute = attributedString.characterAttributeAtIndex(3, named: NSForegroundColorAttributeName) {
+            switch attribute {
+            case .ForegroundColor(let color):
+                XCTAssertEqual(color, Orange, "The appropriate attribute should be returned with the correct associated value")
+
+            default:
+                XCTFail("The correct attribute should be returned")
+            }
+        }
+        else {
+            XCTFail("An attribute should be returned for a valid index and name")
+        }
+    }
+
+    func testRetrievingNonexistentCharacterAttributeAtIndex() {
+        attributedString = NSAttributedString(string: text, attributes: attributeDictionary)
+        let attribute = attributedString.characterAttributeAtIndex(3, named: NSLigatureAttributeName)
+        XCTAssertNil(attribute, "No character attribute should be returned")
+    }
+
+    func testRetrievingCharacterAttributeAtIndexThroughSubscripting() {
+        attributedString = NSAttributedString(string: text, attributes: attributeDictionary)
+        if let attribute = attributedString[3, named: NSForegroundColorAttributeName] {
+            switch attribute {
+            case .ForegroundColor(let color):
+                XCTAssertEqual(color, Orange, "The appropriate attribute should be returned with the correct associated value")
+
+            default:
+                XCTFail("The correct attribute should be returned")
+            }
+        }
+        else {
+            XCTFail("An attribute should be returned for a valid index and name")
+        }
+    }
+
+    func testRetrievingNonexistentCharacterAttributeAtIndexThroughSubscripting() {
+        attributedString = NSAttributedString(string: text, attributes: attributeDictionary)
+        let attribute = attributedString[3, named: NSLigatureAttributeName]
+        XCTAssertNil(attribute, "No character attribute should be returned")
     }
 
 }

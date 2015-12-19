@@ -61,7 +61,16 @@ In order to use the enumeration with attributed string creation and manipulation
 >
 > `typealias AttributedCharacterRange = (attributes: CharacterAttributeSet, range: Range<String.Index>)`
 
+#### Constructing an attributed string
 
 | Method | `init(string:characterAttributes:)` |
 |:-------|:------------------------------------|
 | **Description** | Uses any collection that generates `CharacterAttribute` elements to create an attributed string.  Compare to `init(string:attributes:)`|
+
+
+#### Retrieving attributes
+
+| Method | `characterAttributeAtIndex(_:named:) -> CharacterAttribute?`
+|:--|:--|
+| **Description** | Returns the named character attribute of the character at a given index |
+| **Subscript** | Subscripting may be used in the following form: `[Int, named: String]` |
