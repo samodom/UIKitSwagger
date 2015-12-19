@@ -22,7 +22,9 @@
 		0A3BB9AB19EB740F0075B32A /* ConstraintSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AA19EB740F0075B32A /* ConstraintSearch.swift */; };
 		0A3F1B4E1A4112F500195B8F /* ConstraintApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F1B4D1A4112F500195B8F /* ConstraintApplication.swift */; };
 		0A4136631BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4136621BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift */; };
+		0A4136651BDB0DA7008DEB64 /* CharacterAttributeStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4136641BDB0DA7008DEB64 /* CharacterAttributeStringTests.swift */; };
 		0A4136671BDB11DC008DEB64 /* CharacterAttributeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4136661BDB11DC008DEB64 /* CharacterAttributeDictionary.swift */; };
+		0A4136691BDB30E4008DEB64 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4136681BDB30E4008DEB64 /* AttributedString.swift */; };
 		0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */; };
 		0A4CF44C1A22E32200D6F4F8 /* ViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */; };
 		0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */; };
@@ -134,7 +136,9 @@
 		0A3BB9AA19EB740F0075B32A /* ConstraintSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSearch.swift; sourceTree = "<group>"; };
 		0A3F1B4D1A4112F500195B8F /* ConstraintApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintApplication.swift; sourceTree = "<group>"; };
 		0A4136621BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeDictionaryTests.swift; sourceTree = "<group>"; };
+		0A4136641BDB0DA7008DEB64 /* CharacterAttributeStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeStringTests.swift; sourceTree = "<group>"; };
 		0A4136661BDB11DC008DEB64 /* CharacterAttributeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeDictionary.swift; sourceTree = "<group>"; };
+		0A4136681BDB30E4008DEB64 /* AttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
 		0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutAttributesTests.swift; sourceTree = "<group>"; };
 		0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutAttributes.swift; sourceTree = "<group>"; };
 		0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutAttributable.swift; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 				0ACADAE41A3A8AB800CF49F8 /* AlertControllerAddableTests.swift */,
 				0A8028081A34257C00816792 /* BarItemEnablingTests.swift */,
 				0A4136621BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift */,
+				0A4136641BDB0DA7008DEB64 /* CharacterAttributeStringTests.swift */,
 				0A9048281BD70A6100193D7A /* CharacterAttributeTests.swift */,
 				0ACED1731AA3844D0073E42C /* CMYKComponentsTests.swift */,
 				0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */,
@@ -448,6 +453,7 @@
 		0A90482A1BD70D3200193D7A /* Attributed String */ = {
 			isa = PBXGroup;
 			children = (
+				0A4136681BDB30E4008DEB64 /* AttributedString.swift */,
 				0A90482B1BD70D4000193D7A /* CharacterAttribute.swift */,
 				0A4136661BDB11DC008DEB64 /* CharacterAttributeDictionary.swift */,
 			);
@@ -596,7 +602,7 @@
 		0A3BB97019EB70C70075B32A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Swagger Soft";
 				TargetAttributes = {
@@ -677,6 +683,7 @@
 				0A4136671BDB11DC008DEB64 /* CharacterAttributeDictionary.swift in Sources */,
 				0AF2A08A1A28FFD700A5C0F9 /* ConstraintActivation.swift in Sources */,
 				0A5D73681BC995FD005DEB73 /* LayoutEdge.swift in Sources */,
+				0A4136691BDB30E4008DEB64 /* AttributedString.swift in Sources */,
 				0A4CF44C1A22E32200D6F4F8 /* ViewLayoutAttributes.swift in Sources */,
 				0A52547B1B34CF1600BC39DC /* ConstraintReversal.swift in Sources */,
 				0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */,
@@ -746,6 +753,7 @@
 				0A67BADA1A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift in Sources */,
 				0A9137311B50303600428632 /* LayoutDirectionTests.swift in Sources */,
 				0ACED1801AA3E8A40073E42C /* CMYKComponentsTests.swift in Sources */,
+				0A4136651BDB0DA7008DEB64 /* CharacterAttributeStringTests.swift in Sources */,
 				0AC4A8D91A27FCF800EBCCB8 /* ViewAlignmentTests.swift in Sources */,
 				0A63F7431A3D51F0001FBFF7 /* ColorPaletteTests.swift in Sources */,
 				0A8028031A3421E000816792 /* AlertActionEnablingTests.swift in Sources */,
