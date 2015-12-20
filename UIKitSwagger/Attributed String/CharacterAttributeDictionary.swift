@@ -8,11 +8,6 @@
 
 import UIKit
 
-/**
- Type alias for the attribute dictionary used by attributed strings.
- */
-public typealias CharacterAttributeDictionary = [String: AnyObject]
-
 public extension CharacterAttribute {
 
     /**
