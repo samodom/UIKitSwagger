@@ -36,6 +36,23 @@ public extension NSAttributedString {
     }
 
     /**
+     Retrieves the set of character attributes at the specified index.
+     - parameter index: Index in string of character with desired attributes.
+     - returns: The character attributes identified by the name and index, if any.
+     */
+    public func characterAttributesAtIndex(index: Int) -> CharacterAttributeSet {
+        let attributes = attributesAtIndex(index, effectiveRange: nil)
+
+        return CharacterAttributeSetFromDictionary(attributes)
+    }
+
+}
+
+//  MARK: - Subscripting
+
+public extension NSAttributedString {
+
+    /**
      Retrieves the character attribute at the specified index identifiable by the provided attribute name.
      - parameter index: Index in string of character with desired attribute.
      - parameter attributeName: Name of character attribute to retrieve.
@@ -45,6 +62,13 @@ public extension NSAttributedString {
         return characterAttributeAtIndex(index, named: name)
     }
 
+    /**
+     Retrieves the set of character attributes at the specified index.
+     - parameter index: Index in string of character with desired attributes.
+     - returns: The set of character attributes in use at the provided index, if any.
+     */
+    public subscript(index: Int) -> CharacterAttributeSet {
+        return characterAttributesAtIndex(index)
     }
 
 }

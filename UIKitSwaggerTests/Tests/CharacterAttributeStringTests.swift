@@ -14,7 +14,6 @@ class CharacterAttributeStringTests: XCTestCase {
 
     let text = "Sample"
     let font = UIFont.systemFontOfSize(42)
-    let color = Orange
     let offset = CGFloat(14.42)
 
     var characterAttributeSet: CharacterAttributeSet!
@@ -27,14 +26,14 @@ class CharacterAttributeStringTests: XCTestCase {
     override func setUp() {
         characterAttributeArray = [
             .Font(font),
-            .ForegroundColor(color),
+            .ForegroundColor(Orange),
             .BaselineOffset(offset)
         ]
         characterAttributeSet = Set(characterAttributeArray)
 
         attributeDictionary = [
             NSFontAttributeName: font,
-            NSForegroundColorAttributeName: color,
+            NSForegroundColorAttributeName: Orange,
             NSBaselineOffsetAttributeName: offset
         ]
     }
@@ -53,7 +52,7 @@ class CharacterAttributeStringTests: XCTestCase {
         XCTAssertEqual(attributedString, expectedString, "Should be able to create an attributed string using an array of character attributes")
     }
 
-    //  MARK: Retrieving attributes
+    //  MARK: Retrieving single attribute
 
     func testRetrievingCharacterAttributeAtIndex() {
         attributedString = NSAttributedString(string: text, attributes: attributeDictionary)
@@ -97,6 +96,42 @@ class CharacterAttributeStringTests: XCTestCase {
         attributedString = NSAttributedString(string: text, attributes: attributeDictionary)
         let attribute = attributedString[3, named: NSLigatureAttributeName]
         XCTAssertNil(attribute, "No character attribute should be returned")
+    }
+
+    //  MARK: Retrieving multiple attributes
+
+    func testRetrievingSetOfCharacterAttributesAtIndex() {
+        attributedString = NSAttributedString(string: text, attributes: attributeDictionary)
+        let attributes = attributedString.characterAttributesAtIndex(3)
+        XCTAssertEqual(attributes.count, 3, "There should be three attributes returned")
+        XCTAssert(attributes.contains(.Font(font)), "Each character attribute should be returned with the correct associated value")
+        XCTAssert(attributes.contains(.ForegroundColor(Orange)), "Each character attribute should be returned with the correct associated value")
+        XCTAssert(attributes.contains(.BaselineOffset(offset)), "Each character attribute should be returned with the correct associated value")
+    }
+
+    func testRetrievingNonexistentCharacterAttributesAtIndex() {
+        let mutableString = NSMutableAttributedString(string: text)
+        mutableString.addAttributes(attributeDictionary, range: NSRange(location: 3, length: 3))
+        attributedString = NSAttributedString(attributedString: mutableString)
+        let attributes = attributedString.characterAttributesAtIndex(0)
+        XCTAssertEqual(attributes.count, 0, "No character attributes should be returned")
+    }
+
+    func testRetrievingSetOfCharacterAttributesAtIndexThroughSubscripting() {
+        attributedString = NSAttributedString(string: text, attributes: attributeDictionary)
+        let attributes = attributedString[3]
+        XCTAssertEqual(attributes.count, 3, "There should be three attributes returned")
+        XCTAssert(attributes.contains(.Font(font)), "Each character attribute should be returned with the correct associated value")
+        XCTAssert(attributes.contains(.ForegroundColor(Orange)), "Each character attribute should be returned with the correct associated value")
+        XCTAssert(attributes.contains(.BaselineOffset(offset)), "Each character attribute should be returned with the correct associated value")
+    }
+
+    func testRetrievingNonexistentCharacterAttributesAtIndexThroughSubscripting() {
+        let mutableString = NSMutableAttributedString(string: text)
+        mutableString.addAttributes(attributeDictionary, range: NSRange(location: 3, length: 3))
+        attributedString = NSAttributedString(attributedString: mutableString)
+        let attributes = attributedString[0]
+        XCTAssertEqual(attributes.count, 0, "No character attributes should be returned")
     }
 
 }
