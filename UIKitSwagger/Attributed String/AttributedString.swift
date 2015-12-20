@@ -45,17 +45,6 @@ public extension NSAttributedString {
         return characterAttributeAtIndex(index, named: name)
     }
 
-}
-
-
-private extension CollectionType where Generator.Element == CharacterAttribute {
-
-    private var attributeDictionary: CharacterAttributeDictionary {
-        return reduce(CharacterAttributeDictionary()) { (var dictionary, let attribute) -> CharacterAttributeDictionary in
-            let (key, value) = attribute.keyValuePair
-            dictionary[key] = value
-            return dictionary
-        }
     }
 
 }

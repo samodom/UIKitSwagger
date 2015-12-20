@@ -8,11 +8,6 @@
 
 import UIKit
 
-/**
- Type alias for a set of character attributes.
- */
-public typealias CharacterAttributeSet = Set<CharacterAttribute>
-
 //public typealias AttributedCharacterRange = (attributes: CharacterAttributeSet, range: Range<String.CharacterView.Index>)
 
 /**
