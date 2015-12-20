@@ -32,6 +32,12 @@ When working with attributed strings, there are a number of keys that are used t
 | `UseVerticalGlyphForm(Bool)` | `NSVerticalGlyphFormAttributeName` |
 
 
+## Collections of attributes
+
+A set of character attributes can be created from an attribute dictionary using the `CharacterAttributeSetFromDictionary()` function.
+
+Any collection with `CharacterAttribute` elements can be converted into a `CharacterAttributeDictionary` using the property `attributeDictionary`.
+
 ## Using with existing APIs
 
 In order to use the enumeration with attributed string creation and manipulation, several methods and properties are provided.
@@ -79,3 +85,11 @@ In order to use the enumeration with attributed string creation and manipulation
 |:--|:--|
 | **Description** | Returns all character attributes defined on the attributed string at the specified index. |
 | **Subscript** | Subscripting may be used in the following form: `[Int]`. |
+
+| Method | `rangedCharacterAttributeAtIndex(_:named:) -> (CharacterAttribute?, Range<String.CharacterView.Index>?)` |
+|:--|:--|
+| **Description** | Returns the named character attribute of the character at a given index and the range over which the attribute applies.  If the attribute does not exist at the index, the range represents the range over which the attribute is not applied.  The range isn’t necessarily the maximum range covered by the attribute and its extent is implementation-dependent.  If you need the maximum range, use `maximumRangedCharacterAttributeAtIndex:named:inRange:``.  Compare to `attribute(_:atIndex:effectiveRange) -> AnyObject?`. |
+
+| Method | `maximumRangedCharacterAttributeAtIndex(_:named:) -> (CharacterAttribute?, Range<String.CharacterView.Index>?)` |
+|:--|:--|
+| **Description** | Returns the named character attribute of the character at a given index and the full range over which the attribute applies.  Compare to `attribute(_:atIndex:longestEffectiveRange:inRange:)`. |
