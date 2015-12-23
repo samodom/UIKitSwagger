@@ -86,10 +86,18 @@ In order to use the enumeration with attributed string creation and manipulation
 | **Description** | Returns all character attributes defined on the attributed string at the specified index. |
 | **Subscript** | Subscripting may be used in the following form: `[Int]`. |
 
-| Method | `rangedCharacterAttributeAtIndex(_:named:) -> (CharacterAttribute?, Range<String.CharacterView.Index>?)` |
+| Method | `rangedCharacterAttributeAtIndex(_:named:) -> (CharacterAttribute?, Range<Int>)` |
 |:--|:--|
-| **Description** | Returns the named character attribute of the character at a given index and the range over which the attribute applies.  If the attribute does not exist at the index, the range represents the range over which the attribute is not applied.  The range isn’t necessarily the maximum range covered by the attribute and its extent is implementation-dependent.  If you need the maximum range, use `maximumRangedCharacterAttributeAtIndex:named:inRange:``.  Compare to `attribute(_:atIndex:effectiveRange) -> AnyObject?`. |
+| **Description** | Returns the named character attribute of the character at a given index and the range over which the attribute applies.  If the attribute does not exist at the index, the range represents the range over which the attribute is not applied.  The range isn’t necessarily the maximum range covered by the attribute and its extent is implementation-dependent.  If you need the maximum range, use `maximumRangedCharacterAttributeAtIndex(_:named:inRange:)`.  Compare to `attribute(_:atIndex:effectiveRange) -> AnyObject?`. |
 
-| Method | `maximumRangedCharacterAttributeAtIndex(_:named:) -> (CharacterAttribute?, Range<String.CharacterView.Index>?)` |
+| Method | `maximumRangedCharacterAttributeAtIndex(_:named:inRange:) -> (CharacterAttribute?, Range<Int>)` |
 |:--|:--|
-| **Description** | Returns the named character attribute of the character at a given index and the full range over which the attribute applies.  Compare to `attribute(_:atIndex:longestEffectiveRange:inRange:)`. |
+| **Description** | Returns the named character attribute of the character at a given index and the full range over which the attribute applies within the provided range limit.  Compare to `attribute(_:atIndex:longestEffectiveRange:inRange:)`. |
+
+| Method | `rangedCharacterAttributesAtIndex(_) -> (CharacterAttributeSet, Range<Int>)` |
+|:--|:--|
+| **Description** | Returns the character attributes of the character at a given index and the range over which the attributes apply.  The range isn’t necessarily the maximum range covered by the attribute and its extent is implementation-dependent.  If you need the maximum range, use `maximumRangedCharacterAttributesAtIndex(_:inRange:)`.  Compare to `attributesAtIndex(_:effectiveRange) -> AnyObject?`. |
+
+| Method | `maximumRangedCharacterAttributesAtIndex(_inRange:) -> (CharacterAttributeSet, Range<Int>)` |
+|:--|:--|
+| **Description** | Returns the character attributes of the character at a given index and the full range over which the attributes apply within the provided range limit.  Compare to `attributesAtIndex(_:longestEffectiveRange:inRange:)`. |
