@@ -101,3 +101,13 @@ In order to use the enumeration with attributed string creation and manipulation
 | Method | `maximumRangedCharacterAttributesAtIndex(_inRange:) -> (CharacterAttributeSet, Range<Int>)` |
 |:--|:--|
 | **Description** | Returns the character attributes of the character at a given index and the full range over which the attributes apply within the provided range limit.  Compare to `attributesAtIndex(_:longestEffectiveRange:inRange:)`. |
+
+
+#### Substrings
+
+The system method `attributedSubstringFromRange(_:)` can be invoked via subscripting with a range of integers (`Range<Int>`):
+
+```swift
+let substring1 = attributedString[3 ..< 8]
+let substring2 = attributedString[1 ... 4]
+```
