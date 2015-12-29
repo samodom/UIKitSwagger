@@ -130,6 +130,15 @@ public extension NSAttributedString {
         return characterAttributesAtIndex(index)
     }
 
+    /**
+     Retrieves a substring via subscripting using the system method `attributedSubstringFromRange(_:)`.
+     - parameter range: The range of the desired substring in this attributed string.
+     - returns: The attributed string contained at the desired location.
+     */
+    public subscript(range: Range<Int>) -> NSAttributedString {
+        return attributedSubstringFromRange(ConvertIntRangetoNSRange(range))
+    }
+
 }
 
 private func ConvertIntRangetoNSRange(range: Range<Int>) -> NSRange {

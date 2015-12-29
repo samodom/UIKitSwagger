@@ -262,4 +262,20 @@ class CharacterAttributeStringTests: XCTestCase {
         XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
     }
 
+    //  MARK: Retrieving a substring
+
+    func testRetrievingSubstringViaHalfOpenIntervalSubscripting() {
+        attributedString = createPartiallyAttributedString()
+        let expected = attributedString.attributedSubstringFromRange(NSRange(location: 2, length: 3))
+        let substring = attributedString[2 ..< 5]
+        XCTAssertEqual(substring, expected, "The same substring should be returned as the system API")
+    }
+
+    func testRetrievingSubstringViaClosedIntervalSubscripting() {
+        attributedString = createPartiallyAttributedString()
+        let expected = attributedString.attributedSubstringFromRange(NSRange(location: 2, length: 3))
+        let substring = attributedString[2 ... 4]
+        XCTAssertEqual(substring, expected, "The same substring should be returned as the system API")
+    }
+
 }
