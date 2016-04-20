@@ -29,8 +29,11 @@ Tests run successfully on iOS 9 simulators, but since the `@available` syntax do
 
 - `LayoutGuideLayoutAttributesTests` (entire test class)
 - `StackViewSyntaxTests` (entire test class)
-- `ViewAddableSyntaxTests.testAddingLayoutGuideArrayWithOperator()`
-- `ViewAddableSyntaxTests.testAddingLayoutGuideWithOperator()`
-- `ViewAddableSyntaxTests.testCannotRemoveLayoutGuideNotInView()`
-- `ViewAddableSyntaxTests.testRemovingLayoutGuideArrayWithOperator()`
-- `ViewAddableSyntaxTests.testRemovingLayoutGuideWithOperator()`
+
+`ViewAddableSyntaxTests`:
+
+- `.testAddingLayoutGuideArrayWithOperator()`
+- `.testAddingLayoutGuideWithOperator()`
+- `.testCannotRemoveLayoutGuideNotInView()`
+- `.testRemovingLayoutGuideArrayWithOperator()`
+- `.testRemovingLayoutGuideWithOperator()`
