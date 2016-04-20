@@ -1,7 +1,15 @@
 UIKitSwagger Changelog
 ======================
 
-### Version 7
+
+### Pre-Release Version 8 ()
+ - Added layout methods for filling a view's superview
+ - Added layout edge and direction types
+ - Added activation methods to constraint arrays
+ - Added character attribute type to simplify creation and modification of attributed strings
+
+
+### Pre-Release Version 7
 
 ##### v0.7.0 (Friday, September 11, 2015)
  - Updated for Swift 2.
@@ -23,7 +31,7 @@ UIKitSwagger Changelog
   - Added simpler stack view creation functions
 
 
-### Version 6
+### Pre-Release Version 6
 
 ##### v0.6.1 (Sunday, March 22, 2015)
  - Added MatchSizes() method to Auto Layout
@@ -42,7 +50,7 @@ UIKitSwagger Changelog
  - Changed deployment target to 8.0
 
 
-### Version 5
+### Pre-Release Version 5
 
 ##### v0.5.2 (Tuesday, February 10, 2015)
  - Updated for Swift 1.2

@@ -2,19 +2,15 @@ UIKitSwagger
 ============
 
 
-![](https://img.shields.io/badge/platform-_iOS_8,_9-lightgrey.svg?style=flat-square)
+* ![](https://img.shields.io/badge/platform-_iOS_8,_9-lightgrey.svg?style=flat-square)
+* ![](https://img.shields.io/badge/language-Swift_2-orange.svg?style=flat-square)
+* ![](https://img.shields.io/badge/version-0.7.0-green.svg?style=flat-square)
 
-![](https://img.shields.io/badge/language-Swift_2-orange.svg?style=flat-square)
-
-![](https://img.shields.io/badge/version-0.7.0-green.svg?style=flat-square)
-
-
-
-A bit of a DSL for UIKit
 
  - [Working with Views](Docs/Views.md) and [Stack Views](Docs/StackViews.md) in particular
  - [Auto Layout Convenience](Docs/AutoLayout.md)
  - [Concurrency](Docs/Concurrency.md)
+ - [Character Attributes](Docs/CharacterAttributes.md) with [Attributed Strings](Docs/AttributedStrings.md)
  - [Working with Alert Controllers](Docs/Alerts.md)
  - [Switch Toggling Convenience](Docs/Switch.md)
  - [Working with Sliders](Docs/Slider.md)
