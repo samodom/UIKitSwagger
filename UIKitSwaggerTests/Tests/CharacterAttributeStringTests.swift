@@ -12,14 +12,16 @@ import Foundation
 
 class CharacterAttributeStringTests: XCTestCase {
 
-    let text = "Sample"
+    let text = LongSampleString
     let font = UIFont.systemFontOfSize(42)
     let offset = CGFloat(14.42)
     var characterCount: Int!
-    var fullRange: Range<Int>!
-    var oldFullRange: NSRange!
+    var fullRange: Range<String.Index>!
+    var fullNSRange: NSRange!
+    var partialRange: Range<String.Index>!
+    var index: String.Index!
 
-    var foregroundColorAttribute: CharacterAttribute!
+    var foregroundColorAttribute = CharacterAttribute.ForegroundColor(Orange)
     var fontAttribute: CharacterAttribute!
     var baselineOffsetAttribute: CharacterAttribute!
 
@@ -30,8 +32,9 @@ class CharacterAttributeStringTests: XCTestCase {
 
     override func setUp() {
         characterCount = text.characters.count
-        fullRange = 0 ..< characterCount
-        oldFullRange = NSRange(location: 0, length: characterCount)
+        fullRange = text.startIndex ..< text.endIndex
+        fullNSRange = NSRange(location: 0, length: characterCount)
+        partialRange = text.startIndex.advancedBy(3) ..< text.endIndex
 
         foregroundColorAttribute = .ForegroundColor(Orange)
         fontAttribute = .Font(font)
@@ -55,7 +58,11 @@ class CharacterAttributeStringTests: XCTestCase {
         return NSAttributedString(attributedString: mutableString)
     }
 
-    //  MARK: - Immutable
+    private func setIndex() {
+        index = attributedString.string.startIndex.advancedBy(3)
+    }
+
+    //  MARK: Construction
 
     func testCreatingAttributedStringWithSetOfAttributes() {
         expectedString = createFullyAttributedString()
@@ -79,11 +86,11 @@ class CharacterAttributeStringTests: XCTestCase {
         XCTAssertEqual(attributedString, expectedString, "Should be able to create an attributed string using an array of character attributes")
     }
 
-    //  MARK: Retrieving single attribute
+    //  MARK: Retrieving a single attribute
 
     func testRetrievingCharacterAttributeAtIndex() {
-        attributedString = createFullyAttributedString()
-        if let attribute = attributedString.characterAttributeAtIndex(3, named: NSForegroundColorAttributeName) {
+        attributedString = createFullyAttributedString(); setIndex()
+        if let attribute = attributedString.characterAttributeAtIndex(index, named: NSForegroundColorAttributeName) {
             XCTAssertEqual(attribute, foregroundColorAttribute, "The appropriate attribute should be returned with the correct associated value")
         }
         else {
@@ -92,14 +99,14 @@ class CharacterAttributeStringTests: XCTestCase {
     }
 
     func testRetrievingNonexistentCharacterAttributeAtIndex() {
-        attributedString = createFullyAttributedString()
-        let attribute = attributedString.characterAttributeAtIndex(3, named: NSLigatureAttributeName)
+        attributedString = createFullyAttributedString(); setIndex()
+        let attribute = attributedString.characterAttributeAtIndex(index, named: NSLigatureAttributeName)
         XCTAssertNil(attribute, "No character attribute should be returned")
     }
 
     func testRetrievingCharacterAttributeAtIndexThroughSubscripting() {
-        attributedString = createFullyAttributedString()
-        if let attribute = attributedString[3, named: NSForegroundColorAttributeName] {
+        attributedString = createFullyAttributedString(); setIndex()
+        if let attribute = attributedString[index, named: NSForegroundColorAttributeName] {
             XCTAssertEqual(attribute, foregroundColorAttribute, "The appropriate attribute should be returned with the correct associated value")
         }
         else {
@@ -108,16 +115,16 @@ class CharacterAttributeStringTests: XCTestCase {
     }
 
     func testRetrievingNonexistentCharacterAttributeAtIndexThroughSubscripting() {
-        attributedString = createFullyAttributedString()
-        let attribute = attributedString[3, named: NSLigatureAttributeName]
+        attributedString = createFullyAttributedString(); setIndex()
+        let attribute = attributedString[index, named: NSLigatureAttributeName]
         XCTAssertNil(attribute, "No character attribute should be returned")
     }
 
     //  MARK: Retrieving multiple attributes
 
     func testRetrievingSetOfCharacterAttributesAtIndex() {
-        attributedString = createFullyAttributedString()
-        let attributes = attributedString.characterAttributesAtIndex(3)
+        attributedString = createFullyAttributedString(); setIndex()
+        let attributes = attributedString.characterAttributesAtIndex(index)
         XCTAssertEqual(attributes.count, 3, "There should be three attributes returned")
         XCTAssert(attributes.contains(foregroundColorAttribute), "Each character attribute should be returned with the correct associated value")
         XCTAssert(attributes.contains(fontAttribute), "Each character attribute should be returned with the correct associated value")
@@ -125,14 +132,14 @@ class CharacterAttributeStringTests: XCTestCase {
     }
 
     func testRetrievingNonexistentCharacterAttributesAtIndex() {
-        attributedString = createPartiallyAttributedString()
-        let attributes = attributedString.characterAttributesAtIndex(0)
+        attributedString = createPartiallyAttributedString(); setIndex()
+        let attributes = attributedString.characterAttributesAtIndex(attributedString.string.startIndex)
         XCTAssertEqual(attributes.count, 0, "No character attributes should be returned")
     }
 
     func testRetrievingSetOfCharacterAttributesAtIndexThroughSubscripting() {
-        attributedString = createFullyAttributedString()
-        let attributes = attributedString[3]
+        attributedString = createFullyAttributedString(); setIndex()
+        let attributes = attributedString[index]
         XCTAssertEqual(attributes.count, 3, "There should be three attributes returned")
         XCTAssert(attributes.contains(foregroundColorAttribute), "Each character attribute should be returned with the correct associated value")
         XCTAssert(attributes.contains(fontAttribute), "Each character attribute should be returned with the correct associated value")
@@ -140,126 +147,123 @@ class CharacterAttributeStringTests: XCTestCase {
     }
 
     func testRetrievingNonexistentCharacterAttributesAtIndexThroughSubscripting() {
-        attributedString = createPartiallyAttributedString()
-        let attributes = attributedString[0]
+        attributedString = createPartiallyAttributedString(); setIndex()
+        let attributes = attributedString[attributedString.string.startIndex]
         XCTAssertEqual(attributes.count, 0, "No character attributes should be returned")
     }
 
-    //  MARK: Retrieving single ranged attribute
+    //  MARK: Retrieving single-attribute runs
 
-    func testRetrievingRangedCharacterAttributeAtIndex() {
-        attributedString = createFullyAttributedString()
+    func testRetrievingNamedCharacterAttributeRunAtIndex() {
+        attributedString = createFullyAttributedString(); setIndex()
         var expectedRange = NSRange()
         attributedString.attribute(NSForegroundColorAttributeName, atIndex: 3, effectiveRange: &expectedRange)
 
-        let (attribute, range) =
-        attributedString.rangedCharacterAttributeAtIndex(
-            3,
-            named: NSForegroundColorAttributeName
-        )
+        let (attributes, range) =
+            attributedString.characterAttributeRunAtIndex(index, named: NSForegroundColorAttributeName)
 
-        XCTAssertEqual(attribute, foregroundColorAttribute, "The appropriate attribute should be returned with the correct associated value")
-        XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
+        XCTAssertEqual(attributes.first, foregroundColorAttribute, "The appropriate attribute should be returned with the correct associated value")
+        AssertEqualIndexRanges(indexRange: range, nsRange: expectedRange, "The same range should be returned as the system API")
     }
 
-    func testRetrievingMissingRangedCharacterAttributeAtIndex() {
-        attributedString = createPartiallyAttributedString()
+    func testRetrievingEmptyNamedCharacterAttributeRunAtIndex() {
+        attributedString = createPartiallyAttributedString(); setIndex()
         var expectedRange = NSRange()
         attributedString.attribute(NSBackgroundColorAttributeName, atIndex: 3, effectiveRange: &expectedRange)
 
-        let (attribute, range) =
-        attributedString.rangedCharacterAttributeAtIndex(
-            3,
-            named: NSBackgroundColorAttributeName
-        )
+        let (attributes, range) =
+            attributedString.characterAttributeRunAtIndex(index, named: NSBackgroundColorAttributeName)
 
-        XCTAssertNil(attribute, "No attribute should be returned")
-        XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
+        XCTAssertTrue(attributes.isEmpty, "No attributes should be returned")
+        AssertEqualIndexRanges(indexRange: range, nsRange: expectedRange, "The same range should be returned as the system API")
     }
 
-    func testRetrievingMaximumRangedCharacterAttributeAtIndex() {
-        attributedString = createFullyAttributedString()
+    func testRetrievingLongestNamedCharacterAttributeRunAtIndex() {
+        attributedString = createFullyAttributedString(); setIndex()
         var expectedRange = NSRange()
         attributedString.attribute(
             NSForegroundColorAttributeName,
             atIndex: 3,
             longestEffectiveRange: &expectedRange,
-            inRange: oldFullRange
+            inRange: fullNSRange
         )
 
-        let (attribute, range) =
-        attributedString.maximumRangedCharacterAttributeAtIndex(
-            3,
-            named: NSForegroundColorAttributeName,
-            inRange: 0 ..< characterCount
+        let (attributes, range) = attributedString.longestCharacterAttributeRunAtIndex(
+            index,
+            inRange: fullRange,
+            named: NSForegroundColorAttributeName
         )
 
-        XCTAssertEqual(attribute, foregroundColorAttribute, "The appropriate attribute should be returned with the correct associated value")
-        XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
+        XCTAssertEqual(attributes.first, foregroundColorAttribute, "The appropriate attribute should be returned with the correct associated value")
+        AssertEqualIndexRanges(indexRange: range, nsRange: expectedRange, "The same range should be returned as the system API")
     }
 
-    func testRetrievingMissingMaximumRangedCharacterAttributeAtIndex() {
+    func testRetrievingEmptyLongestNamedCharacterAttributeRunAtIndex() {
         attributedString = createPartiallyAttributedString()
         var expectedRange = NSRange()
         attributedString.attribute(NSBackgroundColorAttributeName, atIndex: 0, effectiveRange: &expectedRange)
 
-        let (attribute, range) =
-        attributedString.maximumRangedCharacterAttributeAtIndex(
-            0,
-            named: NSForegroundColorAttributeName,
-            inRange: 0 ..< characterCount
+        index = attributedString.string.startIndex
+        let (attributes, range) = attributedString.longestCharacterAttributeRunAtIndex(
+            index,
+            inRange: fullRange,
+            named: NSForegroundColorAttributeName
         )
 
-        XCTAssertNil(attribute, "No attribute should be returned")
-        XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
+        XCTAssertTrue(attributes.isEmpty, "No attributes should be returned")
+        AssertEqualIndexRanges(indexRange: range, nsRange: expectedRange, "The same range should be returned as the system API")
     }
 
-    //  MARK: Retrieving multiple ranged attributes
+    //  MARK: Retrieving multiple-attribute runs
 
-    func testRetrievingRangedCharacterAttributesAtIndex() {
-        attributedString = createFullyAttributedString()
+    func testRetrievingCharacterAttributeRunAtIndex() {
+        attributedString = createFullyAttributedString(); setIndex()
         var expectedRange = NSRange()
         attributedString.attributesAtIndex(3, effectiveRange: &expectedRange)
 
-        let (attributes, range) = attributedString.rangedCharacterAttributesAtIndex(3)
+        let (attributes, range) = attributedString.characterAttributeRunAtIndex(index)
         XCTAssertEqual(attributes.count, 3, "There should be 3 character attributes returned")
         XCTAssert(attributes.contains(foregroundColorAttribute), "The returned set should contain all of the applied attributes")
         XCTAssert(attributes.contains(fontAttribute), "The returned set should contain all of the applied attributes")
         XCTAssert(attributes.contains(baselineOffsetAttribute), "The returned set should contain all of the applied attributes")
-        XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
+        AssertEqualIndexRanges(indexRange: range, nsRange: expectedRange, "The same range should be returned as the system API")
     }
 
-    func testRetrievingMissingRangedCharacterAttributesAtIndex() {
-        attributedString = NSAttributedString(string: text)
+    func testRetrievingEmptyCharacterAttributeRunAtIndex() {
+        attributedString = NSAttributedString(string: text); setIndex()
         var expectedRange = NSRange()
         attributedString.attributesAtIndex(3, effectiveRange: &expectedRange)
 
-        let (attributes, range) = attributedString.rangedCharacterAttributesAtIndex(3)
+        let (attributes, range) = attributedString.characterAttributeRunAtIndex(index)
         XCTAssertEqual(attributes.count, 0, "No attribute should be returned")
-        XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
+        AssertEqualIndexRanges(indexRange: range, nsRange: expectedRange, "The same range should be returned as the system API")
     }
 
-    func testReceivingMaximumRangedCharacterAttributesAtIndex() {
-        attributedString = createPartiallyAttributedString()
+    func testReceivingLongestCharacterAttributeRunAtIndex() {
+        attributedString = createPartiallyAttributedString(); setIndex()
         var expectedRange = NSRange()
-        attributedString.attributesAtIndex(3, longestEffectiveRange: &expectedRange, inRange: oldFullRange)
+        attributedString.attributesAtIndex(3, longestEffectiveRange: &expectedRange, inRange: fullNSRange)
 
-        let (attributes, range) = attributedString.maximumRangedCharacterAttributesAtIndex(3, inRange: fullRange)
+        let (attributes, range) =
+            attributedString.longestCharacterAttributeRunAtIndex(index, inRange: fullRange)
         XCTAssertEqual(attributes.count, 3, "There should be 3 character attributes returned")
         XCTAssert(attributes.contains(foregroundColorAttribute), "The returned set should contain all of the applied attributes")
         XCTAssert(attributes.contains(fontAttribute), "The returned set should contain all of the applied attributes")
         XCTAssert(attributes.contains(baselineOffsetAttribute), "The returned set should contain all of the applied attributes")
-        XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
+        AssertEqualIndexRanges(indexRange: range, nsRange: expectedRange, "The same range should be returned as the system API")
     }
 
-    func testReceivingMissingMaximumRangedCharacterAttributesAtIndex() {
-        attributedString = NSAttributedString(string: text)
+    func testReceivingEmptyLongestCharacterAttributeRunAtIndex() {
+        attributedString = NSAttributedString(string: text); setIndex()
         var expectedRange = NSRange()
-        attributedString.attributesAtIndex(3, longestEffectiveRange: &expectedRange, inRange: oldFullRange)
+        attributedString.attributesAtIndex(3, longestEffectiveRange: &expectedRange, inRange: fullNSRange)
 
-        let (attributes, range) = attributedString.maximumRangedCharacterAttributesAtIndex(0, inRange: fullRange)
+        let (attributes, range) = attributedString.longestCharacterAttributeRunAtIndex(
+            attributedString.string.startIndex,
+            inRange: fullRange
+        )
         XCTAssertEqual(attributes.count, 0, "There should be no attributes returned")
-        XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
+        AssertEqualIndexRanges(indexRange: range, nsRange: expectedRange, "The same range should be returned as the system API")
     }
 
     //  MARK: Retrieving a substring
@@ -267,15 +271,59 @@ class CharacterAttributeStringTests: XCTestCase {
     func testRetrievingSubstringViaHalfOpenIntervalSubscripting() {
         attributedString = createPartiallyAttributedString()
         let expected = attributedString.attributedSubstringFromRange(NSRange(location: 2, length: 3))
-        let substring = attributedString[2 ..< 5]
+        let start = attributedString.string.startIndex.advancedBy(2)
+        let end = attributedString.string.startIndex.advancedBy(5)
+        let substring = attributedString[start ..< end]
         XCTAssertEqual(substring, expected, "The same substring should be returned as the system API")
     }
 
     func testRetrievingSubstringViaClosedIntervalSubscripting() {
         attributedString = createPartiallyAttributedString()
         let expected = attributedString.attributedSubstringFromRange(NSRange(location: 2, length: 3))
-        let substring = attributedString[2 ... 4]
+        let start = attributedString.string.startIndex.advancedBy(2)
+        let end = attributedString.string.startIndex.advancedBy(4)
+        let substring = attributedString[start ... end]
         XCTAssertEqual(substring, expected, "The same substring should be returned as the system API")
+    }
+
+
+    //  MARK: Mutable attributed strings
+
+    func testSettingCharacterAttributeSetOverRange() {
+        expectedString = createPartiallyAttributedString()
+        let attributes: CharacterAttributeSet = [fontAttribute, foregroundColorAttribute, baselineOffsetAttribute]
+        let mutableString = NSMutableAttributedString(string: text)
+        mutableString.setCharacterAttributes(attributes, overRange: partialRange)
+        XCTAssertEqual(mutableString, expectedString, "Should be able to set character attributes over a range on a mutable attributed string")
+    }
+
+    func testSettingCharacterAttributeArrayOverRange() {
+        expectedString = createPartiallyAttributedString()
+        let attributes: [CharacterAttribute] = [fontAttribute, foregroundColorAttribute, baselineOffsetAttribute]
+        let mutableString = NSMutableAttributedString(string: text)
+        mutableString.setCharacterAttributes(attributes, overRange: partialRange)
+        XCTAssertEqual(mutableString, expectedString, "Should be able to set character attributes over a range on a mutable attributed string")
+    }
+
+    func testAddingSingleAttributeOverRange() {
+        let testString = NSMutableAttributedString(string: text)
+        let testRange = NSRange(location: 3, length: characterCount - 3)
+        testString.addAttribute(NSForegroundColorAttributeName, value: Orange, range: testRange)
+        let mutableString = NSMutableAttributedString(string: text)
+        mutableString.addCharacterAttribute(foregroundColorAttribute, overRange: partialRange)
+        XCTAssertEqual(mutableString, testString, "Should be able to add a character attribute over a range on a mutable attributed string")
+    }
+
+    func testAddingMultipleAttributesOverRange() {
+        let testString = NSMutableAttributedString(string: text)
+        let testRange = NSRange(location: 3, length: characterCount - 3)
+        testString.addAttributes(attributeDictionary, range: testRange)
+        let mutableString = NSMutableAttributedString(string: text)
+        mutableString.addCharacterAttributes(
+            [foregroundColorAttribute, fontAttribute, baselineOffsetAttribute],
+            overRange: partialRange
+        )
+        XCTAssertEqual(mutableString, testString, "Should be able to add character attributes over a range on a mutable attributed string")
     }
 
 }
