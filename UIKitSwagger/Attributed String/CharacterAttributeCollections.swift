@@ -40,7 +40,8 @@ public extension CollectionType where Generator.Element == CharacterAttribute {
      Produces an attribute dictionary from a collection containing character attributes.
      */
     public var attributeDictionary: CharacterAttributeDictionary {
-        return reduce(CharacterAttributeDictionary()) { (var dictionary, let attribute) -> CharacterAttributeDictionary in
+        return reduce(CharacterAttributeDictionary()) { dictionary, attribute -> CharacterAttributeDictionary in
+            var dictionary = dictionary
             let (key, value) = attribute.keyValuePair
             dictionary[key] = value
             return dictionary

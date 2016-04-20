@@ -271,8 +271,8 @@ class ViewFillingTests: XCTestCase {
         idiom: HoriontalDirectionIdiom,
         excludingEdges edgeExclusions: Set<LayoutEdge> = [],
         inMargins usingMargins: Bool = false,
-        inFile file: String = __FILE__,
-        atLine line: UInt = __LINE__
+        inFile file: String = #file,
+        atLine line: UInt = #line
         ) {
             let horizontalEdges: Set<LayoutEdge>
             switch idiom {
@@ -292,7 +292,7 @@ class ViewFillingTests: XCTestCase {
             }
     }
 
-    private func assertFillingConstraintCount(count: Int, inFile file: String = __FILE__, atLine line: UInt = __LINE__) {
+    private func assertFillingConstraintCount(count: Int, inFile file: String = #file, atLine line: UInt = #line) {
         var countString = ""
         switch count {
         case 0:
@@ -322,7 +322,7 @@ class ViewFillingTests: XCTestCase {
         }
     }
 
-    private func assertSubviewConstrainedToSuperviewEdge(edge: LayoutEdge, usingMargins useMargins: Bool = false, inFile file: String = __FILE__, atLine line: UInt = __LINE__) {
+    private func assertSubviewConstrainedToSuperviewEdge(edge: LayoutEdge, usingMargins useMargins: Bool = false, inFile file: String = #file, atLine line: UInt = #line) {
         let subviewPair = AutoLayoutAttributedItem(subview, edge.getLayoutAttribute(usingMargins: false))
         let superviewPair = AutoLayoutAttributedItem(superview, edge.getLayoutAttribute(usingMargins: useMargins))
         let expected = subviewPair =* superviewPair

@@ -15,7 +15,7 @@ class BarItemEnablingTests: XCTestCase {
         title: "Sample",
         style: .Plain,
         target: nil,
-        action: "sampleAction"
+        action: #selector(sampleAction)
     )
     var disabledBarItem = UITabBarItem(
         title: "Sample",
@@ -30,6 +30,7 @@ class BarItemEnablingTests: XCTestCase {
         disabledBarItem.enabled = false
     }
 
+    @objc
     private func sampleAction() { }
 
     func testEnablingDisabledBarItem() {

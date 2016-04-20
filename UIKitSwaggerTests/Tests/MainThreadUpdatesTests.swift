@@ -27,7 +27,7 @@ class MainThreadUpdatesTests: XCTestCase {
             assert(!NSThread.isMainThread())
 
             !{
-                self.executionCount++
+                self.executionCount += 1
                 self.executedOnMainThread = NSThread.isMainThread()
                 self.mainThreadExpectation.fulfill()
             }
@@ -44,7 +44,7 @@ class MainThreadUpdatesTests: XCTestCase {
     private func sampleExecutableStatement() {
         executedOnMainThread = NSThread.isMainThread()
         mainThreadExpectation.fulfill()
-        executionCount++
+        executionCount += 1
     }
 
     func testMainThreadExecutionFunctionSyntax() {
