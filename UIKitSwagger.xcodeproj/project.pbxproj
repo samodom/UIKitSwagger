@@ -78,6 +78,7 @@
 		0AC4A8BC1A27E05600EBCCB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AC4A8BA1A27E05600EBCCB8 /* Main.storyboard */; };
 		0AC4A8D91A27FCF800EBCCB8 /* ViewAlignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */; };
 		0AC4A8DB1A27FE2100EBCCB8 /* ViewAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8DA1A27FE2100EBCCB8 /* ViewAlignment.swift */; };
+		0AC4F72B1CC6EFEB00B92F97 /* ColorTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4F72A1CC6EFEB00B92F97 /* ColorTestHelpers.swift */; };
 		0ACADAE51A3A8AB800CF49F8 /* AlertControllerAddableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAE41A3A8AB800CF49F8 /* AlertControllerAddableTests.swift */; };
 		0ACADAE71A3A8C6700CF49F8 /* AlertAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAE61A3A8C6700CF49F8 /* AlertAdditionSyntax.swift */; };
 		0ACADAEA1A3BE42B00CF49F8 /* SwitchStateManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAE91A3BE42B00CF49F8 /* SwitchStateManagementTests.swift */; };
@@ -90,7 +91,6 @@
 		0ACED1701AA384360073E42C /* HSBComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED16F1AA384360073E42C /* HSBComponentsTests.swift */; };
 		0ACED1721AA384420073E42C /* GrayscaleComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED1711AA384420073E42C /* GrayscaleComponentsTests.swift */; };
 		0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED1781AA387CD0073E42C /* TestConstants.swift */; };
-		0ACED17D1AA388350073E42C /* ColorTestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED17C1AA388350073E42C /* ColorTestHelpers.swift */; };
 		0ACED17F1AA3E4E10073E42C /* RGBComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED16D1AA383A70073E42C /* RGBComponentsTests.swift */; };
 		0ACED1801AA3E8A40073E42C /* CMYKComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED1731AA3844D0073E42C /* CMYKComponentsTests.swift */; };
 		0ACED1811AA41EE10073E42C /* CMYKComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED16A1AA2D5400073E42C /* CMYKComponents.swift */; };
@@ -196,6 +196,7 @@
 		0AC4A8BB1A27E05600EBCCB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAlignmentTests.swift; sourceTree = "<group>"; };
 		0AC4A8DA1A27FE2100EBCCB8 /* ViewAlignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAlignment.swift; sourceTree = "<group>"; };
+		0AC4F72A1CC6EFEB00B92F97 /* ColorTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTestHelpers.swift; sourceTree = "<group>"; };
 		0ACADAE41A3A8AB800CF49F8 /* AlertControllerAddableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerAddableTests.swift; sourceTree = "<group>"; };
 		0ACADAE61A3A8C6700CF49F8 /* AlertAdditionSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertAdditionSyntax.swift; sourceTree = "<group>"; };
 		0ACADAE91A3BE42B00CF49F8 /* SwitchStateManagementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchStateManagementTests.swift; sourceTree = "<group>"; };
@@ -211,7 +212,6 @@
 		0ACED1711AA384420073E42C /* GrayscaleComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrayscaleComponentsTests.swift; sourceTree = "<group>"; };
 		0ACED1731AA3844D0073E42C /* CMYKComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMYKComponentsTests.swift; sourceTree = "<group>"; };
 		0ACED1781AA387CD0073E42C /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
-		0ACED17C1AA388350073E42C /* ColorTestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTestHelpers.swift; sourceTree = "<group>"; };
 		0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEnablingTests.swift; sourceTree = "<group>"; };
 		0ADD2B011B4C7175002F822D /* StackViewSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewSyntaxTests.swift; sourceTree = "<group>"; };
 		0ADD2B041B4C725E002F822D /* StackViewSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewSyntax.swift; sourceTree = "<group>"; };
@@ -343,6 +343,7 @@
 				0A9032251A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift */,
 				0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */,
 				0ACED1711AA384420073E42C /* GrayscaleComponentsTests.swift */,
+				0AC4F7291CC6EFEB00B92F97 /* Helpers */,
 				0ACED16F1AA384360073E42C /* HSBComponentsTests.swift */,
 				0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */,
 				0A9137301B50303600428632 /* LayoutDirectionTests.swift */,
@@ -485,6 +486,14 @@
 			path = TestingDummy;
 			sourceTree = "<group>";
 		};
+		0AC4F7291CC6EFEB00B92F97 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0AC4F72A1CC6EFEB00B92F97 /* ColorTestHelpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0ACADAEB1A3BE8F400CF49F8 /* Switch */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,7 +529,6 @@
 		0ACED1771AA387CD0073E42C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0ACED17C1AA388350073E42C /* ColorTestHelpers.swift */,
 				0ACED1781AA387CD0073E42C /* TestConstants.swift */,
 			);
 			path = Common;
@@ -729,13 +737,13 @@
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
 				0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */,
 				0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */,
+				0AC4F72B1CC6EFEB00B92F97 /* ColorTestHelpers.swift in Sources */,
 				0ACED17F1AA3E4E10073E42C /* RGBComponentsTests.swift in Sources */,
 				0ACADAF01A3BF0E500CF49F8 /* SliderIntervalTests.swift in Sources */,
 				0A10F28D1A3D147700715C7A /* ColorComponentConversionTests.swift in Sources */,
 				0A5D736A1BC9973E005DEB73 /* LayoutEdgeTests.swift in Sources */,
 				0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */,
 				0ADD2B021B4C7175002F822D /* StackViewSyntaxTests.swift in Sources */,
-				0ACED17D1AA388350073E42C /* ColorTestHelpers.swift in Sources */,
 				0A9032261A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift in Sources */,
 				0ACADAE51A3A8AB800CF49F8 /* AlertControllerAddableTests.swift in Sources */,
 				0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */,
