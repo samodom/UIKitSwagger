@@ -1,11 +1,13 @@
 Working with Views
 ==================
 
+## View Hierarchy
+
 ### Subscripting
 
-Shorten the syntax for finding and altering views in a view's hierarchy.
+Shorten the syntax for finding and altering views in a view hierarchy.
 
-**Subviews** (non-negative integer indices)
+#### Subviews
 
 |Syntax|Result|
 |------|------|
@@ -13,7 +15,7 @@ Shorten the syntax for finding and altering views in a view's hierarchy.
 |`view[index] = otherSubview`|replaces the subview at `index` with `otherSubview`|
 |`view[index] = nil`|simply removes the subview at `index`|
 
-**Superviews** (negative integer indices)
+##### Superviews
 
 |Syntax|Result|
 |------|------|
@@ -24,11 +26,14 @@ Shorten the syntax for finding and altering views in a view's hierarchy.
 Not sure where to add constraints for two items?  It's always the first common ancestor!
 > `func firstCommonAncestor(view: UIView) -> UIView?`
 
+
+## Swapping subviews
+
 Find `exchangeSubviewAtIndex(_: Int, withSubviewAtIndex: Int)` to be too wordy?  Try this UIView method instead!
 > `func swap(Int, Int)` instead!
 
 
-### Showing or hiding multiple views
+## Showing or hiding multiple views
 
 A few simple functions for hiding or showing views in a single statement are provided:
  - `func HideViews(UIView...)`
