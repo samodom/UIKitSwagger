@@ -8,7 +8,7 @@
 
 import UIKit
 import XCTest
-@testable import UIKitSwagger
+import UIKitSwagger
 
 //  See `ColorTestHelpers.swift` for colors and values used herein.
 
@@ -176,7 +176,7 @@ class CMYKComponentsTests: XCTestCase {
 
     func testInequalityOfCMYKComponentsWithMismatchedCyanValues() {
         let moreComponents = CMYKComponents(
-            cyan: nudgeComponentValue(randomCyanValue),
+            cyan: NudgeComponentValue(randomCyanValue),
             magenta: randomMagentaValue,
             yellow: randomYellowValue,
             key: randomKeyValue,
@@ -188,7 +188,7 @@ class CMYKComponentsTests: XCTestCase {
     func testInequalityOfCMYKComponentsWithMismatchedMagentaValues() {
         let moreComponents = CMYKComponents(
             cyan: randomCyanValue,
-            magenta: nudgeComponentValue(randomMagentaValue),
+            magenta: NudgeComponentValue(randomMagentaValue),
             yellow: randomYellowValue, 
             key: randomKeyValue,
             alpha: randomAlphaValue
@@ -200,7 +200,7 @@ class CMYKComponentsTests: XCTestCase {
         let moreComponents = CMYKComponents(
             cyan: randomCyanValue,
             magenta: randomMagentaValue,
-            yellow: nudgeComponentValue(randomYellowValue),
+            yellow: NudgeComponentValue(randomYellowValue),
             key: randomKeyValue,
             alpha: randomAlphaValue
         )
@@ -212,7 +212,7 @@ class CMYKComponentsTests: XCTestCase {
             cyan: randomCyanValue,
             magenta: randomMagentaValue,
             yellow: randomYellowValue,
-            key: nudgeComponentValue(randomKeyValue),
+            key: NudgeComponentValue(randomKeyValue),
             alpha: randomAlphaValue
         )
         XCTAssertNotEqual(components, moreComponents, "The components should not be considered equal")
@@ -224,7 +224,7 @@ class CMYKComponentsTests: XCTestCase {
             magenta: randomMagentaValue,
             yellow: randomYellowValue,
             key: randomKeyValue,
-            alpha: nudgeComponentValue(randomAlphaValue)
+            alpha: NudgeComponentValue(randomAlphaValue)
         )
         XCTAssertNotEqual(components, moreComponents, "The components should not be considered equal")
     }

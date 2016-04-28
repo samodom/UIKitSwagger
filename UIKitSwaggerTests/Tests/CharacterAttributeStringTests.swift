@@ -8,7 +8,7 @@
 
 import XCTest
 import Foundation
-@testable import UIKitSwagger
+import UIKitSwagger
 
 class CharacterAttributeStringTests: XCTestCase {
 

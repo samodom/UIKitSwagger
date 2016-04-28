@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import UIKitSwagger
+import UIKitSwagger
 
 @available(iOS 9.0, *)
 class StackViewSyntaxTests: XCTestCase {

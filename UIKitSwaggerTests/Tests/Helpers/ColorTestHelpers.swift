@@ -7,28 +7,28 @@
 //
 
 import UIKit
-@testable import UIKitSwagger
+import UIKitSwagger
 
 //  MARK: - Sample Color Values
 
 //  MARK: Random component values
 
-internal var randomAlphaValue = randomComponentValue()
+internal var randomAlphaValue = RandomComponentValue()
 
-internal var randomRedValue = randomComponentValue()
-internal var randomGreenValue = randomComponentValue()
-internal var randomBlueValue = randomComponentValue()
+internal var randomRedValue = RandomComponentValue()
+internal var randomGreenValue = RandomComponentValue()
+internal var randomBlueValue = RandomComponentValue()
 
-internal var randomHueValue = randomComponentValue()
-internal var randomSaturationValue = randomComponentValue()
-internal var randomBrightnessValue = randomComponentValue()
+internal var randomHueValue = RandomComponentValue()
+internal var randomSaturationValue = RandomComponentValue()
+internal var randomBrightnessValue = RandomComponentValue()
 
-internal var randomWhiteValue = randomComponentValue()
+internal var randomWhiteValue = RandomComponentValue()
 
-internal var randomCyanValue = randomComponentValue()
-internal var randomMagentaValue = randomComponentValue()
-internal var randomYellowValue = randomComponentValue()
-internal var randomKeyValue = randomComponentValue()
+internal var randomCyanValue = RandomComponentValue()
+internal var randomMagentaValue = RandomComponentValue()
+internal var randomYellowValue = RandomComponentValue()
+internal var randomKeyValue = RandomComponentValue()
 
 
 //  MARK: Colors
@@ -58,11 +58,11 @@ UIColor(
 
 //  MARK: Utilities
 
-private var onceToken: dispatch_once_t = 0
-internal func randomComponentValue() -> CGFloat {
+private var RandomValueGeneratorOnceToken: dispatch_once_t = 0
+internal func RandomComponentValue() -> CGFloat {
 
     func createGenerator() {
-        dispatch_once(&onceToken) {
+        dispatch_once(&RandomValueGeneratorOnceToken) {
             var now = time_t(0)
             time(&now)
             srand48(now);
@@ -71,15 +71,15 @@ internal func randomComponentValue() -> CGFloat {
 
     createGenerator()
     let randomValue = CGFloat(drand48())
-    assert(floatingValueIsNormalized(randomValue))
+    assert(FloatingValueIsNormalized(randomValue))
     return randomValue
 }
 
-private func floatingValueIsNormalized<F: FloatingPointType>(value: F) -> Bool {
+private func FloatingValueIsNormalized<F: FloatingPointType>(value: F) -> Bool {
     return (F(0) ... F(1)).contains(value)
 }
 
-internal func nudgeComponentValue(value: CGFloat) -> CGFloat {
+internal func NudgeComponentValue(value: CGFloat) -> CGFloat {
     var useNegative: Bool
     if value < 0 + ColorComponentValueTestAccuracy {
         useNegative = false
@@ -93,4 +93,14 @@ internal func nudgeComponentValue(value: CGFloat) -> CGFloat {
 
     let nudgeValue = useNegative ? -ColorComponentValueTestAccuracy : ColorComponentValueTestAccuracy
     return value + nudgeValue
+}
+
+#if arch(x86_64) || arch(arm64)
+    internal let ColorComponentValueTestAccuracy = CGFloat(DBL_EPSILON)
+#else
+    internal let ColorComponentValueTestAccuracy = CGFloat(FLT_EPSILON)
+#endif
+
+internal func ComponentValuesEqualWithinTestTolerance(value1: CGFloat, _ value2: CGFloat) -> Bool {
+    return fabs(value1 - value2) < ColorComponentValueTestAccuracy
 }
