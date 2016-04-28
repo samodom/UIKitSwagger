@@ -8,7 +8,7 @@
 
 import UIKit
 import XCTest
-@testable import UIKitSwagger
+import UIKitSwagger
 
 //  See `ColorTestHelpers.swift` for colors and values used herein.
 
@@ -58,7 +58,7 @@ class GrayscaleComponentsTests: XCTestCase {
 
     func testInequalityOfGrayscaleComponentsWithMismatchedWhiteValues() {
         let moreComponents = GrayscaleComponents(
-            white: nudgeComponentValue(randomWhiteValue),
+            white: NudgeComponentValue(randomWhiteValue),
             alpha: randomAlphaValue
         )
         XCTAssertNotEqual(components, moreComponents, "The components should not be considered equal")
@@ -67,7 +67,7 @@ class GrayscaleComponentsTests: XCTestCase {
     func testInequalityOfGrayscaleComponentsWithMismatchedAlphaValues() {
         let moreComponents = GrayscaleComponents(
             white: randomWhiteValue,
-            alpha: nudgeComponentValue(randomAlphaValue)
+            alpha: NudgeComponentValue(randomAlphaValue)
         )
         XCTAssertNotEqual(components, moreComponents, "The components should not be considered equal")
     }
