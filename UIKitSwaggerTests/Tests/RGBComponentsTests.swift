@@ -8,7 +8,7 @@
 
 import UIKit
 import XCTest
-@testable import UIKitSwagger
+import UIKitSwagger
 
 //  See `ColorTestHelpers.swift` for colors and values used herein.
 
@@ -106,7 +106,7 @@ class RGBComponentsTests: XCTestCase {
 
     func testInequalityOfRGBComponentsWithMismatchedRedValues() {
         let moreComponents = RGBComponents(
-            red: nudgeComponentValue(randomRedValue),
+            red: NudgeComponentValue(randomRedValue),
             green: randomGreenValue,
             blue: randomBlueValue,
             alpha: randomAlphaValue
@@ -117,7 +117,7 @@ class RGBComponentsTests: XCTestCase {
     func testInequalityOfRGBComponentsWithMismatchedGreenValues() {
         let moreComponents = RGBComponents(
             red: randomRedValue,
-            green: nudgeComponentValue(randomGreenValue),
+            green: NudgeComponentValue(randomGreenValue),
             blue: randomBlueValue,
             alpha: randomAlphaValue
         )
@@ -128,7 +128,7 @@ class RGBComponentsTests: XCTestCase {
         let moreComponents = RGBComponents(
             red: randomRedValue,
             green: randomGreenValue,
-            blue: nudgeComponentValue(randomBlueValue),
+            blue: NudgeComponentValue(randomBlueValue),
             alpha: randomAlphaValue
         )
         XCTAssertNotEqual(components, moreComponents, "The components should not be considered equal")
@@ -139,7 +139,7 @@ class RGBComponentsTests: XCTestCase {
             red: randomRedValue,
             green: randomGreenValue,
             blue: randomBlueValue,
-            alpha: nudgeComponentValue(randomAlphaValue)
+            alpha: NudgeComponentValue(randomAlphaValue)
         )
         XCTAssertNotEqual(components, moreComponents, "The components should not be considered equal")
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 import XCTest
-@testable import UIKitSwagger
+import UIKitSwagger
 
 //  See `ColorTestHelpers.swift` for colors and values used herein.
 
@@ -94,7 +94,7 @@ class HSBComponentsTests: XCTestCase {
 
     func testInequalityOfHSBComponentsWithMismatchedHueValues() {
         let moreComponents = HSBComponents(
-            hue: nudgeComponentValue(randomHueValue),
+            hue: NudgeComponentValue(randomHueValue),
             saturation: randomSaturationValue,
             brightness: randomBrightnessValue,
             alpha: randomAlphaValue
@@ -105,7 +105,7 @@ class HSBComponentsTests: XCTestCase {
     func testInequalityOfHSBComponentsWithMismatchedSaturationValues() {
         let moreComponents = HSBComponents(
             hue: randomHueValue,
-            saturation: nudgeComponentValue(randomSaturationValue),
+            saturation: NudgeComponentValue(randomSaturationValue),
             brightness: randomBrightnessValue,
             alpha: randomAlphaValue
         )
@@ -116,7 +116,7 @@ class HSBComponentsTests: XCTestCase {
         let moreComponents = HSBComponents(
             hue: randomHueValue,
             saturation: randomSaturationValue,
-            brightness: nudgeComponentValue(randomBrightnessValue),
+            brightness: NudgeComponentValue(randomBrightnessValue),
             alpha: randomAlphaValue
         )
         XCTAssertNotEqual(components, moreComponents, "The components should not be considered equal")
@@ -127,7 +127,7 @@ class HSBComponentsTests: XCTestCase {
             hue: randomHueValue,
             saturation: randomSaturationValue,
             brightness: randomBrightnessValue,
-            alpha: nudgeComponentValue(randomAlphaValue)
+            alpha: NudgeComponentValue(randomAlphaValue)
         )
         XCTAssertNotEqual(components, moreComponents, "The components should not be considered equal")
     }
