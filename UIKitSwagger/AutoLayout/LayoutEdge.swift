@@ -13,40 +13,22 @@ import UIKit
  */
 public enum LayoutEdge {
 
-    case Leading, Trailing
-    case Left, Right
-    case Top, Bottom
+    /// Represents the leading edge of an Auto Layout item
+    case Leading
 
-    internal var layoutAxis: UILayoutConstraintAxis {
-        switch self {
-        case .Top, .Bottom:
-            return .Vertical
+    /// Represents the trailing edge of an Auto Layout item
+    case Trailing
 
-        default:
-            return .Horizontal
-        }
-    }
+    /// Represents the left edge of an Auto Layout item
+    case Left
 
-    internal func getLayoutAttribute(usingMargins useMargins: Bool) -> NSLayoutAttribute {
-        switch self {
-        case .Left:
-            return useMargins ? .LeftMargin : .Left
+    /// Represents the right edge of an Auto Layout item
+    case Right
 
-        case .Right:
-            return useMargins ? .RightMargin : .Right
+    /// Represents the top edge of an Auto Layout item
+    case Top
 
-        case .Leading:
-            return useMargins ? .LeadingMargin : .Leading
-
-        case .Trailing:
-            return useMargins ? .TrailingMargin : .Trailing
-
-        case .Top:
-            return useMargins ? .TopMargin : .Top
-
-        case .Bottom:
-            return useMargins ? .BottomMargin : .Bottom
-        }
-    }
+    /// Represents the bottom edge of an Auto Layout item
+    case Bottom
 
 }

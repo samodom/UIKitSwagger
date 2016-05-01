@@ -15,9 +15,9 @@ public struct GrayscaleComponents: ColorComponents {
     public let white: CGFloat
     public let alpha: CGFloat
 
-    public init(white w: CGFloat, alpha a: CGFloat! = 1) {
-        white = w
-        alpha = a
+    public init(white: CGFloat, alpha: CGFloat = 1) {
+        self.white = white
+        self.alpha = alpha
     }
 
     /**
@@ -31,9 +31,7 @@ public struct GrayscaleComponents: ColorComponents {
 /**
  Equatability of grayscale components.
  */
-extension GrayscaleComponents: Equatable {
-
-}
+extension GrayscaleComponents: Equatable {}
 
 public func ==(lhs: GrayscaleComponents, rhs: GrayscaleComponents) -> Bool {
     return componentValuesEqualWithinTolerance(lhs.white, rhs.white) &&
@@ -50,16 +48,16 @@ public extension UIColor {
         var alphaValue = CGFloat(0)
 
         getWhite(&whiteValue, alpha: &alphaValue)
+
         return GrayscaleComponents(white: whiteValue, alpha: alphaValue)
     }
-
 
 }
 
 public extension UIColor {
 
     /**
-     Property to provide the white component value of the color.
+     Property representing the white component value of the color.
      */
     public var white: CGFloat {
         return grayscaleComponents.white

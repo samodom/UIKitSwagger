@@ -21,8 +21,8 @@ public typealias CharacterAttributeDictionary = [String: AnyObject]
 
 /**
  Produces a set of character attributes representing each key/value pair in the provided dictionary.
- - parameter attributeDictionary: A dictionary of character attributes.
- - returns: A set of character attributes derived from the dictionary members.
+ - Parameter attributeDictionary: A dictionary of character attributes.
+ - Returns: A set of character attributes derived from the dictionary members.
  */
 public func CharacterAttributeSetFromDictionary(attributeDictionary: CharacterAttributeDictionary) -> CharacterAttributeSet {
     return attributeDictionary.reduce(CharacterAttributeSet()) {

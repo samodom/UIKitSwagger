@@ -1,7 +1,7 @@
 `ColorPalette`
 =============
 
-This class provides a simple interface for storing and retrieving commonly used colors by name.  You can create an empty palette or provide a dictionary of colors.
+This class provides a simple interface for storing and retrieving commonly used colors by name.  Names must have at least one character.  You can create an empty palette or provide a dictionary of colors.
 
 > The typealias `ColorDictionary` has been created for convenience to represent `[String:UIColor]`
 

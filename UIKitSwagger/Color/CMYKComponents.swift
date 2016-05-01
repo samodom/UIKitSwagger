@@ -12,28 +12,49 @@ import UIKit
  Convenience structure to hold the cyan, magenta, yellow and alpha component values of an instance of `UIColor`.
  */
 public struct CMYKComponents: ColorComponents {
+
+    /// Represents the cyan component of a color
     public let cyan: CGFloat
+
+    /// Represents the magenta component of a color
     public let magenta: CGFloat
+
+    /// Represents the yellow component of a color
     public let yellow: CGFloat
+
+    /// Represents the key component of a color
     public let key: CGFloat
+
+    /// Represents the alpha component of a color
     public let alpha: CGFloat
 
-    public init(cyan c: CGFloat, magenta m: CGFloat, yellow y: CGFloat, key k: CGFloat, alpha a: CGFloat! = 1) {
-        cyan = c
-        magenta = m
-        yellow = y
-        key = k
-        alpha = a
+
+    /**
+     Initializer for a structure of CMYK component values
+     - Parameters:
+       - cyan: Level of cyan to use in compoments
+       - magenta: Level of magenta to use in compoments
+       - yellow: Level of yellow to use in compoments
+       - key: Level of key color (usually black) to use in compoments
+     */
+    public init(cyan: CGFloat, magenta: CGFloat, yellow: CGFloat, key: CGFloat, alpha: CGFloat = 1) {
+        self.cyan = cyan
+        self.magenta = magenta
+        self.yellow = yellow
+        self.key = key
+        self.alpha = alpha
     }
 
     /**
-     Required method for creating colors based on this component scheme.
+     Method for creating colors based on the CMYK component scheme.
+     - Returns: A color using the color compoments represented by this structure.
      */
     public func color() -> UIColor {
         let keyComplement = 1 - key
         let redValue = (1 - cyan) * keyComplement
         let greenValue = (1 - magenta) * keyComplement
         let blueValue = (1 - yellow)  * keyComplement
+
         return UIColor(
             red: redValue,
             green: greenValue,
@@ -92,63 +113,75 @@ public extension UIColor {
 
     /**
      Convenience intitializer to match the system-provided component-wise intializers for other component types.
-     - parameter cyan: The cyan value to use when initializing the color.
-     - parameter magenta: The magneta value to use when initializing the color.
-     - parameter yellow: The yellow value to use when initializing the color.
-     - parameter key: The key value to use when initializing the color.
-     - parameter alpha: The alpha value to use when initializing the color.
+     - Parameter cyan: The cyan value to use when initializing the color.
+     - Parameter magenta: The magneta value to use when initializing the color.
+     - Parameter yellow: The yellow value to use when initializing the color.
+     - Parameter key: The key value to use when initializing the color.
+     - Parameter alpha: The alpha value to use when initializing the color.
      */
     public convenience init(cyan: CGFloat, magenta: CGFloat, yellow: CGFloat, key: CGFloat, alpha: CGFloat) {
-        let cmykComponents =
-        CMYKComponents(
+
+        let cmykComponents = CMYKComponents(
             cyan: cyan,
             magenta: magenta,
             yellow: yellow,
             key: key,
             alpha: alpha
         )
+
         let rgbComponents = cmykComponents.asRGBComponents()
         self.init(red: rgbComponents.red, green: rgbComponents.green, blue: rgbComponents.blue, alpha: alpha)
     }
 
     /**
      This method matches the system-provided messages for retrieving the various component values.
-     - parameter cyan: The destination for the cyan value of this color.
-     - parameter magenta: The destination for the magenta value of this color.
-     - parameter yellow: The destination for the yellow value of this color.
-     - parameter key: The destination for the key value of this color.
-     - parameter alpha: The destination for the alpha value of this color.
-     - note: This conversion may be lossy.
+     - Parameter cyan: The destination for the cyan value of this color.
+     - Parameter magenta: The destination for the magenta value of this color.
+     - Parameter yellow: The destination for the yellow value of this color.
+     - Parameter key: The destination for the key value of this color.
+     - Parameter alpha: The destination for the alpha value of this color.
+     - Note: This conversion may be lossy.
      */
     public func getCyan(inout cyanOut: CGFloat, inout magenta magentaOut: CGFloat, inout yellow yellowOut: CGFloat, inout key keyOut: CGFloat, inout alpha alphaOut: CGFloat) -> Bool {
+
         let components = cmykComponents
         cyanOut = components.cyan
         magentaOut = components.magenta
         yellowOut = components.yellow
         keyOut = components.key
         alphaOut = components.alpha
+
         return true
     }
 
     /**
      Property that returns the CMYK components of the color in a structure.
-     - note: This conversion may be lossy.
+     - Note: This conversion may be lossy.
      */
     public var cmykComponents: CMYKComponents {
+
         let components = rgbComponents
-        let maximumRGBComponentValue = max(components.red, components.green, components.blue)
-        if maximumRGBComponentValue > 0 {
-            return CMYKComponents(
+        let maximumRGBComponentValue = max(
+            components.red,
+            components.green,
+            components.blue
+        )
+
+        return maximumRGBComponentValue > 0 ?
+            CMYKComponents(
                 cyan: 1 - (components.red / maximumRGBComponentValue),
                 magenta: 1 - (components.green / maximumRGBComponentValue),
                 yellow: 1 - (components.blue / maximumRGBComponentValue),
                 key: 1 - maximumRGBComponentValue,
                 alpha: rgbComponents.alpha
+            ) :
+            CMYKComponents(
+                cyan: 0,
+                magenta: 0,
+                yellow: 0,
+                key: 1,
+                alpha: components.alpha
             )
-        }
-        else {
-            return CMYKComponents(cyan: 0, magenta: 0, yellow: 0, key: 1, alpha: components.alpha)
-        }
     }
 
 }
