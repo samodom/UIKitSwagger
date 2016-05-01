@@ -12,14 +12,14 @@ import UIKit
 public extension NSLayoutConstraint {
 
     /**
-     Convenience method to activate an auto layout constraint.
+     Convenience method to activate the constraint.
      */
     public func activate() {
         active = true
     }
 
     /**
-     Convenience method to deactivate an auto layout constraint.
+     Convenience method to deactivate the constraint.
      */
     public func deactivate() {
         active = false
@@ -49,7 +49,7 @@ public extension Array where Element: NSLayoutConstraint {
 
 /**
  Convenience method for activating one or more layout constraints.
- - parameter constraints: One or more constraints that are to be activated.
+ - Parameter constraints: One or more constraints that are to be activated.
  */
 public func ActivateConstraints(constraints: NSLayoutConstraint...) {
     ActivateConstraints(constraints)
@@ -57,7 +57,7 @@ public func ActivateConstraints(constraints: NSLayoutConstraint...) {
 
 /**
  Convenience method for activating an array of layout constraints.
- - parameter constraints: Array of constraints that are to be activated.
+ - Parameter constraints: Array of constraints that are to be activated.
  */
 public func ActivateConstraints(constraints: [NSLayoutConstraint]) {
     constraints.forEach { $0.active = true }
@@ -65,7 +65,7 @@ public func ActivateConstraints(constraints: [NSLayoutConstraint]) {
 
 /**
  Convenience method for deactivating one or more layout constraints.
- - parameter constraints: One or more constraints that are to be deactivated.
+ - Parameter constraints: One or more constraints that are to be deactivated.
  */
 public func DeactivateConstraints(constraints: NSLayoutConstraint...) {
     DeactivateConstraints(constraints)
@@ -73,7 +73,7 @@ public func DeactivateConstraints(constraints: NSLayoutConstraint...) {
 
 /**
  Convenience method for deactivating an array of layout constraints.
- - parameter constraints: Array of constraints that are to be deactivated.
+ - Parameter constraints: Array of constraints that are to be deactivated.
  */
 public func DeactivateConstraints(constraints: [NSLayoutConstraint]) {
     constraints.forEach { $0.active = false }

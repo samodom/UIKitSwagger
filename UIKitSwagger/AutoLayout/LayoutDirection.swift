@@ -12,51 +12,23 @@ import UIKit
  Enumerated integer type for layout directions in both possible orders.
  */
 public enum LayoutDirection: Int {
+
+    /// Represents the direction from left-to-right
     case LeftToRight = 1
+
+    /// Represents the direction from right-to-left
     case RightToLeft = -1
+
+    /// Represents the direction from leading-to-trailing
     case LeadingToTrailing = 2
+
+    /// Represents the direction from trailing-to-leading
     case TrailingToLeading = -2
+
+    /// Represents the direction from top-to-bottom
     case TopToBottom = 3
+
+    /// Represents the direction from bottom-to-top
     case BottomToTop = -3
 
-    internal var attributePair: DirectedAttributePair {
-        let reversed = rawValue < 0
-        let defaultDirection = LayoutDirection(rawValue: abs(rawValue))!
-        let defaultPair = DirectedAttributePairMapping[defaultDirection]!
-        return reversed ? reverseAttributePair(defaultPair) : defaultPair
-    }
-
-    internal var axis: UILayoutConstraintAxis {
-        return abs(rawValue) == LayoutDirection.TopToBottom.rawValue ? .Vertical : .Horizontal
-    }
-
-    internal var layoutEdges: Set<LayoutEdge> {
-        switch self {
-        case .LeftToRight, .RightToLeft:
-            return [.Left, .Right]
-
-        case .LeadingToTrailing, .TrailingToLeading:
-            return [.Leading, .Trailing]
-
-        case .TopToBottom, .BottomToTop:
-            return [.Top, .Bottom]
-        }
-    }
-
-}
-
-internal prefix func -(direction: LayoutDirection) -> LayoutDirection {
-    return LayoutDirection(rawValue: -direction.rawValue)!
-}
-
-internal typealias DirectedAttributePair = (NSLayoutAttribute, NSLayoutAttribute)
-
-private let DirectedAttributePairMapping: [LayoutDirection:DirectedAttributePair] = [
-    .LeftToRight: (.Left, .Right),
-    .LeadingToTrailing: (.Leading, .Trailing),
-    .TopToBottom: (.Top, .Bottom)
-]
-
-private func reverseAttributePair(attributePair: DirectedAttributePair) -> DirectedAttributePair {
-    return (attributePair.1, attributePair.0)
 }

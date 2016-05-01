@@ -9,7 +9,7 @@
 import UIKit
 
 
-//  MARK: Dimensions and aspect ratio
+//  MARK: - Dimensions and aspect ratio
 
 private func AssertDimensionItemCount(count: Int) {
     assert(count > 1, "Multiple views are required for constraining dimensions")
@@ -47,7 +47,7 @@ internal func MatchDimension(items: [AutoLayoutAttributable], dimension: NSLayou
     return ConstrainItemsToFirst(items, attribute: dimension)
 }
 
-//  MARK: Alignment
+//  MARK: - Alignment
 
 internal func AssertAlignmentItemCount(count: Int) {
     assert(count > 1, "Multiple views are required for alignment")
@@ -77,7 +77,7 @@ internal func AlignItems(items: [AutoLayoutAttributable], attribute: NSLayoutAtt
 }
 
 
-//  MARK: Distribution and spacing
+//  MARK: - Distribution and spacing
 
 internal func AssertDistributionItemCount(count: Int) {
     assert(count > 1, "Multiple views are required for distribution")
@@ -99,7 +99,7 @@ internal func DistributeViews(views: [UIView], spacing: CGFloat, direction: Layo
 }
 
 
-//  MARK: Common
+//  MARK: - Common
 
 private func AssertLayoutItemCount(count: Int) {
     assert(count > 1, "Multiple layout items are required for creating constraints")

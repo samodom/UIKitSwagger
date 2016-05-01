@@ -122,8 +122,8 @@ public enum CharacterAttribute {
 
     /**
      Initializes a new character attribute using the provided key and associated value.
-     - parameter name: Must be a valid attribute dictionary key.
-     - parameter value: Must be a valid instance of the appropriate associated type.
+     - Parameter name: Must be a valid attribute dictionary key.
+     - Parameter value: Must be a valid instance of the appropriate associated type.
      */
     public init?(name: String, value: AnyObject) {
         switch name {

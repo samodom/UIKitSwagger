@@ -17,7 +17,8 @@ private extension NSLayoutRelation {
 public extension NSLayoutConstraint {
 
     /**
-     This method reverses a constraint from the form `y R mx + b`, where `R` is a layout relation, to the form `x = (y - b) / m`, where `m != 0`
+     This method reverses a constraint from the form **`y R mx + b`**, where **`R`** is a layout relation, to the form **`x R' (y - b) / m`**, where **`R'`** is the appropriate relation for the reversal and **`m != 0`**.
+     - Returns: The same constraint as this constraint in reverse form (if available).
      */
     public func reversed() -> NSLayoutConstraint? {
         guard canBeReversed() else { return nil }
@@ -36,12 +37,9 @@ public extension NSLayoutConstraint {
         return newConstraint
     }
 
-    private func canBeReversed() -> Bool {
-        return multiplier != 0.0 && secondItem != nil && secondAttribute != .NotAnAttribute
-    }
-
     /**
      Puts a constraint in a non-negative constant form, if possible, or returns itself if it is already in non-negative constant.
+     - Returns: This constraint or the reverse of the constraint.
      */
     public func makeConstantPositive() -> NSLayoutConstraint {
         guard constant < 0 else { return self }

@@ -28,10 +28,11 @@ public class ColorPalette {
 
     /**
      Initializes a color palette with the supplied colors and names.
-     - parameter colors: Dictionary of colors stored by name.
+     - Parameter colors: Dictionary of colors stored by name.
      */
     public init(colors: ColorDictionary) {
         colorDictionary = colors
+        colorDictionary.removeValueForKey("")
     }
 
     /**
@@ -42,7 +43,7 @@ public class ColorPalette {
     }
 
     /**
-     All colors stored in the palette.
+     All colors stored in the palette in dictionary form.
      */
     public var allColors: ColorDictionary {
         return colorDictionary
@@ -50,18 +51,23 @@ public class ColorPalette {
 
     /**
      Adds a color to the palette by name.
-     - parameter color: Color to add to the palette.
-     - parameter name: Name to associate with the color.
+     - Parameters:
+       - color: Color to add to the palette.
+       - name: Name to associate with the color.
      */
     public func addColor(color: UIColor, named name: String) {
-        assert(name != "", "The name for a color in the palette must be at least one character long")
+        precondition(
+            name.characters.count > 0,
+            "The name for a color in the palette must be at least one character long"
+        )
+
         colorDictionary[name] = color
     }
 
     /**
      Retrieves the color in the palette associated with the provided name.
-     - parameter name: Name associated with color to retrieve.
-     - returns: Color associated with the provided name or `nil` if no such association exists.
+     - Parameter name: Name associated with color to retrieve.
+     - Returns: Color associated with the provided name or `nil` if no such association exists.
      */
     public func colorNamed(name: String) -> UIColor? {
         return colorDictionary[name]
@@ -69,10 +75,10 @@ public class ColorPalette {
 
     /**
      Removes the color in the palette associated with the provided name.
-     - parameter name: Name associated with the color to remove.
+     - Parameter name: Name associated with the color to remove.
      */
     public func removeColorNamed(name: String) {
-        colorDictionary[name] = nil
+        colorDictionary.removeValueForKey(name)
     }
 
     /**
@@ -90,9 +96,15 @@ public extension ColorPalette {
      Subscript convenience for retrieving, adding, replacing and clearing colors in the palette.
      */
     public subscript(name: String) -> UIColor? {
-        get { return colorNamed(name) }
+        get {
+            return colorNamed(name)
+        }
         set {
-            newValue == nil ? removeColorNamed(name) : addColor(newValue!, named: name)
+            guard let color = newValue else {
+                return removeColorNamed(name)
+            }
+
+            addColor(color, named: name)
         }
     }
     
