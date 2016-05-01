@@ -6,23 +6,20 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
 import UIKitSwagger
 
 class ColorPaletteTests: XCTestCase {
 
     var palette = ColorPalette()
-    var colors: [String:UIColor]!
+    var dictionary = [String: UIColor]()
 
     override func setUp() {
         super.setUp()
 
-        colors = [
-            "red": Red,
-            "blue": Blue,
-            "green": Green
-        ]
+        dictionary["red"] = Red
+        dictionary["blue"] = Blue
+        dictionary["green"] = Green
     }
 
     func testCreatingEmptyPalette() {
@@ -30,16 +27,27 @@ class ColorPaletteTests: XCTestCase {
     }
 
     func testCreatingPaletteWithColors() {
-        palette = ColorPalette(colors: colors)
+        palette = ColorPalette(colors: dictionary)
         XCTAssertEqual(palette.numberOfColors, 3, "The palette should be created with three colors")
         XCTAssertEqual(palette.colorNamed("red")!, Red, "The supplied colors should be added to the palette")
         XCTAssertEqual(palette.colorNamed("blue")!, Blue, "The supplied colors should be added to the palette")
         XCTAssertEqual(palette.colorNamed("green")!, Green, "The supplied colors should be added to the palette")
     }
 
+    func testCreatingPaletteWithUnnamedColor() {
+        dictionary[""] = Purple
+        palette = ColorPalette(colors: dictionary)
+        XCTAssertEqual(palette.numberOfColors, 3, "The palette should be created with three colors")
+        XCTAssertEqual(palette.colorNamed("red")!, Red, "The supplied colors should be added to the palette")
+        XCTAssertEqual(palette.colorNamed("blue")!, Blue, "The supplied colors should be added to the palette")
+        XCTAssertEqual(palette.colorNamed("green")!, Green, "The supplied colors should be added to the palette")
+        XCTAssertNil(palette.colorNamed(""), "Colors without names should not be imported into the palette")
+    }
+
+
     func testPaletteProvidesColorDictionary() {
-        palette = ColorPalette(colors: colors)
-        XCTAssertEqual(palette.allColors, colors, "The palette should provide all of the colors with their names")
+        palette = ColorPalette(colors: dictionary)
+        XCTAssertEqual(palette.allColors, dictionary, "The palette should provide all of the colors with their names")
     }
 
     func testColorPaletteAddsColorsToDictionary() {
@@ -66,13 +74,13 @@ class ColorPaletteTests: XCTestCase {
     }
 
     func testColorPaletteRemovesAllColors() {
-        palette = ColorPalette(colors: colors)
+        palette = ColorPalette(colors: dictionary)
         palette.removeAllColors()
         XCTAssertEqual(palette.numberOfColors, 0, "The palette should clear all of its colors")
     }
 
     func testColorPaletteReturnsColorsByName() {
-        palette = ColorPalette(colors: colors)
+        palette = ColorPalette(colors: dictionary)
         XCTAssertEqual(palette.colorNamed("red")!, Red, "The palette should return colors by their name")
         XCTAssertEqual(palette.colorNamed("blue")!, Blue, "The palette should return colors by their name")
         XCTAssertEqual(palette.colorNamed("green")!, Green, "The palette should return colors by their name")

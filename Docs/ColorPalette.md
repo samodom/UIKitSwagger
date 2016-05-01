@@ -8,6 +8,7 @@ This class provides a simple interface for storing and retrieving commonly used 
  - `var numberOfColors: Int`
  - `var allColors: ColorDictionary`
  - `func addColor(color: UIColor, named: String)`
+ - `func replaceColor(color: UIColor, named: String)`
  - `func colorNamed(name: String) -> UIColor?`
  - `func removeColorNamed(name: String)`
  - `func removeAllColors()`

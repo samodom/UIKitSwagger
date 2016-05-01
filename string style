@@ -1,0 +1,50 @@
+String Style Palette
+====================
+
+Style:
+
+```swift
+enum StringStyle {
+    case Important(CharacterAttributeSet)
+    case Normal(CharacterAttributeSet)
+    case Warning(CharacterAttributeSet)
+    case Informational(CharacterAttributeSet)
+}
+
+struct StringStyle {
+    static var Important: CharacterAttributeSet = [
+        .ForegroundColor(Orange),
+        .Font(Raleway16),
+        .BaselineOffset(4.2)
+    ]
+}
+
+```
+
+Palette:
+
+```swift
+myPalette: StringStylePalette = [
+    Important: [
+        .ForegroundColor(Orange),
+        .Font(Raleway16),
+        .BaselineOffset(4.2)
+    ],
+    Normal: [
+        .ForegroundColor(Charcoal),
+        .Font(Raleway14),
+        .BaselineOffset(0)
+    ]
+]
+```
+
+
+Building an attributed string:
+
+```swift
+myString: AttributedStringComponents = [
+    ("Sample", StringStyle.Important),
+    AttributedStringSpace,
+    ("Text", "Normal")
+]
+```
