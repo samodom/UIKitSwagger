@@ -2,20 +2,36 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F28b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SwaggerView" customModule="UIKitSwagger">
+        <view contentMode="scaleToFill" id="2Gh-6f-csY">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6WV-bV-UUY" customClass="SwaggerView" customModule="UIKitSwagger">
+                    <rect key="frame" x="40" y="40" width="520" height="520"/>
+                    <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="40"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="roundTopLeftCorner" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="roundBottomRightCorner" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="6WV-bV-UUY" firstAttribute="leading" secondItem="2Gh-6f-csY" secondAttribute="leading" constant="40" id="4nv-n1-Gox"/>
+                <constraint firstItem="6WV-bV-UUY" firstAttribute="top" secondItem="2Gh-6f-csY" secondAttribute="top" constant="40" id="KGo-p8-zPd"/>
+                <constraint firstAttribute="trailing" secondItem="6WV-bV-UUY" secondAttribute="trailing" constant="40" id="WRK-7W-DIb"/>
+                <constraint firstAttribute="bottom" secondItem="6WV-bV-UUY" secondAttribute="bottom" constant="40" id="bF0-XU-YMh"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                    <real key="value" value="4.2000000000000002"/>
-                </userDefinedRuntimeAttribute>
-            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="432" y="370"/>
         </view>
     </objects>
 </document>

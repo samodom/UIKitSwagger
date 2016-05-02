@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import UIKitSwagger
+@testable import UIKitSwagger
 
 class ViewCornersTests: XCTestCase {
 
@@ -73,5 +73,34 @@ class ViewCornersTests: XCTestCase {
         XCTAssertEqual(corners, ViewCorners.All, "Adding corners to the set already contained within the set should have no effect")
     }
 
+    func testSingleCornerFlags() {
+        XCTAssertTrue(ViewCorners.TopLeft.isSingleCorner, "The top left corner alone is a single corner")
+        XCTAssertTrue(ViewCorners.TopRight.isSingleCorner, "The top right corner alone is a single corner")
+        XCTAssertTrue(ViewCorners.BottomLeft.isSingleCorner, "The bottom left corner alone is a single corner")
+        XCTAssertTrue(ViewCorners.BottomRight.isSingleCorner, "The bottom right corner alone is a single corner")
+
+        XCTAssertFalse(ViewCorners.Top.isSingleCorner, "The top corners together are not a single corner")
+        XCTAssertFalse(ViewCorners.Bottom.isSingleCorner, "The bottom corners together are not a single corner")
+        XCTAssertFalse(ViewCorners.Left.isSingleCorner, "The left corners together are not a single corner")
+        XCTAssertFalse(ViewCorners.Right.isSingleCorner, "The right corners together are not a single corner")
+
+        XCTAssertFalse(ViewCorners.None.isSingleCorner, "No corners at all are not a single corner")
+        XCTAssertFalse(ViewCorners.All.isSingleCorner, "All corners together are not a single corner")
+    }
+
+    func testConversionToUIRectCorner() {
+        XCTAssertEqual(ViewCorners.TopLeft.asUIRectCorner, UIRectCorner.TopLeft, "Single corners should be converted appropriately")
+        XCTAssertEqual(ViewCorners.TopRight.asUIRectCorner, UIRectCorner.TopRight, "Single corners should be converted appropriately")
+        XCTAssertEqual(ViewCorners.BottomLeft.asUIRectCorner, UIRectCorner.BottomLeft, "Single corners should be converted appropriately")
+        XCTAssertEqual(ViewCorners.BottomRight.asUIRectCorner, UIRectCorner.BottomRight, "Single corners should be converted appropriately")
+
+        XCTAssertEqual(ViewCorners.Top.asUIRectCorner, [UIRectCorner.TopLeft, .TopRight], "Corner pairs should be converted appropriately")
+        XCTAssertEqual(ViewCorners.Bottom.asUIRectCorner, [UIRectCorner.BottomLeft, .BottomRight], "Corner pairs should be converted appropriately")
+        XCTAssertEqual(ViewCorners.Left.asUIRectCorner, [UIRectCorner.TopLeft, .BottomLeft], "Corner pairs should be converted appropriately")
+        XCTAssertEqual(ViewCorners.Right.asUIRectCorner, [UIRectCorner.TopRight, .BottomRight], "Corner pairs should be converted appropriately")
+
+        XCTAssertEqual(ViewCorners.None.asUIRectCorner, [], "No corners should be converted to an empty set")
+        XCTAssertEqual(ViewCorners.All.asUIRectCorner, UIRectCorner.AllCorners, "All corners should be converted appropriately")
+    }
 
 }

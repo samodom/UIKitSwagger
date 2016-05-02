@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 public class SwaggerView: UIView {
 
     override public init(frame: CGRect) {
@@ -29,7 +30,7 @@ public class SwaggerView: UIView {
         return CAShapeLayer.self
     }
 
-    private var shapeLayer: CAShapeLayer {
+    internal var shapeLayer: CAShapeLayer {
         return layer as! CAShapeLayer
     }
 
@@ -48,6 +49,16 @@ public class SwaggerView: UIView {
     }
 
 
-    @IBInspectable public var cornerRadius: CGFloat = 0
+    @IBInspectable public var cornerRadius: CGFloat = 0 {
+        didSet {
+            updateLayerPath()
+        }
+    }
+
+    public var roundedCorners = ViewCorners.None {
+        didSet {
+            updateLayerPath()
+        }
+    }
 
 }

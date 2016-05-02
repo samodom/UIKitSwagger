@@ -114,6 +114,9 @@
 		0AE66C8D1CD7E03A002E1B76 /* SwaggerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D530C1CCED10700EDB626 /* SwaggerViewTests.swift */; };
 		0AE66C921CD7E3E5002E1B76 /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE66C8E1CD7E3E5002E1B76 /* SampleView.xib */; };
 		0AE66CB51CD7F20B002E1B76 /* SwaggerViewCornerRoundingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D530A1CCED0B400EDB626 /* SwaggerViewCornerRoundingTests.swift */; };
+		0AE66CB61CD7F8CB002E1B76 /* CornerRounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D53111CCF10E100EDB626 /* CornerRounding.swift */; };
+		0AE66CB81CD7F96E002E1B76 /* ViewCornersInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE66CB71CD7F96E002E1B76 /* ViewCornersInternal.swift */; };
+		0AE66CBA1CD8003A002E1B76 /* SwaggerViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE66CB91CD8003A002E1B76 /* SwaggerViewLayer.swift */; };
 		0AF2A0851A28640D00A5C0F9 /* LayoutDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0841A28640D00A5C0F9 /* LayoutDimensions.swift */; };
 		0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */; };
 		0AF2A08A1A28FFD700A5C0F9 /* ConstraintActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0891A28FFD700A5C0F9 /* ConstraintActivation.swift */; };
@@ -250,6 +253,8 @@
 		0AE66C891CD7DA79002E1B76 /* ViewCornersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCornersTests.swift; sourceTree = "<group>"; };
 		0AE66C8B1CD7DC77002E1B76 /* ViewCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCorners.swift; sourceTree = "<group>"; };
 		0AE66C8E1CD7E3E5002E1B76 /* SampleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
+		0AE66CB71CD7F96E002E1B76 /* ViewCornersInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCornersInternal.swift; sourceTree = "<group>"; };
+		0AE66CB91CD8003A002E1B76 /* SwaggerViewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerViewLayer.swift; sourceTree = "<group>"; };
 		0AF2A0841A28640D00A5C0F9 /* LayoutDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDimensions.swift; sourceTree = "<group>"; };
 		0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintActivationTests.swift; sourceTree = "<group>"; };
 		0AF2A0891A28FFD700A5C0F9 /* ConstraintActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintActivation.swift; sourceTree = "<group>"; };
@@ -441,6 +446,7 @@
 				0A2312681A327F4F00BE92BE /* ViewAdditionSyntax.swift */,
 				0A70B0CC1CD6978C00F3E1FE /* ViewAdditionSyntaxInternal.swift */,
 				0AE66C8B1CD7DC77002E1B76 /* ViewCorners.swift */,
+				0AE66CB71CD7F96E002E1B76 /* ViewCornersInternal.swift */,
 				0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */,
 			);
 			path = View;
@@ -469,6 +475,7 @@
 			children = (
 				0A4D53111CCF10E100EDB626 /* CornerRounding.swift */,
 				0A4D530F1CCED1A000EDB626 /* SwaggerView.swift */,
+				0AE66CB91CD8003A002E1B76 /* SwaggerViewLayer.swift */,
 			);
 			path = SwaggerView;
 			sourceTree = "<group>";
@@ -784,6 +791,7 @@
 				0A9137331B50312300428632 /* LayoutDirection.swift in Sources */,
 				0AA580591A3D29EB0061D882 /* RGBComponents.swift in Sources */,
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
+				0AE66CB81CD7F96E002E1B76 /* ViewCornersInternal.swift in Sources */,
 				0A70B0C71CD692FB00F3E1FE /* SpinnerStateManagerInternal.swift in Sources */,
 				0ACADAF31A3BF4A500CF49F8 /* SliderInterval.swift in Sources */,
 				0A67BADD1A22E8FD0038D99A /* ViewControllerAutoLayoutAttributes.swift in Sources */,
@@ -792,6 +800,8 @@
 				0A5BD0FA1A3D0C9200793312 /* ColorAliases.swift in Sources */,
 				0A63F7501A3E15D9001FBFF7 /* BehaviorAdditionSyntax.swift in Sources */,
 				0A70B0CE1CD6AAEC00F3E1FE /* AutoLayoutSyntaxInternal.swift in Sources */,
+				0AE66CBA1CD8003A002E1B76 /* SwaggerViewLayer.swift in Sources */,
+				0AE66CB61CD7F8CB002E1B76 /* CornerRounding.swift in Sources */,
 				0A70B0CD1CD6978C00F3E1FE /* ViewAdditionSyntaxInternal.swift in Sources */,
 				0ACADAED1A3BE90600CF49F8 /* StateManagement.swift in Sources */,
 				0A70B0C91CD6935300F3E1FE /* SpinnerState.swift in Sources */,
