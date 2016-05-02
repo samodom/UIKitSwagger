@@ -13,5 +13,10 @@ import UIKit
  - Note: Any user-defined component types will not enjoy the luxury of having the convenience initializer on `UIColor` produce component-based colors using their type (unless added by the user).
  */
 public protocol ColorComponents {
+
+    /**
+     Provides an instance of `UIColor` representing these color components.
+     */
     func color() -> UIColor
+
 }
