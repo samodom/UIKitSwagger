@@ -30,7 +30,6 @@
 		0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */; };
 		0A4CF44C1A22E32200D6F4F8 /* ViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */; };
 		0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */; };
-		0A4D530D1CCED10700EDB626 /* SwaggerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D530C1CCED10700EDB626 /* SwaggerViewTests.swift */; };
 		0A4D53101CCED1A000EDB626 /* SwaggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D530F1CCED1A000EDB626 /* SwaggerView.swift */; };
 		0A52547B1B34CF1600BC39DC /* ConstraintReversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52547A1B34CF1600BC39DC /* ConstraintReversal.swift */; };
 		0A5A29781A73351D003CB7EE /* SpinnerStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A29771A73351D003CB7EE /* SpinnerStateManagerTests.swift */; };
@@ -110,6 +109,7 @@
 		0AD6F2551A34353700D863A2 /* LabelEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */; };
 		0ADD2B021B4C7175002F822D /* StackViewSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD2B011B4C7175002F822D /* StackViewSyntaxTests.swift */; };
 		0ADD2B051B4C725E002F822D /* StackViewSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADD2B041B4C725E002F822D /* StackViewSyntax.swift */; };
+		0AE66C8D1CD7E03A002E1B76 /* SwaggerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D530C1CCED10700EDB626 /* SwaggerViewTests.swift */; };
 		0AF2A0851A28640D00A5C0F9 /* LayoutDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0841A28640D00A5C0F9 /* LayoutDimensions.swift */; };
 		0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */; };
 		0AF2A08A1A28FFD700A5C0F9 /* ConstraintActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0891A28FFD700A5C0F9 /* ConstraintActivation.swift */; };
@@ -836,8 +836,8 @@
 				0A9137311B50303600428632 /* LayoutDirectionTests.swift in Sources */,
 				0ACED1801AA3E8A40073E42C /* CMYKComponentsTests.swift in Sources */,
 				0A4136651BDB0DA7008DEB64 /* CharacterAttributeStringTests.swift in Sources */,
-				0A4D530D1CCED10700EDB626 /* SwaggerViewTests.swift in Sources */,
 				0AC4A8D91A27FCF800EBCCB8 /* ViewAlignmentTests.swift in Sources */,
+				0AE66C8D1CD7E03A002E1B76 /* SwaggerViewTests.swift in Sources */,
 				0A63F7431A3D51F0001FBFF7 /* ColorPaletteTests.swift in Sources */,
 				0A4A38481CC97DC5008C30D8 /* TestConstants.swift in Sources */,
 				0A8028031A3421E000816792 /* AlertActionEnablingTests.swift in Sources */,
