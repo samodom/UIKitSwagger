@@ -1,5 +1,5 @@
 //
-//  ViewCornerTests.swift
+//  ViewCornersTests.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 5/2/16.
@@ -9,7 +9,7 @@
 import XCTest
 import UIKitSwagger
 
-class ViewCornerTests: XCTestCase {
+class ViewCornersTests: XCTestCase {
 
     var corners: ViewCorners!
 
@@ -55,6 +55,11 @@ class ViewCornerTests: XCTestCase {
     func testRightCorners() {
         corners = .Right
         XCTAssertEqual(corners, [.TopRight, .BottomRight], "The named value should be equal to a set of its constituent value")
+    }
+
+    func testNoCorners() {
+        corners = ViewCorners.None
+        XCTAssertEqual(corners, [], "The named value should be equal to an empty set")
     }
 
     func testAllCorners() {

@@ -28,6 +28,7 @@ public struct ViewCorners: OptionSetType {
     public static let Left: ViewCorners = [.TopLeft, .BottomLeft]
     public static let Right: ViewCorners = [.TopRight, .BottomRight]
 
+    public static let None: ViewCorners = []
     public static let All: ViewCorners = [.TopLeft, .TopRight, .BottomLeft, .BottomRight]
 
 }
