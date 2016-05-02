@@ -7,6 +7,7 @@ UIKitSwagger Changelog
  - Added layout edge and direction types
  - Added activation methods to constraint arrays
  - Added character attribute type to simplify creation and modification of attributed strings
+ - Added `SwaggerView: UIView` with IB-designable properties
 
 
 ### Pre-Release Version 7

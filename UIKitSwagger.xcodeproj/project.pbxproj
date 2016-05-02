@@ -112,6 +112,8 @@
 		0AE66C8A1CD7DA79002E1B76 /* ViewCornerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE66C891CD7DA79002E1B76 /* ViewCornerTests.swift */; };
 		0AE66C8C1CD7DC77002E1B76 /* ViewCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE66C8B1CD7DC77002E1B76 /* ViewCorners.swift */; };
 		0AE66C8D1CD7E03A002E1B76 /* SwaggerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D530C1CCED10700EDB626 /* SwaggerViewTests.swift */; };
+		0AE66C921CD7E3E5002E1B76 /* SampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AE66C8E1CD7E3E5002E1B76 /* SampleView.xib */; };
+		0AE66CB51CD7F20B002E1B76 /* SwaggerViewCornerRoundingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D530A1CCED0B400EDB626 /* SwaggerViewCornerRoundingTests.swift */; };
 		0AF2A0851A28640D00A5C0F9 /* LayoutDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0841A28640D00A5C0F9 /* LayoutDimensions.swift */; };
 		0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */; };
 		0AF2A08A1A28FFD700A5C0F9 /* ConstraintActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0891A28FFD700A5C0F9 /* ConstraintActivation.swift */; };
@@ -161,8 +163,10 @@
 		0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutAttributesTests.swift; sourceTree = "<group>"; };
 		0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutAttributes.swift; sourceTree = "<group>"; };
 		0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutAttributable.swift; sourceTree = "<group>"; };
+		0A4D530A1CCED0B400EDB626 /* SwaggerViewCornerRoundingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerViewCornerRoundingTests.swift; sourceTree = "<group>"; };
 		0A4D530C1CCED10700EDB626 /* SwaggerViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerViewTests.swift; sourceTree = "<group>"; };
 		0A4D530F1CCED1A000EDB626 /* SwaggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerView.swift; sourceTree = "<group>"; };
+		0A4D53111CCF10E100EDB626 /* CornerRounding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRounding.swift; sourceTree = "<group>"; };
 		0A52547A1B34CF1600BC39DC /* ConstraintReversal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintReversal.swift; sourceTree = "<group>"; };
 		0A5A29771A73351D003CB7EE /* SpinnerStateManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerStateManagerTests.swift; sourceTree = "<group>"; };
 		0A5A297A1A73368B003CB7EE /* SpinnerStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerStateManager.swift; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 		0ADD2B041B4C725E002F822D /* StackViewSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewSyntax.swift; sourceTree = "<group>"; };
 		0AE66C891CD7DA79002E1B76 /* ViewCornerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCornerTests.swift; sourceTree = "<group>"; };
 		0AE66C8B1CD7DC77002E1B76 /* ViewCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCorners.swift; sourceTree = "<group>"; };
+		0AE66C8E1CD7E3E5002E1B76 /* SampleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
 		0AF2A0841A28640D00A5C0F9 /* LayoutDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDimensions.swift; sourceTree = "<group>"; };
 		0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintActivationTests.swift; sourceTree = "<group>"; };
 		0AF2A0891A28FFD700A5C0F9 /* ConstraintActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintActivation.swift; sourceTree = "<group>"; };
@@ -386,6 +391,7 @@
 				0A5A29771A73351D003CB7EE /* SpinnerStateManagerTests.swift */,
 				0ADD2B011B4C7175002F822D /* StackViewSyntaxTests.swift */,
 				0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */,
+				0A4D530A1CCED0B400EDB626 /* SwaggerViewCornerRoundingTests.swift */,
 				0A4D530C1CCED10700EDB626 /* SwaggerViewTests.swift */,
 				0ACADAE91A3BE42B00CF49F8 /* SwitchStateManagementTests.swift */,
 				0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */,
@@ -444,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				0A4A38441CC97DC5008C30D8 /* Common */,
+				0AE66C8E1CD7E3E5002E1B76 /* SampleView.xib */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -460,6 +467,7 @@
 		0A4D530E1CCED19600EDB626 /* SwaggerView */ = {
 			isa = PBXGroup;
 			children = (
+				0A4D53111CCF10E100EDB626 /* CornerRounding.swift */,
 				0A4D530F1CCED1A000EDB626 /* SwaggerView.swift */,
 			);
 			path = SwaggerView;
@@ -725,6 +733,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE66C921CD7E3E5002E1B76 /* SampleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -831,6 +840,7 @@
 				0A7748DE1AA170A600B434D3 /* ConstraintTranslationTests.swift in Sources */,
 				0AC4F72D1CC6F01A00B92F97 /* AttributedStringTestHelpers.swift in Sources */,
 				0AE66C8A1CD7DA79002E1B76 /* ViewCornerTests.swift in Sources */,
+				0AE66CB51CD7F20B002E1B76 /* SwaggerViewCornerRoundingTests.swift in Sources */,
 				0A5BD0F71A3D0C5F00793312 /* ColorAliasTests.swift in Sources */,
 				0AD6F2551A34353700D863A2 /* LabelEnablingTests.swift in Sources */,
 				0A8ACDD51C261E23004B4D71 /* CharacterAttributeCollectionTests.swift in Sources */,
