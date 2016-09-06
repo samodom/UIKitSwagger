@@ -31,6 +31,7 @@
 		0A4CF44C1A22E32200D6F4F8 /* ViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */; };
 		0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */; };
 		0A4D53101CCED1A000EDB626 /* SwaggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D530F1CCED1A000EDB626 /* SwaggerView.swift */; };
+		0A4D53231CD3D6CE00EDB626 /* MethodSwizzler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D53141CD2A5D000EDB626 /* MethodSwizzler.swift */; };
 		0A52547B1B34CF1600BC39DC /* ConstraintReversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52547A1B34CF1600BC39DC /* ConstraintReversal.swift */; };
 		0A5A29781A73351D003CB7EE /* SpinnerStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A29771A73351D003CB7EE /* SpinnerStateManagerTests.swift */; };
 		0A5A297B1A73368B003CB7EE /* SpinnerStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A297A1A73368B003CB7EE /* SpinnerStateManager.swift */; };
@@ -117,6 +118,8 @@
 		0AE66CB61CD7F8CB002E1B76 /* CornerRounding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D53111CCF10E100EDB626 /* CornerRounding.swift */; };
 		0AE66CB81CD7F96E002E1B76 /* ViewCornersInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE66CB71CD7F96E002E1B76 /* ViewCornersInternal.swift */; };
 		0AE66CBA1CD8003A002E1B76 /* SwaggerViewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE66CB91CD8003A002E1B76 /* SwaggerViewLayer.swift */; };
+		0AE66CBF1CD815F8002E1B76 /* LayerSpying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE66C901CD7E3E5002E1B76 /* LayerSpying.swift */; };
+		0AE66CC21CD81608002E1B76 /* ObjectAssociation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D53211CD3D52200EDB626 /* ObjectAssociation.m */; };
 		0AF2A0851A28640D00A5C0F9 /* LayoutDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0841A28640D00A5C0F9 /* LayoutDimensions.swift */; };
 		0AF2A0881A28FBC000A5C0F9 /* ConstraintActivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */; };
 		0AF2A08A1A28FFD700A5C0F9 /* ConstraintActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0891A28FFD700A5C0F9 /* ConstraintActivation.swift */; };
@@ -170,6 +173,13 @@
 		0A4D530C1CCED10700EDB626 /* SwaggerViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerViewTests.swift; sourceTree = "<group>"; };
 		0A4D530F1CCED1A000EDB626 /* SwaggerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerView.swift; sourceTree = "<group>"; };
 		0A4D53111CCF10E100EDB626 /* CornerRounding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRounding.swift; sourceTree = "<group>"; };
+		0A4D53141CD2A5D000EDB626 /* MethodSwizzler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MethodSwizzler.swift; sourceTree = "<group>"; };
+		0A4D53161CD2A60C00EDB626 /* ObjectAssociation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectAssociation.swift; sourceTree = "<group>"; };
+		0A4D531C1CD3D4B600EDB626 /* UIKitSwaggerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIKitSwaggerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A4D531D1CD3D4B700EDB626 /* MethodSwizzler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodSwizzler.h; sourceTree = "<group>"; };
+		0A4D531E1CD3D4B700EDB626 /* MethodSwizzler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodSwizzler.m; sourceTree = "<group>"; };
+		0A4D53201CD3D52200EDB626 /* ObjectAssociation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectAssociation.h; sourceTree = "<group>"; };
+		0A4D53211CD3D52200EDB626 /* ObjectAssociation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectAssociation.m; sourceTree = "<group>"; };
 		0A52547A1B34CF1600BC39DC /* ConstraintReversal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintReversal.swift; sourceTree = "<group>"; };
 		0A5A29771A73351D003CB7EE /* SpinnerStateManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerStateManagerTests.swift; sourceTree = "<group>"; };
 		0A5A297A1A73368B003CB7EE /* SpinnerStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerStateManager.swift; sourceTree = "<group>"; };
@@ -253,8 +263,12 @@
 		0AE66C891CD7DA79002E1B76 /* ViewCornersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCornersTests.swift; sourceTree = "<group>"; };
 		0AE66C8B1CD7DC77002E1B76 /* ViewCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCorners.swift; sourceTree = "<group>"; };
 		0AE66C8E1CD7E3E5002E1B76 /* SampleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleView.xib; sourceTree = "<group>"; };
+		0AE66C901CD7E3E5002E1B76 /* LayerSpying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerSpying.swift; sourceTree = "<group>"; };
+		0AE66C911CD7E3E5002E1B76 /* ViewSpying.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSpying.swift; sourceTree = "<group>"; };
 		0AE66CB71CD7F96E002E1B76 /* ViewCornersInternal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewCornersInternal.swift; sourceTree = "<group>"; };
 		0AE66CB91CD8003A002E1B76 /* SwaggerViewLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerViewLayer.swift; sourceTree = "<group>"; };
+		0AE66CBB1CD8124C002E1B76 /* SwaggerViewBorderDrawingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwaggerViewBorderDrawingTests.swift; sourceTree = "<group>"; };
+		0AE66CBD1CD8133D002E1B76 /* BorderDrawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderDrawing.swift; sourceTree = "<group>"; };
 		0AF2A0841A28640D00A5C0F9 /* LayoutDimensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutDimensions.swift; sourceTree = "<group>"; };
 		0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintActivationTests.swift; sourceTree = "<group>"; };
 		0AF2A0891A28FFD700A5C0F9 /* ConstraintActivation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintActivation.swift; sourceTree = "<group>"; };
@@ -344,6 +358,7 @@
 				0A3BB98919EB70C70075B32A /* Supporting Files */,
 				0A3BB99519EB71240075B32A /* Tests */,
 				0A4A38431CC97DC5008C30D8 /* Tools */,
+				0A4D531C1CD3D4B600EDB626 /* UIKitSwaggerTests-Bridging-Header.h */,
 			);
 			path = UIKitSwaggerTests;
 			sourceTree = "<group>";
@@ -396,6 +411,7 @@
 				0A5A29771A73351D003CB7EE /* SpinnerStateManagerTests.swift */,
 				0ADD2B011B4C7175002F822D /* StackViewSyntaxTests.swift */,
 				0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */,
+				0AE66CBB1CD8124C002E1B76 /* SwaggerViewBorderDrawingTests.swift */,
 				0A4D530A1CCED0B400EDB626 /* SwaggerViewCornerRoundingTests.swift */,
 				0A4D530C1CCED10700EDB626 /* SwaggerViewTests.swift */,
 				0ACADAE91A3BE42B00CF49F8 /* SwitchStateManagementTests.swift */,
@@ -456,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				0A4A38441CC97DC5008C30D8 /* Common */,
+				0AE66C8F1CD7E3E5002E1B76 /* Doubling */,
 				0AE66C8E1CD7E3E5002E1B76 /* SampleView.xib */,
 			);
 			path = Tools;
@@ -464,6 +481,12 @@
 		0A4A38441CC97DC5008C30D8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0A4D531D1CD3D4B700EDB626 /* MethodSwizzler.h */,
+				0A4D531E1CD3D4B700EDB626 /* MethodSwizzler.m */,
+				0A4D53141CD2A5D000EDB626 /* MethodSwizzler.swift */,
+				0A4D53201CD3D52200EDB626 /* ObjectAssociation.h */,
+				0A4D53211CD3D52200EDB626 /* ObjectAssociation.m */,
+				0A4D53161CD2A60C00EDB626 /* ObjectAssociation.swift */,
 				0A4A38451CC97DC5008C30D8 /* SampleData.swift */,
 				0A4A38461CC97DC5008C30D8 /* TestConstants.swift */,
 			);
@@ -473,6 +496,7 @@
 		0A4D530E1CCED19600EDB626 /* SwaggerView */ = {
 			isa = PBXGroup;
 			children = (
+				0AE66CBD1CD8133D002E1B76 /* BorderDrawing.swift */,
 				0A4D53111CCF10E100EDB626 /* CornerRounding.swift */,
 				0A4D530F1CCED1A000EDB626 /* SwaggerView.swift */,
 				0AE66CB91CD8003A002E1B76 /* SwaggerViewLayer.swift */,
@@ -616,6 +640,15 @@
 				0ADD2B041B4C725E002F822D /* StackViewSyntax.swift */,
 			);
 			path = "Stack View";
+			sourceTree = "<group>";
+		};
+		0AE66C8F1CD7E3E5002E1B76 /* Doubling */ = {
+			isa = PBXGroup;
+			children = (
+				0AE66C901CD7E3E5002E1B76 /* LayerSpying.swift */,
+				0AE66C911CD7E3E5002E1B76 /* ViewSpying.swift */,
+			);
+			path = Doubling;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -824,11 +857,13 @@
 			files = (
 				0A8028131A342EEA00816792 /* ControlEnablingTests.swift in Sources */,
 				0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */,
+				0AE66CC21CD81608002E1B76 /* ObjectAssociation.m in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
 				0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */,
 				0AC4F72B1CC6EFEB00B92F97 /* ColorTestHelpers.swift in Sources */,
 				0A4A38471CC97DC5008C30D8 /* SampleData.swift in Sources */,
+				0A4D53231CD3D6CE00EDB626 /* MethodSwizzler.swift in Sources */,
 				0ACED17F1AA3E4E10073E42C /* RGBComponentsTests.swift in Sources */,
 				0ACADAF01A3BF0E500CF49F8 /* SliderIntervalTests.swift in Sources */,
 				0A10F28D1A3D147700715C7A /* ColorComponentConversionTests.swift in Sources */,
@@ -873,6 +908,7 @@
 				0A63DFDE1B3B59A100B68DC0 /* LayoutGuideLayoutAttributesTests.swift in Sources */,
 				0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */,
 				0A8028091A34257C00816792 /* BarItemEnablingTests.swift in Sources */,
+				0AE66CBF1CD815F8002E1B76 /* LayerSpying.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1035,6 +1071,7 @@
 		0A3BB99319EB70C70075B32A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1043,6 +1080,8 @@
 				INFOPLIST_FILE = UIKitSwaggerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UIKitSwaggerTests/UIKitSwaggerTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestingDummy.app/TestingDummy";
 			};
 			name = Debug;
@@ -1050,10 +1089,12 @@
 		0A3BB99419EB70C70075B32A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = UIKitSwaggerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UIKitSwaggerTests/UIKitSwaggerTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestingDummy.app/TestingDummy";
 			};
 			name = Release;

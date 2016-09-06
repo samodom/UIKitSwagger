@@ -46,7 +46,7 @@ class SwaggerViewCornerRoundingTests: XCTestCase {
         view.cornerRadius = 4.2
 
         let expectedPath = UIBezierPath(
-            roundedRect: frame,
+            roundedRect: view.bounds,
             byRoundingCorners: [],
             cornerRadii: CGSizeZero
         )
@@ -79,7 +79,7 @@ class SwaggerViewCornerRoundingTests: XCTestCase {
         view.roundedCorners = [.TopRight, .BottomLeft]
 
         let expectedPath = UIBezierPath(
-            roundedRect: frame,
+            roundedRect: view.bounds,
             byRoundingCorners: [.TopRight, .BottomLeft],
             cornerRadii: radii
         )
@@ -95,29 +95,29 @@ class SwaggerViewCornerRoundingTests: XCTestCase {
     //  MARK: Top-left
 
     func testTopLeftCornerRoundingFlagIsClearByDefault() {
-        XCTAssertFalse(view.roundTopLeftCorner, "The top left corner should not be rounded by default")
+        XCTAssertFalse(view.topLeft, "The top left corner should not be rounded by default")
     }
 
     func testTopLeftCornerRoundingFlagMatchesRoundedCornersMembership() {
         view.roundedCorners = [.TopLeft]
-        XCTAssertTrue(view.roundTopLeftCorner, "The top left corner rounding flag should be active when the corner is included in the rounded corners set")
+        XCTAssertTrue(view.topLeft, "The top left corner rounding flag should be active when the corner is included in the rounded corners set")
 
         view.roundedCorners = ViewCorners.All.subtract(.TopLeft)
-        XCTAssertFalse(view.roundTopLeftCorner, "The top left corner rounding flag should not be active when the corner is not included in the rounded corners set")
+        XCTAssertFalse(view.topLeft, "The top left corner rounding flag should not be active when the corner is not included in the rounded corners set")
     }
 
     func testClearingTopLeftCornerRoundingFlagRemovesRoundedCornersMembership() {
         view.roundedCorners = .All
-        view.roundTopLeftCorner = false
+        view.topLeft = false
         XCTAssertFalse(view.roundedCorners.contains(.TopLeft), "Clearing the top left corner rounding flag should remove the corner from the rounded corners set")
     }
 
     func testChangingTopLeftCornerRoundingFlagUpdatesLayerPath() {
         view.cornerRadius = 4.2
-        view.roundTopLeftCorner = true
+        view.topLeft = true
 
         let expectedPath = UIBezierPath(
-            roundedRect: frame,
+            roundedRect: view.bounds,
             byRoundingCorners: .TopLeft,
             cornerRadii: radii
         )
@@ -131,29 +131,29 @@ class SwaggerViewCornerRoundingTests: XCTestCase {
     //  MARK: Top-right
 
     func testTopRightCornerRoundingFlagIsClearByDefault() {
-        XCTAssertFalse(view.roundTopRightCorner, "The top right corner should not be rounded by default")
+        XCTAssertFalse(view.topRight, "The top right corner should not be rounded by default")
     }
 
     func testTopRightCornerRoundingFlagMatchesRoundedCornersMembership() {
         view.roundedCorners = [.TopRight]
-        XCTAssertTrue(view.roundTopRightCorner, "The top right corner rounding flag should be active when the corner is included in the rounded corners set")
+        XCTAssertTrue(view.topRight, "The top right corner rounding flag should be active when the corner is included in the rounded corners set")
 
         view.roundedCorners = ViewCorners.All.subtract(.TopRight)
-        XCTAssertFalse(view.roundTopRightCorner, "The top right corner rounding flag should not be active when the corner is not included in the rounded corners set")
+        XCTAssertFalse(view.topRight, "The top right corner rounding flag should not be active when the corner is not included in the rounded corners set")
     }
 
     func testClearingTopRightCornerRoundingFlagRemovesRoundedCornersMembership() {
         view.roundedCorners = .All
-        view.roundTopRightCorner = false
+        view.topRight = false
         XCTAssertFalse(view.roundedCorners.contains(.TopRight), "Clearing the top right corner rounding flag should remove the corner from the rounded corners set")
     }
 
     func testChangingTopRightCornerRoundingFlagUpdatesLayerPath() {
         view.cornerRadius = 4.2
-        view.roundTopRightCorner = true
+        view.topRight = true
 
         let expectedPath = UIBezierPath(
-            roundedRect: frame,
+            roundedRect: view.bounds,
             byRoundingCorners: .TopRight,
             cornerRadii: radii
         )
@@ -167,29 +167,29 @@ class SwaggerViewCornerRoundingTests: XCTestCase {
     //  MARK: Bottom-left
 
     func testBottomLeftCornerRoundingFlagIsClearByDefault() {
-        XCTAssertFalse(view.roundBottomLeftCorner, "The bottom left corner should not be rounded by default")
+        XCTAssertFalse(view.bottomLeft, "The bottom left corner should not be rounded by default")
     }
 
     func testBottomLeftCornerRoundingFlagMatchesRoundedCornersMembership() {
         view.roundedCorners = [.BottomLeft]
-        XCTAssertTrue(view.roundBottomLeftCorner, "The bottom left corner rounding flag should be active when the corner is included in the rounded corners set")
+        XCTAssertTrue(view.bottomLeft, "The bottom left corner rounding flag should be active when the corner is included in the rounded corners set")
 
         view.roundedCorners = ViewCorners.All.subtract(.BottomLeft)
-        XCTAssertFalse(view.roundBottomLeftCorner, "The bottom left corner rounding flag should not be active when the corner is not included in the rounded corners set")
+        XCTAssertFalse(view.bottomLeft, "The bottom left corner rounding flag should not be active when the corner is not included in the rounded corners set")
     }
 
     func testClearingBottomLeftCornerRoundingFlagRemovesRoundedCornersMembership() {
         view.roundedCorners = .All
-        view.roundBottomLeftCorner = false
+        view.bottomLeft = false
         XCTAssertFalse(view.roundedCorners.contains(.BottomLeft), "Clearing the bottom left corner rounding flag should remove the corner from the rounded corners set")
     }
 
     func testChangingBottomLeftCornerRoundingFlagUpdatesLayerPath() {
         view.cornerRadius = 4.2
-        view.roundBottomLeftCorner = true
+        view.bottomLeft = true
 
         let expectedPath = UIBezierPath(
-            roundedRect: frame,
+            roundedRect: view.bounds,
             byRoundingCorners: .BottomLeft,
             cornerRadii: radii
         )
@@ -203,29 +203,29 @@ class SwaggerViewCornerRoundingTests: XCTestCase {
     //  MARK: Bottom-right
 
     func testBottomRightCornerRoundingFlagIsClearByDefault() {
-        XCTAssertFalse(view.roundBottomRightCorner, "The bottom right corner should not be rounded by default")
+        XCTAssertFalse(view.bottomRight, "The bottom right corner should not be rounded by default")
     }
 
     func testBottomRightCornerRoundingFlagMatchesRoundedCornersMembership() {
         view.roundedCorners = [.BottomRight]
-        XCTAssertTrue(view.roundBottomRightCorner, "The bottom right corner rounding flag should be active when the corner is included in the rounded corners set")
+        XCTAssertTrue(view.bottomRight, "The bottom right corner rounding flag should be active when the corner is included in the rounded corners set")
 
         view.roundedCorners = ViewCorners.All.subtract(.BottomRight)
-        XCTAssertFalse(view.roundBottomRightCorner, "The bottom right corner rounding flag should not be active when the corner is not included in the rounded corners set")
+        XCTAssertFalse(view.bottomRight, "The bottom right corner rounding flag should not be active when the corner is not included in the rounded corners set")
     }
 
     func testClearingBottomRightCornerRoundingFlagRemovesRoundedCornersMembership() {
         view.roundedCorners = .All
-        view.roundBottomRightCorner = false
+        view.bottomRight = false
         XCTAssertFalse(view.roundedCorners.contains(.BottomRight), "Clearing the bottom right corner rounding flag should remove the corner from the rounded corners set")
     }
 
     func testChangingBottomRightCornerRoundingFlagUpdatesLayerPath() {
         view.cornerRadius = 4.2
-        view.roundBottomRightCorner = true
+        view.bottomRight = true
 
         let expectedPath = UIBezierPath(
-            roundedRect: frame,
+            roundedRect: view.bounds,
             byRoundingCorners: .BottomRight,
             cornerRadii: radii
         )
@@ -234,6 +234,23 @@ class SwaggerViewCornerRoundingTests: XCTestCase {
         let path = UIBezierPath(CGPath: layer.path!)
 
         XCTAssertEqual(path, expectedPath, "Updating the bottom right corner rounding flag should update the view's layer path")
+    }
+
+    //  MARK: - Opacity
+
+    func testViewIsNotOpaqueWithCornerRounding() {
+        view.cornerRadius = 4.2
+        view.roundedCorners = .Top
+        XCTAssertFalse(view.opaque, "The view should not be opaque when rounding corners")
+    }
+
+    func testViewIsOpaqueWithoutCornerRounding() {
+        view.cornerRadius = 4.2
+        XCTAssertTrue(view.opaque, "The view should be opaque when not rounding corners")
+
+        view.cornerRadius = 0
+        view.roundedCorners = .Top
+        XCTAssertTrue(view.opaque, "The view should be opaque when not rounding corners")
     }
 
 }

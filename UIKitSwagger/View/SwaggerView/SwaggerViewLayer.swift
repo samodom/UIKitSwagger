@@ -10,14 +10,20 @@ import UIKit
 
 internal extension SwaggerView {
 
-    internal func updateLayerPath() {
+    internal func updateLayer() {
+        updateLayerPath()
+//        updateOpacity()
+//        updateMasksToBounds()
+    }
+
+    private func updateLayerPath() {
         let shapeLayer = layer as! CAShapeLayer
         shapeLayer.path = border.CGPath
     }
 
     private var border: UIBezierPath {
         return UIBezierPath(
-            roundedRect: frame,
+            roundedRect: bounds,
             byRoundingCorners: roundedCorners.asUIRectCorner,
             cornerRadii: cornerRadii
         )
@@ -26,5 +32,17 @@ internal extension SwaggerView {
     private var cornerRadii: CGSize {
         return CGSize(width: cornerRadius, height: cornerRadius)
     }
+
+//    private func updateOpacity() {
+////        opaque = !cornersAreRounded
+//    }
+//
+    private var cornersAreRounded: Bool {
+        return cornerRadius != 0.0 && roundedCorners != .None
+    }
+
+//    internal func updateMasksToBounds() {
+////        layer.masksToBounds = false
+//    }
 
 }

@@ -17,12 +17,15 @@ public class SwaggerView: UIView {
     }
     
     required public init?(coder: NSCoder) {
+        print(coder.)
         super.init(coder: coder)
         performCommonInitialization()
     }
 
     private func performCommonInitialization() {
-        backgroundColor = nil
+//        backgroundColor = nil
+//        clipsToBounds = false
+//        layer.masksToBounds = false
     }
 
 
@@ -51,14 +54,35 @@ public class SwaggerView: UIView {
 
     @IBInspectable public var cornerRadius: CGFloat = 0 {
         didSet {
-            updateLayerPath()
+            updateLayer()
         }
     }
 
     public var roundedCorners = ViewCorners.None {
         didSet {
-            updateLayerPath()
+            updateLayer()
         }
     }
 
+    override public var opaque: Bool {
+        get {
+            return false
+        }
+        set {}
+    }
+
 }
+
+//internal extension SwaggerView {
+//
+//    @IBInspectable
+//    internal var masksToBounds: Bool {
+//        get {
+//            return layer.masksToBounds
+//        }
+//        set {
+//            layer.masksToBounds = newValue
+//        }
+//    }
+//
+//}

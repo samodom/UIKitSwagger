@@ -19,6 +19,8 @@ class SwaggerViewTests: XCTestCase {
         layer = view.layer as! CAShapeLayer
     }
 
+    //  TODO: frame- and coder-based initialization
+
     func testSwaggerViewLayerIsShapeLayer() {
         XCTAssert(view.layer is CAShapeLayer, "Swagger views should use shape layers as their layer type")
     }

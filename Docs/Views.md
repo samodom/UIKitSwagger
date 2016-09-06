@@ -63,3 +63,15 @@ view += [subview, button, tapper, ghostBox, wiggler]
 ```
 
 When mixed addables are added, the elements (views and layout guides) are added before the modifiers (effects, recognizers) to ensure that the view is ready for the modifiers.  When removables are being removed, the reverse order is respected for similar reasons.
+
+
+## Convenience properties
+
+In order to simplify the access of various nested values, properties have been added to reference the values directly.  Changing the property will change the underlying value.
+
+| View Property | Corresponding Value |
+|:-:|:-:|
+| `x` | `frame.origin.x` |
+| `y` | `frame.origin.y` |
+| `width` | `frame.size.width` |
+| `height` | `frame.size.height` |

@@ -1,13 +1,15 @@
 UIKitSwagger Changelog
 ======================
 
+### Further out
+ - Added `SwaggerView: UIView` with IB-designable properties
+ - Rewritten for Swift 3 syntax
 
 ### Pre-Release Version 8 ()
  - Added layout methods for filling a view's superview
  - Added layout edge and direction types
  - Added activation methods to constraint arrays
  - Added character attribute type to simplify creation and modification of attributed strings
- - Added `SwaggerView: UIView` with IB-designable properties
 
 
 ### Pre-Release Version 7

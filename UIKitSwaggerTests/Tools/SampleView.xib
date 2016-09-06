@@ -11,24 +11,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6WV-bV-UUY" customClass="SwaggerView" customModule="UIKitSwagger">
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIA-31-1XI" customClass="SwaggerView" customModule="UIKitSwagger">
                     <rect key="frame" x="40" y="40" width="520" height="520"/>
                     <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="40"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="roundTopLeftCorner" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="roundBottomRightCorner" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="topLeft" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="topRight" value="NO"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="6WV-bV-UUY" firstAttribute="leading" secondItem="2Gh-6f-csY" secondAttribute="leading" constant="40" id="4nv-n1-Gox"/>
-                <constraint firstItem="6WV-bV-UUY" firstAttribute="top" secondItem="2Gh-6f-csY" secondAttribute="top" constant="40" id="KGo-p8-zPd"/>
-                <constraint firstAttribute="trailing" secondItem="6WV-bV-UUY" secondAttribute="trailing" constant="40" id="WRK-7W-DIb"/>
-                <constraint firstAttribute="bottom" secondItem="6WV-bV-UUY" secondAttribute="bottom" constant="40" id="bF0-XU-YMh"/>
+                <constraint firstAttribute="trailing" secondItem="gIA-31-1XI" secondAttribute="trailing" constant="40" id="MdR-sm-J6i"/>
+                <constraint firstItem="gIA-31-1XI" firstAttribute="top" secondItem="2Gh-6f-csY" secondAttribute="top" constant="40" id="UTs-Tv-aCl"/>
+                <constraint firstAttribute="bottom" secondItem="gIA-31-1XI" secondAttribute="bottom" constant="40" id="cNb-ay-JsR"/>
+                <constraint firstItem="gIA-31-1XI" firstAttribute="leading" secondItem="2Gh-6f-csY" secondAttribute="leading" constant="40" id="oO7-uw-S9p"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <point key="canvasLocation" x="432" y="370"/>

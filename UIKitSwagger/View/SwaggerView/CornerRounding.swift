@@ -10,7 +10,7 @@ import UIKit
 
 public extension SwaggerView {
 
-    @IBInspectable internal var roundTopLeftCorner: Bool {
+    @IBInspectable internal var topLeft: Bool {
         get {
             return cornerIsRounded(.TopLeft)
         }
@@ -19,7 +19,7 @@ public extension SwaggerView {
         }
     }
 
-    @IBInspectable internal var roundTopRightCorner: Bool {
+    @IBInspectable internal var topRight: Bool {
         get {
             return cornerIsRounded(.TopRight)
         }
@@ -28,7 +28,7 @@ public extension SwaggerView {
         }
     }
 
-    @IBInspectable internal var roundBottomLeftCorner: Bool {
+    @IBInspectable internal var bottomLeft: Bool {
         get {
             return cornerIsRounded(.BottomLeft)
         }
@@ -37,7 +37,7 @@ public extension SwaggerView {
         }
     }
 
-    @IBInspectable internal var roundBottomRightCorner: Bool {
+    @IBInspectable internal var bottomRight: Bool {
         get {
             return cornerIsRounded(.BottomRight)
         }

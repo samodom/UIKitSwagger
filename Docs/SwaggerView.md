@@ -17,5 +17,33 @@ Since the type `UIRectCorner` type has a case `.AllCorners` that is unequal to t
 `roundedCorners: ViewCorners`
 > Uses any combination of corners to round the view using the provided corner radius.  The default value is `.None`, so no corners are rounded by default even if there is a non-zero corner radius.
 >
->  This property is indirectly available in Interface Builder through individual corner flags: `roundUpperLeftCorner`, `roundUpperRightCorner`, `roundLowerLeftCorner` and `roundLowerRightCorner`.  These flags are not available in code as they are internal and exist solely for exposing `roundedCorners` in Interface Builder.
+>  This property is indirectly available in Interface Builder through individual corner flags: `upperLeft`, `upperRight`, `lowerLeft` and `lowerRight`.  These flags are not available in code as they are internal and exist solely for exposing `roundedCorners` in Interface Builder.
 
+
+## Drawing View Borders
+
+Borders can be drawn around a view - even with rounded corners.  The standard options of `borderWidth: CGFloat` and `borderColor: UIColor?` are available on instances of `SwaggeView` both in code and Interface Builder.
+
+In addition, some public/internal mirrored property pairs are available to further configure the drawing of the border.
+
+`borderDashPattern: BorderDashPattern?`
+`public typealias BorderDashPattern = [CGFloat]`
+dashes type -- with phase
+
+`borderJoinStyle: LineJoinStyle`
+border line cap
+
+```swift
+public enum LineJoinStyle {
+    case Miter, Round, Bevel
+}
+```
+
+`borderStart: NormalizedDouble`
+
+`borderEnd: NormalizedDouble`
+
+`borderMiterLimit: CGFloat`
+
+Added to `CALayer`:
+`lineJoinStyle: LineJoinStyle`
