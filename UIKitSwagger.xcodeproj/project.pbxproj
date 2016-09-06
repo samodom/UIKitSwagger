@@ -231,9 +231,9 @@
 		0A3BB96F19EB70C70075B32A = {
 			isa = PBXGroup;
 			children = (
-				0AC4A8B31A27E05600EBCCB8 /* TestingDummy */,
 				0A3BB97B19EB70C70075B32A /* UIKitSwagger */,
 				0A3BB98819EB70C70075B32A /* UIKitSwaggerTests */,
+				0AC4A8B31A27E05600EBCCB8 /* TestingDummy */,
 				0A3BB97A19EB70C70075B32A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 				0A3BB99519EB71240075B32A /* Tests */,
 			);
 			path = UIKitSwaggerTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		0A3BB98919EB70C70075B32A /* Supporting Files */ = {
 			isa = PBXGroup;
