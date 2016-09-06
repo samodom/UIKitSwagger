@@ -44,6 +44,10 @@
 		0A5BD0F71A3D0C5F00793312 /* ColorAliasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */; };
 		0A5BD0FA1A3D0C9200793312 /* ColorAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */; };
 		0A5BD0FB1A3D0C9200793312 /* ColorAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */; };
+		0A5CF3F01A63920C005F92FB /* UIViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5CF3EF1A63920C005F92FB /* UIViewState.swift */; };
+		0A5CF3F11A63920C005F92FB /* UIViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5CF3EF1A63920C005F92FB /* UIViewState.swift */; };
+		0A5CF3FB1A6B0D5A005F92FB /* UIViewStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5CF3FA1A6B0D5A005F92FB /* UIViewStateManager.swift */; };
+		0A5CF3FC1A6B0D5A005F92FB /* UIViewStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5CF3FA1A6B0D5A005F92FB /* UIViewStateManager.swift */; };
 		0A5F12F31A285D1000694C56 /* AspectRatioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */; };
 		0A5F12F81A285EB600694C56 /* UIViewAspectRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */; };
 		0A5F12F91A285EBA00694C56 /* UIViewAspectRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */; };
@@ -168,6 +172,12 @@
 		0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutAttributable.swift; sourceTree = "<group>"; };
 		0A5BD0F61A3D0C5F00793312 /* ColorAliasTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAliasTests.swift; sourceTree = "<group>"; };
 		0A5BD0F91A3D0C9200793312 /* ColorAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAliases.swift; sourceTree = "<group>"; };
+		0A5CF3ED1A638EF7005F92FB /* ViewStateTransitionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStateTransitionTests.swift; sourceTree = "<group>"; };
+		0A5CF3EF1A63920C005F92FB /* UIViewState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewState.swift; sourceTree = "<group>"; };
+		0A5CF3F21A63926F005F92FB /* UIViewStateTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewStateTransition.swift; sourceTree = "<group>"; };
+		0A5CF3F51A64E6AF005F92FB /* ViewStateTransitionerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewStateTransitionerTests.swift; sourceTree = "<group>"; };
+		0A5CF3F71A64EBE8005F92FB /* UIViewStateTransitioner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewStateTransitioner.swift; sourceTree = "<group>"; };
+		0A5CF3FA1A6B0D5A005F92FB /* UIViewStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewStateManager.swift; sourceTree = "<group>"; };
 		0A5F12F21A285D1000694C56 /* AspectRatioTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AspectRatioTests.swift; sourceTree = "<group>"; };
 		0A5F12F71A285EB600694C56 /* UIViewAspectRatio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAspectRatio.swift; sourceTree = "<group>"; };
 		0A63F7401A3D4A71001FBFF7 /* TestConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
@@ -368,6 +378,8 @@
 				0A754C071A28455F0077DB3A /* ViewDistributionTests.swift */,
 				0A3BB99919EB71740075B32A /* ViewHierarchyTests.swift */,
 				0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */,
+				0A5CF3F51A64E6AF005F92FB /* ViewStateTransitionerTests.swift */,
+				0A5CF3ED1A638EF7005F92FB /* ViewStateTransitionTests.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -399,6 +411,10 @@
 				0A3F1B4D1A4112F500195B8F /* UIViewConstraintApplication.swift */,
 				0A3BB9A119EB71F00075B32A /* UIViewConstraintSearch.swift */,
 				0A3BB9AD19EB74DF0075B32A /* UIViewHierarchy.swift */,
+				0A5CF3EF1A63920C005F92FB /* UIViewState.swift */,
+				0A5CF3FA1A6B0D5A005F92FB /* UIViewStateManager.swift */,
+				0A5CF3F21A63926F005F92FB /* UIViewStateTransition.swift */,
+				0A5CF3F71A64EBE8005F92FB /* UIViewStateTransitioner.swift */,
 				0A9B690F1A05799200F3FFC2 /* ViewUtilities.swift */,
 			);
 			path = View;
@@ -650,6 +666,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A5CF3FB1A6B0D5A005F92FB /* UIViewStateManager.swift in Sources */,
 				0A80280C1A34265A00816792 /* UIBarItemEnabling.swift in Sources */,
 				0AC4A8AC1A26C80E00EBCCB8 /* NSLayoutConstraintApplication.swift in Sources */,
 				0ACADB061A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */,
@@ -680,6 +697,7 @@
 				0A5BD0FA1A3D0C9200793312 /* ColorAliases.swift in Sources */,
 				0A63F7501A3E15D9001FBFF7 /* UIDynamicBehaviorAdditionSyntax.swift in Sources */,
 				0A21DC441A343018005FFC4E /* UIControlEnabling.swift in Sources */,
+				0A5CF3F01A63920C005F92FB /* UIViewState.swift in Sources */,
 				0A3BB9AE19EB74DF0075B32A /* UIViewHierarchy.swift in Sources */,
 				0ACADAED1A3BE90600CF49F8 /* UISwitchStateManagement.swift in Sources */,
 				0A63F74B1A3E105D001FBFF7 /* UIDynamicAnimatorAdditionSyntax.swift in Sources */,
@@ -706,6 +724,7 @@
 				0A9B69111A0579DF00F3FFC2 /* ViewUtilities.swift in Sources */,
 				0A63F7411A3D4A71001FBFF7 /* TestConstants.swift in Sources */,
 				0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */,
+				0A5CF3FC1A6B0D5A005F92FB /* UIViewStateManager.swift in Sources */,
 				0AD6F25C1A34394700D863A2 /* NSLayoutConstraintActivation.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
@@ -757,6 +776,7 @@
 				0A67BAE31A2301F90038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0AC4A8D91A27FCF800EBCCB8 /* ViewAlignmentTests.swift in Sources */,
 				0A63F7431A3D51F0001FBFF7 /* ColorPaletteTests.swift in Sources */,
+				0A5CF3F11A63920C005F92FB /* UIViewState.swift in Sources */,
 				0ACADAEE1A3BE90600CF49F8 /* UISwitchStateManagement.swift in Sources */,
 				0A8028031A3421E000816792 /* AlertActionEnablingTests.swift in Sources */,
 				0A63F7481A3E0EA3001FBFF7 /* DynamicAnimatorAdditionSyntaxTests.swift in Sources */,
