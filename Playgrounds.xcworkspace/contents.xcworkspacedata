@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:UIKitSwagger.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:Docs/Playgrounds"
+      name = "Playgrounds">
+      <FileRef
+         location = "group:AutoLayout.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Colors.playground">
+      </FileRef>
+      <FileRef
+         location = "group:Switch.playground">
+      </FileRef>
+   </Group>
+</Workspace>
