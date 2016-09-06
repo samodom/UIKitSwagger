@@ -90,3 +90,12 @@ public extension UIColorRGBComponents {
     }
     
 }
+
+/**
+Reflection
+*/
+extension UIColorRGBComponents: Reflectable {
+    public func getMirror() -> Any {
+        return
+    }
+}
