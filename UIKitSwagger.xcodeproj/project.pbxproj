@@ -13,6 +13,8 @@
 		0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */; };
 		0A2312691A327F4F00BE92BE /* UIViewAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */; };
 		0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */; };
+		0A37AE041B4DD0EA00452CF9 /* RGBComponentsReflectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37AE031B4DD0EA00452CF9 /* RGBComponentsReflectionTests.swift */; };
+		0A37AE061B4DD14C00452CF9 /* RGBComponentsMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A37AE051B4DD14C00452CF9 /* RGBComponentsMirror.swift */; };
 		0A3BB97F19EB70C70075B32A /* UIKitSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3BB98519EB70C70075B32A /* UIKitSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */; };
 		0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */; };
@@ -115,6 +117,8 @@
 		0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizerEnablingTests.swift; sourceTree = "<group>"; };
 		0A2312681A327F4F00BE92BE /* UIViewAdditionSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewAdditionSyntax.swift; sourceTree = "<group>"; };
 		0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAddableSyntaxTests.swift; sourceTree = "<group>"; };
+		0A37AE031B4DD0EA00452CF9 /* RGBComponentsReflectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBComponentsReflectionTests.swift; sourceTree = "<group>"; };
+		0A37AE051B4DD14C00452CF9 /* RGBComponentsMirror.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBComponentsMirror.swift; sourceTree = "<group>"; };
 		0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIKitSwagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3BB97D19EB70C70075B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitSwagger.h; sourceTree = "<group>"; };
@@ -320,6 +324,7 @@
 				0AD6F2541A34353700D863A2 /* LabelEnablingTests.swift */,
 				0A63DFDC1B3B4C5100B68DC0 /* LayoutGuideLayoutAttributesTests.swift */,
 				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
+				0A37AE031B4DD0EA00452CF9 /* RGBComponentsReflectionTests.swift */,
 				0ACED16D1AA383A70073E42C /* RGBComponentsTests.swift */,
 				0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */,
 				0ACADAEF1A3BF0E500CF49F8 /* SliderIntervalTests.swift */,
@@ -387,6 +392,7 @@
 				0AA5805E1A3D2B960061D882 /* GrayscaleComponents.swift */,
 				0AA5805B1A3D2B830061D882 /* HSBComponents.swift */,
 				0AA580581A3D29EB0061D882 /* RGBComponents.swift */,
+				0A37AE051B4DD14C00452CF9 /* RGBComponentsMirror.swift */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -638,6 +644,7 @@
 				0ACADB061A3CF71F00CF49F8 /* UIStepperInterval.swift in Sources */,
 				0A63DFE71B3CAE9B00B68DC0 /* UIViewSubscripting.swift in Sources */,
 				0A3BB9A319EB71F00075B32A /* UIViewConstraintSearch.swift in Sources */,
+				0A37AE061B4DD14C00452CF9 /* RGBComponentsMirror.swift in Sources */,
 				0AA5805F1A3D2B960061D882 /* GrayscaleComponents.swift in Sources */,
 				0ACADAFF1A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */,
 				0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
@@ -682,6 +689,7 @@
 				0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
+				0A37AE041B4DD0EA00452CF9 /* RGBComponentsReflectionTests.swift in Sources */,
 				0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */,
 				0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */,
 				0ACED17F1AA3E4E10073E42C /* RGBComponentsTests.swift in Sources */,

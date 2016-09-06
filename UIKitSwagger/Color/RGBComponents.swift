@@ -90,3 +90,14 @@ public extension RGBComponents {
     }
     
 }
+
+/**
+Reflection
+*/
+extension RGBComponents: CustomReflectable {
+
+    public func customMirror() -> Mirror {
+        return RGBComponentsMirror(self)
+    }
+
+}
