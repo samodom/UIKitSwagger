@@ -24,6 +24,7 @@ public class SwaggerView: UIView {
         backgroundColor = nil
     }
 
+
     override public class func layerClass() -> AnyClass {
         return CAShapeLayer.self
     }
@@ -31,6 +32,7 @@ public class SwaggerView: UIView {
     private var shapeLayer: CAShapeLayer {
         return layer as! CAShapeLayer
     }
+
 
     override public var backgroundColor: UIColor? {
         get {
@@ -42,6 +44,17 @@ public class SwaggerView: UIView {
         }
         set {
             shapeLayer.fillColor = newValue?.CGColor
+        }
+    }
+
+
+    @IBInspectable public var cornerRadius: CGFloat = 0
+
+    public var roundedCorners = UIRectCorner.AllCorners {
+        didSet {
+            if roundedCorners.isEmpty || roundedCorners.contains(.AllCorners) || roundedCorners == [.TopLeft, .TopRight, .BottomLeft, .BottomRight]{
+                roundedCorners = UIRectCorner.AllCorners
+            }
         }
     }
 
