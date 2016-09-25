@@ -11,7 +11,7 @@ import UIKit
 /**
  Convenience structure to hold the hue, saturation, brightness and alpha component values of an instance of `UIColor`.
  */
-public struct HSBComponents: ColorComponents {
+public struct HSBComponents {
     public let hue: CGFloat
     public let saturation: CGFloat
     public let brightness: CGFloat
@@ -24,12 +24,22 @@ public struct HSBComponents: ColorComponents {
         alpha = a
     }
 
+}
+
+extension HSBComponents: ColorComponents {
+
     /**
-     Required method for creating colors based on this component scheme.
+     Required variable for creating colors based on this component scheme.
      */
-    public func color() -> UIColor {
-        return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+    public var uiColor: UIColor {
+        return UIColor(
+            hue: hue,
+            saturation: saturation,
+            brightness: brightness,
+            alpha: alpha
+        )
     }
+
 }
 
 public extension UIColor {
@@ -60,9 +70,7 @@ public extension UIColor {
 /**
  Equatability of HSB components.
  */
-extension HSBComponents: Equatable {
-
-}
+extension HSBComponents: Equatable {}
 
 public func ==(lhs: HSBComponents, rhs: HSBComponents) -> Bool {
     return componentValuesEqualWithinTolerance(lhs.hue, rhs.hue) &&
@@ -77,41 +85,70 @@ public extension UIColor {
      Property that returns the HSB components of the color in a structure.
      */
     public var hsbComponents: HSBComponents {
-        var hueValue = CGFloat(0)
-        var saturationValue = CGFloat(0)
-        var brightnessValue = CGFloat(0)
-        var alphaValue = CGFloat(0)
+        var hueValue: CGFloat = 0
+        var saturationValue: CGFloat = 0
+        var brightnessValue: CGFloat = 0
+        var alphaValue: CGFloat = 0
 
-        getHue(&hueValue, saturation: &saturationValue, brightness: &brightnessValue, alpha: &alphaValue)
-        return HSBComponents(hue: hueValue, saturation: saturationValue, brightness: brightnessValue, alpha: alphaValue)
+        getHue(&hueValue,
+               saturation: &saturationValue,
+               brightness: &brightnessValue,
+               alpha: &alphaValue
+        )
+
+        return HSBComponents(
+            hue: hueValue,
+            saturation: saturationValue,
+            brightness: brightnessValue,
+            alpha: alphaValue
+        )
     }
 
 }
 
 /**
- Component conversion methods.
+ Component conversion variables.
  */
-public extension HSBComponents {
+extension HSBComponents: HSBConvertible {
+
+    /**
+     Reflects the same HSB components.
+     */
+    public var hsbComponents: HSBComponents {
+        return self
+    }
+
+}
+
+extension HSBComponents: RGBConvertible {
 
     /**
      Converts HSB components into RGB components.
      */
-    public func asRGBComponents() -> RGBComponents {
-        return color().rgbComponents
+    public var rgbComponents: RGBComponents {
+        return uiColor.rgbComponents
     }
+
+}
+
+extension HSBComponents: GrayscaleConvertible {
 
     /**
      Converts HSB components into grayscale components.
      */
-    public func asGrayscaleComponents() -> GrayscaleComponents {
-        return color().grayscaleComponents
+    public var grayscaleComponents: GrayscaleComponents {
+        return uiColor.grayscaleComponents
     }
+
+}
+
+extension HSBComponents: CMYKConvertible {
 
     /**
      Converts HSB components into CNYK components.
      */
-    public func asCMYKComponents() -> CMYKComponents {
-        return color().cmykComponents
+    public var cmykComponents: CMYKComponents {
+        return uiColor.cmykComponents
     }
     
 }

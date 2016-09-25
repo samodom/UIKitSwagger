@@ -38,7 +38,7 @@ class GrayscaleComponentsTests: XCTestCase {
     func testGrayscaleComponentStructureWithDefaultAlpha() {
         components = GrayscaleComponents(white: randomWhiteValue)
         XCTAssertEqual(components.white, randomWhiteValue, "The components should include a white value")
-        XCTAssertEqual(components.alpha, 1.0, "The components should use a default alpha value of 1.0")
+        XCTAssertEqual(components.alpha, 1, "The components should use a default alpha value of 1.0")
     }
 
     func testGrayscaleComponentStructure() {
@@ -75,8 +75,8 @@ class GrayscaleComponentsTests: XCTestCase {
     //  MARK: Creating components from colors
 
     func testGrayscaleComponentsWithRGBColor() {
-        var whiteValue = CGFloat(0)
-        var alphaValue = CGFloat(0)
+        var whiteValue: CGFloat = 0
+        var alphaValue: CGFloat = 0
         sampleRGBColor.getWhite(&whiteValue, alpha: &alphaValue)
         components = GrayscaleComponents(
             white: whiteValue,
@@ -86,8 +86,8 @@ class GrayscaleComponentsTests: XCTestCase {
     }
 
     func testGrayscaleComponentsWithHSBColor() {
-        var whiteValue = CGFloat(0)
-        var alphaValue = CGFloat(0)
+        var whiteValue: CGFloat = 0
+        var alphaValue: CGFloat = 0
         sampleHSBColor.getWhite(&whiteValue, alpha: &alphaValue)
         components = GrayscaleComponents(
             white: whiteValue,
@@ -103,7 +103,7 @@ class GrayscaleComponentsTests: XCTestCase {
     //  MARK: Creating colors from components
 
     func testColorCreationWithGrayscaleComponents() {
-        XCTAssertEqual(components.color(), sampleMonochromeColor, "The components should create an instance of UIColor using the same values")
+        XCTAssertEqual(components.uiColor, sampleMonochromeColor, "The components should create an instance of UIColor using the same values")
     }
 
 }

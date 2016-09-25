@@ -24,39 +24,39 @@ class RGBComponentsTests: XCTestCase {
     //  MARK: - Component values
 
     func testRedComponentWithRGBColor() {
-        XCTAssertEqual(sampleRGBColor.red, randomRedValue, "The red component of the RGB color should be provided")
+        XCTAssertEqual(sampleRGBColor.redValue, randomRedValue, "The red component of the RGB color should be provided")
     }
 
     func testRedComponentWithHSBColor() {
-        XCTAssertEqual(sampleHSBColor.red, sampleHSBColor.rgbComponents.red, "The red component of the HSB color should be provided")
+        XCTAssertEqual(sampleHSBColor.redValue, sampleHSBColor.rgbComponents.red, "The red component of the HSB color should be provided")
     }
 
     func testRedComponentWithMonochromeColor() {
-        XCTAssertEqual(sampleMonochromeColor.red, sampleMonochromeColor.rgbComponents.red, "The white component of the monochrome color should be provided")
+        XCTAssertEqual(sampleMonochromeColor.redValue, sampleMonochromeColor.rgbComponents.red, "The white component of the monochrome color should be provided")
     }
 
     func testGreenComponentWithRGBColor() {
-        XCTAssertEqualWithAccuracy(sampleRGBColor.green, randomGreenValue, accuracy: ColorComponentValueTestAccuracy, "The green component of the RGB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleRGBColor.greenValue, randomGreenValue, accuracy: ColorComponentValueTestAccuracy, "The green component of the RGB color should be provided")
     }
 
     func testGreenComponentWithHSBColor() {
-        XCTAssertEqual(sampleHSBColor.green, sampleHSBColor.rgbComponents.green, "The green component of the HSB color should be provided")
+        XCTAssertEqual(sampleHSBColor.greenValue, sampleHSBColor.rgbComponents.green, "The green component of the HSB color should be provided")
     }
 
     func testGreenComponentWithMonochromeColor() {
-        XCTAssertEqual(sampleMonochromeColor.green, sampleMonochromeColor.rgbComponents.green, "The white component of the monochrome color should be provided")
+        XCTAssertEqual(sampleMonochromeColor.greenValue, sampleMonochromeColor.rgbComponents.green, "The white component of the monochrome color should be provided")
     }
 
     func testBlueComponentWithRGBColor() {
-        XCTAssertEqualWithAccuracy(sampleRGBColor.blue, randomBlueValue, accuracy: ColorComponentValueTestAccuracy, "The blue component of the RGB color should be provided")
+        XCTAssertEqualWithAccuracy(sampleRGBColor.blueValue, randomBlueValue, accuracy: ColorComponentValueTestAccuracy, "The blue component of the RGB color should be provided")
     }
 
     func testBlueComponentWithHSBColor() {
-        XCTAssertEqual(sampleHSBColor.blue, sampleHSBColor.rgbComponents.blue, "The blue component of the HSB color should be provided")
+        XCTAssertEqual(sampleHSBColor.blueValue, sampleHSBColor.rgbComponents.blue, "The blue component of the HSB color should be provided")
     }
 
     func testBlueComponentWithMonochromeColor() {
-        XCTAssertEqual(sampleMonochromeColor.blue, sampleMonochromeColor.rgbComponents.blue, "The white component of the monochrome color should be provided")
+        XCTAssertEqual(sampleMonochromeColor.blueValue, sampleMonochromeColor.rgbComponents.blue, "The white component of the monochrome color should be provided")
     }
 
     func testAlphaComponentWithRGBColor() {
@@ -82,7 +82,7 @@ class RGBComponentsTests: XCTestCase {
         XCTAssertEqual(components.red, randomRedValue, "The components should include a red value")
         XCTAssertEqual(components.green, randomGreenValue, "The components should include a green value")
         XCTAssertEqual(components.blue, randomBlueValue, "The components should include a blue value")
-        XCTAssertEqual(components.alpha, 1.0, "The components should use a default alpha value of 1.0")
+        XCTAssertEqual(components.alpha, 1, "The components should use a default alpha value of 1.0")
     }
 
     func testRGBComponentStructure() {
@@ -151,10 +151,10 @@ class RGBComponentsTests: XCTestCase {
     }
 
     func testRGBComponentsWithHSBColor() {
-        var redValue = CGFloat(0)
-        var greenValue = CGFloat(0)
-        var blueValue = CGFloat(0)
-        var alphaValue = CGFloat(0)
+        var redValue: CGFloat = 0
+        var greenValue: CGFloat = 0
+        var blueValue: CGFloat = 0
+        var alphaValue: CGFloat = 0
         sampleHSBColor.getRed(&redValue,
             green: &greenValue,
             blue: &blueValue,
@@ -170,10 +170,10 @@ class RGBComponentsTests: XCTestCase {
     }
 
     func testRGBComponentsWithMonochromeColor() {
-        var redValue = CGFloat(0)
-        var greenValue = CGFloat(0)
-        var blueValue = CGFloat(0)
-        var alphaValue = CGFloat(0)
+        var redValue: CGFloat = 0
+        var greenValue: CGFloat = 0
+        var blueValue: CGFloat = 0
+        var alphaValue: CGFloat = 0
         sampleMonochromeColor.getRed(&redValue,
             green: &greenValue,
             blue: &blueValue,
@@ -191,7 +191,7 @@ class RGBComponentsTests: XCTestCase {
     //  MARK: Creating colors from components
 
     func testColorCreationWithRGBComponents() {
-        XCTAssertEqual(components.color(), sampleRGBColor, "The components should create an instance of UIColor using the same values")
+        XCTAssertEqual(components.uiColor, sampleRGBColor, "The components should create an instance of UIColor using the same values")
     }
 
 }

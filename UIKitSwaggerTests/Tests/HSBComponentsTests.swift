@@ -70,7 +70,7 @@ class HSBComponentsTests: XCTestCase {
         XCTAssertEqual(components.hue, randomHueValue, "The components should include a hue value")
         XCTAssertEqual(components.saturation, randomSaturationValue, "The components should include a saturation value")
         XCTAssertEqual(components.brightness, randomBrightnessValue, "The components should include a brightness value")
-        XCTAssertEqual(components.alpha, 1.0, "The components should use a default alpha value of 1.0")
+        XCTAssertEqual(components.alpha, 1, "The components should use a default alpha value of 1.0")
     }
 
     func testHSBComponentStructure() {
@@ -135,10 +135,10 @@ class HSBComponentsTests: XCTestCase {
     //  MARK: Creating components from colors
 
     func testHSBComponentsWithRGBColor() {
-        var hueValue = CGFloat(0)
-        var saturationValue = CGFloat(0)
-        var brightnessValue = CGFloat(0)
-        var alphaValue = CGFloat(0)
+        var hueValue: CGFloat = 0
+        var saturationValue: CGFloat = 0
+        var brightnessValue: CGFloat = 0
+        var alphaValue: CGFloat = 0
         sampleRGBColor.getHue(&hueValue,
             saturation: &saturationValue,
             brightness: &brightnessValue,
@@ -158,10 +158,10 @@ class HSBComponentsTests: XCTestCase {
     }
 
     func testHSBComponentsWithMonochromeColor() {
-        var hueValue = CGFloat(0)
-        var saturationValue = CGFloat(0)
-        var brightnessValue = CGFloat(0)
-        var alphaValue = CGFloat(0)
+        var hueValue: CGFloat = 0
+        var saturationValue: CGFloat = 0
+        var brightnessValue: CGFloat = 0
+        var alphaValue: CGFloat = 0
         sampleMonochromeColor.getHue(&hueValue,
             saturation: &saturationValue,
             brightness: &brightnessValue,
@@ -178,8 +178,18 @@ class HSBComponentsTests: XCTestCase {
 
     //  MARK: Creating colors from components
 
+    func testColorCreationWithHSBComponentValues() {
+        let color = UIColor(
+            hue: randomHueValue,
+            saturation: randomSaturationValue,
+            brightness: randomBrightnessValue,
+            alpha: randomAlphaValue
+        )
+        XCTAssertEqual(color, components.rgbComponents.uiColor, "The component values should be used to create an instance of UIColor")
+    }
+
     func testColorCreationWithHSBComponents() {
-        XCTAssertEqual(components.color(), sampleHSBColor, "The components should create an instance of UIColor using the same values")
+        XCTAssertEqual(components.uiColor, sampleHSBColor, "The components should create an instance of UIColor using the same values")
     }
 
 }

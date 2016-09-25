@@ -13,22 +13,22 @@ import UIKit
 
 //  MARK: Random component values
 
-internal var randomAlphaValue = randomComponentValue()
+internal var randomAlphaValue = ComponentGenerator.generate()
 
-internal var randomRedValue = randomComponentValue()
-internal var randomGreenValue = randomComponentValue()
-internal var randomBlueValue = randomComponentValue()
+internal var randomRedValue = ComponentGenerator.generate()
+internal var randomGreenValue = ComponentGenerator.generate()
+internal var randomBlueValue = ComponentGenerator.generate()
 
-internal var randomHueValue = randomComponentValue()
-internal var randomSaturationValue = randomComponentValue()
-internal var randomBrightnessValue = randomComponentValue()
+internal var randomHueValue = ComponentGenerator.generate()
+internal var randomSaturationValue = ComponentGenerator.generate()
+internal var randomBrightnessValue = ComponentGenerator.generate()
 
-internal var randomWhiteValue = randomComponentValue()
+internal var randomWhiteValue = ComponentGenerator.generate()
 
-internal var randomCyanValue = randomComponentValue()
-internal var randomMagentaValue = randomComponentValue()
-internal var randomYellowValue = randomComponentValue()
-internal var randomKeyValue = randomComponentValue()
+internal var randomCyanValue = ComponentGenerator.generate()
+internal var randomMagentaValue = ComponentGenerator.generate()
+internal var randomYellowValue = ComponentGenerator.generate()
+internal var randomKeyValue = ComponentGenerator.generate()
 
 
 //  MARK: Colors
@@ -49,6 +49,15 @@ UIColor(
     alpha: randomAlphaValue
 )
 
+internal var sampleCMYKColor =
+UIColor(
+    cyan: randomCyanValue,
+    magenta: randomMagentaValue,
+    yellow: randomYellowValue,
+    key: randomKeyValue,
+    alpha: randomAlphaValue
+)
+
 internal var sampleMonochromeColor =
 UIColor(
     white: randomWhiteValue,
@@ -58,28 +67,29 @@ UIColor(
 
 //  MARK: Utilities
 
-private var onceToken: dispatch_once_t = 0
-internal func randomComponentValue() -> CGFloat {
+internal var ComponentGenerator = RandomComponentValueGenerator()
 
-    func createGenerator() {
-        dispatch_once(&onceToken) {
-            var now = time_t(0)
-            time(&now)
-            srand48(now);
+internal struct RandomComponentValueGenerator {
+
+    internal init() {
+        var now = time_t(0)
+        time(&now)
+        srand48(now)
+        generate = {
+            let randomValue = CGFloat(drand48())
+            assert(floatingValueIsNormalized(randomValue))
+            return randomValue
         }
     }
 
-    createGenerator()
-    let randomValue = CGFloat(drand48())
-    assert(floatingValueIsNormalized(randomValue))
-    return randomValue
+    internal let generate: () -> CGFloat
 }
 
-private func floatingValueIsNormalized<F: FloatingPointType>(value: F) -> Bool {
+private func floatingValueIsNormalized<F: FloatingPoint>(_ value: F) -> Bool {
     return (F(0) ... F(1)).contains(value)
 }
 
-internal func nudgeComponentValue(value: CGFloat) -> CGFloat {
+internal func nudgeComponentValue(_ value: CGFloat) -> CGFloat {
     var useNegative: Bool
     if value < 0 + ColorComponentValueTestAccuracy {
         useNegative = false

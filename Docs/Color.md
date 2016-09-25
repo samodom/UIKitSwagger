@@ -1,13 +1,30 @@
-Color Convenience
-=================
+Color Components
+================
 
-### Components
+The `ColorComponents` and accompanying protocols create an interface between different color representations -- all integrated with `UIColor`.  Component value types are provided for several commonly used color models.  All are `Equatable` types and all conform to each of the listed protocols.
 
-Getting color information from an instance of `UIColor` is as easy as it could possibly be.
 
-**Component Structure**
+```swift
+public protocol ColorComponents {
+    var uiColor: UIColor { get }
+}
 
-The following component structures are provided for convenience.  Each one conforms to `Equatable` and a protocol called `ColorComponents`.
+public protocol RGBConvertible 
+    var rgbComponents: RGBComponents { get }
+}
+
+public protocol HSBConvertible 
+    var hsbComponents: HSBComponents { get }
+}
+
+public protocol CMYKConvertible 
+    var cmykComponents: CMYKComponents { get }
+}
+
+public protocol GrayscaleConvertible 
+    var grayscaleComponents: GrayscaleComponents { get }
+}
+```
 
 ```swift
 struct RGBComponents {
@@ -44,50 +61,39 @@ struct CMYKComponents {
 }
 ```
 
+In addition, `UIColor` has a convenience initializer for creating colors using CMYK values and a component value retrieval method to match the system API.
 
-Convert component types with these methods:
+```swift
+init(
+	cyan: CGFloat,
+	magenta: CGFloat,
+	yellow: CGFloat,
+	key: CGFloat,
+	alpha: CGFloat
+)
 
- - `RGBComponents.asHSBComponents() -> HSBComponents`
- - `RGBComponents.asGrayscaleComponents() -> GrayscaleComponents`
- - `RGBComponents.asCMYKComponents() -> CMYKComponents`
- - `HSBComponents.asRGBComponents() -> RGBComponents`
- - `HSBComponents.asGrayscaleComponents() -> GrayscaleComponents`
- - `HSBComponents.asCMYKComponents() -> CMYKComponents`
- - `GrayscaleComponents.asRGComponents() -> RGBComponents`
- - `GrayscaleComponents.asHSBComponents() -> HSBComponents`
- - `GrayscaleComponents.asCMYKComponents() -> CMYKComponents`
- - `CMYKComponents.asRGBComponents() -> RGBComponents`
- - `CMYKComponents.asHSBComponents() -> HSBComponents`
- - `CMYKComponents.asGrayscaleComponents() -> GrayscaleComponents`
+func getCyan(
+	inout cyan: CGFloat,
+	inout magenta: CGFloat,
+	inout yellow: CGFloat,
+	inout key: CGFloat,
+	inout alpha: CGFloat
+) -> Bool
+```
 
+## Individual `UIColor` Component Values
 
-These component structures can be retrieved from an existing color using the following properties:
- - `var rgbComponents: RGBComponents`
- - `var hsbComponents: HSBComponents`
- - `var grayscaleComponents: GrayscaleComponents`
- - `var cmykComponents: CMYKComponents`
+These values are properties of `UIColor`:
 
-Each component scheme also has a method to produce a color:
- - `func color() -> UIColor`
-
-In addition, `UIColor` has a new convenience initializer for creating colors using CMYK values and a component-value retrieval method to match the system API.
- - `init(cyan: CGFloat, magenta: CGFloat, yellow: CGFloat, key: CGFloat, alpha: CGFloat)`
- - `func getCyan(inout cyan: CGFloat, inout magenta: CGFloat, inout yellow: CGFloat, inout key: CGFloat, inout alpha: CGFloat) -> Bool`
-
-
-**Component Values**
-
-Want individual component values?  Here they are as properties!
- - `var red: CGFloat`
- - `var green: CGFloat`
- - `var blue: CGFloat`
+ - `var redValue: CGFloat`
+ - `var greenValue: CGFloat`
+ - `var blueValue: CGFloat`
+ - `var whiteValue: CGFloat`
+ - `var cyanValue: CGFloat`
+ - `var magentaValue: CGFloat`
+ - `var yellowValue: CGFloat`
+ - `var keyValue: CGFloat`
  - `var alpha: CGFloat`
  - `var hue: CGFloat`
  - `var saturation: CGFloat`
  - `var brightness: CGFloat`
- - `var white: CGFloat`
- - `var cyan: CGFloat`
- - `var magenta: CGFloat`
- - `var yellow: CGFloat`
- - `var key: CGFloat`
-

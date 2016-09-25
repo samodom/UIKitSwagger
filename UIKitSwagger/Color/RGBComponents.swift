@@ -11,7 +11,7 @@ import UIKit
 /**
  Convenience structure to hold the red, green, blue and alpha component values of an instance of `UIColor`.
  */
-public struct RGBComponents: ColorComponents {
+public struct RGBComponents {
     public let red: CGFloat
     public let green: CGFloat
     public let blue: CGFloat
@@ -24,20 +24,23 @@ public struct RGBComponents: ColorComponents {
         alpha = a
     }
 
+}
+
+extension RGBComponents: ColorComponents {
+
     /**
-     Required method for creating colors based on this component scheme.
+     Required variable for creating colors based on this component scheme.
      */
-    public func color() -> UIColor {
+    public var uiColor: UIColor {
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
+
 }
 
 /**
  Equatability of RGB components.
  */
-extension RGBComponents: Equatable {
-
-}
+extension RGBComponents: Equatable {}
 
 public func ==(lhs: RGBComponents, rhs: RGBComponents) -> Bool {
     return componentValuesEqualWithinTolerance(lhs.red, rhs.red) &&
@@ -52,13 +55,23 @@ public extension UIColor {
      Property that returns the RGB components of the color in a structure.
      */
     public var rgbComponents: RGBComponents {
-        var redValue = CGFloat(0)
-        var greenValue = CGFloat(0)
-        var blueValue = CGFloat(0)
-        var alphaValue = CGFloat(0)
+        var redValue: CGFloat = 0
+        var greenValue: CGFloat = 0
+        var blueValue: CGFloat = 0
+        var alphaValue: CGFloat = 0
 
-        getRed(&redValue, green: &greenValue, blue: &blueValue, alpha: &alphaValue)
-        return RGBComponents(red: redValue, green: greenValue, blue: blueValue, alpha: alphaValue)
+        getRed(&redValue,
+               green: &greenValue,
+               blue: &blueValue,
+               alpha: &alphaValue
+        )
+
+        return RGBComponents(
+            red: redValue,
+            green: greenValue,
+            blue: blueValue,
+            alpha: alphaValue
+        )
     }
 
 }
@@ -68,21 +81,21 @@ public extension UIColor {
     /**
      Property to provide the red component value of the color.
      */
-    public var red: CGFloat {
+    public var redValue: CGFloat {
         return rgbComponents.red
     }
 
     /**
      Property to provide the green component value of the color.
      */
-    public var green: CGFloat {
+    public var greenValue: CGFloat {
         return rgbComponents.green
     }
 
     /**
      Property to provide the blue component value of the color.
      */
-    public var blue: CGFloat {
+    public var blueValue: CGFloat {
         return rgbComponents.blue
     }
 
@@ -96,29 +109,48 @@ public extension UIColor {
 }
 
 /**
- Component conversion methods.
+ Component conversion variables.
  */
-public extension RGBComponents {
+extension RGBComponents: RGBConvertible {
+
+    /**
+     Reflects the same RGB components.
+     */
+    public var rgbComponents: RGBComponents {
+        return self
+    }
+
+}
+
+extension RGBComponents: HSBConvertible {
 
     /**
      Converts RGB components into HSB components.
      */
-    public func asHSBComponents() -> HSBComponents {
-        return color().hsbComponents
+    public var hsbComponents: HSBComponents {
+        return uiColor.hsbComponents
     }
+
+}
+
+extension RGBComponents: GrayscaleConvertible {
 
     /**
      Converts RGB components into grayscale components.
      */
-    public func asGrayscaleComponents() -> GrayscaleComponents {
-        return color().grayscaleComponents
+    public var grayscaleComponents: GrayscaleComponents {
+        return uiColor.grayscaleComponents
     }
+
+}
+
+extension RGBComponents: CMYKConvertible {
 
     /**
      Converts RGB components into CMYK components.
      */
-    public func asCMYKComponents() -> CMYKComponents {
-        return color().cmykComponents
+    public var cmykComponents: CMYKComponents {
+        return uiColor.cmykComponents
     }
     
 }

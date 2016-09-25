@@ -11,7 +11,7 @@ import UIKit
 /**
  Convenience structure to hold the cyan, magenta, yellow and alpha component values of an instance of `UIColor`.
  */
-public struct CMYKComponents: ColorComponents {
+public struct CMYKComponents {
     public let cyan: CGFloat
     public let magenta: CGFloat
     public let yellow: CGFloat
@@ -26,18 +26,19 @@ public struct CMYKComponents: ColorComponents {
         alpha = a
     }
 
+}
+
+extension CMYKComponents: ColorComponents {
+
     /**
-     Required method for creating colors based on this component scheme.
+     Required variable for providing colors based on this component scheme.
      */
-    public func color() -> UIColor {
-        let keyComplement = 1 - key
-        let redValue = (1 - cyan) * keyComplement
-        let greenValue = (1 - magenta) * keyComplement
-        let blueValue = (1 - yellow)  * keyComplement
+    public var uiColor: UIColor {
         return UIColor(
-            red: redValue,
-            green: greenValue,
-            blue: blueValue,
+            cyan: cyan,
+            magenta: magenta,
+            yellow: yellow,
+            key: key,
             alpha: alpha
         )
     }
@@ -47,9 +48,7 @@ public struct CMYKComponents: ColorComponents {
 /**
  Equatability of CMYK components.
  */
-extension CMYKComponents: Equatable {
-
-}
+extension CMYKComponents: Equatable {}
 
 public func ==(lhs: CMYKComponents, rhs: CMYKComponents) -> Bool {
     return componentValuesEqualWithinTolerance(lhs.cyan, rhs.cyan) &&
@@ -64,28 +63,28 @@ public extension UIColor {
     /**
      Property to provide the cyan component value of the color.
      */
-    public var cyan: CGFloat {
+    public var cyanValue: CGFloat {
         return cmykComponents.cyan
     }
 
     /**
      Property to provide the magenta component value of the color.
      */
-    public var magenta: CGFloat {
+    public var magentaValue: CGFloat {
         return cmykComponents.magenta
     }
 
     /**
      Property to provide the yellow component value of the color.
      */
-    public var yellow: CGFloat {
+    public var yellowValue: CGFloat {
         return cmykComponents.yellow
     }
 
     /**
      Property to provide the key component value of the color.
      */
-    public var key: CGFloat {
+    public var keyValue: CGFloat {
         return cmykComponents.key
     }
 
@@ -99,7 +98,7 @@ public extension UIColor {
      - parameter alpha: The alpha value to use when initializing the color.
      */
     public convenience init(cyan: CGFloat, magenta: CGFloat, yellow: CGFloat, key: CGFloat, alpha: CGFloat) {
-        let cmykComponents =
+        let cmykValues =
         CMYKComponents(
             cyan: cyan,
             magenta: magenta,
@@ -107,8 +106,9 @@ public extension UIColor {
             key: key,
             alpha: alpha
         )
-        let rgbComponents = cmykComponents.asRGBComponents()
-        self.init(red: rgbComponents.red, green: rgbComponents.green, blue: rgbComponents.blue, alpha: alpha)
+        let rgbValues = cmykValues.rgbComponents
+
+        self.init(red: rgbValues.red, green: rgbValues.green, blue: rgbValues.blue, alpha: alpha)
     }
 
     /**
@@ -120,13 +120,13 @@ public extension UIColor {
      - parameter alpha: The destination for the alpha value of this color.
      - note: This conversion may be lossy.
      */
-    public func getCyan(inout cyanOut: CGFloat, inout magenta magentaOut: CGFloat, inout yellow yellowOut: CGFloat, inout key keyOut: CGFloat, inout alpha alphaOut: CGFloat) -> Bool {
+    public func getCyan(_ cyan: inout CGFloat, magenta: inout CGFloat, yellow: inout CGFloat, key: inout CGFloat, alpha: inout CGFloat) -> Bool {
         let components = cmykComponents
-        cyanOut = components.cyan
-        magentaOut = components.magenta
-        yellowOut = components.yellow
-        keyOut = components.key
-        alphaOut = components.alpha
+        cyan = components.cyan
+        magenta = components.magenta
+        yellow = components.yellow
+        key = components.key
+        alpha = components.alpha
         return true
     }
 
@@ -153,30 +153,54 @@ public extension UIColor {
 
 }
 
-/**
- Component conversion methods.
- */
-public extension CMYKComponents {
+
+//  MARK: Component conversion variables.
+
+extension CMYKComponents: CMYKConvertible {
+
+    /**
+     Reflects the same CMYK components.
+     */
+    public var cmykComponents: CMYKComponents {
+        return self
+    }
+
+}
+
+extension CMYKComponents: RGBConvertible {
 
     /**
      Converts CMYK components into RGB components.
      */
-    public func asRGBComponents() -> RGBComponents {
-        return color().rgbComponents
+    public var rgbComponents: RGBComponents {
+        let keyComplement = 1 - key
+        let redValue = (1 - cyan) * keyComplement
+        let greenValue = (1 - magenta) * keyComplement
+        let blueValue = (1 - yellow)  * keyComplement
+
+        return RGBComponents(red: redValue, green: greenValue, blue: blueValue, alpha: alpha)
     }
+
+}
+
+extension CMYKComponents: HSBConvertible {
 
     /**
      Converts CMYK components into HSB components.
      */
-    public func asHSBComponents() -> HSBComponents {
-        return color().hsbComponents
+    public var hsbComponents: HSBComponents {
+        return uiColor.hsbComponents
     }
+
+}
+
+extension CMYKComponents: GrayscaleConvertible {
 
     /**
      Converts CMYK components into grayscale components.
      */
-    public func asGrayscaleComponents() -> GrayscaleComponents {
-        return color().grayscaleComponents
+    public var grayscaleComponents: GrayscaleComponents {
+        return uiColor.grayscaleComponents
     }
     
 }
