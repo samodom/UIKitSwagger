@@ -13,39 +13,39 @@ import UIKit
  */
 public enum LayoutEdge {
 
-    case Leading, Trailing
-    case Left, Right
-    case Top, Bottom
+    case leading, trailing
+    case left, right
+    case top, bottom
 
     internal var layoutAxis: UILayoutConstraintAxis {
         switch self {
-        case .Top, .Bottom:
-            return .Vertical
+        case .top, .bottom:
+            return .vertical
 
         default:
-            return .Horizontal
+            return .horizontal
         }
     }
 
     internal func getLayoutAttribute(usingMargins useMargins: Bool) -> NSLayoutAttribute {
         switch self {
-        case .Left:
-            return useMargins ? .LeftMargin : .Left
+        case .left:
+            return useMargins ? .leftMargin : .left
 
-        case .Right:
-            return useMargins ? .RightMargin : .Right
+        case .right:
+            return useMargins ? .rightMargin : .right
 
-        case .Leading:
-            return useMargins ? .LeadingMargin : .Leading
+        case .leading:
+            return useMargins ? .leadingMargin : .leading
 
-        case .Trailing:
-            return useMargins ? .TrailingMargin : .Trailing
+        case .trailing:
+            return useMargins ? .trailingMargin : .trailing
 
-        case .Top:
-            return useMargins ? .TopMargin : .Top
+        case .top:
+            return useMargins ? .topMargin : .top
 
-        case .Bottom:
-            return useMargins ? .BottomMargin : .Bottom
+        case .bottom:
+            return useMargins ? .bottomMargin : .bottom
         }
     }
 
