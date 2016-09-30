@@ -72,11 +72,11 @@
 		0ACADAE71A3A8C6700CF49F8 /* AlertAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAE61A3A8C6700CF49F8 /* AlertAdditionSyntax.swift */; };
 		0ACADAEA1A3BE42B00CF49F8 /* SwitchStateManagementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAE91A3BE42B00CF49F8 /* SwitchStateManagementTests.swift */; };
 		0ACADAED1A3BE90600CF49F8 /* StateManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAEC1A3BE90600CF49F8 /* StateManagement.swift */; };
-		0ACADAF01A3BF0E500CF49F8 /* SliderIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAEF1A3BF0E500CF49F8 /* SliderIntervalTests.swift */; };
-		0ACADAF31A3BF4A500CF49F8 /* SliderInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAF21A3BF4A500CF49F8 /* SliderInterval.swift */; };
+		0ACADAF01A3BF0E500CF49F8 /* SliderRangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAEF1A3BF0E500CF49F8 /* SliderRangeTests.swift */; };
+		0ACADAF31A3BF4A500CF49F8 /* SliderRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAF21A3BF4A500CF49F8 /* SliderRange.swift */; };
 		0ACADAFF1A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADAFE1A3CF48900CF49F8 /* UIKitEnablable.swift */; };
-		0ACADB061A3CF71F00CF49F8 /* StepperInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB051A3CF71F00CF49F8 /* StepperInterval.swift */; };
-		0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */; };
+		0ACADB061A3CF71F00CF49F8 /* StepperRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB051A3CF71F00CF49F8 /* StepperRange.swift */; };
+		0ACADB0A1A3CF74900CF49F8 /* StepperRangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACADB081A3CF74900CF49F8 /* StepperRangeTests.swift */; };
 		0ACED1701AA384360073E42C /* HSBComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED16F1AA384360073E42C /* HSBComponentsTests.swift */; };
 		0ACED1721AA384420073E42C /* GrayscaleComponentsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED1711AA384420073E42C /* GrayscaleComponentsTests.swift */; };
 		0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACED1781AA387CD0073E42C /* TestConstants.swift */; };
@@ -180,11 +180,11 @@
 		0ACADAE61A3A8C6700CF49F8 /* AlertAdditionSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertAdditionSyntax.swift; sourceTree = "<group>"; };
 		0ACADAE91A3BE42B00CF49F8 /* SwitchStateManagementTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchStateManagementTests.swift; sourceTree = "<group>"; };
 		0ACADAEC1A3BE90600CF49F8 /* StateManagement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateManagement.swift; sourceTree = "<group>"; };
-		0ACADAEF1A3BF0E500CF49F8 /* SliderIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderIntervalTests.swift; sourceTree = "<group>"; };
-		0ACADAF21A3BF4A500CF49F8 /* SliderInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderInterval.swift; sourceTree = "<group>"; };
+		0ACADAEF1A3BF0E500CF49F8 /* SliderRangeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderRangeTests.swift; sourceTree = "<group>"; };
+		0ACADAF21A3BF4A500CF49F8 /* SliderRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderRange.swift; sourceTree = "<group>"; };
 		0ACADAFE1A3CF48900CF49F8 /* UIKitEnablable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitEnablable.swift; sourceTree = "<group>"; };
-		0ACADB051A3CF71F00CF49F8 /* StepperInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperInterval.swift; sourceTree = "<group>"; };
-		0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperIntervalTests.swift; sourceTree = "<group>"; };
+		0ACADB051A3CF71F00CF49F8 /* StepperRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperRange.swift; sourceTree = "<group>"; };
+		0ACADB081A3CF74900CF49F8 /* StepperRangeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperRangeTests.swift; sourceTree = "<group>"; };
 		0ACED16A1AA2D5400073E42C /* CMYKComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CMYKComponents.swift; sourceTree = "<group>"; };
 		0ACED16D1AA383A70073E42C /* RGBComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGBComponentsTests.swift; sourceTree = "<group>"; };
 		0ACED16F1AA384360073E42C /* HSBComponentsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSBComponentsTests.swift; sourceTree = "<group>"; };
@@ -325,10 +325,10 @@
 				0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */,
 				0ACED16D1AA383A70073E42C /* RGBComponentsTests.swift */,
 				0A9B690D1A05778300F3FFC2 /* ShowHideTests.swift */,
-				0ACADAEF1A3BF0E500CF49F8 /* SliderIntervalTests.swift */,
+				0ACADAEF1A3BF0E500CF49F8 /* SliderRangeTests.swift */,
 				0A5A29771A73351D003CB7EE /* SpinnerStateManagerTests.swift */,
 				0ADD2B011B4C7175002F822D /* StackViewSyntaxTests.swift */,
-				0ACADB081A3CF74900CF49F8 /* StepperIntervalTests.swift */,
+				0ACADB081A3CF74900CF49F8 /* StepperRangeTests.swift */,
 				0ACADAE91A3BE42B00CF49F8 /* SwitchStateManagementTests.swift */,
 				0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */,
 				0AC4A8D81A27FCF800EBCCB8 /* ViewAlignmentTests.swift */,
@@ -458,7 +458,7 @@
 		0ACADAF11A3BF47B00CF49F8 /* Slider */ = {
 			isa = PBXGroup;
 			children = (
-				0ACADAF21A3BF4A500CF49F8 /* SliderInterval.swift */,
+				0ACADAF21A3BF4A500CF49F8 /* SliderRange.swift */,
 			);
 			path = Slider;
 			sourceTree = "<group>";
@@ -474,7 +474,7 @@
 		0ACADB041A3CF71F00CF49F8 /* Stepper */ = {
 			isa = PBXGroup;
 			children = (
-				0ACADB051A3CF71F00CF49F8 /* StepperInterval.swift */,
+				0ACADB051A3CF71F00CF49F8 /* StepperRange.swift */,
 			);
 			path = Stepper;
 			sourceTree = "<group>";
@@ -638,7 +638,7 @@
 			files = (
 				0A63DFE11B3B5A0400B68DC0 /* LayoutGuideLayoutAttributes.swift in Sources */,
 				0ACED1811AA41EE10073E42C /* CMYKComponents.swift in Sources */,
-				0ACADB061A3CF71F00CF49F8 /* StepperInterval.swift in Sources */,
+				0ACADB061A3CF71F00CF49F8 /* StepperRange.swift in Sources */,
 				0A63DFE71B3CAE9B00B68DC0 /* Subscripting.swift in Sources */,
 				0AA5805F1A3D2B960061D882 /* GrayscaleComponents.swift in Sources */,
 				0ACADAFF1A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */,
@@ -660,9 +660,9 @@
 				0A9137331B50312300428632 /* LayoutDirection.swift in Sources */,
 				0AA580591A3D29EB0061D882 /* RGBComponents.swift in Sources */,
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
-				0ACADAF31A3BF4A500CF49F8 /* SliderInterval.swift in Sources */,
 				0A67BADD1A22E8FD0038D99A /* ViewControllerAutoLayoutAttributes.swift in Sources */,
 				0A3F1B4E1A4112F500195B8F /* ConstraintApplication.swift in Sources */,
+				0ACADAF31A3BF4A500CF49F8 /* SliderRange.swift in Sources */,
 				0A10F28F1A3D16E600715C7A /* ColorComponents.swift in Sources */,
 				0A63F7501A3E15D9001FBFF7 /* BehaviorAdditionSyntax.swift in Sources */,
 				0ACADAED1A3BE90600CF49F8 /* StateManagement.swift in Sources */,
@@ -681,13 +681,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A8028131A342EEA00816792 /* ControlEnablingTests.swift in Sources */,
-				0ACADB0A1A3CF74900CF49F8 /* StepperIntervalTests.swift in Sources */,
 				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
+				0ACADB0A1A3CF74900CF49F8 /* StepperRangeTests.swift in Sources */,
 				0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */,
 				0A67BAE01A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift in Sources */,
 				0ACED17F1AA3E4E10073E42C /* RGBComponentsTests.swift in Sources */,
-				0ACADAF01A3BF0E500CF49F8 /* SliderIntervalTests.swift in Sources */,
+				0ACADAF01A3BF0E500CF49F8 /* SliderRangeTests.swift in Sources */,
 				0A10F28D1A3D147700715C7A /* ColorComponentConversionTests.swift in Sources */,
 				0A5D736A1BC9973E005DEB73 /* LayoutEdgeTests.swift in Sources */,
 				0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */,
