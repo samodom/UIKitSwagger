@@ -11,8 +11,8 @@ import XCTest
 
 class SwitchStateManagementTests: XCTestCase {
 
-    let toggle1 = TestSwitch()
-    let toggle2 = TestSwitch()
+    fileprivate let toggle1 = TestSwitch()
+    fileprivate let toggle2 = TestSwitch()
 
     func testOffIsNotOn() {
         toggle1.isOn = true
