@@ -363,12 +363,12 @@
 		0A3BB9A019EB71F00075B32A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0A2312681A327F4F00BE92BE /* ViewAdditionSyntax.swift */,
 				0A5D736D1BC99BA7005DEB73 /* Alignment.swift */,
 				0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */,
 				0A3F1B4D1A4112F500195B8F /* ConstraintApplication.swift */,
 				0A63DFE61B3CAE9B00B68DC0 /* Subscripting.swift */,
 				0A9B690F1A05799200F3FFC2 /* Utilities.swift */,
+				0A2312681A327F4F00BE92BE /* ViewAdditionSyntax.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

@@ -8,8 +8,8 @@
 
 import UIKit
 
-public typealias UIAlertTextFieldConfigurationHandler = UITextField -> Void
-public typealias UIAlertActionHandler = UIAlertAction -> Void
+public typealias UIAlertTextFieldConfigurationHandler = (UITextField) -> Void
+public typealias UIAlertActionHandler = (UIAlertAction) -> Void
 
 /**
  An operator used to add an alert action to an alert controller.
@@ -36,9 +36,9 @@ public func +=(controller: UIAlertController, actions: [UIAlertAction]) {
  - parameter textFieldConfigurationHandler: Configuration handler for a text field to add to the controller.
  - warning: This is only allowed for alert controllers using the `Alert` style.  Attempting to add a text field to an `ActionSheet` style alert controller results in a failure.
  */
-public func +=(controller: UIAlertController, textFieldConfigurationHandler: UIAlertTextFieldConfigurationHandler) {
+public func +=(controller: UIAlertController, textFieldConfigurationHandler: @escaping UIAlertTextFieldConfigurationHandler) {
     AssertAlertControllerCanAddTextFields(controller)
-    controller.addTextFieldWithConfigurationHandler(textFieldConfigurationHandler)
+    controller.addTextField(configurationHandler: textFieldConfigurationHandler)
 }
 
 /**
@@ -55,6 +55,6 @@ public func +=(controller: UIAlertController, textFieldConfigurationHandlers: [U
 
 ////////////////////////////////////////////////////////////////////////////////
 
-private func AssertAlertControllerCanAddTextFields(controller: UIAlertController) {
-    assert(controller.preferredStyle == .Alert, "Text fields cannot be added to an action sheet styled alert controller")
+private func AssertAlertControllerCanAddTextFields(_ controller: UIAlertController) {
+    assert(controller.preferredStyle == .alert, "Text fields cannot be added to an action sheet styled alert controller")
 }
