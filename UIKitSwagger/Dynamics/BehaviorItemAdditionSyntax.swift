@@ -9,8 +9,8 @@
 import UIKit
 
 public protocol UIDynamicBehaviorItemAdditive {
-    func addItem(item: UIDynamicItem)
-    func removeItem(item: UIDynamicItem)
+    func addItem(_ item: UIDynamicItem)
+    func removeItem(_ item: UIDynamicItem)
 }
 
 extension UIDynamicItemBehavior: UIDynamicBehaviorItemAdditive { }
