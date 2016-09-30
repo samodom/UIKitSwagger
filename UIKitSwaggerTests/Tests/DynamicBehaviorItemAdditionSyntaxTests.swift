@@ -16,7 +16,7 @@ class DynamicBehaviorItemAdditionSyntaxTests: XCTestCase {
     let itemBehavior = UIDynamicItemBehavior()
     let gravityBehavior = UIGravityBehavior()
     let collisionBehavior = UICollisionBehavior()
-    let pushBehavior = UIPushBehavior()
+    let pushBehavior = UIPushBehavior(items: [], mode: .continuous)
     let dynamicItem1 = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
     let dynamicItem2 = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
     let dynamicItem3 = UIView(frame: CGRect(x: 0, y: 0, width: 55, height: 10))
