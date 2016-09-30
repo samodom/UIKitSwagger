@@ -13,7 +13,7 @@ import UIKit
  - parameter views: One or more views to hide.
  - warning: This method does not explicitly use the main thread.
  */
-public func HideViews(views: UIView...) {
+public func HideViews(_ views: UIView...) {
     HideViews(views)
 }
 
@@ -22,8 +22,8 @@ public func HideViews(views: UIView...) {
  - parameter views: An array of views to hide.
  - warning: This method does not explicitly use the main thread.
  */
-public func HideViews(views: [UIView]) {
-    views.forEach { $0.hidden = true }
+public func HideViews(_ views: [UIView]) {
+    views.forEach { $0.isHidden = true }
 }
 
 /**
@@ -31,7 +31,7 @@ public func HideViews(views: [UIView]) {
  - parameter views: One or more views to show.
  - warning: This method does not explicitly use the main thread.
  */
-public func ShowViews(views: UIView...) {
+public func ShowViews(_ views: UIView...) {
     ShowViews(views)
 }
 
@@ -40,15 +40,15 @@ public func ShowViews(views: UIView...) {
  - parameter views: An array of views to show.
  - warning: This method does not explicitly use the main thread.
  */
-public func ShowViews(views: [UIView]) {
-    views.forEach { $0.hidden = false }
+public func ShowViews(_ views: [UIView]) {
+    views.forEach { $0.isHidden = false }
 }
 
 /**
  Utility function for turning off autoresizing-mask-to-constraint translation for one or more views.
  - parameter views: One or more views on which to turn off translation.
  */
-public func DoNotTranslateMasks(views: UIView...) {
+public func DoNotTranslateMasks(_ views: UIView...) {
     DoNotTranslateMasks(views)
 }
 
@@ -56,6 +56,6 @@ public func DoNotTranslateMasks(views: UIView...) {
  Utility function for turning off autoresizing-mask-to-constraint translation for an array of views.
  - parameter views: An array of views on which to turn off translation.
  */
-public func DoNotTranslateMasks(views: [UIView]) {
+public func DoNotTranslateMasks(_ views: [UIView]) {
     views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
 }

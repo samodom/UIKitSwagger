@@ -32,7 +32,7 @@ extension UIView {
                 return superview
 
             default:
-                return superview?[index.successor()]
+                return superview?[index + 1]
             }
         }
 
@@ -41,14 +41,14 @@ extension UIView {
                 let oldView = subviews[index]
                 oldView.removeFromSuperview()
 
-                if newSuperview != nil {
-                    insertSubview(newSuperview!, atIndex: index)
+                if let parent = newSuperview {
+                    insertSubview(parent, at: index)
                 }
             }
 
             else {
                 removeFromSuperview()
-                newSuperview!.addSubview(self)
+                newSuperview?.addSubview(self)
             }
         }
 
@@ -64,8 +64,8 @@ public extension UIView {
      - parameter indexOne: Index of first subview to swap.
      - parameter indexTwo: Index of second subview to swap.
      */
-    public func swap(indexOne: Int, _ indexTwo: Int) {
-        exchangeSubviewAtIndex(indexOne, withSubviewAtIndex: indexTwo)
+    public func swap(_ indexOne: Int, _ indexTwo: Int) {
+        exchangeSubview(at: indexOne, withSubviewAt: indexTwo)
     }
     
 }
