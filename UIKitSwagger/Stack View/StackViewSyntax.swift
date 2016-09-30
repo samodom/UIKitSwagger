@@ -17,9 +17,9 @@ import UIKit
  - returns: The stack view that was created and configured according to the provided parameters.
  */
 @available(iOS 9.0, *)
-public func StackHorizontally(views: [UIView], alignment: UIStackViewAlignment = .Fill, distribution: UIStackViewDistribution = .Fill,
+public func StackHorizontally(views: [UIView], alignment: UIStackViewAlignment = .fill, distribution: UIStackViewDistribution = .fill,
     spacing: CGFloat = 0.0) -> UIStackView {
-        return CreateStackView(views, axis: .Horizontal, alignment: alignment, distribution: distribution, spacing: spacing)
+    return CreateStackView(views: views, axis: .horizontal, alignment: alignment, distribution: distribution, spacing: spacing)
 }
 
 /**
@@ -31,13 +31,13 @@ public func StackHorizontally(views: [UIView], alignment: UIStackViewAlignment =
  - returns: The stack view that was created and configured according to the provided parameters.
  */
 @available(iOS 9.0, *)
-public func StackVertically(views: [UIView], alignment: UIStackViewAlignment = .Fill, distribution: UIStackViewDistribution = .Fill,
+public func StackVertically(views: [UIView], alignment: UIStackViewAlignment = .fill, distribution: UIStackViewDistribution = .fill,
     spacing: CGFloat = 0.0) -> UIStackView {
-        return CreateStackView(views, axis: .Vertical, alignment: alignment, distribution: distribution, spacing: spacing)
+    return CreateStackView(views: views, axis: .vertical, alignment: alignment, distribution: distribution, spacing: spacing)
 }
 
 @available(iOS 9.0, *)
-private func CreateStackView(views: [UIView], axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment = .Fill, distribution: UIStackViewDistribution = .Fill, spacing: CGFloat = 0.0) -> UIStackView {
+private func CreateStackView(views: [UIView], axis: UILayoutConstraintAxis, alignment: UIStackViewAlignment = .fill, distribution: UIStackViewDistribution = .fill, spacing: CGFloat = 0.0) -> UIStackView {
     let stackView = UIStackView(arrangedSubviews: views)
     stackView.axis = axis
     stackView.alignment = alignment
