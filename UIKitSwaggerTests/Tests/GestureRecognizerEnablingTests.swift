@@ -17,28 +17,28 @@ class GestureRecognizerEnablingTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        enabledRecognizer.enabled = true
-        disabledRecognizer.enabled = false
+        enabledRecognizer.isEnabled = true
+        disabledRecognizer.isEnabled = false
     }
 
     func testEnablingDisabledGestureRecognizer() {
         disabledRecognizer.enable()
-        XCTAssertTrue(disabledRecognizer.enabled, "The disabled recognizer should be enabled")
+        XCTAssertTrue(disabledRecognizer.isEnabled, "The disabled recognizer should be enabled")
     }
 
     func testNotDisablingEnabledGestureRecognizer() {
         enabledRecognizer.enable()
-        XCTAssertTrue(enabledRecognizer.enabled, "The enabled recognizer should not be disabled")
+        XCTAssertTrue(enabledRecognizer.isEnabled, "The enabled recognizer should not be disabled")
     }
 
     func testDisablingEnabledGestureRecognizer() {
         enabledRecognizer.disable()
-        XCTAssertFalse(enabledRecognizer.enabled, "The enabled recognizer should be disabled")
+        XCTAssertFalse(enabledRecognizer.isEnabled, "The enabled recognizer should be disabled")
     }
 
     func testNotEnablingDisabledGestureRecognizer() {
         disabledRecognizer.disable()
-        XCTAssertFalse(disabledRecognizer.enabled, "The disabled recognizer should not be enabled")
+        XCTAssertFalse(disabledRecognizer.isEnabled, "The disabled recognizer should not be enabled")
     }
 
 }

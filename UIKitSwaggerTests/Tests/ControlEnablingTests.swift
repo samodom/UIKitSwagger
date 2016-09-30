@@ -17,28 +17,28 @@ class ControlEnablingTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        enabledControl.enabled = true
-        disabledControl.enabled = false
+        enabledControl.isEnabled = true
+        disabledControl.isEnabled = false
     }
 
     func testEnablingDisabledControl() {
         disabledControl.enable()
-        XCTAssertTrue(disabledControl.enabled, "The disabled control should be enabled")
+        XCTAssertTrue(disabledControl.isEnabled, "The disabled control should be enabled")
     }
 
     func testNotDisablingEnabledControl() {
         enabledControl.enable()
-        XCTAssertTrue(enabledControl.enabled, "The enabled control should not be disabled")
+        XCTAssertTrue(enabledControl.isEnabled, "The enabled control should not be disabled")
     }
 
     func testDisablingEnabledControl() {
         enabledControl.disable()
-        XCTAssertFalse(enabledControl.enabled, "The enabled control should be disabled")
+        XCTAssertFalse(enabledControl.isEnabled, "The enabled control should be disabled")
     }
 
     func testNotEnablingDisabledControl() {
         disabledControl.disable()
-        XCTAssertFalse(disabledControl.enabled, "The disabled control should not be enabled")
+        XCTAssertFalse(disabledControl.isEnabled, "The disabled control should not be enabled")
     }
 
 }

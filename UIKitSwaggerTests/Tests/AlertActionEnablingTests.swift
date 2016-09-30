@@ -17,28 +17,28 @@ class AlertActionEnablingTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        enabledAction.enabled = true
-        disabledAction.enabled = false
+        enabledAction.isEnabled = true
+        disabledAction.isEnabled = false
     }
 
     func testEnablingDisabledAlertAction() {
         disabledAction.enable()
-        XCTAssertTrue(disabledAction.enabled, "The disabled action should be enabled")
+        XCTAssertTrue(disabledAction.isEnabled, "The disabled action should be enabled")
     }
 
     func testNotDisablingEnabledAlertAction() {
         enabledAction.enable()
-        XCTAssertTrue(enabledAction.enabled, "The enabled action should not be disabled")
+        XCTAssertTrue(enabledAction.isEnabled, "The enabled action should not be disabled")
     }
 
     func testDisablingEnabledAlertAction() {
         enabledAction.disable()
-        XCTAssertFalse(enabledAction.enabled, "The enabled action should be disabled")
+        XCTAssertFalse(enabledAction.isEnabled, "The enabled action should be disabled")
     }
 
     func testNotEnablingDisabledAlertAction() {
         disabledAction.disable()
-        XCTAssertFalse(disabledAction.enabled, "The disabled action should not be enabled")
+        XCTAssertFalse(disabledAction.isEnabled, "The disabled action should not be enabled")
     }
 
 }
