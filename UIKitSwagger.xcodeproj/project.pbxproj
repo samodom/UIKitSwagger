@@ -13,6 +13,11 @@
 		0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */; };
 		0A2312691A327F4F00BE92BE /* ViewAdditionSyntax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2312681A327F4F00BE92BE /* ViewAdditionSyntax.swift */; };
 		0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */; };
+		0A2568851D9EDD42001E2A44 /* ConstraintActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0891A28FFD700A5C0F9 /* ConstraintActivation.swift */; };
+		0A2568861D9EDD48001E2A44 /* ConstraintSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AA19EB740F0075B32A /* ConstraintSearch.swift */; };
+		0A2568871D9EDD67001E2A44 /* ConstraintActivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */; };
+		0A2568881D9EDD6D001E2A44 /* ConstraintSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */; };
+		0A2568891D9EDFAF001E2A44 /* ConstraintRemoval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F1B4D1A4112F500195B8F /* ConstraintRemoval.swift */; };
 		0A3BB97F19EB70C70075B32A /* UIKitSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3BB98519EB70C70075B32A /* UIKitSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */; };
 		0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */; };
@@ -49,7 +54,6 @@
 		0AA580591A3D29EB0061D882 /* RGBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA580581A3D29EB0061D882 /* RGBComponents.swift */; };
 		0AA5805C1A3D2B830061D882 /* HSBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805B1A3D2B830061D882 /* HSBComponents.swift */; };
 		0AA5805F1A3D2B960061D882 /* GrayscaleComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805E1A3D2B960061D882 /* GrayscaleComponents.swift */; };
-		0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */; };
 		0AA70B9B1D9E313E006C9DD1 /* ConstraintReversalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */; };
 		0AA70B9C1D9E3264006C9DD1 /* ConstraintReversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52547A1B34CF1600BC39DC /* ConstraintReversal.swift */; };
 		0AA70B9E1D9E339B006C9DD1 /* ConstraintComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99F19EB71F00075B32A /* ConstraintComparison.swift */; };
@@ -58,6 +62,7 @@
 		0AA70BA11D9E3B5C006C9DD1 /* LayoutDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9137321B50312300428632 /* LayoutDirection.swift */; };
 		0AA70BA21D9E3B75006C9DD1 /* LayoutEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D73671BC995FD005DEB73 /* LayoutEdge.swift */; };
 		0AA70BA31D9E3B82006C9DD1 /* LayoutEdgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D73691BC9973E005DEB73 /* LayoutEdgeTests.swift */; };
+		0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */; };
 		0AC37F921A29541C00E1C943 /* MainThreadUpdatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */; };
 		0AC37F951A29595300E1C943 /* Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F941A29595300E1C943 /* Concurrency.swift */; };
 		0AC4A8B71A27E05600EBCCB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8B61A27E05600EBCCB8 /* AppDelegate.swift */; };
@@ -634,6 +639,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A2568861D9EDD48001E2A44 /* ConstraintSearch.swift in Sources */,
 				0A63DFE11B3B5A0400B68DC0 /* LayoutGuideLayoutAttributes.swift in Sources */,
 				0ACED1811AA41EE10073E42C /* CMYKComponents.swift in Sources */,
 				0ACADB061A3CF71F00CF49F8 /* StepperRange.swift in Sources */,
@@ -641,6 +647,7 @@
 				0AA5805F1A3D2B960061D882 /* GrayscaleComponents.swift in Sources */,
 				0ACADAFF1A3CF48900CF49F8 /* UIKitEnablable.swift in Sources */,
 				0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */,
+				0A2568891D9EDFAF001E2A44 /* ConstraintRemoval.swift in Sources */,
 				0ADD2B051B4C725E002F822D /* StackViewSyntax.swift in Sources */,
 				0A5A297B1A73368B003CB7EE /* SpinnerStateManager.swift in Sources */,
 				0AC37F951A29595300E1C943 /* Concurrency.swift in Sources */,
@@ -654,6 +661,7 @@
 				0AA580591A3D29EB0061D882 /* RGBComponents.swift in Sources */,
 				0A67BAE21A22FF240038D99A /* AutoLayoutSyntax.swift in Sources */,
 				0A67BADD1A22E8FD0038D99A /* ViewControllerAutoLayoutAttributes.swift in Sources */,
+				0A2568851D9EDD42001E2A44 /* ConstraintActivation.swift in Sources */,
 				0ACADAF31A3BF4A500CF49F8 /* SliderRange.swift in Sources */,
 				0A10F28F1A3D16E600715C7A /* ColorComponents.swift in Sources */,
 				0A63F7501A3E15D9001FBFF7 /* BehaviorAdditionSyntax.swift in Sources */,
@@ -703,6 +711,7 @@
 				0A63F74E1A3E147B001FBFF7 /* DynamicBehaviorAdditionSyntaxTests.swift in Sources */,
 				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,
 				0ACED1701AA384360073E42C /* HSBComponentsTests.swift in Sources */,
+				0A2568871D9EDD67001E2A44 /* ConstraintActivationTests.swift in Sources */,
 				0AA70B9F1D9E33A2006C9DD1 /* ConstraintComparisonTests.swift in Sources */,
 				0A5A29781A73351D003CB7EE /* SpinnerStateManagerTests.swift in Sources */,
 				0A67BADA1A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift in Sources */,
@@ -713,6 +722,7 @@
 				0A63F7481A3E0EA3001FBFF7 /* DynamicAnimatorAdditionSyntaxTests.swift in Sources */,
 				0A63DFDE1B3B59A100B68DC0 /* LayoutGuideLayoutAttributesTests.swift in Sources */,
 				0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */,
+				0A2568881D9EDD6D001E2A44 /* ConstraintSearchTests.swift in Sources */,
 				0A8028091A34257C00816792 /* BarItemEnablingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

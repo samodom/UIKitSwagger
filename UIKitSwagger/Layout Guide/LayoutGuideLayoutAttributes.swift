@@ -12,113 +12,113 @@ import UIKit
 extension UILayoutGuide: AutoLayoutAttributable {
 
     public var left: AutoLayoutAttributedItem {
-        return (self, .Left)
+        return (self, .left)
     }
 
     public var leftMargin: AutoLayoutAttributedItem {
-        return (self, .Left)
+        return (self, .left)
     }
 
     public var right: AutoLayoutAttributedItem {
-        return (self, .Right)
+        return (self, .right)
     }
 
     public var rightMargin: AutoLayoutAttributedItem {
-        return (self, .Right)
+        return (self, .right)
     }
 
     public var top: AutoLayoutAttributedItem {
-        return (self, .Top)
+        return (self, .top)
     }
 
     public var topMargin: AutoLayoutAttributedItem {
-        return (self, .Top)
+        return (self, .top)
     }
 
     public var bottom: AutoLayoutAttributedItem {
-        return (self, .Bottom)
+        return (self, .bottom)
     }
 
     public var bottomMargin: AutoLayoutAttributedItem {
-        return (self, .Bottom)
+        return (self, .bottom)
     }
 
     public var leading: AutoLayoutAttributedItem {
-        return (self, .Leading)
+        return (self, .leading)
     }
 
     public var leadingMargin: AutoLayoutAttributedItem {
-        return (self, .Leading)
+        return (self, .leading)
     }
 
     public var trailing: AutoLayoutAttributedItem {
-        return (self, .Trailing)
+        return (self, .trailing)
     }
 
     public var trailingMargin: AutoLayoutAttributedItem {
-        return (self, .Trailing)
+        return (self, .trailing)
     }
 
     public var width: AutoLayoutAttributedItem {
-        return (self, .Width)
+        return (self, .width)
     }
 
     public var height: AutoLayoutAttributedItem {
-        return (self, .Height)
+        return (self, .height)
     }
 
     public var centerX: AutoLayoutAttributedItem {
-        return (self, .CenterX)
+        return (self, .centerX)
     }
 
     public var centerXInMargins: AutoLayoutAttributedItem {
-        return (self, .CenterX)
+        return (self, .centerX)
     }
 
     public var centerY: AutoLayoutAttributedItem {
-        return (self, .CenterY)
+        return (self, .centerY)
     }
 
     public var centerYInMargins: AutoLayoutAttributedItem {
-        return (self, .CenterY)
+        return (self, .centerY)
     }
 
     public var baseline: AutoLayoutAttributedItem {
-        return (self, .Bottom)
+        return (self, .bottom)
     }
 
     public var firstBaseline: AutoLayoutAttributedItem {
-        return (self, .Bottom)
+        return (self, .bottom)
     }
 
     public var nonAttribute: AutoLayoutAttributedItem {
-        return (self, .NotAnAttribute)
+        return (self, .notAnAttribute)
     }
 
-    public func attributedItemForLayoutAttribute(attribute: NSLayoutAttribute) -> AutoLayoutAttributedItem {
+    public func attributedItemForLayoutAttribute(_ attribute: NSLayoutAttribute) -> AutoLayoutAttributedItem {
         switch attribute {
-        case .LeftMargin:
+        case .leftMargin:
             return left
 
-        case .RightMargin:
+        case .rightMargin:
             return right
 
-        case .TopMargin:
+        case .topMargin:
             return top
 
-        case .BottomMargin, .Baseline, .FirstBaseline:
+        case .bottomMargin, .lastBaseline, .firstBaseline:
             return bottom
 
-        case .LeadingMargin:
+        case .leadingMargin:
             return leading
 
-        case .TrailingMargin:
+        case .trailingMargin:
             return trailing
 
-        case .CenterXWithinMargins:
+        case .centerXWithinMargins:
             return centerX
             
-        case .CenterYWithinMargins:
+        case .centerYWithinMargins:
             return centerY
             
         default:

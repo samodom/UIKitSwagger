@@ -8,8 +8,8 @@
 
 import UIKit
 
-private let DefaultHorizontalFillDirection = LayoutDirection.LeadingToTrailing
-private let DefaultFillDirections: Set<LayoutDirection> = [.LeadingToTrailing, .TopToBottom]
+private let DefaultHorizontalFillDirection = LayoutDirection.leadingToTrailing
+private let DefaultFillDirections: Set<LayoutDirection> = [.leadingToTrailing, .topToBottom]
 
 public extension UIView {
 
@@ -28,8 +28,8 @@ public extension UIView {
             guard superview != nil else { return [] }
             AssertCompatibleEdges(edgesToExclude, withDirections: directions)
 
-            let attributePairs = attributePairsForFillingInDirections(
-                directions,
+            let attributePairs = attributePairsForFilling(
+                inDirections: directions,
                 excludingEdges: edgesToExclude,
                 respectingMargins: respectMargins
             )
@@ -46,8 +46,8 @@ public extension UIView {
 
 private typealias FillingAttributePair = (subviewAttribute: NSLayoutAttribute, superviewAttribute: NSLayoutAttribute)
 
-private func attributePairsForFillingInDirections(
-    directions: Set<LayoutDirection>,
+private func attributePairsForFilling(
+    inDirections directions: Set<LayoutDirection>,
     excludingEdges edgesToExclude: Set<LayoutEdge>,
     respectingMargins useMargins: Bool) -> [FillingAttributePair] {
 
@@ -58,20 +58,20 @@ private func attributePairsForFillingInDirections(
             ))
 }
 
-private func AssertDirectionsAreValid(directions: Set<LayoutDirection>) {
+private func AssertDirectionsAreValid(_ directions: Set<LayoutDirection>) {
     assert(directions.count <= 2)
     var usingLeftToRight = false
     var usingLeadingToTrailing = false
 
     directions.forEach {
         switch $0 {
-        case .LeadingToTrailing, .TrailingToLeading:
+        case .leadingToTrailing, .trailingToLeading:
             usingLeadingToTrailing = true
 
-        case .LeftToRight, .RightToLeft:
+        case .leftToRight, .rightToLeft:
             usingLeftToRight = true
 
-        case .TopToBottom, .BottomToTop:
+        case .topToBottom, .bottomToTop:
             break
         }
 
@@ -80,19 +80,19 @@ private func AssertDirectionsAreValid(directions: Set<LayoutDirection>) {
     }
 }
 
-private func AssertEdgesAreValid(edges: Set<LayoutEdge>) {
+private func AssertEdgesAreValid(_ edges: Set<LayoutEdge>) {
     var usingLeftToRight = false
     var usingLeadingToTrailing = false
 
     edges.forEach {
         switch $0 {
-        case .Leading, .Trailing:
+        case .leading, .trailing:
             usingLeadingToTrailing = true
 
-        case .Left, .Right:
+        case .left, .right:
             usingLeftToRight = true
 
-        case .Top, .Bottom:
+        case .top, .bottom:
             break
         }
 
@@ -101,7 +101,7 @@ private func AssertEdgesAreValid(edges: Set<LayoutEdge>) {
     }
 }
 
-private func AssertCompatibleEdges(edges: Set<LayoutEdge>, withDirections directions: Set<LayoutDirection>) {
+private func AssertCompatibleEdges(_ edges: Set<LayoutEdge>, withDirections directions: Set<LayoutDirection>) {
     AssertDirectionsAreValid(directions)
     AssertEdgesAreValid(edges)
 
@@ -110,26 +110,26 @@ private func AssertCompatibleEdges(edges: Set<LayoutEdge>, withDirections direct
 
     directions.forEach {
         switch $0 {
-        case .LeadingToTrailing, .TrailingToLeading:
+        case .leadingToTrailing, .trailingToLeading:
             usingLeadingToTrailing = true
 
-        case .LeftToRight, .RightToLeft:
+        case .leftToRight, .rightToLeft:
             usingLeftToRight = true
 
-        case .TopToBottom, .BottomToTop:
+        case .topToBottom, .bottomToTop:
             break
         }
     }
 
     edges.forEach {
         switch $0 {
-        case .Leading, .Trailing:
+        case .leading, .trailing:
             assert(!usingLeftToRight, "Left/right edges may not be used with leading/trailing directions")
 
-        case .Left, .Right:
+        case .left, .right:
             assert(!usingLeadingToTrailing, "Leading/trailing edges may not be used with left/right directions")
             
-        case .Top, .Bottom:
+        case .top, .bottom:
             break
         }
     }

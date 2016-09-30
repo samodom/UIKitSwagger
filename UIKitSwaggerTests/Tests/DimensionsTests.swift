@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
-@testable import UIKitSwagger
+import UIKitSwagger
 
 class DimensionsTests: XCTestCase {
 
@@ -85,14 +84,14 @@ class DimensionsTests: XCTestCase {
 
     func testWidthToHeightAspectRatio() {
         returnedConstraint = view1.constrainWidthToHeight(2.5)
-        let expected = view1.width =* 2.5 * view1.height
+        let expected = view1.width =* (2.5 * view1.height)
         XCTAssertTrue(view1.hasConstraint(expected), "The view's width should be constrained to 2.5 times its height")
         XCTAssertEqual(returnedConstraint, expected, "The applied constraint should be returned to the caller")
     }
 
     func testWidthToHeightAspectRatioWithOffset() {
         returnedConstraint = view1.constrainWidthToHeight(2.5, offset: 14)
-        let expected = view1.width =* 2.5 * view1.height + 14
+        let expected = view1.width =* ((2.5 * view1.height) + 14)
         XCTAssertTrue(view1.hasConstraint(expected), "The view's width should be constrained to 2.5 times its height plus 14 pt")
         XCTAssertEqual(returnedConstraint, expected, "The applied constraint should be returned to the caller")
     }
@@ -106,14 +105,14 @@ class DimensionsTests: XCTestCase {
 
     func testHeightToWidthAspectRatio() {
         returnedConstraint = view1.constrainHeightToWidth(2.5)
-        let expected = view1.height =* 2.5 * view1.width
+        let expected = view1.height =* (2.5 * view1.width)
         XCTAssertTrue(view1.hasConstraint(expected), "The view's height should be constrained to its width")
         XCTAssertEqual(returnedConstraint, expected, "The applied constraint should be returned to the caller")
     }
 
     func testHeightToWidthAspectRatioWithOffset() {
         returnedConstraint = view1.constrainHeightToWidth(2.5, offset: 14)
-        let expected = view1.height =* 2.5 * view1.width + 14
+        let expected = view1.height =* ((2.5 * view1.width) + 14)
         XCTAssertTrue(view1.hasConstraint(expected), "The view's height should be constrained to its width plus 14 pt")
         XCTAssertEqual(returnedConstraint, expected, "The applied constraint should be returned to the caller")
     }
@@ -128,7 +127,7 @@ class DimensionsTests: XCTestCase {
     //  MARK: Matching dimensions between items
 
     func testMatchingViewWidthsWithList() {
-        returnedConstraints = MatchWidths(view1, view2, view3)
+        returnedConstraints = MatchWidths(items: view1, view2, view3)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = view2.width =* view1.width
         XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same width as the first view")
@@ -139,7 +138,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testMatchingViewWidthsWithArray() {
-        returnedConstraints = MatchWidths([view1, view2, view3])
+        returnedConstraints = MatchWidths(items: [view1, view2, view3])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = view2.width =* view1.width
         XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same width as the first view")
@@ -150,7 +149,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testMatchingViewHeightsWithList() {
-        returnedConstraints = MatchHeights(view1, view2, view3)
+        returnedConstraints = MatchHeights(items: view1, view2, view3)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = view2.height =* view1.height
         XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same height as the first view")
@@ -161,7 +160,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testMatchingViewHeightsWithArray() {
-        returnedConstraints = MatchHeights([view1, view2, view3])
+        returnedConstraints = MatchHeights(items: [view1, view2, view3])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = view2.height =* view1.height
         XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same height as the first view")
@@ -174,14 +173,14 @@ class DimensionsTests: XCTestCase {
     //  MARK: Restricting item dimensions to constant
 
     func testConstrainingViewWidthWithSingleItem() {
-        returnedConstraints = ConstrainWidths(42.2, items: view1)
+        returnedConstraints = ConstrainWidths(width: 42.2, items: view1)
         let expected = view1.width =* 42.2
         XCTAssertEqual(returnedConstraints, [expected], "The width constraint should be returned")
         XCTAssertTrue(view1.hasConstraint(expected), "The view's width should be constrained")
     }
 
     func testConstrainingViewWidthsWithList() {
-        returnedConstraints = ConstrainWidths(42.2, items: view1, view2, view3)
+        returnedConstraints = ConstrainWidths(width: 42.2, items: view1, view2, view3)
         let expected = [
             view1.width =* 42.2,
             view2.width =* 42.2,
@@ -194,7 +193,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testConstrainingViewWidthsWithArray() {
-        returnedConstraints = ConstrainWidths(42.2, items: [view1, view2, view3])
+        returnedConstraints = ConstrainWidths(width: 42.2, items: [view1, view2, view3])
         let expected = [
             view1.width =* 42.2,
             view2.width =* 42.2,
@@ -207,14 +206,14 @@ class DimensionsTests: XCTestCase {
     }
 
     func testConstrainingViewHeightWithSingleItem() {
-        returnedConstraints = ConstrainHeights(42.2, items: view1)
+        returnedConstraints = ConstrainHeights(height: 42.2, items: view1)
         let expected = view1.height =* 42.2
         XCTAssertEqual(returnedConstraints, [expected], "The height constraint should be returned")
         XCTAssertTrue(view1.hasConstraint(expected), "The view's height should be constrained")
     }
 
     func testConstrainingViewHeightsWithList() {
-        returnedConstraints = ConstrainHeights(42.2, items: view1, view2, view3)
+        returnedConstraints = ConstrainHeights(height: 42.2, items: view1, view2, view3)
         let expected = [
             view1.height =* 42.2,
             view2.height =* 42.2,
@@ -227,7 +226,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testConstrainingViewHeightsWithArray() {
-        returnedConstraints = ConstrainHeights(42.2, items: [view1, view2, view3])
+        returnedConstraints = ConstrainHeights(height: 42.2, items: [view1, view2, view3])
         let expected = [
             view1.height =* 42.2,
             view2.height =* 42.2,
@@ -242,7 +241,7 @@ class DimensionsTests: XCTestCase {
     //  MARK: Restricting item dimensions to interval
 
     func testConstrainingViewWidthIntervalWithSingleItem() {
-        returnedConstraints = ConstrainWidths(42.2 ... 99.9, items: view1)
+        returnedConstraints = ConstrainWidths(range: 42.2 ... 99.9, items: view1)
         let expected = [
             view1.width >=* 42.2,
             view1.width <=* 99.9
@@ -253,7 +252,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testConstrainingViewWidthIntervalsWithList() {
-        returnedConstraints = ConstrainWidths(42.2 ... 99.9, items: view1, view2, view3)
+        returnedConstraints = ConstrainWidths(range: 42.2 ... 99.9, items: view1, view2, view3)
         let expected = [
             view1.width >=* 42.2,
             view1.width <=* 99.9,
@@ -272,7 +271,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testConstrainingViewWidthIntervalsWithArray() {
-        returnedConstraints = ConstrainWidths(42.2 ... 99.9, items: [view1, view2, view3])
+        returnedConstraints = ConstrainWidths(range: 42.2 ... 99.9, items: [view1, view2, view3])
         let expected = [
             view1.width >=* 42.2,
             view1.width <=* 99.9,
@@ -291,7 +290,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testConstrainingViewHeightIntervalWithSingleItem() {
-        returnedConstraints = ConstrainHeights(42.2 ... 99.9, items: view1)
+        returnedConstraints = ConstrainHeights(range: 42.2 ... 99.9, items: view1)
         let expected = [
             view1.height >=* 42.2,
             view1.height <=* 99.9
@@ -302,7 +301,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testConstrainingViewHeightIntervalsWithList() {
-        returnedConstraints = ConstrainHeights(42.2 ... 99.9, items: view1, view2, view3)
+        returnedConstraints = ConstrainHeights(range: 42.2 ... 99.9, items: view1, view2, view3)
         let expected = [
             view1.height >=* 42.2,
             view1.height <=* 99.9,
@@ -321,7 +320,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testConstrainingViewHeightIntervalsWithArray() {
-        returnedConstraints = ConstrainHeights(42.2 ... 99.9, items: [view1, view2, view3])
+        returnedConstraints = ConstrainHeights(range: 42.2 ... 99.9, items: [view1, view2, view3])
         let expected = [
             view1.height >=* 42.2,
             view1.height <=* 99.9,
@@ -340,7 +339,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testMatchingViewSizesWithList() {
-        returnedConstraints = MatchSizes(view1, view2, view3)
+        returnedConstraints = MatchSizes(items: view1, view2, view3)
         XCTAssertEqual(returnedConstraints.count, 4, "There should be four total constraints returned")
         var expected = view2.width =* view1.width
         XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same width as the first view")
@@ -357,7 +356,7 @@ class DimensionsTests: XCTestCase {
     }
 
     func testMatchingViewSizesWithArray() {
-        returnedConstraints = MatchSizes([view1, view2, view3])
+        returnedConstraints = MatchSizes(items: [view1, view2, view3])
         XCTAssertEqual(returnedConstraints.count, 4, "There should be four total constraints returned")
         var expected = view2.width =* view1.width
         XCTAssertTrue(superview.hasConstraint(expected), "The second view should have the same width as the first view")

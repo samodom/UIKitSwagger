@@ -11,28 +11,28 @@ import UIKit
 
 //  MARK: Dimensions and aspect ratio
 
-private func AssertDimensionItemCount(count: Int) {
+private func AssertDimensionItemCount(_ count: Int) {
     assert(count > 1, "Multiple views are required for constraining dimensions")
 }
 
-private func AssertDimensionAttribute(attribute: NSLayoutAttribute) {
-    assert(attribute == .Width || attribute == .Height)
+private func AssertDimensionAttribute(_ attribute: NSLayoutAttribute) {
+    assert(attribute == .width || attribute == .height)
 }
 
-internal func ConstrainDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute, value: CGFloat) -> [NSLayoutConstraint] {
+internal func ConstrainItemsInDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute, value: CGFloat) -> [NSLayoutConstraint] {
     AssertDimensionAttribute(dimension)
 
-    let constraints = items.map { ($0 as! AnyObject, dimension) =* value }
+    let constraints = items.map { ($0 as AnyObject, dimension) =* value }
     ActivateConstraints(constraints)
     return constraints
 }
 
-internal func ConstrainDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute, interval: ClosedInterval<CGFloat>) -> [NSLayoutConstraint] {
+internal func ConstrainItemsInDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute, range: ClosedRange<CGFloat>) -> [NSLayoutConstraint] {
     AssertDimensionAttribute(dimension)
 
     let constraints = items.flatMap { (item) -> [NSLayoutConstraint] in
-        let attributedItem = AutoLayoutAttributedItem(item as! AnyObject, dimension)
-        return [attributedItem >=* interval.start, attributedItem <=* interval.end]
+        let attributedItem = AutoLayoutAttributedItem(item as AnyObject, dimension)
+        return [attributedItem >=* range.lowerBound, attributedItem <=* range.upperBound]
     }
 
     ActivateConstraints(constraints)
@@ -44,28 +44,28 @@ internal func MatchDimension(items: [AutoLayoutAttributable], dimension: NSLayou
     AssertDimensionItemCount(items.count)
     AssertDimensionAttribute(dimension)
 
-    return ConstrainItemsToFirst(items, attribute: dimension)
+    return ConstrainItemsToFirst(items: items, attribute: dimension)
 }
 
 //  MARK: Alignment
 
-internal func AssertAlignmentItemCount(count: Int) {
+internal func AssertAlignmentItemCount(_ count: Int) {
     assert(count > 1, "Multiple views are required for alignment")
 }
 
 private let validAlignmentAttributes: Set<NSLayoutAttribute> = [
-    .Left,
-    .Leading,
-    .Right,
-    .Trailing,
-    .Top,
-    .Bottom,
-    .CenterX,
-    .CenterY,
-    .Baseline
+    .left,
+    .leading,
+    .right,
+    .trailing,
+    .top,
+    .bottom,
+    .centerX,
+    .centerY,
+    .lastBaseline
 ]
 
-private func AssertAlignmentAttribute(attribute: NSLayoutAttribute) {
+private func AssertAlignmentAttribute(_ attribute: NSLayoutAttribute) {
     assert(validAlignmentAttributes.contains(attribute))
 }
 
@@ -73,26 +73,26 @@ internal func AlignItems(items: [AutoLayoutAttributable], attribute: NSLayoutAtt
     AssertAlignmentItemCount(items.count)
     AssertAlignmentAttribute(attribute)
 
-    return ConstrainItemsToFirst(items, attribute: attribute)
+    return ConstrainItemsToFirst(items: items, attribute: attribute)
 }
 
 
 //  MARK: Distribution and spacing
 
-internal func AssertDistributionItemCount(count: Int) {
+internal func AssertDistributionItemCount(_ count: Int) {
     assert(count > 1, "Multiple views are required for distribution")
 }
 
-internal func DistributeViews(views: [UIView], spacing: CGFloat, direction: LayoutDirection)  -> [NSLayoutConstraint] {
-    AssertDistributionItemCount(views.count)
+internal func DistributeItems(items: [UIView], spacing: CGFloat, direction: LayoutDirection)  -> [NSLayoutConstraint] {
+    AssertDistributionItemCount(items.count)
 
     let attributes = direction.attributePair
-    let pairs = zip(views.dropLast(), views.dropFirst())
+    let pairs = zip(items.dropLast(), items.dropFirst())
 
     return pairs.map {
         let dependent = $0.1.attributedItemForLayoutAttribute(attributes.0)
         let independent = $0.0.attributedItemForLayoutAttribute(attributes.1)
-        let constraint = dependent =* independent + spacing
+        let constraint = dependent =* (independent + spacing)
         constraint.activate()
         return constraint
     }
@@ -101,7 +101,7 @@ internal func DistributeViews(views: [UIView], spacing: CGFloat, direction: Layo
 
 //  MARK: Common
 
-private func AssertLayoutItemCount(count: Int) {
+private func AssertLayoutItemCount(_ count: Int) {
     assert(count > 1, "Multiple layout items are required for creating constraints")
 }
 

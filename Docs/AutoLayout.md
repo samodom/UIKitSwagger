@@ -23,9 +23,9 @@ Want to reverse the items in a constraint to produce an equivalent constraint?  
 You can now build your constraints in Swift with a real syntax the same way that you use the `init(item:attribute:relatedBy:toItem:attribute:multiplier:constant:)` initializer.  The `*` and `+` operators provide the scalar multiples and constant offsets, respectively.  The `=*`, `>=*` and `<=*` operators specify "equal", "greater than or equal" and "less than or equal" relations, respectively.  The syntax works with views and layout guides**.
 
 ```swift
-let constraint1 = button.centerX =* 2 * view.leftMargin + 14.5
+let constraint1 = button.centerX =* ((2 * view.leftMargin) + 14.5)
 let constraint2 = button.height <=* 20
-let constraint3 = spacer.top >=* controller.top + 4
+let constraint3 = spacer.top >=* )controller.top + 4)
 ```
 
 ** *Including the top and bottom layout guides for a view controller; the other attributes use the root view's corresponding attributes. Layout guides use their bottom attribute for the baseline attributes and non-margin equivalents for margin attributes (i.e., left for left margin).  Layout guides are available in iOS 9 and later only.*
@@ -91,16 +91,17 @@ Activate or deactivate multiple constraints in a single statement using a variad
 ### Alignment Functions
 
 Common alignment tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically align views.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  Each method accepts a variadic list or array of items returns the constraints that it activates.
- - `AlignLeft(...) -> [NSLayoutConstraint]`
- - `AlignLeading(...) -> [NSLayoutConstraint]`
- - `AlignRight(...) -> [NSLayoutConstraint]`
- - `AlignTrailing(...) -> [NSLayoutConstraint]`
- - `AlignTop(...) -> [NSLayoutConstraint]`
- - `AlignBottom(...) -> [NSLayoutConstraint]`
- - `AlignHorizontally(...) -> [NSLayoutConstraint]`
- - `AlignVertically(...) -> [NSLayoutConstraint]`
- - `AlignCenters(...) -> [NSLayoutConstraint]`
- - `AlignBaselines(...) -> [NSLayoutConstraint]`
+
+ - `AlignLeft(items: ...) -> [NSLayoutConstraint]`
+ - `AlignLeading(items: ...) -> [NSLayoutConstraint]`
+ - `AlignRight(items: ...) -> [NSLayoutConstraint]`
+ - `AlignTrailing(items: ...) -> [NSLayoutConstraint]`
+ - `AlignTop(items: ...) -> [NSLayoutConstraint]`
+ - `AlignBottom(items: ...) -> [NSLayoutConstraint]`
+ - `AlignHorizontally(items: ...) -> [NSLayoutConstraint]`
+ - `AlignVertically(items: ...) -> [NSLayoutConstraint]`
+ - `AlignCenters(items: ...) -> [NSLayoutConstraint]`
+ - `AlignBaselines(items: ...) -> [NSLayoutConstraint]`
 
 
 ### Filling Methods
@@ -175,10 +176,12 @@ Restricting a view's width or height to a constant or range is easy enough and t
 The dimensions of a view can be constrained to a particular aspect ratio with or without an offset.  These functions create and activate the necessary constraints, then return them to the caller for use as variables.
 
 Methods on NSLayoutConstraint:
+
  - `constrainWidthToHeight(CGFloat, CGFloat) -> NSLayoutConstraint`
  - `constrainHeightToWidth(CGFloat, CGFloat) -> NSLayoutConstraint`
 
 Global top-level functions (the produced constraints are defined with respect to the appropriate attribute of the first item listed or the provided constant/interval).  These functions accept a variadic list or array of items:
+
  - `MatchWidths(...) -> [NSLayoutConstraint]`
  - `ConstrainWidths(...) -> [NSLayoutConstraint]`
  - `MatchHeights(...) -> [NSLayoutConstraint]`

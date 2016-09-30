@@ -34,5 +34,5 @@ public protocol AutoLayoutAttributable {
     var centerYInMargins: AutoLayoutAttributedItem { get }
     var nonAttribute: AutoLayoutAttributedItem { get }
 
-    func attributedItemForLayoutAttribute(attribute: NSLayoutAttribute) -> AutoLayoutAttributedItem
+    func attributedItemForLayoutAttribute(_ attribute: NSLayoutAttribute) -> AutoLayoutAttributedItem
 }

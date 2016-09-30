@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
-@testable import UIKitSwagger
+import UIKitSwagger
 
 class ViewControllerLayoutAttributesTests: XCTestCase {
 
@@ -18,7 +17,7 @@ class ViewControllerLayoutAttributesTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        let window = UIApplication.sharedApplication().delegate!.window!
+        let window = UIApplication.shared.delegate!.window!
         controller = window!.rootViewController
     }
 
@@ -27,255 +26,255 @@ class ViewControllerLayoutAttributesTests: XCTestCase {
     func testLeftAttributedItem() {
         attributedItem = controller.left
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Left, "The attribute should be the view's left side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.left, "The attribute should be the view's left side")
     }
 
     func testLeftMarginAttributedItem() {
         attributedItem = controller.leftMargin
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.LeftMargin, "The attribute should be the view's left margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.leftMargin, "The attribute should be the view's left margin")
     }
 
     func testRightAttributedItem() {
         attributedItem = controller.right
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Right, "The attribute should be the view's right side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.right, "The attribute should be the view's right side")
     }
 
     func testRightMarginAttributedItem() {
         attributedItem = controller.rightMargin
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.RightMargin, "The attribute should be the view's right margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.rightMargin, "The attribute should be the view's right margin")
     }
 
     func testTopAttributedItem() {
         attributedItem = controller.top
         XCTAssertTrue(attributedItem.item === controller.topLayoutGuide, "The item should be the view controller's top layout guide")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Bottom, "The attribute should be the layout guide's bottom side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.bottom, "The attribute should be the layout guide's bottom side")
     }
 
     func testTopMarginAttributedItem() {
         attributedItem = controller.topMargin
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.TopMargin, "The attribute should be the view's top margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.topMargin, "The attribute should be the view's top margin")
     }
 
     func testBottomAttributedItem() {
         attributedItem = controller.bottom
         XCTAssertTrue(attributedItem.item === controller.bottomLayoutGuide, "The item should be the view controller's bottom layout guide")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Top, "The attribute should be the layout guide's top side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.top, "The attribute should be the layout guide's top side")
     }
 
     func testBottomMarginAttributedItem() {
         attributedItem = controller.bottomMargin
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.BottomMargin, "The attribute should be the view's bottom margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.bottomMargin, "The attribute should be the view's bottom margin")
     }
 
     func testLeadingAttributedItem() {
         attributedItem = controller.leading
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Leading, "The attribute should be the view's leading side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.leading, "The attribute should be the view's leading side")
     }
 
     func testLeadingMarginAttributedItem() {
         attributedItem = controller.leadingMargin
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.LeadingMargin, "The attribute should be the view's leading margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.leadingMargin, "The attribute should be the view's leading margin")
     }
 
     func testTrailingAttributedItem() {
         attributedItem = controller.trailing
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Trailing, "The attribute should be the view's trailing side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.trailing, "The attribute should be the view's trailing side")
     }
 
     func testTrailingMarginAttributedItem() {
         attributedItem = controller.trailingMargin
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.TrailingMargin, "The attribute should be the view's trailing margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.trailingMargin, "The attribute should be the view's trailing margin")
     }
 
     func testWidthAttributedItem() {
         attributedItem = controller.width
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Width, "The attribute should be the view's width dimension")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.width, "The attribute should be the view's width dimension")
     }
 
     func testHeightAttributedItem() {
         attributedItem = controller.height
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Height, "The attribute should be the view's height dimension")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.height, "The attribute should be the view's height dimension")
     }
 
     func testCenterXAttributedItem() {
         attributedItem = controller.centerX
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.CenterX, "The attribute should be the view's center X value")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.centerX, "The attribute should be the view's center X value")
     }
 
     func testCenterXInMarginsAttributedItem() {
         attributedItem = controller.centerXInMargins
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.CenterXWithinMargins, "The attribute should be the view's center X within margins value")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.centerXWithinMargins, "The attribute should be the view's center X within margins value")
     }
 
     func testCenterYAttributedItem() {
         attributedItem = controller.centerY
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.CenterY, "The attribute should be the view's center Y value")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.centerY, "The attribute should be the view's center Y value")
     }
 
     func testCenterYInMarginsAttributedItem() {
         attributedItem = controller.centerYInMargins
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.CenterYWithinMargins, "The attribute should be the view's center Y within margins value")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.centerYWithinMargins, "The attribute should be the view's center Y within margins value")
     }
 
     func testBaselineAttributedItem() {
         attributedItem = controller.baseline
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Baseline, "The attribute should be the view's baseline")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.lastBaseline, "The attribute should be the view's baseline")
     }
 
     func testFirstBaselineAttributedItem() {
         attributedItem = controller.firstBaseline
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.FirstBaseline, "The attribute should be the view's first baseline")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.firstBaseline, "The attribute should be the view's first baseline")
     }
 
     func testNonAttributeAttributedItem() {
         attributedItem = controller.nonAttribute
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.NotAnAttribute, "The attribute should be not an attribute")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.notAnAttribute, "The attribute should be not an attribute")
     }
 
     //  MARK: Conversion method
 
     func testLeftAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.Left)
+        attributedItem = controller.attributedItemForLayoutAttribute(.left)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Left, "The attribute should be the view's left side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.left, "The attribute should be the view's left side")
     }
 
     func testLeftMarginAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.LeftMargin)
+        attributedItem = controller.attributedItemForLayoutAttribute(.leftMargin)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.LeftMargin, "The attribute should be the view's left margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.leftMargin, "The attribute should be the view's left margin")
     }
 
     func testRightAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.Right)
+        attributedItem = controller.attributedItemForLayoutAttribute(.right)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Right, "The attribute should be the view's right side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.right, "The attribute should be the view's right side")
     }
 
     func testRightMarginAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.RightMargin)
+        attributedItem = controller.attributedItemForLayoutAttribute(.rightMargin)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.RightMargin, "The attribute should be the view's right margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.rightMargin, "The attribute should be the view's right margin")
     }
 
     func testTopAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.Top)
+        attributedItem = controller.attributedItemForLayoutAttribute(.top)
         XCTAssertTrue(attributedItem.item === controller.topLayoutGuide, "The item should be the view controller's top layout guide")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Bottom, "The attribute should be the layout guide's bottom side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.bottom, "The attribute should be the layout guide's bottom side")
     }
 
     func testTopMarginAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.TopMargin)
+        attributedItem = controller.attributedItemForLayoutAttribute(.topMargin)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.TopMargin, "The attribute should be the view's top margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.topMargin, "The attribute should be the view's top margin")
     }
 
     func testBottomAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.Bottom)
+        attributedItem = controller.attributedItemForLayoutAttribute(.bottom)
         XCTAssertTrue(attributedItem.item === controller.bottomLayoutGuide, "The item should be the view controller's bottom layout guide")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Top, "The attribute should be the layout guide's top side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.top, "The attribute should be the layout guide's top side")
     }
 
     func testBottomMarginAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.BottomMargin)
+        attributedItem = controller.attributedItemForLayoutAttribute(.bottomMargin)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.BottomMargin, "The attribute should be the view's bottom margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.bottomMargin, "The attribute should be the view's bottom margin")
     }
 
     func testLeadingAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.Leading)
+        attributedItem = controller.attributedItemForLayoutAttribute(.leading)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Leading, "The attribute should be the view's leading side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.leading, "The attribute should be the view's leading side")
     }
 
     func testLeadingMarginAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.LeadingMargin)
+        attributedItem = controller.attributedItemForLayoutAttribute(.leadingMargin)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.LeadingMargin, "The attribute should be the view's leading margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.leadingMargin, "The attribute should be the view's leading margin")
     }
 
     func testTrailingAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.Trailing)
+        attributedItem = controller.attributedItemForLayoutAttribute(.trailing)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Trailing, "The attribute should be the view's trailing side")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.trailing, "The attribute should be the view's trailing side")
     }
 
     func testTrailingMarginAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.TrailingMargin)
+        attributedItem = controller.attributedItemForLayoutAttribute(.trailingMargin)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.TrailingMargin, "The attribute should be the view's trailing margin")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.trailingMargin, "The attribute should be the view's trailing margin")
     }
 
     func testWidthAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.Width)
+        attributedItem = controller.attributedItemForLayoutAttribute(.width)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Width, "The attribute should be the view's width dimension")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.width, "The attribute should be the view's width dimension")
     }
 
     func testHeightAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.Height)
+        attributedItem = controller.attributedItemForLayoutAttribute(.height)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Height, "The attribute should be the view's height dimension")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.height, "The attribute should be the view's height dimension")
     }
 
     func testCenterXAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.CenterX)
+        attributedItem = controller.attributedItemForLayoutAttribute(.centerX)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.CenterX, "The attribute should be the view's center X value")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.centerX, "The attribute should be the view's center X value")
     }
 
     func testCenterXInMarginsAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.CenterXWithinMargins)
+        attributedItem = controller.attributedItemForLayoutAttribute(.centerXWithinMargins)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.CenterXWithinMargins, "The attribute should be the view's center X within margins value")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.centerXWithinMargins, "The attribute should be the view's center X within margins value")
     }
 
     func testCenterYAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.CenterY)
+        attributedItem = controller.attributedItemForLayoutAttribute(.centerY)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.CenterY, "The attribute should be the view's center Y value")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.centerY, "The attribute should be the view's center Y value")
     }
 
     func testCenterYInMarginsAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.CenterYWithinMargins)
+        attributedItem = controller.attributedItemForLayoutAttribute(.centerYWithinMargins)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.CenterYWithinMargins, "The attribute should be the view's center Y within margins value")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.centerYWithinMargins, "The attribute should be the view's center Y within margins value")
     }
 
     func testBaselineAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.Baseline)
+        attributedItem = controller.attributedItemForLayoutAttribute(.lastBaseline)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.Baseline, "The attribute should be the view's baseline")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.lastBaseline, "The attribute should be the view's baseline")
     }
 
     func testFirstBaselineAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.FirstBaseline)
+        attributedItem = controller.attributedItemForLayoutAttribute(.firstBaseline)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.FirstBaseline, "The attribute should be the view's first baseline")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.firstBaseline, "The attribute should be the view's first baseline")
     }
 
     func testNonAttributeAttributeConversion() {
-        attributedItem = controller.attributedItemForLayoutAttribute(.NotAnAttribute)
+        attributedItem = controller.attributedItemForLayoutAttribute(.notAnAttribute)
         XCTAssertEqual(attributedItem.item as? UIView, controller.view, "The item should be the view controller's view")
-        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.NotAnAttribute, "The attribute should be not an attribute")
+        XCTAssertEqual(attributedItem.attribute, NSLayoutAttribute.notAnAttribute, "The attribute should be not an attribute")
     }
 
 }

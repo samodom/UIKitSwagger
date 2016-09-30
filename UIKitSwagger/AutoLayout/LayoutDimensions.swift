@@ -16,7 +16,7 @@ public extension UIView {
      - returns: The constraint that was created and activated.
      - note: The layout constraint created by this method is automatically activated.
      */
-    public func constrainWidth(width: CGFloat) -> NSLayoutConstraint {
+    public func constrainWidth(_ width: CGFloat) -> NSLayoutConstraint {
         let constraint = self.width =* width
         constraint.activate()
         return constraint
@@ -24,14 +24,14 @@ public extension UIView {
 
     /**
      Convenience method for constraining the width of a view to a range of value.
-     - parameter interval: Range of width values to maintain on view.
+     - parameter range: Range of width values to maintain on view.
      - returns: The constraints that were created and activated.
      - note: The layout constraints created by this method are automatically activated.
      */
-    public func constrainWidth(interval: ClosedInterval<CGFloat>) -> [NSLayoutConstraint] {
+    public func constrainWidth(_ range: ClosedRange<CGFloat>) -> [NSLayoutConstraint] {
         let constraints = [
-            self.width >=* interval.start,
-            self.width <=* interval.end
+            self.width >=* range.lowerBound,
+            self.width <=* range.upperBound
         ]
         ActivateConstraints(constraints)
         return constraints
@@ -43,7 +43,7 @@ public extension UIView {
      - returns: The constraint that was created and activated.
      - note: The layout constraint created by this method is automatically activated.
      */
-    public func constrainHeight(height: CGFloat) -> NSLayoutConstraint {
+    public func constrainHeight(_ height: CGFloat) -> NSLayoutConstraint {
         let constraint = self.height =* height
         constraint.activate()
         return constraint
@@ -51,14 +51,14 @@ public extension UIView {
 
     /**
      Convenience method for constraining the height of a view to a range of value.
-     - parameter interval: Range of height values to maintain on view.
+     - parameter range: Range of height values to maintain on view.
      - returns: The constraints that were created and activated.
      - note: The layout constraints created by this method are automatically activated.
      */
-    public func constrainHeight(interval: ClosedInterval<CGFloat>) -> [NSLayoutConstraint] {
+    public func constrainHeight(_ range: ClosedRange<CGFloat>) -> [NSLayoutConstraint] {
         let constraints = [
-            self.height >=* interval.start,
-            self.height <=* interval.end
+            self.height >=* range.lowerBound,
+            self.height <=* range.upperBound
         ]
         ActivateConstraints(constraints)
         return constraints
@@ -72,7 +72,7 @@ public extension UIView {
      - note: The layout constraint created by this method is automatically activated.
      - warning: Using an aspect ratio of zero throws an error.
      */
-    public func constrainWidthToHeight(aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> NSLayoutConstraint {
+    public func constrainWidthToHeight(_ aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> NSLayoutConstraint {
         assert(aspectRatio != 0)
         return constrainHeightToWidth(1 / aspectRatio, offset: -offset / aspectRatio)
     }
@@ -85,9 +85,9 @@ public extension UIView {
      - note: The layout constraint created by this method is automatically activated.
      - warning: Using an aspect ratio of zero throws an error.
      */
-    public func constrainHeightToWidth(aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> NSLayoutConstraint {
+    public func constrainHeightToWidth(_ aspectRatio: CGFloat = 1, offset: CGFloat = 0) -> NSLayoutConstraint {
         assert(aspectRatio != 0)
-        let constraint = self.height =* aspectRatio * self.width + offset
+        let constraint = height =* ((aspectRatio * width) + offset)
         constraint.activate()
         return constraint
     }
@@ -105,7 +105,7 @@ public extension UIView {
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func MatchWidths(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return MatchWidths(items)
+    return MatchWidths(items: items)
 }
 
 /**
@@ -116,7 +116,7 @@ public func MatchWidths(items: AutoLayoutAttributable...) -> [NSLayoutConstraint
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func MatchWidths(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return MatchDimension(items, dimension: .Width)
+    return MatchDimension(items: items, dimension: .width)
 }
 
 /**
@@ -127,7 +127,7 @@ public func MatchWidths(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint]
  - note: The layout constraints created by this function are automatically activated.
  */
 public func ConstrainWidths(width: CGFloat, items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return ConstrainWidths(width, items: items)
+    return ConstrainWidths(width: width, items: items)
 }
 
 /**
@@ -138,29 +138,29 @@ public func ConstrainWidths(width: CGFloat, items: AutoLayoutAttributable...) ->
  - note: The layout constraints created by this function are automatically activated.
  */
 public func ConstrainWidths(width: CGFloat, items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return ConstrainDimension(items, dimension: .Width, value: width)
+    return ConstrainItemsInDimension(items: items, dimension: .width, value: width)
 }
 
 /**
- Convenience method for constraining the widths of one or more items to an interval.
- - parameter interval: A closed interval representing the minimum and maximum widths for this view.
- - parameter items: One or more items that are to maintain a width in the specified interval.
+ Convenience method for constraining the widths of one or more items to a range.
+ - parameter range: A closed range representing the minimum and maximum widths for this view.
+ - parameter items: One or more items that are to maintain a width in the specified range.
  - returns: The constraints that were created and activated.
  - note: The layout constraints created by this function are automatically activated.
  */
-public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return ConstrainWidths(interval, items: items)
+public func ConstrainWidths(range: ClosedRange<CGFloat>, items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
+    return ConstrainWidths(range: range, items: items)
 }
 
 /**
- Convenience method for constraining the widths of an array of items to an interval.
- - parameter interval: A closed interval representing the minimum and maximum widths for this view.
- - parameter items: Array of items that are to maintain a width in the specified interval.
+ Convenience method for constraining the widths of an array of items to a range.
+ - parameter range: A closed range representing the minimum and maximum widths for this view.
+ - parameter items: Array of items that are to maintain a width in the specified range.
  - returns: The constraints that were created and activated.
  - note: The layout constraints created by this function are automatically activated.
  */
-public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return ConstrainDimension(items, dimension: .Width, interval: interval)
+public func ConstrainWidths(range: ClosedRange<CGFloat>, items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
+    return ConstrainItemsInDimension(items: items, dimension: .width, range: range)
 }
 
 
@@ -174,7 +174,7 @@ public func ConstrainWidths(interval: ClosedInterval<CGFloat>, items: [AutoLayou
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func MatchHeights(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return MatchHeights(items)
+    return MatchHeights(items: items)
 }
 
 /**
@@ -185,7 +185,7 @@ public func MatchHeights(items: AutoLayoutAttributable...) -> [NSLayoutConstrain
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func MatchHeights(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return MatchDimension(items, dimension: .Height)
+    return MatchDimension(items: items, dimension: .height)
 }
 
 /**
@@ -196,7 +196,7 @@ public func MatchHeights(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint
  - note: The layout constraints created by this function are automatically activated.
  */
 public func ConstrainHeights(height: CGFloat, items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return ConstrainHeights(height, items: items)
+    return ConstrainHeights(height: height, items: items)
 }
 
 /**
@@ -207,29 +207,29 @@ public func ConstrainHeights(height: CGFloat, items: AutoLayoutAttributable...) 
  - note: The layout constraints created by this function are automatically activated.
  */
 public func ConstrainHeights(height: CGFloat, items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return ConstrainDimension(items, dimension: .Height, value: height)
+    return ConstrainItemsInDimension(items: items, dimension: .height, value: height)
 }
 
 /**
- Convenience method for constraining the heights of one or more items to an interval.
- - parameter interval: A closed interval representing the minimum and maximum widths for this view.
- - parameter items: One or more items that are to maintain a height in the specified interval.
+ Convenience method for constraining the heights of one or more items to a range.
+ - parameter range: A closed range representing the minimum and maximum widths for this view.
+ - parameter items: One or more items that are to maintain a height in the specified range.
  - returns: The constraints that were created and activated.
  - note: The layout constraints created by this function are automatically activated.
  */
-public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return ConstrainHeights(interval, items: items)
+public func ConstrainHeights(range: ClosedRange<CGFloat>, items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
+    return ConstrainHeights(range: range, items: items)
 }
 
 /**
- Convenience method for constraining the heights of an array of items to an interval.
- - parameter interval: A closed interval representing the minimum and maximum widths for this view.
- - parameter items: Array of items that are to maintain a height in the specified interval.
+ Convenience method for constraining the heights of an array of items to a range.
+ - parameter range: A closed range representing the minimum and maximum widths for this view.
+ - parameter items: Array of items that are to maintain a height in the specified range.
  - returns: The constraints that were created and activated.
  - note: The layout constraints created by this function are automatically activated.
  */
-public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return ConstrainDimension(items, dimension: .Height, interval: interval)
+public func ConstrainHeights(range: ClosedRange<CGFloat>, items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
+    return ConstrainItemsInDimension(items: items, dimension: .height, range: range)
 }
 
 
@@ -243,7 +243,7 @@ public func ConstrainHeights(interval: ClosedInterval<CGFloat>, items: [AutoLayo
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func MatchSizes(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return MatchSizes(items)
+    return MatchSizes(items: items)
 }
 
 /**
@@ -254,5 +254,5 @@ public func MatchSizes(items: AutoLayoutAttributable...) -> [NSLayoutConstraint]
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func MatchSizes(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return MatchWidths(items) + MatchHeights(items)
+    return MatchWidths(items: items) + MatchHeights(items: items)
 }

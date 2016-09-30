@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 Sam Odom. All rights reserved.
 //
 
-import UIKit
 import XCTest
-@testable import UIKitSwagger
+import UIKitSwagger
 
 class ConstraintSearchTests: XCTestCase {
 

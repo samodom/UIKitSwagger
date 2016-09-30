@@ -27,7 +27,7 @@ extension UIViewController: AutoLayoutAttributable {
     }
 
     public var top: AutoLayoutAttributedItem {
-        return (topLayoutGuide, .Bottom)
+        return (topLayoutGuide, .bottom)
     }
 
     public var topMargin: AutoLayoutAttributedItem {
@@ -35,7 +35,7 @@ extension UIViewController: AutoLayoutAttributable {
     }
 
     public var bottom: AutoLayoutAttributedItem {
-        return (bottomLayoutGuide, .Top)
+        return (bottomLayoutGuide, .top)
     }
 
     public var bottomMargin: AutoLayoutAttributedItem {
@@ -94,13 +94,13 @@ extension UIViewController: AutoLayoutAttributable {
         return view.nonAttribute
     }
 
-    public func attributedItemForLayoutAttribute(attribute: NSLayoutAttribute) -> AutoLayoutAttributedItem {
+    public func attributedItemForLayoutAttribute(_ attribute: NSLayoutAttribute) -> AutoLayoutAttributedItem {
         switch attribute {
-        case .Top:
-            return (topLayoutGuide, .Bottom)
+        case .top:
+            return (topLayoutGuide, .bottom)
 
-        case .Bottom:
-            return (bottomLayoutGuide, .Top)
+        case .bottom:
+            return (bottomLayoutGuide, .top)
 
         default:
             return (view, attribute)

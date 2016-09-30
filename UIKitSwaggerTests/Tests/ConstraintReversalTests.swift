@@ -7,8 +7,6 @@
 //
 
 import XCTest
-import UIKit
-import UIKitSwagger
 
 class ConstraintReversalTests: XCTestCase {
 

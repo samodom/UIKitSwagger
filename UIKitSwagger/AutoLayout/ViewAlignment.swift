@@ -16,7 +16,7 @@ import UIKit
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignLeft(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return AlignLeft(items)
+    return AlignLeft(items: items)
 }
 
 /**
@@ -27,7 +27,7 @@ public func AlignLeft(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] 
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignLeft(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return AlignItems(items, attribute: .Left)
+    return AlignItems(items: items, attribute: .left)
 }
 
 /**
@@ -38,7 +38,7 @@ public func AlignLeft(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignLeading(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return AlignLeading(items)
+    return AlignLeading(items: items)
 }
 
 /**
@@ -49,7 +49,7 @@ public func AlignLeading(items: AutoLayoutAttributable...) -> [NSLayoutConstrain
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignLeading(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return AlignItems(items, attribute: .Leading)
+    return AlignItems(items: items, attribute: .leading)
 }
 
 /**
@@ -60,7 +60,7 @@ public func AlignLeading(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignRight(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return AlignRight(items)
+    return AlignRight(items: items)
 }
 
 /**
@@ -71,7 +71,7 @@ public func AlignRight(items: AutoLayoutAttributable...) -> [NSLayoutConstraint]
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignRight(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return AlignItems(items, attribute: .Right)
+    return AlignItems(items: items, attribute: .right)
 }
 
 /**
@@ -82,7 +82,7 @@ public func AlignRight(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] 
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignTrailing(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return AlignTrailing(items)
+    return AlignTrailing(items: items)
 }
 
 /**
@@ -93,7 +93,7 @@ public func AlignTrailing(items: AutoLayoutAttributable...) -> [NSLayoutConstrai
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignTrailing(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return AlignItems(items, attribute: .Trailing)
+    return AlignItems(items: items, attribute: .trailing)
 }
 
 /**
@@ -104,7 +104,7 @@ public func AlignTrailing(items: [AutoLayoutAttributable]) -> [NSLayoutConstrain
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignTop(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return AlignTop(items)
+    return AlignTop(items: items)
 }
 
 /**
@@ -115,7 +115,7 @@ public func AlignTop(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignTop(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return AlignItems(items, attribute: .Top)
+    return AlignItems(items: items, attribute: .top)
 }
 
 /**
@@ -126,7 +126,7 @@ public func AlignTop(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignBottom(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return AlignBottom(items)
+    return AlignBottom(items: items)
 }
 
 /**
@@ -137,7 +137,7 @@ public func AlignBottom(items: AutoLayoutAttributable...) -> [NSLayoutConstraint
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignBottom(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return AlignItems(items, attribute: .Bottom)
+    return AlignItems(items: items, attribute: .bottom)
 }
 
 /**
@@ -148,7 +148,7 @@ public func AlignBottom(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint]
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignHorizontally(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return AlignHorizontally(items)
+    return AlignHorizontally(items: items)
 }
 
 /**
@@ -159,7 +159,7 @@ public func AlignHorizontally(items: AutoLayoutAttributable...) -> [NSLayoutCons
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignHorizontally(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return AlignItems(items, attribute: .CenterX)
+    return AlignItems(items: items, attribute: .centerX)
 }
 
 /**
@@ -170,7 +170,7 @@ public func AlignHorizontally(items: [AutoLayoutAttributable]) -> [NSLayoutConst
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignVertically(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return AlignVertically(items)
+    return AlignVertically(items: items)
 }
 
 /**
@@ -181,7 +181,7 @@ public func AlignVertically(items: AutoLayoutAttributable...) -> [NSLayoutConstr
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignVertically(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return AlignItems(items, attribute: .CenterY)
+    return AlignItems(items: items, attribute: .centerY)
 }
 
 /**
@@ -192,7 +192,7 @@ public func AlignVertically(items: [AutoLayoutAttributable]) -> [NSLayoutConstra
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignCenters(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return AlignCenters(items)
+    return AlignCenters(items: items)
 }
 
 /**
@@ -203,7 +203,7 @@ public func AlignCenters(items: AutoLayoutAttributable...) -> [NSLayoutConstrain
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignCenters(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return AlignItems(items, attribute: .CenterX) + AlignItems(items, attribute: .CenterY)
+    return AlignItems(items: items, attribute: .centerX) + AlignItems(items: items, attribute: .centerY)
 }
 
 /**
@@ -214,7 +214,7 @@ public func AlignCenters(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignBaselines(items: AutoLayoutAttributable...) -> [NSLayoutConstraint] {
-    return AlignBaselines(items)
+    return AlignBaselines(items: items)
 }
 
 /**
@@ -225,5 +225,5 @@ public func AlignBaselines(items: AutoLayoutAttributable...) -> [NSLayoutConstra
  - warning: If fewer than two items are provided, an error is thrown.
  */
 public func AlignBaselines(items: [AutoLayoutAttributable]) -> [NSLayoutConstraint] {
-    return AlignItems(items, attribute: .Baseline)
+    return AlignItems(items: items, attribute: .lastBaseline)
 }

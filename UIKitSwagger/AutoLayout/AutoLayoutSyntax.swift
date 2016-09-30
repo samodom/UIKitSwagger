@@ -78,7 +78,12 @@ public func -(multiple: AutoLayoutAttributedItemScalarMultiple, constant: CGFloa
 /**
 An operator used to create a layout constraint in the simple `y = mx + b` format.
  */
-infix operator =* { }
+infix operator =* : LayoutConstraintPrecedence
+precedencegroup LayoutConstraintPrecedence {
+    associativity: left
+    higherThan: MultiplicationPrecedence
+}
+
 
 /**
  Equal constraint relation operator for creating constraints.
@@ -97,7 +102,7 @@ public func =*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> N
  - returns: Constraint created from relationship expressed in parameters.
  */
 public func =*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> NSLayoutConstraint {
-    return attributedItem1 =* 1 * attributedItem2
+    return attributedItem1 =* (1 * attributedItem2)
 }
 
 /**
@@ -107,7 +112,7 @@ public func =*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoL
  - returns: Constraint created from relationship expressed in parameters.
  */
 public func =*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> NSLayoutConstraint {
-    return attributedItem =* multiple + 0.0
+    return attributedItem =* (multiple + 0.0)
 }
 
 /**
@@ -124,7 +129,8 @@ public func =*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttri
 /**
  An operator used to create a layout constraint in the simple `y >= mx + b` format.
  */
-infix operator >=* { }
+infix operator >=* : LayoutConstraintPrecedence
+
 
 /**
  Greater-than-or-equal constraint relation operator for creating constraints.
@@ -133,7 +139,7 @@ infix operator >=* { }
  - returns: Constraint created from relationship expressed in parameters.
  */
 public func >=*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> NSLayoutConstraint {
-    return BuildConstantRelationConstraint(item: attributedItem, constant: constant, relation: .GreaterThanOrEqual)
+    return BuildConstantRelationConstraint(item: attributedItem, constant: constant, relation: .greaterThanOrEqual)
 }
 
 /**
@@ -143,7 +149,7 @@ public func >=*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> 
  - returns: Constraint created from relationship expressed in parameters.
  */
 public func >=*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> NSLayoutConstraint {
-    return attributedItem1 >=* 1 * attributedItem2
+    return attributedItem1 >=* (1 * attributedItem2)
 }
 
 /**
@@ -153,7 +159,7 @@ public func >=*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: Auto
  - returns: Constraint created from relationship expressed in parameters.
  */
 public func >=*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> NSLayoutConstraint {
-    return attributedItem >=* multiple + 0.0
+    return attributedItem >=* (multiple + 0.0)
 }
 
 /**
@@ -163,14 +169,14 @@ public func >=*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAt
  - returns: Constraint created from relationship expressed in parameters.
  */
 public func >=*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> NSLayoutConstraint {
-    return BuildConstraintFromOperands(attributedItem, offset: offset, relation: .GreaterThanOrEqual)
+    return BuildConstraintFromOperands(attributedItem, offset: offset, relation: .greaterThanOrEqual)
 }
 
 
 /**
  An operator used to create a layout constraint in the simple `y <= mx + b` format.
  */
-infix operator <=* { }
+infix operator <=* : LayoutConstraintPrecedence
 
 /**
  Less-than-or-equal constraint relation operator for creating constraints.
@@ -179,7 +185,7 @@ infix operator <=* { }
  - returns: Constraint created from relationship expressed in parameters.
  */
 public func <=*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> NSLayoutConstraint {
-    return BuildConstantRelationConstraint(item: attributedItem, constant: constant, relation: .LessThanOrEqual)
+    return BuildConstantRelationConstraint(item: attributedItem, constant: constant, relation: .lessThanOrEqual)
 }
 
 /**
@@ -189,7 +195,7 @@ public func <=*(attributedItem: AutoLayoutAttributedItem, constant: CGFloat) -> 
  - returns: Constraint created from relationship expressed in parameters.
  */
 public func <=*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: AutoLayoutAttributedItem) -> NSLayoutConstraint {
-    return attributedItem1 <=* 1 * attributedItem2
+    return attributedItem1 <=* (1 * attributedItem2)
 }
 
 /**
@@ -199,7 +205,7 @@ public func <=*(attributedItem1: AutoLayoutAttributedItem, attributedItem2: Auto
  - returns: Constraint created from relationship expressed in parameters.
  */
 public func <=*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAttributedItemScalarMultiple) -> NSLayoutConstraint {
-    return attributedItem <=* multiple + 0.0
+    return attributedItem <=* (multiple + 0.0)
 }
 
 /**
@@ -209,24 +215,24 @@ public func <=*(attributedItem: AutoLayoutAttributedItem, multiple: AutoLayoutAt
  - returns: Constraint created from relationship expressed in parameters.
  */
 public func <=*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset) -> NSLayoutConstraint {
-    return BuildConstraintFromOperands(attributedItem, offset: offset, relation: .LessThanOrEqual)
+    return BuildConstraintFromOperands(attributedItem, offset: offset, relation: .lessThanOrEqual)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 
-private func BuildConstantRelationConstraint(item attributedItem: AutoLayoutAttributedItem, constant: CGFloat, relation: NSLayoutRelation = .Equal) -> NSLayoutConstraint {
+private func BuildConstantRelationConstraint(item attributedItem: AutoLayoutAttributedItem, constant: CGFloat, relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
     return NSLayoutConstraint(
         item: attributedItem.item,
         attribute: attributedItem.attribute,
         relatedBy: relation,
         toItem: nil,
-        attribute: .NotAnAttribute,
+        attribute: .notAnAttribute,
         multiplier: 0.0,
         constant: constant
     )
 }
 
-private func BuildConstraintFromOperands(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset, relation: NSLayoutRelation = .Equal) -> NSLayoutConstraint {
+private func BuildConstraintFromOperands(_ attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset, relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
     return NSLayoutConstraint(
         item: attributedItem.item,
         attribute: attributedItem.attribute,
@@ -242,7 +248,7 @@ private func BuildConstraintFromOperands(attributedItem: AutoLayoutAttributedIte
 /**
  An operator used to set the priority or identifier on a constraint.
  */
-infix operator ~ { }
+infix operator ~
 
 /**
  Sets the priority of a layout constraint.

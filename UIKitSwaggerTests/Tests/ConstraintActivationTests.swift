@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
-@testable import UIKitSwagger
+import UIKitSwagger
 
 class ConstraintActivationTests: XCTestCase {
 
@@ -34,9 +33,9 @@ class ConstraintActivationTests: XCTestCase {
         }
 
         constraint1 = subview.top =* controller.top
-        constraint2 = view.left =* subview.left - 10
+        constraint2 = view.left =* (subview.left - 10)
         if #available(iOS 9.0, *) {
-            constraint3 = (guide as! UILayoutGuide).bottom =* controller.bottom + 10
+            constraint3 = (guide as! UILayoutGuide).bottom =* (controller.bottom + 10)
         }
         else {
             constraint3 = subview.centerX =* view.centerX

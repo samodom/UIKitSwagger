@@ -31,260 +31,260 @@ class ViewFillingTests: XCTestCase {
 
     func testFillingSuperviewUsingDefaults() {
         returnedConstraints = subview.fillSuperview()
-        assertSuperviewFilledWithIdiom(.Lingual)
+        assertSuperviewFilledWithIdiom(.lingual)
     }
 
     func testFillingSuperviewInMarginsUsingDefaults() {
         returnedConstraints = subview.fillSuperview(inMargins: true)
-        assertSuperviewFilledWithIdiom(.Lingual, inMargins: true)
+        assertSuperviewFilledWithIdiom(.lingual, inMargins: true)
     }
 
     //  MARK: Single directions
 
     func testFillingSuperviewUsingLeadingToTrailingDirection() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeadingToTrailing])
+        returnedConstraints = subview.fillSuperview(inDirections: [.leadingToTrailing])
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Leading)
-        assertSubviewConstrainedToSuperviewEdge(.Trailing)
+        assertSubviewConstrainedToSuperviewEdge(.leading)
+        assertSubviewConstrainedToSuperviewEdge(.trailing)
     }
 
     func testFillingSuperviewUsingTrailingToLeadingDirection() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.TrailingToLeading])
+        returnedConstraints = subview.fillSuperview(inDirections: [.trailingToLeading])
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Leading)
-        assertSubviewConstrainedToSuperviewEdge(.Trailing)
+        assertSubviewConstrainedToSuperviewEdge(.leading)
+        assertSubviewConstrainedToSuperviewEdge(.trailing)
     }
 
     func testFillingSuperviewUsingLeftToRightDirection() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeftToRight])
+        returnedConstraints = subview.fillSuperview(inDirections: [.leftToRight])
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Left)
-        assertSubviewConstrainedToSuperviewEdge(.Right)
+        assertSubviewConstrainedToSuperviewEdge(.left)
+        assertSubviewConstrainedToSuperviewEdge(.right)
     }
 
     func testFillingSuperviewUsingRightToLeftDirection() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.RightToLeft])
+        returnedConstraints = subview.fillSuperview(inDirections: [.rightToLeft])
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Left)
-        assertSubviewConstrainedToSuperviewEdge(.Right)
+        assertSubviewConstrainedToSuperviewEdge(.left)
+        assertSubviewConstrainedToSuperviewEdge(.right)
     }
 
     func testFillingSuperviewUsingTopToBottomDirection() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.TopToBottom])
+        returnedConstraints = subview.fillSuperview(inDirections: [.topToBottom])
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Top)
-        assertSubviewConstrainedToSuperviewEdge(.Bottom)
+        assertSubviewConstrainedToSuperviewEdge(.top)
+        assertSubviewConstrainedToSuperviewEdge(.bottom)
     }
 
     func testFillingSuperviewUsingBottomToTopDirection() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.BottomToTop])
+        returnedConstraints = subview.fillSuperview(inDirections: [.bottomToTop])
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Top)
-        assertSubviewConstrainedToSuperviewEdge(.Bottom)
+        assertSubviewConstrainedToSuperviewEdge(.top)
+        assertSubviewConstrainedToSuperviewEdge(.bottom)
     }
 
     //  MARK: Single directions in margins
 
     func testFillingSuperviewUsingLeadingToTrailingDirectionInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeadingToTrailing], inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.leadingToTrailing], inMargins: true)
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Leading, usingMargins: true)
-        assertSubviewConstrainedToSuperviewEdge(.Trailing, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.leading, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.trailing, usingMargins: true)
     }
 
     func testFillingSuperviewUsingTrailingToLeadingDirectionInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.TrailingToLeading], inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.trailingToLeading], inMargins: true)
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Leading, usingMargins: true)
-        assertSubviewConstrainedToSuperviewEdge(.Trailing, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.leading, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.trailing, usingMargins: true)
     }
 
     func testFillingSuperviewUsingLeftToRightDirectionInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeftToRight], inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.leftToRight], inMargins: true)
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Left, usingMargins: true)
-        assertSubviewConstrainedToSuperviewEdge(.Right, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.left, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.right, usingMargins: true)
     }
 
     func testFillingSuperviewUsingRightToLeftDirectionInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.RightToLeft], inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.rightToLeft], inMargins: true)
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Left, usingMargins: true)
-        assertSubviewConstrainedToSuperviewEdge(.Right, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.left, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.right, usingMargins: true)
     }
 
     func testFillingSuperviewUsingTopToBottomDirectionInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.TopToBottom], inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.topToBottom], inMargins: true)
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Top, usingMargins: true)
-        assertSubviewConstrainedToSuperviewEdge(.Bottom, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.top, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.bottom, usingMargins: true)
     }
 
     func testFillingSuperviewUsingBottomToTopDirectionInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.BottomToTop], inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.bottomToTop], inMargins: true)
         assertFillingConstraintCount(2)
-        assertSubviewConstrainedToSuperviewEdge(.Top, usingMargins: true)
-        assertSubviewConstrainedToSuperviewEdge(.Bottom, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.top, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.bottom, usingMargins: true)
     }
 
     //  MARK: Double directions
 
     func testFillingSuperviewUsingLeadingToTrailingAndTopToBottom() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeadingToTrailing, .TopToBottom])
-        assertSuperviewFilledWithIdiom(.Lingual)
+        returnedConstraints = subview.fillSuperview(inDirections: [.leadingToTrailing, .topToBottom])
+        assertSuperviewFilledWithIdiom(.lingual)
     }
 
     func testFillingSuperviewUsingTrailingToLeadingAndTopToBottom() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.TrailingToLeading, .TopToBottom])
-        assertSuperviewFilledWithIdiom(.Lingual)
+        returnedConstraints = subview.fillSuperview(inDirections: [.trailingToLeading, .topToBottom])
+        assertSuperviewFilledWithIdiom(.lingual)
     }
 
     func testFillingSuperviewUsingLeadingToTrailingAndBottomToTop() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeadingToTrailing, .BottomToTop])
-        assertSuperviewFilledWithIdiom(.Lingual)
+        returnedConstraints = subview.fillSuperview(inDirections: [.leadingToTrailing, .bottomToTop])
+        assertSuperviewFilledWithIdiom(.lingual)
     }
 
     func testFillingSuperviewUsingTrailingToLeadingAndBottomToTop() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.TrailingToLeading, .BottomToTop])
-        assertSuperviewFilledWithIdiom(.Lingual)
+        returnedConstraints = subview.fillSuperview(inDirections: [.trailingToLeading, .bottomToTop])
+        assertSuperviewFilledWithIdiom(.lingual)
     }
 
     func testFillingSuperviewUsingLeftToRightAndTopToBottom() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeftToRight, .TopToBottom])
-        assertSuperviewFilledWithIdiom(.Geometric)
+        returnedConstraints = subview.fillSuperview(inDirections: [.leftToRight, .topToBottom])
+        assertSuperviewFilledWithIdiom(.geometric)
     }
 
     func testFillingSuperviewUsingRightToLeftAndTopToBottom() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.RightToLeft, .TopToBottom])
-        assertSuperviewFilledWithIdiom(.Geometric)
+        returnedConstraints = subview.fillSuperview(inDirections: [.rightToLeft, .topToBottom])
+        assertSuperviewFilledWithIdiom(.geometric)
     }
 
     func testFillingSuperviewUsingLeftToRightAndBottomToTop() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeftToRight, .TopToBottom])
-        assertSuperviewFilledWithIdiom(.Geometric)
+        returnedConstraints = subview.fillSuperview(inDirections: [.leftToRight, .topToBottom])
+        assertSuperviewFilledWithIdiom(.geometric)
     }
 
     func testFillingSuperviewUsingRightToLeftAndBottomToTop() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.RightToLeft, .TopToBottom])
-        assertSuperviewFilledWithIdiom(.Geometric)
+        returnedConstraints = subview.fillSuperview(inDirections: [.rightToLeft, .topToBottom])
+        assertSuperviewFilledWithIdiom(.geometric)
     }
 
     //  MARK: Double directions in margins
 
     func testFillingSuperviewUsingLeadingToTrailingAndTopToBottomInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeadingToTrailing, .TopToBottom], inMargins: true)
-        assertSuperviewFilledWithIdiom(.Lingual, inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.leadingToTrailing, .topToBottom], inMargins: true)
+        assertSuperviewFilledWithIdiom(.lingual, inMargins: true)
     }
 
     func testFillingSuperviewUsingTrailingToLeadingAndTopToBottomInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.TrailingToLeading, .TopToBottom], inMargins: true)
-        assertSuperviewFilledWithIdiom(.Lingual, inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.trailingToLeading, .topToBottom], inMargins: true)
+        assertSuperviewFilledWithIdiom(.lingual, inMargins: true)
     }
 
     func testFillingSuperviewUsingLeadingToTrailingAndBottomToTopInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeadingToTrailing, .BottomToTop], inMargins: true)
-        assertSuperviewFilledWithIdiom(.Lingual, inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.leadingToTrailing, .bottomToTop], inMargins: true)
+        assertSuperviewFilledWithIdiom(.lingual, inMargins: true)
     }
 
     func testFillingSuperviewUsingTrailingToLeadingAndBottomToTopInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.TrailingToLeading, .BottomToTop], inMargins: true)
-        assertSuperviewFilledWithIdiom(.Lingual, inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.trailingToLeading, .bottomToTop], inMargins: true)
+        assertSuperviewFilledWithIdiom(.lingual, inMargins: true)
     }
 
     func testFillingSuperviewUsingLeftToRightAndTopToBottomInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeftToRight, .TopToBottom], inMargins: true)
-        assertSuperviewFilledWithIdiom(.Geometric, inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.leftToRight, .topToBottom], inMargins: true)
+        assertSuperviewFilledWithIdiom(.geometric, inMargins: true)
     }
 
     func testFillingSuperviewUsingRightToLeftAndTopToBottomInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.RightToLeft, .TopToBottom], inMargins: true)
-        assertSuperviewFilledWithIdiom(.Geometric, inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.rightToLeft, .topToBottom], inMargins: true)
+        assertSuperviewFilledWithIdiom(.geometric, inMargins: true)
     }
 
     func testFillingSuperviewUsingLeftToRightAndBottomToTopInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeftToRight, .TopToBottom], inMargins: true)
-        assertSuperviewFilledWithIdiom(.Geometric, inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.leftToRight, .topToBottom], inMargins: true)
+        assertSuperviewFilledWithIdiom(.geometric, inMargins: true)
     }
 
     func testFillingSuperviewUsingRightToLeftAndBottomToTopInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.RightToLeft, .TopToBottom], inMargins: true)
-        assertSuperviewFilledWithIdiom(.Geometric, inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.rightToLeft, .topToBottom], inMargins: true)
+        assertSuperviewFilledWithIdiom(.geometric, inMargins: true)
     }
 
     //  MARK: Excluding edges
 
     func testExcludingOneEdge() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.LeftToRight], excludeEdges: [.Left])
+        returnedConstraints = subview.fillSuperview(inDirections: [.leftToRight], excludeEdges: [.left])
         assertFillingConstraintCount(1)
-        assertSubviewConstrainedToSuperviewEdge(.Right)
+        assertSubviewConstrainedToSuperviewEdge(.right)
     }
 
     func testExcludingOneEdgeInMargins() {
-        returnedConstraints = subview.fillSuperview(inDirections: [.RightToLeft], excludeEdges: [.Left], inMargins: true)
+        returnedConstraints = subview.fillSuperview(inDirections: [.rightToLeft], excludeEdges: [.left], inMargins: true)
         assertFillingConstraintCount(1)
-        assertSubviewConstrainedToSuperviewEdge(.Right, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.right, usingMargins: true)
     }
 
     func testExcludingTwoEdges() {
-        returnedConstraints = subview.fillSuperview(excludeEdges: [.Trailing, .Bottom])
-        assertSuperviewFilledWithIdiom(.Lingual, excludingEdges: [.Trailing, .Bottom])
+        returnedConstraints = subview.fillSuperview(excludeEdges: [.trailing, .bottom])
+        assertSuperviewFilledWithIdiom(.lingual, excludingEdges: [.trailing, .bottom])
     }
 
     func testExcludingTwoEdgesInMargins() {
-        returnedConstraints = subview.fillSuperview(excludeEdges: [.Leading, .Top], inMargins: true)
-        assertSuperviewFilledWithIdiom(.Lingual, excludingEdges: [.Leading, .Top], inMargins: true)
+        returnedConstraints = subview.fillSuperview(excludeEdges: [.leading, .top], inMargins: true)
+        assertSuperviewFilledWithIdiom(.lingual, excludingEdges: [.leading, .top], inMargins: true)
     }
 
     func testExcludingThreeEdges() {
-        returnedConstraints = subview.fillSuperview(excludeEdges: [.Leading, .Trailing, .Bottom])
+        returnedConstraints = subview.fillSuperview(excludeEdges: [.leading, .trailing, .bottom])
         assertFillingConstraintCount(1)
-        assertSubviewConstrainedToSuperviewEdge(.Top)
+        assertSubviewConstrainedToSuperviewEdge(.top)
     }
 
     func testExcludingThreeEdgesInMargins() {
         returnedConstraints = subview.fillSuperview(
-            inDirections: [.LeftToRight, .TopToBottom],
-            excludeEdges: [.Left, .Right, .Bottom],
+            inDirections: [.leftToRight, .topToBottom],
+            excludeEdges: [.left, .right, .bottom],
             inMargins: true
         )
         assertFillingConstraintCount(1)
-        assertSubviewConstrainedToSuperviewEdge(.Top, usingMargins: true)
+        assertSubviewConstrainedToSuperviewEdge(.top, usingMargins: true)
     }
 
     func testExcludingFourEdges() {
-        returnedConstraints = subview.fillSuperview(excludeEdges: [.Leading, .Trailing, .Top, .Bottom])
+        returnedConstraints = subview.fillSuperview(excludeEdges: [.leading, .trailing, .top, .bottom])
         assertFillingConstraintCount(0)
         XCTAssertEqual(superview.constraints.count, 0, "No constraints should be applied")
     }
 
     func testExcludingFourEdgesInMargins() {
         returnedConstraints = subview.fillSuperview(
-            inDirections: [.RightToLeft, .BottomToTop],
-            excludeEdges: [.Left, .Right, .Top, .Bottom])
+            inDirections: [.rightToLeft, .bottomToTop],
+            excludeEdges: [.left, .right, .top, .bottom])
         assertFillingConstraintCount(0)
         XCTAssertEqual(superview.constraints.count, 0, "No constraints should be applied")
     }
 
     //  MARK: Custom assertions
 
-    private func assertSuperviewFilledWithIdiom(
-        idiom: HoriontalDirectionIdiom,
+    fileprivate func assertSuperviewFilledWithIdiom(
+        _ idiom: HoriontalDirectionIdiom,
         excludingEdges edgeExclusions: Set<LayoutEdge> = [],
         inMargins usingMargins: Bool = false,
-        inFile file: String = __FILE__,
-        atLine line: UInt = __LINE__
+        inFile file: String = #file,
+        atLine line: UInt = #line
         ) {
             let horizontalEdges: Set<LayoutEdge>
             switch idiom {
-            case .Lingual:
-                horizontalEdges = [.Leading, .Trailing]
+            case .lingual:
+                horizontalEdges = [.leading, .trailing]
 
-            case .Geometric:
-                horizontalEdges = [.Left, .Right]
+            case .geometric:
+                horizontalEdges = [.left, .right]
             }
 
-            let verticalEdges: Set<LayoutEdge> = [.Top, .Bottom]
-            let expectedEdges = (verticalEdges.union(horizontalEdges)).subtract(edgeExclusions)
+            let verticalEdges: Set<LayoutEdge> = [.top, .bottom]
+            let expectedEdges = (verticalEdges.union(horizontalEdges)).subtracting(edgeExclusions)
 
             assertFillingConstraintCount(expectedEdges.count, inFile: file, atLine: line)
             expectedEdges.forEach {
@@ -292,7 +292,7 @@ class ViewFillingTests: XCTestCase {
             }
     }
 
-    private func assertFillingConstraintCount(count: Int, inFile file: String = __FILE__, atLine line: UInt = __LINE__) {
+    fileprivate func assertFillingConstraintCount(_ count: Int, inFile file: String = #file, atLine line: UInt = #line) {
         var countString = ""
         switch count {
         case 0:
@@ -318,51 +318,51 @@ class ViewFillingTests: XCTestCase {
             let pluralString = count == 1 ? "" : "s"
             let andOrString = count == 0 ? "or" : "and"
             let errorString = "There should be \(countString) constraint\(pluralString) returned \(andOrString) activated"
-            recordFailureWithDescription(errorString, inFile: file, atLine: line,  expected: true)
+            recordFailure(withDescription: errorString, inFile: file, atLine: line,  expected: true)
         }
     }
 
-    private func assertSubviewConstrainedToSuperviewEdge(edge: LayoutEdge, usingMargins useMargins: Bool = false, inFile file: String = __FILE__, atLine line: UInt = __LINE__) {
+    fileprivate func assertSubviewConstrainedToSuperviewEdge(_ edge: LayoutEdge, usingMargins useMargins: Bool = false, inFile file: String = #file, atLine line: UInt = #line) {
         let subviewPair = AutoLayoutAttributedItem(subview, edge.getLayoutAttribute(usingMargins: false))
         let superviewPair = AutoLayoutAttributedItem(superview, edge.getLayoutAttribute(usingMargins: useMargins))
         let expected = subviewPair =* superviewPair
 
         if !returnedConstraints.contains(expected) || !superview.hasConstraint(expected) {
             let errorString = PinningErrorStringForEdge(edge, usingMargins: useMargins)
-            recordFailureWithDescription(errorString, inFile: file, atLine: line, expected: true)
+            recordFailure(withDescription: errorString, inFile: file, atLine: line, expected: true)
         }
     }
 }
 
-private func PinningErrorStringForEdge(edge: LayoutEdge, usingMargins useMargins: Bool) -> String {
+private func PinningErrorStringForEdge(_ edge: LayoutEdge, usingMargins useMargins: Bool) -> String {
     let edgeString = StringForEdge(edge)
     let edgeOrMargin = useMargins ? "margin" : "edge"
     return "The subview should be pinned to its superview's \(edgeString) \(edgeOrMargin)"
 }
 
-private func StringForEdge(edge: LayoutEdge) -> String {
+private func StringForEdge(_ edge: LayoutEdge) -> String {
     switch edge {
-    case .Leading:
+    case .leading:
         return "leading"
 
-    case .Trailing:
+    case .trailing:
         return "trailing"
 
-    case .Left:
+    case .left:
         return "left"
 
-    case .Right:
+    case .right:
         return "right"
 
-    case .Top:
+    case .top:
         return "top"
 
-    case .Bottom:
+    case .bottom:
         return "bottom"
     }
 }
 
 private enum HoriontalDirectionIdiom {
-    case Lingual
-    case Geometric
+    case lingual
+    case geometric
 }
