@@ -32,10 +32,10 @@ class ConstraintComparisonTests: XCTestCase {
 
         constraintOne = NSLayoutConstraint(
             item: view,
-            attribute: .Leading,
-            relatedBy: .Equal,
+            attribute: .leading,
+            relatedBy: .equal,
             toItem: otherItem,
-            attribute: .CenterX,
+            attribute: .centerX,
             multiplier: 14.0,
             constant: 42.0
         )
@@ -68,7 +68,7 @@ class ConstraintComparisonTests: XCTestCase {
     }
 
     func testReversedConstraintsAreEqual() {
-        constraintTwo = constraintOne.reversed()
+        constraintTwo = constraintOne.reversed
         XCTAssertEqual(constraintOne, constraintTwo, "The two constraints should be considered equivalent")
     }
 
@@ -88,7 +88,7 @@ class ConstraintComparisonTests: XCTestCase {
     func testMismatchedFirstAttributesMakeConstraintsUnequal() {
         constraintTwo = NSLayoutConstraint(
             item: constraintOne.firstItem,
-            attribute: .Trailing,
+            attribute: .trailing,
             relatedBy: constraintOne.relation,
             toItem: constraintOne.secondItem,
             attribute: constraintOne.secondAttribute,
@@ -102,7 +102,7 @@ class ConstraintComparisonTests: XCTestCase {
         constraintTwo = NSLayoutConstraint(
             item: constraintOne.firstItem,
             attribute: constraintOne.firstAttribute,
-            relatedBy: .GreaterThanOrEqual,
+            relatedBy: .greaterThanOrEqual,
             toItem: constraintOne.secondItem,
             attribute: constraintOne.secondAttribute,
             multiplier: constraintOne.multiplier,
@@ -130,7 +130,7 @@ class ConstraintComparisonTests: XCTestCase {
             attribute: constraintOne.firstAttribute,
             relatedBy: constraintOne.relation,
             toItem: constraintOne.secondItem,
-            attribute: .Trailing,
+            attribute: .trailing,
             multiplier: constraintOne.multiplier,
             constant: constraintOne.constant
         )

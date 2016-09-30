@@ -7,14 +7,15 @@ Auto Layout Convenience
 
 ### Equality
 
-Compare two constraints with respect to the items and their attributes, the equivalence relation, the multiplier and constant, and the priority.  It even tries the reverse of one operand to truly determine equivalency.  Constraint identifiers and activation status are not used in checking equivalence, but the `==*` operator can be used to compare constraints for identify by using normal equivalence *plus* identifiers.
+Compare two constraints with respect to the items and their attributes, the relation, the multiplier, the constant and the priority.  It even tries the reverse of one operand to truly determine equivalency.  Constraint identifiers and activation status are not used in checking equivalence, but the `==*` operator can be used to compare constraints for identity by using normal equivalence *plus* identifiers.
 
 
 ### Reversal
 
 Want to reverse the items in a constraint to produce an equivalent constraint?  Note that some constraints are not reversible.
- - `reversed() -> NSLayoutConstraint?`
- - `makeConstantPositive() -> NSLayoutConstraint`
+
+ - `reversed: NSLayoutConstraint?`
+ - `positiveConstantConstraint: NSLayoutConstraint`
 
 
 ## Real Auto Layout Syntax
@@ -27,7 +28,7 @@ let constraint2 = button.height <=* 20
 let constraint3 = spacer.top >=* controller.top + 4
 ```
 
-** Including the top and bottom layout guides for a view controller; the other attributes use the root view's corresponding attributes. Layout guides use their bottom attribute for the baseline attributes and non-margin equivalents for margin attributes (i.e., left for left margin).  Layout guides are available in iOS 9 and later only.
+** *Including the top and bottom layout guides for a view controller; the other attributes use the root view's corresponding attributes. Layout guides use their bottom attribute for the baseline attributes and non-margin equivalents for margin attributes (i.e., left for left margin).  Layout guides are available in iOS 9 and later only.*
 
 
 Additionally, the two modifiable attributes of a constraint can be manipulated with the tilde operator (`~`) as follows:

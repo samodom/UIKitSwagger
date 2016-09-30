@@ -15,16 +15,12 @@
 		0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */; };
 		0A3BB97F19EB70C70075B32A /* UIKitSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3BB98519EB70C70075B32A /* UIKitSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */; };
-		0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */; };
-		0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */; };
 		0A3BB99C19EB71740075B32A /* ConstraintSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */; };
-		0A3BB9A219EB71F00075B32A /* ConstraintComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99F19EB71F00075B32A /* ConstraintComparison.swift */; };
 		0A3BB9AB19EB740F0075B32A /* ConstraintSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB9AA19EB740F0075B32A /* ConstraintSearch.swift */; };
 		0A3F1B4E1A4112F500195B8F /* ConstraintApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F1B4D1A4112F500195B8F /* ConstraintApplication.swift */; };
 		0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */; };
 		0A4CF44C1A22E32200D6F4F8 /* ViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */; };
 		0A4CF44E1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */; };
-		0A52547B1B34CF1600BC39DC /* ConstraintReversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52547A1B34CF1600BC39DC /* ConstraintReversal.swift */; };
 		0A5A29781A73351D003CB7EE /* SpinnerStateManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A29771A73351D003CB7EE /* SpinnerStateManagerTests.swift */; };
 		0A5A297B1A73368B003CB7EE /* SpinnerStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5A297A1A73368B003CB7EE /* SpinnerStateManager.swift */; };
 		0A5D73681BC995FD005DEB73 /* LayoutEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5D73671BC995FD005DEB73 /* LayoutEdge.swift */; };
@@ -61,6 +57,10 @@
 		0AA5805C1A3D2B830061D882 /* HSBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805B1A3D2B830061D882 /* HSBComponents.swift */; };
 		0AA5805F1A3D2B960061D882 /* GrayscaleComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805E1A3D2B960061D882 /* GrayscaleComponents.swift */; };
 		0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F8E1A29306C00E1C943 /* AutoLayoutInternal.swift */; };
+		0AA70B9B1D9E313E006C9DD1 /* ConstraintReversalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */; };
+		0AA70B9C1D9E3264006C9DD1 /* ConstraintReversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52547A1B34CF1600BC39DC /* ConstraintReversal.swift */; };
+		0AA70B9E1D9E339B006C9DD1 /* ConstraintComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99F19EB71F00075B32A /* ConstraintComparison.swift */; };
+		0AA70B9F1D9E33A2006C9DD1 /* ConstraintComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */; };
 		0AC37F921A29541C00E1C943 /* MainThreadUpdatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F911A29541C00E1C943 /* MainThreadUpdatesTests.swift */; };
 		0AC37F951A29595300E1C943 /* Concurrency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC37F941A29595300E1C943 /* Concurrency.swift */; };
 		0AC4A8B71A27E05600EBCCB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC4A8B61A27E05600EBCCB8 /* AppDelegate.swift */; };
@@ -654,11 +654,9 @@
 				0AF2A08A1A28FFD700A5C0F9 /* ConstraintActivation.swift in Sources */,
 				0A5D73681BC995FD005DEB73 /* LayoutEdge.swift in Sources */,
 				0A4CF44C1A22E32200D6F4F8 /* ViewLayoutAttributes.swift in Sources */,
-				0A52547B1B34CF1600BC39DC /* ConstraintReversal.swift in Sources */,
 				0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */,
 				0A0E3C8E1A3E42DC00E4AC29 /* BehaviorItemAdditionSyntax.swift in Sources */,
 				0AC4A8DB1A27FE2100EBCCB8 /* ViewAlignment.swift in Sources */,
-				0A3BB9A219EB71F00075B32A /* ConstraintComparison.swift in Sources */,
 				0ACADAE71A3A8C6700CF49F8 /* AlertAdditionSyntax.swift in Sources */,
 				0A9137331B50312300428632 /* LayoutDirection.swift in Sources */,
 				0AA580591A3D29EB0061D882 /* RGBComponents.swift in Sources */,
@@ -668,8 +666,10 @@
 				0ACADAF31A3BF4A500CF49F8 /* SliderRange.swift in Sources */,
 				0A10F28F1A3D16E600715C7A /* ColorComponents.swift in Sources */,
 				0A63F7501A3E15D9001FBFF7 /* BehaviorAdditionSyntax.swift in Sources */,
+				0AA70B9E1D9E339B006C9DD1 /* ConstraintComparison.swift in Sources */,
 				0ACADAED1A3BE90600CF49F8 /* StateManagement.swift in Sources */,
 				0A63F74B1A3E105D001FBFF7 /* AnimatorAdditionSyntax.swift in Sources */,
+				0AA70B9C1D9E3264006C9DD1 /* ConstraintReversal.swift in Sources */,
 				0A63F7451A3D59F8001FBFF7 /* ColorPalette.swift in Sources */,
 				0A2312691A327F4F00BE92BE /* ViewAdditionSyntax.swift in Sources */,
 				0A5D736E1BC99BA7005DEB73 /* Alignment.swift in Sources */,
@@ -684,7 +684,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A8028131A342EEA00816792 /* ControlEnablingTests.swift in Sources */,
-				0A3BB99B19EB71740075B32A /* ConstraintReversalTests.swift in Sources */,
 				0A754C081A28455F0077DB3A /* ViewDistributionTests.swift in Sources */,
 				0ACADB0A1A3CF74900CF49F8 /* StepperRangeTests.swift in Sources */,
 				0ACED1791AA387CD0073E42C /* TestConstants.swift in Sources */,
@@ -693,6 +692,7 @@
 				0ACADAF01A3BF0E500CF49F8 /* SliderRangeTests.swift in Sources */,
 				0A10F28D1A3D147700715C7A /* ColorComponentConversionTests.swift in Sources */,
 				0A5D736A1BC9973E005DEB73 /* LayoutEdgeTests.swift in Sources */,
+				0AA70B9B1D9E313E006C9DD1 /* ConstraintReversalTests.swift in Sources */,
 				0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */,
 				0ADD2B021B4C7175002F822D /* StackViewSyntaxTests.swift in Sources */,
 				0ACED17D1AA388350073E42C /* ColorTestHelpers.swift in Sources */,
@@ -712,7 +712,7 @@
 				0A63F74E1A3E147B001FBFF7 /* DynamicBehaviorAdditionSyntaxTests.swift in Sources */,
 				0A9B690E1A05778300F3FFC2 /* ShowHideTests.swift in Sources */,
 				0ACED1701AA384360073E42C /* HSBComponentsTests.swift in Sources */,
-				0A3BB99A19EB71740075B32A /* ConstraintComparisonTests.swift in Sources */,
+				0AA70B9F1D9E33A2006C9DD1 /* ConstraintComparisonTests.swift in Sources */,
 				0A5A29781A73351D003CB7EE /* SpinnerStateManagerTests.swift in Sources */,
 				0A67BADA1A22E8E50038D99A /* ViewControllerLayoutAttributesTests.swift in Sources */,
 				0A9137311B50303600428632 /* LayoutDirectionTests.swift in Sources */,

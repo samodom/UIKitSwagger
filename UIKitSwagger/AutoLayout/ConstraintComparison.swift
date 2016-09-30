@@ -10,13 +10,17 @@ import UIKit
 
 extension NSLayoutConstraint  {
 
+    public func isEqualToLayoutConstraint(constraint: NSLayoutConstraint) -> Bool {
+        return isEqual(constraint)
+    }
+
     /**
      Constraints should be equatable beyond reference comparison and we match them in a property-by-property manner.
      - parameter object: Another constraint to compare to this constraint.
      */
-    override public func isEqual(object: AnyObject?) -> Bool {
-        guard object is NSLayoutConstraint else { return false }
-        guard self !== object else { return true }
+    override open func isEqual(_ object: Any?) -> Bool {
+        guard let constraint = object as? NSLayoutConstraint else { return false }
+        guard self !== constraint else { return true }
 
         let otherConstraint = object as! NSLayoutConstraint
         guard priority == otherConstraint.priority else { return false }
@@ -25,21 +29,21 @@ extension NSLayoutConstraint  {
             return true
         }
 
-        if let reverse = otherConstraint.reversed() {
+        if let reverse = otherConstraint.reversed {
             return componentsMatch(reverse)
         }
 
         return false
     }
 
-    private func componentsMatch(otherConstraint: NSLayoutConstraint) -> Bool {
+    fileprivate func componentsMatch(_ otherConstraint: NSLayoutConstraint) -> Bool {
         guard firstItem === otherConstraint.firstItem else { return false }
         guard firstAttribute == otherConstraint.firstAttribute else { return false }
         guard secondItem === otherConstraint.secondItem else { return false }
         guard secondAttribute == otherConstraint.secondAttribute else { return false }
         guard relation == otherConstraint.relation else { return false }
 
-        func valueWithinTolerance(value1: CGFloat, _ value2: CGFloat) -> Bool {
+        func valueWithinTolerance(_ value1: CGFloat, _ value2: CGFloat) -> Bool {
             return Double(abs(value1 - value2)) < 1e-5
         }
 
@@ -55,10 +59,8 @@ extension NSLayoutConstraint  {
 /**
  Global-level definition of the constraint identity operator.
  */
-infix operator ==* { }
+infix operator ==*
 
 public func ==* (lhs: NSLayoutConstraint, rhs: NSLayoutConstraint) -> Bool {
-    return
-        lhs == rhs &&
-            lhs.identifier == rhs.identifier
+    return lhs == rhs && lhs.identifier == rhs.identifier
 }
