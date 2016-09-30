@@ -24,7 +24,7 @@ class ConstraintActivationTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        let window = UIApplication.sharedApplication().delegate!.window!
+        let window = UIApplication.shared.delegate!.window!
         controller = window!.rootViewController
         view = controller.view
         view.addSubview(subview)
@@ -57,97 +57,97 @@ class ConstraintActivationTests: XCTestCase {
 
     func testActivatingInactiveConstraint() {
         constraint1.activate()
-        XCTAssertTrue(constraint1.active, "The inactive constraint should be activated")
+        XCTAssertTrue(constraint1.isActive, "The inactive constraint should be activated")
     }
 
     func testNotDeactivatingActiveConstraint() {
-        constraint1.active = true
+        constraint1.isActive = true
         constraint1.activate()
-        XCTAssertTrue(constraint1.active, "The active contraint should not be deactivated")
+        XCTAssertTrue(constraint1.isActive, "The active contraint should not be deactivated")
     }
 
     func testDeactivatingActiveConstraint() {
-        constraint1.active = true
+        constraint1.isActive = true
         constraint1.deactivate()
-        XCTAssertFalse(constraint1.active, "The active constraint should be deactivated")
+        XCTAssertFalse(constraint1.isActive, "The active constraint should be deactivated")
     }
 
     func testNotActivatingInactiveConstraint() {
         constraint1.deactivate()
-        XCTAssertFalse(constraint1.active, "The inactive constraint should not be activated")
+        XCTAssertFalse(constraint1.isActive, "The inactive constraint should not be activated")
     }
 
     func testActivationOfSingleConstraint() {
         ActivateConstraints(constraint1)
-        XCTAssertTrue(constraint1.active, "The constraint should be activated")
+        XCTAssertTrue(constraint1.isActive, "The constraint should be activated")
     }
 
     func testActiveConstraintNotDeactivated() {
-        constraint1.active = true
+        constraint1.isActive = true
         ActivateConstraints(constraint1)
-        XCTAssertTrue(constraint1.active, "An active constraint should not be deactivated")
+        XCTAssertTrue(constraint1.isActive, "An active constraint should not be deactivated")
     }
 
     func testActivationOfConstraintList() {
         ActivateConstraints(constraint1, constraint2, constraint3)
-        XCTAssertTrue(constraint1.active, "Each constraint should be activated")
-        XCTAssertTrue(constraint2.active, "Each constraint should be activated")
-        XCTAssertTrue(constraint3.active, "Each constraint should be activated")
+        XCTAssertTrue(constraint1.isActive, "Each constraint should be activated")
+        XCTAssertTrue(constraint2.isActive, "Each constraint should be activated")
+        XCTAssertTrue(constraint3.isActive, "Each constraint should be activated")
     }
 
     func testActivationOfConstraintArrayWithFunction() {
         ActivateConstraints(constraintArray)
-        XCTAssertTrue(constraint1.active, "Each constraint should be activated")
-        XCTAssertTrue(constraint2.active, "Each constraint should be activated")
-        XCTAssertTrue(constraint3.active, "Each constraint should be activated")
+        XCTAssertTrue(constraint1.isActive, "Each constraint should be activated")
+        XCTAssertTrue(constraint2.isActive, "Each constraint should be activated")
+        XCTAssertTrue(constraint3.isActive, "Each constraint should be activated")
     }
 
     func testActivationOfConstraintArrayWithMethod() {
         constraintArray.activate()
-        XCTAssertTrue(constraint1.active, "Each constraint should be activated")
-        XCTAssertTrue(constraint2.active, "Each constraint should be activated")
-        XCTAssertTrue(constraint3.active, "Each constraint should be activated")
+        XCTAssertTrue(constraint1.isActive, "Each constraint should be activated")
+        XCTAssertTrue(constraint2.isActive, "Each constraint should be activated")
+        XCTAssertTrue(constraint3.isActive, "Each constraint should be activated")
     }
 
     func testDeactivationOfSingleConstraint() {
-        constraint1.active = true
+        constraint1.isActive = true
         DeactivateConstraints(constraint1)
-        XCTAssertFalse(constraint1.active, "The constraint should be deactivated")
+        XCTAssertFalse(constraint1.isActive, "The constraint should be deactivated")
     }
 
     func testDeactiveConstraintNotActivated() {
         DeactivateConstraints(constraint1)
-        XCTAssertFalse(constraint1.active, "An inactive constraint should not be activated")
+        XCTAssertFalse(constraint1.isActive, "An inactive constraint should not be activated")
     }
 
     func testDeactivationOfConstraintList() {
-        constraint1.active = true
-        constraint2.active = true
-        constraint3.active = true
+        constraint1.isActive = true
+        constraint2.isActive = true
+        constraint3.isActive = true
         DeactivateConstraints(constraint1, constraint2, constraint3)
-        XCTAssertFalse(constraint1.active, "Each constraint should be deactivated")
-        XCTAssertFalse(constraint2.active, "Each constraint should be deactivated")
-        XCTAssertFalse(constraint3.active, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint1.isActive, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint2.isActive, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint3.isActive, "Each constraint should be deactivated")
     }
 
     func testDeactivationOfConstraintArrayWithFunction() {
-        constraint1.active = true
-        constraint2.active = true
-        constraint3.active = true
+        constraint1.isActive = true
+        constraint2.isActive = true
+        constraint3.isActive = true
         DeactivateConstraints([constraint1, constraint2, constraint3])
-        XCTAssertFalse(constraint1.active, "Each constraint should be deactivated")
-        XCTAssertFalse(constraint2.active, "Each constraint should be deactivated")
-        XCTAssertFalse(constraint3.active, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint1.isActive, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint2.isActive, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint3.isActive, "Each constraint should be deactivated")
     }
 
     func testDeactivationOfConstraintArrayWithMethod() {
-        constraint1.active = true
-        constraint2.active = true
-        constraint3.active = true
+        constraint1.isActive = true
+        constraint2.isActive = true
+        constraint3.isActive = true
         [constraint1, constraint2, constraint3].deactivate()
-        XCTAssertFalse(constraint1.active, "Each constraint should be deactivated")
-        XCTAssertFalse(constraint2.active, "Each constraint should be deactivated")
-        XCTAssertFalse(constraint3.active, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint1.isActive, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint2.isActive, "Each constraint should be deactivated")
+        XCTAssertFalse(constraint3.isActive, "Each constraint should be deactivated")
     }
 
 }
