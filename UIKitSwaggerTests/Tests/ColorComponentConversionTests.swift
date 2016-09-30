@@ -8,7 +8,6 @@
 
 import UIKit
 import XCTest
-@testable import UIKitSwagger
 
 class ColorComponentConversionTests: XCTestCase {
 

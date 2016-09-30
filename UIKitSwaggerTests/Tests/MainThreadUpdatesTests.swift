@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import UIKitSwagger
+import UIKitSwagger
 
 class MainThreadUpdatesTests: XCTestCase {
 
