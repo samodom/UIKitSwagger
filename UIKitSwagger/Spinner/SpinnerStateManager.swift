@@ -15,21 +15,21 @@ import UIKit
  - `Started(Int)`: The manager has a spinner, is supposed to be animating, and is using a client count represented by the associated integer.
  */
 public enum SpinnerState {
-    case Detached
-    case Stopped
-    case Started(Int)
+    case detached
+    case stopped
+    case started(Int)
 }
 
 /**
  Class that helps manage mutliple concurrent client tasks that use a `UIActivityIndicatorView`.
  */
-public class SpinnerStateManager {
+public final class SpinnerStateManager {
 
     /**
      The current state of the manager concerning attachment to a spinner and its expected animation state.
      - note: This value cannot be modified directly.  Instead, the state is managed internally through the assignment of the spinner and by start/stop events.
      */
-    public private(set) var currentState = SpinnerState.Detached
+    public fileprivate(set) var currentState = SpinnerState.detached
 
     /**
      The instance of `UIActivityIndicatorView` that is attached to the manager, if any.
@@ -58,13 +58,13 @@ public class SpinnerStateManager {
         spinner?.startAnimating()
 
         switch currentState {
-        case .Stopped:
-            currentState = .Started(1)
+        case .stopped:
+            currentState = .started(1)
 
-        case .Started(let clientCount):
-            currentState = .Started(clientCount + 1)
+        case .started(let clientCount):
+            currentState = .started(clientCount + 1)
 
-        case .Detached:
+        case .detached:
             break
         }
     }
@@ -77,13 +77,13 @@ public class SpinnerStateManager {
         removeClient()
     }
 
-    private func removeClient() {
+    fileprivate func removeClient() {
         switch currentState {
-        case .Started(let clients) where clients == 1:
-            currentState = .Stopped
+        case .started(let clients) where clients == 1:
+            currentState = .stopped
 
-        case .Started(let clients):
-            currentState = .Started(clients - 1)
+        case .started(let clients):
+            currentState = .started(clients - 1)
 
         default:
             break
@@ -92,9 +92,9 @@ public class SpinnerStateManager {
         stopAnimatingIfNeeded()
     }
 
-    private func stopAnimatingIfNeeded() {
+    fileprivate func stopAnimatingIfNeeded() {
         switch currentState {
-        case .Started(_):
+        case .started(_):
             break
 
         default:
@@ -102,15 +102,15 @@ public class SpinnerStateManager {
         }
     }
 
-    private func matchNewSpinnerState() {
+    fileprivate func matchNewSpinnerState() {
         if spinner == nil {
-            currentState = .Detached
+            currentState = .detached
         }
-        else if spinner!.isAnimating() {
-            currentState = .Started(1)
+        else if spinner!.isAnimating {
+            currentState = .started(1)
         }
         else {
-            currentState = .Stopped
+            currentState = .stopped
         }
     }
     
