@@ -25,7 +25,7 @@ You can now build your constraints in Swift with a real syntax the same way that
 ```swift
 let constraint1 = button.centerX =* ((2 * view.leftMargin) + 14.5)
 let constraint2 = button.height <=* 20
-let constraint3 = spacer.top >=* )controller.top + 4)
+let constraint3 = spacer.top >=* (controller.top + 4)
 ```
 
 ** *Including the top and bottom layout guides for a view controller; the other attributes use the root view's corresponding attributes. Layout guides use their bottom attribute for the baseline attributes and non-margin equivalents for margin attributes (i.e., left for left margin).  Layout guides are available in iOS 9 and later only.*
@@ -152,9 +152,9 @@ public enum LayoutEdge {
 
 Common distribution tasks can be performed without creating constraints manually.  In each case, two or more items must be provided to automatically distribute views.  Functions that accept a numeric argument use the provided value for spacing between items.  The produced constraints are defined with respect to the appropriate attribute of the first item listed.  All of these functions accept a number and a variadic list or array of views and return the constraints that they activate.
 
- - `DistributeLeftToRight(...) -> [NSLayoutConstraint]`
- - `DistributeLeadingToTrailing(...) -> [NSLayoutConstraint]`
- - `DistributeTopToBottom(...) -> [NSLayoutConstraint]`
+ - `DistributeLeftToRight(items: ...) -> [NSLayoutConstraint]`
+ - `DistributeLeadingToTrailing(items: ...) -> [NSLayoutConstraint]`
+ - `DistributeTopToBottom(items: ...) -> [NSLayoutConstraint]`
 
 
 ### Dimensions
@@ -180,10 +180,10 @@ Methods on NSLayoutConstraint:
  - `constrainWidthToHeight(CGFloat, CGFloat) -> NSLayoutConstraint`
  - `constrainHeightToWidth(CGFloat, CGFloat) -> NSLayoutConstraint`
 
-Global top-level functions (the produced constraints are defined with respect to the appropriate attribute of the first item listed or the provided constant/interval).  These functions accept a variadic list or array of items:
+Global top-level functions where the produced constraints are defined with respect to the appropriate attribute of the first item listed or the provided constant/range.  These functions accept a variadic list or array of items and optionally a value or range of values:
 
- - `MatchWidths(...) -> [NSLayoutConstraint]`
- - `ConstrainWidths(...) -> [NSLayoutConstraint]`
- - `MatchHeights(...) -> [NSLayoutConstraint]`
- - `ConstrainHeights(...) -> [NSLayoutConstraint]`
- - `MatchSizes(...) -> [NSLayoutConstraint]`
+ - `MatchWidths`
+ - `ConstrainWidths`
+ - `MatchHeights`
+ - `ConstrainHeights`
+ - `MatchSizes`
