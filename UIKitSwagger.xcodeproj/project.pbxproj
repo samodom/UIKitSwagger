@@ -18,6 +18,7 @@
 		0A2568871D9EDD67001E2A44 /* ConstraintActivationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */; };
 		0A2568881D9EDD6D001E2A44 /* ConstraintSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */; };
 		0A2568891D9EDFAF001E2A44 /* ConstraintRemoval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3F1B4D1A4112F500195B8F /* ConstraintRemoval.swift */; };
+		0A25688B1D9EF052001E2A44 /* ConstraintTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25688A1D9EF052001E2A44 /* ConstraintTranslation.swift */; };
 		0A3BB97F19EB70C70075B32A /* UIKitSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3BB98519EB70C70075B32A /* UIKitSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */; };
 		0A4CF44A1A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */; };
@@ -116,6 +117,7 @@
 		0A21DC491A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureRecognizerEnablingTests.swift; sourceTree = "<group>"; };
 		0A2312681A327F4F00BE92BE /* ViewAdditionSyntax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAdditionSyntax.swift; sourceTree = "<group>"; };
 		0A23126B1A32826700BE92BE /* ViewAddableSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewAddableSyntaxTests.swift; sourceTree = "<group>"; };
+		0A25688A1D9EF052001E2A44 /* ConstraintTranslation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintTranslation.swift; sourceTree = "<group>"; };
 		0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIKitSwagger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3BB97D19EB70C70075B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitSwagger.h; sourceTree = "<group>"; };
@@ -364,11 +366,12 @@
 			isa = PBXGroup;
 			children = (
 				0A5D736D1BC99BA7005DEB73 /* Alignment.swift */,
-				0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */,
 				0A3F1B4D1A4112F500195B8F /* ConstraintRemoval.swift */,
+				0A25688A1D9EF052001E2A44 /* ConstraintTranslation.swift */,
 				0A63DFE61B3CAE9B00B68DC0 /* Subscripting.swift */,
 				0A9B690F1A05799200F3FFC2 /* Utilities.swift */,
 				0A2312681A327F4F00BE92BE /* ViewAdditionSyntax.swift */,
+				0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				0A9B69101A05799200F3FFC2 /* Utilities.swift in Sources */,
 				0A4CF44C1A22E32200D6F4F8 /* ViewLayoutAttributes.swift in Sources */,
 				0AC37F8F1A29306C00E1C943 /* AutoLayoutInternal.swift in Sources */,
+				0A25688B1D9EF052001E2A44 /* ConstraintTranslation.swift in Sources */,
 				0A0E3C8E1A3E42DC00E4AC29 /* BehaviorItemAdditionSyntax.swift in Sources */,
 				0AC4A8DB1A27FE2100EBCCB8 /* ViewAlignment.swift in Sources */,
 				0ACADAE71A3A8C6700CF49F8 /* AlertAdditionSyntax.swift in Sources */,

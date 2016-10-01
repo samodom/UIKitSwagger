@@ -28,25 +28,31 @@ class ConstraintTranslationTests: XCTestCase {
         assert(label.translatesAutoresizingMaskIntoConstraints)
     }
 
-    func testTurningOffTranslationWithSingleItem() {
-        DoNotTranslateMasks(view)
-        XCTAssertFalse(view.translatesAutoresizingMaskIntoConstraints, "The view's autoresizing masks should no longer be translated into constraints")
+    func testTurningOffTranslationWithArrayLiteral() {
+        [view, button, image, label].setTranslatesAutoresizingMaskIntoConstraints(false)
+        XCTAssertFalse(view.translatesAutoresizingMaskIntoConstraints, "The view's autoresizing mask should no longer be translated into constraints")
+        XCTAssertFalse(button.translatesAutoresizingMaskIntoConstraints, "The button's autoresizing mask should no longer be translated into constraints")
+        XCTAssertFalse(image.translatesAutoresizingMaskIntoConstraints, "The image view's autoresizing mask should no longer be translated into constraints")
+        XCTAssertFalse(label.translatesAutoresizingMaskIntoConstraints, "The label's autoresizing mask should no longer be translated into constraints")
     }
 
-
-    func testTurningOffTranslationWithMultipleItems() {
-        DoNotTranslateMasks(button, image, label)
-        XCTAssertFalse(button.translatesAutoresizingMaskIntoConstraints, "The button's autoresizing masks should no longer be translated into constraints")
-        XCTAssertFalse(image.translatesAutoresizingMaskIntoConstraints, "The image view's autoresizing masks should no longer be translated into constraints")
-        XCTAssertFalse(label.translatesAutoresizingMaskIntoConstraints, "The label's autoresizing masks should no longer be translated into constraints")
+    func testTurningOnTranslationWithArray() {
+        button.translatesAutoresizingMaskIntoConstraints = false
+        image.translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        view.subviews.setTranslatesAutoresizingMaskIntoConstraints(true)
+        XCTAssertTrue(button.translatesAutoresizingMaskIntoConstraints, "The button's autoresizing mask should now be translated into constraints")
+        XCTAssertTrue(image.translatesAutoresizingMaskIntoConstraints, "The image view's autoresizing mask should now be translated into constraints")
+        XCTAssertTrue(label.translatesAutoresizingMaskIntoConstraints, "The label's autoresizing mask should now be translated into constraints")
     }
 
-
-    func testTurningOffTranslationWithArray() {
-        DoNotTranslateMasks(view.subviews)
-        XCTAssertFalse(button.translatesAutoresizingMaskIntoConstraints, "The button's autoresizing masks should no longer be translated into constraints")
-        XCTAssertFalse(image.translatesAutoresizingMaskIntoConstraints, "The image view's autoresizing masks should no longer be translated into constraints")
-        XCTAssertFalse(label.translatesAutoresizingMaskIntoConstraints, "The label's autoresizing masks should no longer be translated into constraints")
+    func testTurningOffTranslationWithSet() {
+        let items = [view, button, image, label] as Set
+        items.setTranslatesAutoresizingMaskIntoConstraints(false)
+        XCTAssertFalse(view.translatesAutoresizingMaskIntoConstraints, "The view's autoresizing mask should no longer be translated into constraints")
+        XCTAssertFalse(button.translatesAutoresizingMaskIntoConstraints, "The button's autoresizing mask should no longer be translated into constraints")
+        XCTAssertFalse(image.translatesAutoresizingMaskIntoConstraints, "The image view's autoresizing mask should no longer be translated into constraints")
+        XCTAssertFalse(label.translatesAutoresizingMaskIntoConstraints, "The label's autoresizing mask should no longer be translated into constraints")
     }
 
 }

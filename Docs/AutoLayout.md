@@ -42,11 +42,14 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 
 ## View Enhancements and Utilities
 
-### Turning Off Translation
+### Turning Off Autoresize Mask Translation
 
-Tired of calling `setTranslatesAutoresizingMaskIntoConstraints(false)` on so many views when writing Auto Layout code?  Do a bunch at once with a variadic list or array of views:
+Tired of calling `setTranslatesAutoresizingMaskIntoConstraints(...)` on code-created views when writing Auto Layout code?  Do a bunch at once with any array or set of views:
 
- - `DoNotTranslateMasks(...)`
+```swift
+view.subviews.setTranslatesAutoresizingMaskIntoConstraints(false)
+```
+
 
 
 And for good measure, a method to remove all of a view's constraints without having to use this cumbersome one-liner:
