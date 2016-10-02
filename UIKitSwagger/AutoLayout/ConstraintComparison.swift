@@ -10,8 +10,18 @@ import UIKit
 
 extension NSLayoutConstraint  {
 
-    public func isEqualToLayoutConstraint(constraint: NSLayoutConstraint) -> Bool {
-        return isEqual(constraint)
+    public func isEqualToLayoutConstraint(_ constraint: NSLayoutConstraint) -> Bool {
+        guard self !== constraint else { return true }
+
+        if componentsMatch(constraint) {
+            return true
+        }
+
+        if let reverse = constraint.reversed {
+            return componentsMatch(reverse)
+        }
+        
+        return false
     }
 
     /**
@@ -19,36 +29,40 @@ extension NSLayoutConstraint  {
      - parameter object: Another constraint to compare to this constraint.
      */
     override open func isEqual(_ object: Any?) -> Bool {
-        guard let constraint = object as? NSLayoutConstraint else { return false }
-        guard self !== constraint else { return true }
-
-        let otherConstraint = object as! NSLayoutConstraint
-        guard priority == otherConstraint.priority else { return false }
-
-        if componentsMatch(otherConstraint) {
-            return true
+        guard let constraint = object as? NSLayoutConstraint else {
+            return false
         }
 
-        if let reverse = otherConstraint.reversed {
-            return componentsMatch(reverse)
-        }
-
-        return false
+        return isEqualToLayoutConstraint(constraint)
     }
 
-    fileprivate func componentsMatch(_ otherConstraint: NSLayoutConstraint) -> Bool {
-        guard firstItem === otherConstraint.firstItem else { return false }
-        guard firstAttribute == otherConstraint.firstAttribute else { return false }
-        guard secondItem === otherConstraint.secondItem else { return false }
-        guard secondAttribute == otherConstraint.secondAttribute else { return false }
-        guard relation == otherConstraint.relation else { return false }
+    fileprivate func componentsMatch(_ constraint: NSLayoutConstraint) -> Bool {
+        guard firstItem === constraint.firstItem else {
+            return false
+        }
+        guard firstAttribute == constraint.firstAttribute else {
+            return false
+        }
+        guard secondItem === constraint.secondItem else {
+            return false
+        }
+        guard secondAttribute == constraint.secondAttribute else {
+            return false
+        }
+        guard relation == constraint.relation else {
+            return false
+        }
 
         func valueWithinTolerance(_ value1: CGFloat, _ value2: CGFloat) -> Bool {
             return Double(abs(value1 - value2)) < 1e-5
         }
 
-        guard valueWithinTolerance(multiplier, otherConstraint.multiplier) else { return false }
-        guard valueWithinTolerance(constant, otherConstraint.constant) else { return false }
+        guard valueWithinTolerance(multiplier, constraint.multiplier) else {
+            return false
+        }
+        guard valueWithinTolerance(constant, constraint.constant) else {
+            return false
+        }
 
         return true
     }
@@ -62,5 +76,9 @@ extension NSLayoutConstraint  {
 infix operator ==*
 
 public func ==* (lhs: NSLayoutConstraint, rhs: NSLayoutConstraint) -> Bool {
-    return lhs == rhs && lhs.identifier == rhs.identifier
+    guard lhs == rhs else {
+        return false
+    }
+
+    return lhs.priority == rhs.priority && lhs.identifier == rhs.identifier
 }

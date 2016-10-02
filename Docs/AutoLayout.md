@@ -7,7 +7,7 @@ Auto Layout Convenience
 
 ### Equality
 
-Compare two constraints with respect to the items and their attributes, the relation, the multiplier, the constant and the priority.  It even tries the reverse of one operand to truly determine equivalency.  Constraint identifiers and activation status are not used in checking equivalence, but the `==*` operator can be used to compare constraints for identity by using normal equivalence *plus* identifiers.
+Compare two constraints with respect to the items and their attributes, the relation, the multiplier and the constant.  It even tries the reverse of one operand to truly determine equivalency.  Constraint identifiers, priority and activation status are not used in checking equivalence, but the `==*` operator can be used to compare constraints for identity by using normal equivalence *plus* priority and identifier equivalence.
 
 
 ### Reversal

@@ -42,7 +42,7 @@ class ConstraintComparisonTests: XCTestCase {
         constraintOne.identifier = identifier
     }
 
-    //  MARK: Equivalency
+    //  MARK: Equivalence
 
     func testNonConstraintIsUnequal() {
         XCTAssertNotEqual(constraintOne, NSObject(), "A constraint and any other object type should be considered unequal")
@@ -62,8 +62,7 @@ class ConstraintComparisonTests: XCTestCase {
             multiplier: constraintOne.multiplier,
             constant: constraintOne.constant
         )
-        constraintTwo.priority = constraintOne.priority
-        XCTAssertEqual(constraintOne, constraintTwo, "The two constraints should be considered equivalent comparing everything but their identifiers")
+        XCTAssertEqual(constraintOne, constraintTwo, "The two constraints should be considered equivalent comparing everything but their priorities and identifiers")
     }
 
     func testReversedConstraintsAreEqual() {
@@ -162,39 +161,10 @@ class ConstraintComparisonTests: XCTestCase {
         XCTAssertNotEqual(constraintOne, constraintTwo, "The two constraints should not be considered equivalent if their constants do not match")
     }
 
-    func testMismatchedPrioritiesMakeConstraintsUnequal() {
-        constraintTwo = NSLayoutConstraint(
-            item: constraintOne.firstItem,
-            attribute: constraintOne.firstAttribute,
-            relatedBy: constraintOne.relation,
-            toItem: constraintOne.secondItem,
-            attribute: constraintOne.secondAttribute,
-            multiplier: constraintOne.multiplier,
-            constant: constraintOne.constant
-        )
-        constraintTwo.priority = 42
-        XCTAssertNotEqual(constraintOne, constraintTwo, "The two constraints should not be considered equivalent if their priorities do not match")
-    }
-
     //  MARK: Identity-ish
 
     func testIdenticalContraintsAreIdentical() {
-        let equal = (constraintOne ==* constraintOne)
-        XCTAssertTrue(equal, "A constraint and itself should be considered identical")
-    }
-
-    func testEquivalentConstraintsAreNotIdenticalWithoutMatchingIdentifiers() {
-        constraintTwo = NSLayoutConstraint(
-            item: constraintOne.firstItem,
-            attribute: constraintOne.firstAttribute,
-            relatedBy: constraintOne.relation,
-            toItem: constraintOne.secondItem,
-            attribute: constraintOne.secondAttribute,
-            multiplier: constraintOne.multiplier,
-            constant: constraintOne.constant
-        )
-        constraintTwo.priority = constraintOne.priority
-        XCTAssertFalse(constraintOne ==* constraintTwo, "The equivalent constraints should not be considered identical")
+        XCTAssertTrue(constraintOne ==* constraintOne, "A constraint and itself should be considered identical")
     }
 
     func testIdenticalCopiesOfConstraintsAreIdentical() {
@@ -208,8 +178,49 @@ class ConstraintComparisonTests: XCTestCase {
             constant: constraintOne.constant
         )
         constraintTwo.priority = constraintOne.priority
-        constraintTwo.identifier = constraintOne.identifier
+        constraintTwo.identifier = identifier
         XCTAssertTrue(constraintOne ==* constraintTwo, "The two constraints should be considered identical")
+    }
+
+    func testDifferentConstraintsAreNotIdentical() {
+        constraintTwo = NSLayoutConstraint(
+            item: otherItem,
+            attribute: .centerX,
+            relatedBy: .lessThanOrEqual,
+            toItem: view,
+            attribute: .left,
+            multiplier: 99,
+            constant: 2
+        )
+        XCTAssertFalse(constraintOne ==* constraintTwo, "Unequal constraints should not be considered identical")
+    }
+
+    func testEquivalentConstraintsAreNotIdenticalWithoutMatchingIdentifiers() {
+        constraintTwo = NSLayoutConstraint(
+            item: constraintOne.firstItem,
+            attribute: constraintOne.firstAttribute,
+            relatedBy: constraintOne.relation,
+            toItem: constraintOne.secondItem,
+            attribute: constraintOne.secondAttribute,
+            multiplier: constraintOne.multiplier,
+            constant: constraintOne.constant
+        )
+        constraintTwo.priority = constraintOne.priority
+        XCTAssertFalse(constraintOne ==* constraintTwo, "Equivalent constraints should not be considered identical if their identifiers are different")
+    }
+
+    func testEquivalentConstraintsAreNotIdenticalWithoutMatchingPriorities() {
+        constraintTwo = NSLayoutConstraint(
+            item: constraintOne.firstItem,
+            attribute: constraintOne.firstAttribute,
+            relatedBy: constraintOne.relation,
+            toItem: constraintOne.secondItem,
+            attribute: constraintOne.secondAttribute,
+            multiplier: constraintOne.multiplier,
+            constant: constraintOne.constant
+        )
+        constraintTwo.identifier = identifier
+        XCTAssertFalse(constraintOne ==* constraintTwo, "Equivalent constraints should not be considered identical if their priorities are unequal")
     }
 
 }
