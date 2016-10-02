@@ -51,29 +51,33 @@ view.subviews.setTranslatesAutoresizingMaskIntoConstraints(false)
 ```
 
 
-
-And for good measure, a method to remove all of a view's constraints without having to use this cumbersome one-liner:
-
-```swift
-view.removeConstraints(view.constraints)
-```
-
-This can now be written as:
-
-```swift
-view.clearConstraints()
-```
 ### Constraint Activation
 
-Convenience methods for activating and deactivating constraints that work on single constraints *and* arrays of constraints:
+Convenience methods for activating and deactivating constraints that work on single constraints *and* arrays/sets of constraints:
 
- - `activate()`
- - `deactivate()`
+ - `NSLayoutConstraint.activate()`
+ - `NSLayoutConstraint.deactivate()`
 
-Activate or deactivate multiple constraints in a single statement using a variadic list or array of constraints:
 
- - `ActivateConstraints(...)`
- - `DeactivateConstraints(...)`
+And for good measure, more succinct means of deactivating all of a view's constraints without having to use one of these cumbersome one-liners:
+
+```swift
+// The old view-centric way
+view.removeConstraints(view.constraints)
+
+// The new constraint-centric way
+NSLayoutConstraint.deactivate(view.constraints)
+```
+
+This can now be written in either of the following ways:
+
+```swift
+// The old view-centric way
+view.clearConstraints()
+
+// The new constraint-centric way
+view.constraints.deactivate()
+```
 
 
  ### Constraint Search

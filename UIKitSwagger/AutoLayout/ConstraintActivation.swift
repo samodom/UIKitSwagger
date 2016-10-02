@@ -28,53 +28,20 @@ public extension NSLayoutConstraint {
 }
 
 
-public extension Array where Element: NSLayoutConstraint {
+public extension Sequence where Iterator.Element: NSLayoutConstraint {
 
     /**
-     Convenience method to activate each auto layout constraint in an array.
+     Convenience method to activate each auto layout constraint in a sequence.
      */
     public func activate() {
         forEach { $0.activate() }
     }
 
     /**
-     Convenience method to deactivate each auto layout constraint in an array.
+     Convenience method to deactivate each auto layout constraint in a sequence.
      */
     public func deactivate() {
         forEach { $0.deactivate() }
     }
 
-}
-
-
-/**
- Convenience method for activating one or more layout constraints.
- - parameter constraints: One or more constraints that are to be activated.
- */
-public func ActivateConstraints(_ constraints: NSLayoutConstraint...) {
-    ActivateConstraints(constraints)
-}
-
-/**
- Convenience method for activating an array of layout constraints.
- - parameter constraints: Array of constraints that are to be activated.
- */
-public func ActivateConstraints(_ constraints: [NSLayoutConstraint]) {
-    constraints.forEach { $0.isActive = true }
-}
-
-/**
- Convenience method for deactivating one or more layout constraints.
- - parameter constraints: One or more constraints that are to be deactivated.
- */
-public func DeactivateConstraints(_ constraints: NSLayoutConstraint...) {
-    DeactivateConstraints(constraints)
-}
-
-/**
- Convenience method for deactivating an array of layout constraints.
- - parameter constraints: Array of constraints that are to be deactivated.
- */
-public func DeactivateConstraints(_ constraints: [NSLayoutConstraint]) {
-    constraints.forEach { $0.isActive = false }
 }

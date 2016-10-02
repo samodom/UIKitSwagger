@@ -37,7 +37,7 @@ public extension UIView {
             let constraints = attributePairs.map {
                 (self, $0.subviewAttribute) =* (superview!, $0.superviewAttribute)
             }
-            ActivateConstraints(constraints)
+            constraints.activate()
 
             return constraints
     }

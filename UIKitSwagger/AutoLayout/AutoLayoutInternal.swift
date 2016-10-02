@@ -23,7 +23,7 @@ internal func ConstrainItemsInDimension(items: [AutoLayoutAttributable], dimensi
     AssertDimensionAttribute(dimension)
 
     let constraints = items.map { ($0 as AnyObject, dimension) =* value }
-    ActivateConstraints(constraints)
+    constraints.activate()
     return constraints
 }
 
@@ -35,7 +35,7 @@ internal func ConstrainItemsInDimension(items: [AutoLayoutAttributable], dimensi
         return [attributedItem >=* range.lowerBound, attributedItem <=* range.upperBound]
     }
 
-    ActivateConstraints(constraints)
+    constraints.activate()
     return constraints
 }
 

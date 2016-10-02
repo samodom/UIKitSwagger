@@ -33,7 +33,7 @@ public extension UIView {
             self.width >=* range.lowerBound,
             self.width <=* range.upperBound
         ]
-        ActivateConstraints(constraints)
+        constraints.activate()
         return constraints
     }
 
@@ -60,7 +60,7 @@ public extension UIView {
             self.height >=* range.lowerBound,
             self.height <=* range.upperBound
         ]
-        ActivateConstraints(constraints)
+        constraints.activate()
         return constraints
     }
 
