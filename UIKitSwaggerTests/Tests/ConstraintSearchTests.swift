@@ -45,9 +45,7 @@ class ConstraintSearchTests: XCTestCase {
     
     override func tearDown() {
         subview.removeFromSuperview()
-        if constraints != nil {
-            DeactivateConstraints(constraints!)
-        }
+        constraints?.deactivate()
 
         super.tearDown()
     }
@@ -108,7 +106,7 @@ class ConstraintSearchTests: XCTestCase {
             constant: 3.4
         )
 
-        ActivateConstraints([constraint1, constraint2, constraint3, constraint4, constraint5, constraint6])
+        [constraint1, constraint2, constraint3, constraint4, constraint5, constraint6].activate()
     }
 
     func testConstraintSearchByItem() {

@@ -82,19 +82,19 @@ view.constraints.deactivate()
 ```
 
 
- ### Constraint Search
+### Constraint Search
 
- Don't clutter your view controller code trying to find a particular constraint to remove!   Finding constraints is much easier with these methods on `UIView`:
+Don't clutter your view controller code trying to find a particular constraint to remove!   Finding constraints is much easier with these methods on `UIView`:
 
-  - `constraintsForItem(AnyObject) -> [NSLayoutConstraint]`
-  - `constraintsForAttribute(NSLayoutAttribute) -> [NSLayoutConstraint]`
-  - `constraintsForAttributedItem(AutoLayoutAttributedItem) -> [NSLayoutConstraint]`
-  - `constraintsForItems(AnyObject, AnyObject) -> [NSLayoutConstraint]`
-  - `constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> [NSLayoutConstraint]`
+- `constraintsForItem(AnyObject) -> Set<NSLayoutConstraint>`
+- `constraintsForAttribute(NSLayoutAttribute) -> Set<NSLayoutConstraint>`
+- `constraintsForAttributedItem(AutoLayoutAttributedItem) -> Set<NSLayoutConstraint>`
+- `constraintsForItems(AnyObject, AnyObject) -> Set<NSLayoutConstraint>`
+- `constraintsForItems(AutoLayoutAttributedItem, AutoLayoutAttributedItem) -> Set<NSLayoutConstraint>`
 
- Also, you can check for an active constraint (or equivalent) using this method:
+Also, you can check for an active constraint (or its equivalent) using this method:
 
-  - `hasConstraint(NSLayoutConstraint) -> Bool`
+ - `hasConstraint(NSLayoutConstraint) -> Bool`
 
 
 ### Alignment Functions
