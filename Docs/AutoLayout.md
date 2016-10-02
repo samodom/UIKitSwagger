@@ -44,10 +44,12 @@ Additionally, the two modifiable attributes of a constraint can be manipulated w
 
 ### Turning Off Autoresize Mask Translation
 
-Tired of calling `setTranslatesAutoresizingMaskIntoConstraints(...)` on code-created views when writing Auto Layout code?  Do a bunch at once with any array or set of views:
+Tired of using `setTranslatesAutoresizingMaskIntoConstraints(false)` on code-created views when writing Auto Layout code?  Use the more succinct `usesAutoLayout` property instead.  Do a bunch at once with any array or set of views using the `useAutoLayout()` method:
 
 ```swift
-view.subviews.setTranslatesAutoresizingMaskIntoConstraints(false)
+button.usesAutoLayout = true
+
+view.subviews.useAutoLayout()
 ```
 
 

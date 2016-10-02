@@ -8,10 +8,30 @@
 
 import Foundation
 
-extension Sequence where Iterator.Element: UIView {
+public extension UIView {
 
-    public func setTranslatesAutoresizingMaskIntoConstraints(_ shouldTranslate: Bool) {
-        forEach { $0.translatesAutoresizingMaskIntoConstraints = shouldTranslate }
+    /**
+     Convenience property that always represents the boolean negation of the `setTranslatesAutoresizingMaskIntoConstraints` property.
+     */
+    public var usesAutoLayout: Bool {
+        get {
+            return !translatesAutoresizingMaskIntoConstraints
+        }
+        set {
+            translatesAutoresizingMaskIntoConstraints = !newValue
+        }
+    }
+
+}
+
+
+public extension Sequence where Iterator.Element: UIView {
+
+    /**
+     Convenience method to turn on auto layout usage for each view in a sequence.
+     */
+    public func useAutoLayout() {
+        forEach { $0.usesAutoLayout = true }
     }
 
 }

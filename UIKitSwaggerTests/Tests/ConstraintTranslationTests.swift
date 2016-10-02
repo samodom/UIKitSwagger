@@ -25,34 +25,59 @@ class ConstraintTranslationTests: XCTestCase {
         assert(view.translatesAutoresizingMaskIntoConstraints)
         assert(button.translatesAutoresizingMaskIntoConstraints)
         assert(image.translatesAutoresizingMaskIntoConstraints)
-        assert(label.translatesAutoresizingMaskIntoConstraints)
-    }
 
-    func testTurningOffTranslationWithArrayLiteral() {
-        [view, button, image, label].setTranslatesAutoresizingMaskIntoConstraints(false)
-        XCTAssertFalse(view.translatesAutoresizingMaskIntoConstraints, "The view's autoresizing mask should no longer be translated into constraints")
-        XCTAssertFalse(button.translatesAutoresizingMaskIntoConstraints, "The button's autoresizing mask should no longer be translated into constraints")
-        XCTAssertFalse(image.translatesAutoresizingMaskIntoConstraints, "The image view's autoresizing mask should no longer be translated into constraints")
-        XCTAssertFalse(label.translatesAutoresizingMaskIntoConstraints, "The label's autoresizing mask should no longer be translated into constraints")
-    }
-
-    func testTurningOnTranslationWithArray() {
-        button.translatesAutoresizingMaskIntoConstraints = false
-        image.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        view.subviews.setTranslatesAutoresizingMaskIntoConstraints(true)
-        XCTAssertTrue(button.translatesAutoresizingMaskIntoConstraints, "The button's autoresizing mask should now be translated into constraints")
-        XCTAssertTrue(image.translatesAutoresizingMaskIntoConstraints, "The image view's autoresizing mask should now be translated into constraints")
-        XCTAssertTrue(label.translatesAutoresizingMaskIntoConstraints, "The label's autoresizing mask should now be translated into constraints")
     }
 
-    func testTurningOffTranslationWithSet() {
-        let items = [view, button, image, label] as Set
-        items.setTranslatesAutoresizingMaskIntoConstraints(false)
-        XCTAssertFalse(view.translatesAutoresizingMaskIntoConstraints, "The view's autoresizing mask should no longer be translated into constraints")
-        XCTAssertFalse(button.translatesAutoresizingMaskIntoConstraints, "The button's autoresizing mask should no longer be translated into constraints")
-        XCTAssertFalse(image.translatesAutoresizingMaskIntoConstraints, "The image view's autoresizing mask should no longer be translated into constraints")
-        XCTAssertFalse(label.translatesAutoresizingMaskIntoConstraints, "The label's autoresizing mask should no longer be translated into constraints")
+    //  MARK: Single views
+
+    func testTurningOnAutoLayout() {
+        button.usesAutoLayout = true
+        XCTAssertFalse(button.translatesAutoresizingMaskIntoConstraints, "Turning on auto layout usage should clear the translation flag")
+    }
+
+    func testTurningOffAutoLayout() {
+        label.usesAutoLayout = false
+        XCTAssertTrue(label.translatesAutoresizingMaskIntoConstraints, "Turning off auto layout usage should set the translation flag")
+    }
+
+    func testAutoLayoutFlagMirrorsTranslationFlag() {
+        assert(!button.usesAutoLayout)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        XCTAssertTrue(button.usesAutoLayout, "Clearing the translation flag should set the auto layout usage flag")
+
+        button.translatesAutoresizingMaskIntoConstraints = true
+        XCTAssertFalse(button.usesAutoLayout, "Setting the translation flag should clear the auto layout usage flag")
+    }
+
+
+    //  MARK: Multiple views
+
+    func testTurningOnAutoLayoutWithArrayLiteral() {
+        assert(label.usesAutoLayout)
+        [view, button, image, label].useAutoLayout()
+        XCTAssertTrue(view.usesAutoLayout, "The view should now be using auto layout")
+        XCTAssertTrue(button.usesAutoLayout, "The button should now be using auto layout")
+        XCTAssertTrue(image.usesAutoLayout, "The image should now be using auto layout")
+        XCTAssertTrue(label.usesAutoLayout, "The label should still be using auto layout")
+    }
+
+    func testTurningOnAutoLayoutWithArray() {
+        assert(label.usesAutoLayout)
+        view.subviews.useAutoLayout()
+        XCTAssertTrue(button.usesAutoLayout, "The button should now be using auto layout")
+        XCTAssertTrue(image.usesAutoLayout, "The image should now be using auto layout")
+        XCTAssertTrue(label.usesAutoLayout, "The label should still be using auto layout")
+    }
+
+    func testTurningOnAutoLayoutWithSet() {
+        assert(label.usesAutoLayout)
+        let items: Set = [view, button, image, label]
+        items.useAutoLayout()
+        XCTAssertTrue(view.usesAutoLayout, "The view should now be using auto layout")
+        XCTAssertTrue(button.usesAutoLayout, "The button should now be using auto layout")
+        XCTAssertTrue(image.usesAutoLayout, "The image should now be using auto layout")
+        XCTAssertTrue(label.usesAutoLayout, "The label should still be using auto layout")
     }
 
 }
