@@ -43,19 +43,3 @@ public func ShowViews(_ views: UIView...) {
 public func ShowViews(_ views: [UIView]) {
     views.forEach { $0.isHidden = false }
 }
-
-/**
- Utility function for turning off autoresizing-mask-to-constraint translation for one or more views.
- - parameter views: One or more views on which to turn off translation.
- */
-public func DoNotTranslateMasks(_ views: UIView...) {
-    DoNotTranslateMasks(views)
-}
-
-/**
- Utility function for turning off autoresizing-mask-to-constraint translation for an array of views.
- - parameter views: An array of views on which to turn off translation.
- */
-public func DoNotTranslateMasks(_ views: [UIView]) {
-    views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-}
