@@ -26,6 +26,8 @@ public protocol GrayscaleConvertible
 }
 ```
 
+### Common Models
+
 ```swift
 struct RGBComponents {
     let red: CGFloat
@@ -73,13 +75,14 @@ init(
 )
 
 func getCyan(
-	inout cyan: CGFloat,
+	inout _ cyan: CGFloat,
 	inout magenta: CGFloat,
 	inout yellow: CGFloat,
 	inout key: CGFloat,
 	inout alpha: CGFloat
 ) -> Bool
 ```
+
 
 ## Individual `UIColor` Component Values
 

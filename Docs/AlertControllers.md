@@ -1,14 +1,23 @@
-Working with Alert Controllers
-==============================
+Alert Controllers
+=================
 
-### Adding Alert Actions and Text Fields
+## Adding Alert Actions to Alert Views and Action Sheets
 
-Use the `+=` syntax to add alert actions to an alert controller:
- - `controller += cancelAction`
- - `controller += [sendAction, deleteAction, cancelAction]`
+Use the `+=` syntax to add actions to an alert controller:
+
+```swift
+controller += cancelAction
+
+controller += [sendAction, deleteAction, cancelAction]
+```
+
+
+## Adding Text Fields to Alert Views
 
 Use the `+=` syntax to text fields to an `Alert`-style alert controller.
+
 One at a time:
+
 ```swift
 controller += { (field: UITextField) -> Void in
     // configure text field here
@@ -16,6 +25,7 @@ controller += { (field: UITextField) -> Void in
 ```
 
 Or as an array:
+
 ```swift
 let field1Handler = { (field: UITextField) -> Void in
   // configure text field 1 here
@@ -29,7 +39,7 @@ let field3Handler = { (field: UITextField) -> Void in
 controller += [field1Handler, field2Handler, field3Handler]
 ```
 
-### Enabling/Disabling Alert Actions
+## Enabling/Disabling Alert Actions
 
 Use these shortcuts to enable or disable an alert action:
  - `func enable()`

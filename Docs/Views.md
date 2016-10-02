@@ -1,11 +1,11 @@
 Working with Views
 ==================
 
-### Subscripting
+## Subscripting
 
 Shorten the syntax for finding and altering views in a view's hierarchy.
 
-**Subviews** (non-negative integer indices)
+### Subviews (non-negative integer indices)
 
 |Syntax|Result|
 |------|------|
@@ -13,7 +13,7 @@ Shorten the syntax for finding and altering views in a view's hierarchy.
 |`view[index] = otherSubview`|replaces the subview at `index` with `otherSubview`|
 |`view[index] = nil`|simply removes the subview at `index`|
 
-**Superviews** (negative integer indices)
+### Superviews (negative integer indices)
 
 |Syntax|Result|
 |------|------|
@@ -31,6 +31,7 @@ Find `exchangeSubviewAtIndex(_: Int, withSubviewAtIndex: Int)` to be too wordy? 
 ### Showing or hiding multiple views
 
 A few simple functions for hiding or showing views in a single statement are provided:
+
  - `func HideViews(UIView...)`
  - `func HideViews([UIView])`
  - `func ShowViews(UIView...)`
