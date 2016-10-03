@@ -17,8 +17,8 @@ extension NSLayoutConstraint  {
             return true
         }
 
-        if let reverse = constraint.reversed {
-            return componentsMatch(reverse)
+        if let swapped = constraint.swappedSubjectConstraint {
+            return componentsMatch(swapped)
         }
         
         return false

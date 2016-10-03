@@ -65,8 +65,8 @@ class ConstraintComparisonTests: XCTestCase {
         XCTAssertEqual(constraintOne, constraintTwo, "The two constraints should be considered equivalent comparing everything but their priorities and identifiers")
     }
 
-    func testReversedConstraintsAreEqual() {
-        constraintTwo = constraintOne.reversed
+    func testSwappedSubjectConstraintsAreEqual() {
+        constraintTwo = constraintOne.swappedSubjectConstraint
         XCTAssertEqual(constraintOne, constraintTwo, "The two constraints should be considered equivalent")
     }
 

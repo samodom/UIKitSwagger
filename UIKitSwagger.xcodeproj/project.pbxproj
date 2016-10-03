@@ -53,8 +53,8 @@
 		0AA580591A3D29EB0061D882 /* RGBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA580581A3D29EB0061D882 /* RGBComponents.swift */; };
 		0AA5805C1A3D2B830061D882 /* HSBComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805B1A3D2B830061D882 /* HSBComponents.swift */; };
 		0AA5805F1A3D2B960061D882 /* GrayscaleComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA5805E1A3D2B960061D882 /* GrayscaleComponents.swift */; };
-		0AA70B9B1D9E313E006C9DD1 /* ConstraintReversalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */; };
-		0AA70B9C1D9E3264006C9DD1 /* ConstraintReversal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52547A1B34CF1600BC39DC /* ConstraintReversal.swift */; };
+		0AA70B9B1D9E313E006C9DD1 /* ConstraintSubjectSwappingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99719EB71740075B32A /* ConstraintSubjectSwappingTests.swift */; };
+		0AA70B9C1D9E3264006C9DD1 /* ConstraintSubjectSwapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A52547A1B34CF1600BC39DC /* ConstraintSubjectSwapping.swift */; };
 		0AA70B9E1D9E339B006C9DD1 /* ConstraintComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99F19EB71F00075B32A /* ConstraintComparison.swift */; };
 		0AA70B9F1D9E33A2006C9DD1 /* ConstraintComparisonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */; };
 		0AA70BA01D9E3B53006C9DD1 /* LayoutDirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9137301B50303600428632 /* LayoutDirectionTests.swift */; };
@@ -120,7 +120,7 @@
 		0A3BB98419EB70C70075B32A /* UIKitSwaggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIKitSwaggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3BB98A19EB70C70075B32A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintComparisonTests.swift; sourceTree = "<group>"; };
-		0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintReversalTests.swift; sourceTree = "<group>"; };
+		0A3BB99719EB71740075B32A /* ConstraintSubjectSwappingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSubjectSwappingTests.swift; sourceTree = "<group>"; };
 		0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSearchTests.swift; sourceTree = "<group>"; };
 		0A3BB99F19EB71F00075B32A /* ConstraintComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintComparison.swift; sourceTree = "<group>"; };
 		0A3BB9AA19EB740F0075B32A /* ConstraintSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSearch.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 		0A4CF4491A22E24A00D6F4F8 /* ViewLayoutAttributesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutAttributesTests.swift; sourceTree = "<group>"; };
 		0A4CF44B1A22E32200D6F4F8 /* ViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewLayoutAttributes.swift; sourceTree = "<group>"; };
 		0A4CF44D1A22E35B00D6F4F8 /* AutoLayoutAttributable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutAttributable.swift; sourceTree = "<group>"; };
-		0A52547A1B34CF1600BC39DC /* ConstraintReversal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintReversal.swift; sourceTree = "<group>"; };
+		0A52547A1B34CF1600BC39DC /* ConstraintSubjectSwapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSubjectSwapping.swift; sourceTree = "<group>"; };
 		0A5A29771A73351D003CB7EE /* SpinnerStateManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerStateManagerTests.swift; sourceTree = "<group>"; };
 		0A5A297A1A73368B003CB7EE /* SpinnerStateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerStateManager.swift; sourceTree = "<group>"; };
 		0A5D73671BC995FD005DEB73 /* LayoutEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEdge.swift; sourceTree = "<group>"; };
@@ -299,8 +299,8 @@
 				0AF2A0871A28FBC000A5C0F9 /* ConstraintActivationTests.swift */,
 				0A67BADF1A22F0450038D99A /* ConstraintBuilderSyntaxTests.swift */,
 				0A3BB99619EB71740075B32A /* ConstraintComparisonTests.swift */,
-				0A3BB99719EB71740075B32A /* ConstraintReversalTests.swift */,
 				0A3BB99819EB71740075B32A /* ConstraintSearchTests.swift */,
+				0A3BB99719EB71740075B32A /* ConstraintSubjectSwappingTests.swift */,
 				0A7748DD1AA170A600B434D3 /* ConstraintTranslationTests.swift */,
 				0A8028111A342EEA00816792 /* ControlEnablingTests.swift */,
 				0A5F12F21A285D1000694C56 /* DimensionsTests.swift */,
@@ -340,8 +340,8 @@
 				0A67BAE11A22FF240038D99A /* AutoLayoutSyntax.swift */,
 				0AF2A0891A28FFD700A5C0F9 /* ConstraintActivation.swift */,
 				0A3BB99F19EB71F00075B32A /* ConstraintComparison.swift */,
-				0A52547A1B34CF1600BC39DC /* ConstraintReversal.swift */,
 				0A3BB9AA19EB740F0075B32A /* ConstraintSearch.swift */,
+				0A52547A1B34CF1600BC39DC /* ConstraintSubjectSwapping.swift */,
 				0AF2A0841A28640D00A5C0F9 /* LayoutDimensions.swift */,
 				0A9137321B50312300428632 /* LayoutDirection.swift */,
 				0A5D73671BC995FD005DEB73 /* LayoutEdge.swift */,
@@ -651,7 +651,7 @@
 				0AA70B9E1D9E339B006C9DD1 /* ConstraintComparison.swift in Sources */,
 				0ACADAED1A3BE90600CF49F8 /* StateManagement.swift in Sources */,
 				0A63F74B1A3E105D001FBFF7 /* AnimatorAdditionSyntax.swift in Sources */,
-				0AA70B9C1D9E3264006C9DD1 /* ConstraintReversal.swift in Sources */,
+				0AA70B9C1D9E3264006C9DD1 /* ConstraintSubjectSwapping.swift in Sources */,
 				0AA70BA11D9E3B5C006C9DD1 /* LayoutDirection.swift in Sources */,
 				0A2312691A327F4F00BE92BE /* ViewAdditionSyntax.swift in Sources */,
 				0A5D736E1BC99BA7005DEB73 /* Alignment.swift in Sources */,
@@ -674,7 +674,7 @@
 				0AA70BA31D9E3B82006C9DD1 /* LayoutEdgeTests.swift in Sources */,
 				0ACADAF01A3BF0E500CF49F8 /* SliderRangeTests.swift in Sources */,
 				0A10F28D1A3D147700715C7A /* ColorComponentConversionTests.swift in Sources */,
-				0AA70B9B1D9E313E006C9DD1 /* ConstraintReversalTests.swift in Sources */,
+				0AA70B9B1D9E313E006C9DD1 /* ConstraintSubjectSwappingTests.swift in Sources */,
 				0A21DC4A1A3431C9005FFC4E /* GestureRecognizerEnablingTests.swift in Sources */,
 				0ACED17D1AA388350073E42C /* ColorTestHelpers.swift in Sources */,
 				0A9032261A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift in Sources */,

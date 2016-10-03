@@ -10,12 +10,13 @@ Auto Layout Convenience
 Compare two constraints with respect to the items and their attributes, the relation, the multiplier and the constant.  It even tries the reverse of one operand to truly determine equivalency.  Constraint identifiers, priority and activation status are not used in checking equivalence, but the `==*` operator can be used to compare constraints for identity by using normal equivalence *plus* priority and identifier equivalence.
 
 
-### Reversal
+### Swapping Subjects
 
-Want to reverse the items in a constraint to produce an equivalent constraint?  Note that some constraints are not reversible.
+Want to reearrang a constraint to produce an equivalent constraint in terms of the second item as opposed to the first?  Want a positive offset value instead of a negative one?
+> Note: Some constraint items cannot be swapped.
 
- - `reversed: NSLayoutConstraint?`
- - `positiveConstantConstraint: NSLayoutConstraint`
+- `swappedSubjectConstraint: NSLayoutConstraint?`
+- `positiveConstantConstraint: NSLayoutConstraint`
 
 
 ## Real Auto Layout Syntax

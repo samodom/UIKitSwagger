@@ -1,5 +1,5 @@
 //
-//  ConstraintReversal.swift
+//  ConstraintSubjectSwapping.swift
 //  UIKitSwagger
 //
 //  Created by Sam Odom on 6/19/15.
@@ -11,15 +11,15 @@ import UIKit
 public extension NSLayoutConstraint {
 
     /**
-     This variable reverses a constraint from the form `y R mx + b`, where `R` is a layout relation, to the form `x = (y - b) / m`, where `m != 0`
+     This variable swaps the subjects in a constraint from the form `y R mx + b`, where `R` is a layout relation, to the form `x = (y - b) / m`, where `m != 0`
      */
-    public var reversed: NSLayoutConstraint? {
-        guard canBeReversed() else { return nil }
+    public var swappedSubjectConstraint: NSLayoutConstraint? {
+        guard subjectsCanBeSwapped else { return nil }
 
         let newConstraint = NSLayoutConstraint(
             item: secondItem!,
             attribute: secondAttribute,
-            relatedBy: multiplier < 0 ? relation : relation.reversed,
+            relatedBy: multiplier < 0 ? relation : relation.swapped,
             toItem: firstItem,
             attribute: firstAttribute,
             multiplier: 1 / multiplier,
@@ -30,7 +30,7 @@ public extension NSLayoutConstraint {
         return newConstraint
     }
 
-    fileprivate func canBeReversed() -> Bool {
+    fileprivate var subjectsCanBeSwapped: Bool {
         return multiplier != 0.0 && secondItem != nil && secondAttribute != .notAnAttribute
     }
 
@@ -40,14 +40,14 @@ public extension NSLayoutConstraint {
     public var positiveConstantConstraint: NSLayoutConstraint {
         guard constant < 0 else { return self }
 
-        return reversed ?? self
+        return swappedSubjectConstraint ?? self
     }
     
 }
 
 fileprivate extension NSLayoutRelation {
 
-    fileprivate var reversed: NSLayoutRelation {
+    fileprivate var swapped: NSLayoutRelation {
         return NSLayoutRelation(rawValue: -rawValue)!
     }
     
