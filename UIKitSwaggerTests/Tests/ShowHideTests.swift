@@ -15,7 +15,7 @@ class ShowHideTests: XCTestCase {
     var viewTwo = UIView()
     var viewThree = UIView()
 
-    fileprivate func hideAll() {
+    func hideAll() {
         viewOne.isHidden = true
         viewTwo.isHidden = true
         viewThree.isHidden = true

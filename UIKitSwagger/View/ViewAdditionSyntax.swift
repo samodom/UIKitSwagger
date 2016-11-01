@@ -93,7 +93,7 @@ public func -=(view: UIView, removables: [UIViewRemovable]) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-private func groupAddables(_ addables: [UIViewAddable]) -> [UIViewAddable] {
+fileprivate func groupAddables(_ addables: [UIViewAddable]) -> [UIViewAddable] {
     var views = [UIViewAddable]()
     var guides = [UIViewAddable]()
     var effects = [UIViewAddable]()
@@ -125,6 +125,6 @@ private func groupAddables(_ addables: [UIViewAddable]) -> [UIViewAddable] {
     return views + guides + effects + recognizers
 }
 
-private func groupRemovables(_ removables: [UIViewRemovable]) -> [UIViewRemovable] {
+fileprivate func groupRemovables(_ removables: [UIViewRemovable]) -> [UIViewRemovable] {
     return groupAddables(removables).reversed()
 }

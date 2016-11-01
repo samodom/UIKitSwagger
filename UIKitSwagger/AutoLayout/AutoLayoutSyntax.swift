@@ -220,7 +220,7 @@ public func <=*(attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttr
 
 ////////////////////////////////////////////////////////////////////////////////
 
-private func BuildConstantRelationConstraint(item attributedItem: AutoLayoutAttributedItem, constant: CGFloat, relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
+fileprivate func BuildConstantRelationConstraint(item attributedItem: AutoLayoutAttributedItem, constant: CGFloat, relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
     return NSLayoutConstraint(
         item: attributedItem.item,
         attribute: attributedItem.attribute,
@@ -232,7 +232,7 @@ private func BuildConstantRelationConstraint(item attributedItem: AutoLayoutAttr
     )
 }
 
-private func BuildConstraintFromOperands(_ attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset, relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
+fileprivate func BuildConstraintFromOperands(_ attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset, relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
     return NSLayoutConstraint(
         item: attributedItem.item,
         attribute: attributedItem.attribute,

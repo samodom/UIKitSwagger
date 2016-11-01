@@ -17,7 +17,7 @@ public enum LayoutEdge {
     case left, right
     case top, bottom
 
-    internal var layoutAxis: UILayoutConstraintAxis {
+    var layoutAxis: UILayoutConstraintAxis {
         switch self {
         case .top, .bottom:
             return .vertical
@@ -27,7 +27,7 @@ public enum LayoutEdge {
         }
     }
 
-    internal func getLayoutAttribute(usingMargins useMargins: Bool) -> NSLayoutAttribute {
+    func getLayoutAttribute(usingMargins useMargins: Bool) -> NSLayoutAttribute {
         switch self {
         case .left:
             return useMargins ? .leftMargin : .left

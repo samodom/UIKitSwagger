@@ -19,18 +19,18 @@ public enum LayoutDirection: Int {
     case topToBottom = 3
     case bottomToTop = -3
 
-    internal var attributePair: DirectedAttributePair {
+    var attributePair: DirectedAttributePair {
         let reversed = rawValue < 0
         let defaultDirection = LayoutDirection(rawValue: abs(rawValue))!
         let defaultPair = DirectedAttributePairMapping[defaultDirection]!
         return reversed ? reverseAttributePair(defaultPair) : defaultPair
     }
 
-    internal var axis: UILayoutConstraintAxis {
+    var axis: UILayoutConstraintAxis {
         return abs(rawValue) == LayoutDirection.topToBottom.rawValue ? .vertical : .horizontal
     }
 
-    internal var layoutEdges: Set<LayoutEdge> {
+    var layoutEdges: Set<LayoutEdge> {
         switch self {
         case .leftToRight, .rightToLeft:
             return [.left, .right]
@@ -45,18 +45,18 @@ public enum LayoutDirection: Int {
 
 }
 
-internal prefix func -(direction: LayoutDirection) -> LayoutDirection {
+prefix func -(direction: LayoutDirection) -> LayoutDirection {
     return LayoutDirection(rawValue: -direction.rawValue)!
 }
 
-internal typealias DirectedAttributePair = (NSLayoutAttribute, NSLayoutAttribute)
+typealias DirectedAttributePair = (NSLayoutAttribute, NSLayoutAttribute)
 
-private let DirectedAttributePairMapping: [LayoutDirection:DirectedAttributePair] = [
+fileprivate let DirectedAttributePairMapping: [LayoutDirection:DirectedAttributePair] = [
     .leftToRight: (.left, .right),
     .leadingToTrailing: (.leading, .trailing),
     .topToBottom: (.top, .bottom)
 ]
 
-private func reverseAttributePair(_ attributePair: DirectedAttributePair) -> DirectedAttributePair {
+fileprivate func reverseAttributePair(_ attributePair: DirectedAttributePair) -> DirectedAttributePair {
     return (attributePair.1, attributePair.0)
 }

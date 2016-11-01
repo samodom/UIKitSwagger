@@ -29,7 +29,7 @@ class BarItemEnablingTests: XCTestCase {
         disabledBarItem.isEnabled = false
     }
 
-    internal func sampleAction() { }
+    func sampleAction() { }
 
     func testEnablingDisabledBarItem() {
         disabledBarItem.enable()

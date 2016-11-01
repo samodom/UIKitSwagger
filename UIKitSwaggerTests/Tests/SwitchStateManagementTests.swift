@@ -10,8 +10,8 @@ import XCTest
 
 class SwitchStateManagementTests: XCTestCase {
 
-    fileprivate let toggle1 = TestSwitch()
-    fileprivate let toggle2 = TestSwitch()
+    let toggle1 = TestSwitch()
+    let toggle2 = TestSwitch()
 
     func testOffIsNotOn() {
         toggle1.isOn = true
@@ -126,7 +126,7 @@ class SwitchStateManagementTests: XCTestCase {
 
 }
 
-private class TestSwitch: UISwitch {
+class TestSwitch: UISwitch {
     var toggleWasAnimated = false
 
     override func setOn(_ on: Bool, animated: Bool) {

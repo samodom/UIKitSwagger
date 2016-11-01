@@ -36,7 +36,7 @@ extension NSLayoutConstraint  {
         return isEqualToLayoutConstraint(constraint)
     }
 
-    fileprivate func componentsMatch(_ constraint: NSLayoutConstraint) -> Bool {
+    private func componentsMatch(_ constraint: NSLayoutConstraint) -> Bool {
         guard firstItem === constraint.firstItem else {
             return false
         }

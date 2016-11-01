@@ -265,9 +265,13 @@ class ViewFillingTests: XCTestCase {
         XCTAssertEqual(superview.constraints.count, 0, "No constraints should be applied")
     }
 
-    //  MARK: Custom assertions
+}
 
-    fileprivate func assertSuperviewFilledWithIdiom(
+//  MARK: Custom assertions
+
+fileprivate extension ViewFillingTests {
+
+    func assertSuperviewFilledWithIdiom(
         _ idiom: HoriontalDirectionIdiom,
         excludingEdges edgeExclusions: Set<LayoutEdge> = [],
         inMargins usingMargins: Bool = false,
@@ -292,7 +296,7 @@ class ViewFillingTests: XCTestCase {
             }
     }
 
-    fileprivate func assertFillingConstraintCount(_ count: Int, inFile file: String = #file, atLine line: UInt = #line) {
+    func assertFillingConstraintCount(_ count: Int, inFile file: String = #file, atLine line: UInt = #line) {
         var countString = ""
         switch count {
         case 0:
@@ -322,7 +326,7 @@ class ViewFillingTests: XCTestCase {
         }
     }
 
-    fileprivate func assertSubviewConstrainedToSuperviewEdge(_ edge: LayoutEdge, usingMargins useMargins: Bool = false, inFile file: String = #file, atLine line: UInt = #line) {
+    func assertSubviewConstrainedToSuperviewEdge(_ edge: LayoutEdge, usingMargins useMargins: Bool = false, inFile file: String = #file, atLine line: UInt = #line) {
         let subviewPair = AutoLayoutAttributedItem(subview, edge.getLayoutAttribute(usingMargins: false))
         let superviewPair = AutoLayoutAttributedItem(superview, edge.getLayoutAttribute(usingMargins: useMargins))
         let expected = subviewPair =* superviewPair
@@ -334,13 +338,13 @@ class ViewFillingTests: XCTestCase {
     }
 }
 
-private func PinningErrorStringForEdge(_ edge: LayoutEdge, usingMargins useMargins: Bool) -> String {
+fileprivate func PinningErrorStringForEdge(_ edge: LayoutEdge, usingMargins useMargins: Bool) -> String {
     let edgeString = StringForEdge(edge)
     let edgeOrMargin = useMargins ? "margin" : "edge"
     return "The subview should be pinned to its superview's \(edgeString) \(edgeOrMargin)"
 }
 
-private func StringForEdge(_ edge: LayoutEdge) -> String {
+fileprivate func StringForEdge(_ edge: LayoutEdge) -> String {
     switch edge {
     case .leading:
         return "leading"
@@ -362,7 +366,7 @@ private func StringForEdge(_ edge: LayoutEdge) -> String {
     }
 }
 
-private enum HoriontalDirectionIdiom {
+fileprivate enum HoriontalDirectionIdiom {
     case lingual
     case geometric
 }

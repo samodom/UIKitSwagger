@@ -68,27 +68,27 @@ public extension UIView {
 }
 
 
-internal extension NSLayoutConstraint {
+fileprivate extension NSLayoutConstraint {
 
-    internal func hasItem(_ item: AnyObject) -> Bool {
+    func hasItem(_ item: AnyObject) -> Bool {
         return firstItem.isEqual(item) || (secondItem != nil && secondItem!.isEqual(item))
     }
 
-    internal func hasItems(_ itemOne: AnyObject, _ itemTwo: AnyObject) -> Bool {
+    func hasItems(_ itemOne: AnyObject, _ itemTwo: AnyObject) -> Bool {
         assert(itemOne !== itemTwo, "The items must be different")
         return secondItem != nil && itemsMatch(itemOne, itemTwo)
     }
 
-    fileprivate func itemsMatch(_ itemOne: AnyObject, _ itemTwo: AnyObject) -> Bool {
+    func itemsMatch(_ itemOne: AnyObject, _ itemTwo: AnyObject) -> Bool {
         return firstItem.isEqual(itemOne) && secondItem!.isEqual(itemTwo) ||
             firstItem.isEqual(itemTwo) && secondItem!.isEqual(itemOne)
     }
 
-    internal func hasAttribute(_ attribute: NSLayoutAttribute) -> Bool {
+    func hasAttribute(_ attribute: NSLayoutAttribute) -> Bool {
         return firstAttribute == attribute || secondAttribute == attribute
     }
 
-    internal func hasAttributedItem(_ attributedItem: AutoLayoutAttributedItem) -> Bool {
+    func hasAttributedItem(_ attributedItem: AutoLayoutAttributedItem) -> Bool {
         switch attributedItem.attribute {
         case firstAttribute:
             return firstItem.isEqual(attributedItem.item)
@@ -101,7 +101,7 @@ internal extension NSLayoutConstraint {
         }
     }
 
-    internal func hasAttributedItems(_ itemOne: AutoLayoutAttributedItem, _ itemTwo: AutoLayoutAttributedItem) -> Bool {
+    func hasAttributedItems(_ itemOne: AutoLayoutAttributedItem, _ itemTwo: AutoLayoutAttributedItem) -> Bool {
         return hasAttributedItem(itemOne) && hasAttributedItem(itemTwo)
     }
 

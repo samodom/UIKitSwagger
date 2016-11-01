@@ -77,7 +77,7 @@ public final class SpinnerStateManager {
         removeClient()
     }
 
-    fileprivate func removeClient() {
+    private func removeClient() {
         switch currentState {
         case .started(let clients) where clients == 1:
             currentState = .stopped
@@ -92,7 +92,7 @@ public final class SpinnerStateManager {
         stopAnimatingIfNeeded()
     }
 
-    fileprivate func stopAnimatingIfNeeded() {
+    private func stopAnimatingIfNeeded() {
         switch currentState {
         case .started(_):
             break
@@ -102,7 +102,7 @@ public final class SpinnerStateManager {
         }
     }
 
-    fileprivate func matchNewSpinnerState() {
+    private func matchNewSpinnerState() {
         if spinner == nil {
             currentState = .detached
         }

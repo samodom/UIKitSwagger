@@ -8,7 +8,4 @@
 
 import UIKit
 
-class DummyViewController: UIViewController {
-
-}
-
+class DummyViewController: UIViewController {}

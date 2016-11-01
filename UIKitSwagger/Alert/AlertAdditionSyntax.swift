@@ -55,6 +55,6 @@ public func +=(controller: UIAlertController, textFieldConfigurationHandlers: [U
 
 ////////////////////////////////////////////////////////////////////////////////
 
-private func AssertAlertControllerCanAddTextFields(_ controller: UIAlertController) {
+fileprivate func AssertAlertControllerCanAddTextFields(_ controller: UIAlertController) {
     assert(controller.preferredStyle == .alert, "Text fields cannot be added to an action sheet styled alert controller")
 }

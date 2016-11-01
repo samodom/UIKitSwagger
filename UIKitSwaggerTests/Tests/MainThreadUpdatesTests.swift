@@ -41,12 +41,6 @@ class MainThreadUpdatesTests: XCTestCase {
         }
     }
 
-    fileprivate func sampleExecutableStatement() {
-        executedOnMainThread = Thread.isMainThread
-        mainThreadExpectation.fulfill()
-        executionCount += 1
-    }
-
     func testMainThreadExecutionFunctionSyntax() {
         BackgroundQueue.async {
             assert(!Thread.isMainThread)
@@ -60,6 +54,16 @@ class MainThreadUpdatesTests: XCTestCase {
             XCTAssertTrue(self.executedOnMainThread, "The provided function should be executed on the main thread")
             XCTAssertEqual(self.executionCount, 1, "The function should only be executed once")
         }
+    }
+
+}
+
+extension MainThreadUpdatesTests {
+
+    fileprivate func sampleExecutableStatement() {
+        executedOnMainThread = Thread.isMainThread
+        mainThreadExpectation.fulfill()
+        executionCount += 1
     }
 
     fileprivate func sampleExecutableStatement(_ integer: Int) {

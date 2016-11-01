@@ -8,8 +8,8 @@
 
 import UIKit
 
-private let DefaultHorizontalFillDirection = LayoutDirection.leadingToTrailing
-private let DefaultFillDirections: Set<LayoutDirection> = [.leadingToTrailing, .topToBottom]
+fileprivate let DefaultHorizontalFillDirection = LayoutDirection.leadingToTrailing
+fileprivate let DefaultFillDirections: Set<LayoutDirection> = [.leadingToTrailing, .topToBottom]
 
 public extension UIView {
 
@@ -44,9 +44,9 @@ public extension UIView {
 
 }
 
-private typealias FillingAttributePair = (subviewAttribute: NSLayoutAttribute, superviewAttribute: NSLayoutAttribute)
+fileprivate typealias FillingAttributePair = (subviewAttribute: NSLayoutAttribute, superviewAttribute: NSLayoutAttribute)
 
-private func attributePairsForFilling(
+fileprivate func attributePairsForFilling(
     inDirections directions: Set<LayoutDirection>,
     excludingEdges edgesToExclude: Set<LayoutEdge>,
     respectingMargins useMargins: Bool) -> [FillingAttributePair] {
@@ -58,7 +58,7 @@ private func attributePairsForFilling(
             ))
 }
 
-private func AssertDirectionsAreValid(_ directions: Set<LayoutDirection>) {
+fileprivate func AssertDirectionsAreValid(_ directions: Set<LayoutDirection>) {
     assert(directions.count <= 2)
     var usingLeftToRight = false
     var usingLeadingToTrailing = false
@@ -80,7 +80,7 @@ private func AssertDirectionsAreValid(_ directions: Set<LayoutDirection>) {
     }
 }
 
-private func AssertEdgesAreValid(_ edges: Set<LayoutEdge>) {
+fileprivate func AssertEdgesAreValid(_ edges: Set<LayoutEdge>) {
     var usingLeftToRight = false
     var usingLeadingToTrailing = false
 
@@ -101,7 +101,7 @@ private func AssertEdgesAreValid(_ edges: Set<LayoutEdge>) {
     }
 }
 
-private func AssertCompatibleEdges(_ edges: Set<LayoutEdge>, withDirections directions: Set<LayoutDirection>) {
+fileprivate func AssertCompatibleEdges(_ edges: Set<LayoutEdge>, withDirections directions: Set<LayoutDirection>) {
     AssertDirectionsAreValid(directions)
     AssertEdgesAreValid(edges)
 

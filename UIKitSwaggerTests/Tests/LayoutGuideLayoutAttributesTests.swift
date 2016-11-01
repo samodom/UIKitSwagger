@@ -11,7 +11,6 @@ import UIKitSwagger
 
 @available(iOS 9.0, *)
 class LayoutGuideLayoutAttributesTests: XCTestCase {
-    
 
     var attributedItem: AutoLayoutAttributedItem!
     let guide = UILayoutGuide()

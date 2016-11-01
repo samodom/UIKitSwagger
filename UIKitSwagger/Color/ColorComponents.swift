@@ -35,11 +35,11 @@ public protocol GrayscaleConvertible {
 //  MARK: - Internal
 
 #if arch(x86_64) || arch(arm64)
-    internal let ColorComponentValueTestAccuracy = CGFloat(2 * DBL_EPSILON)
+    let ColorComponentValueTestAccuracy = CGFloat(2 * DBL_EPSILON)
 #else
-    internal let ColorComponentValueTestAccuracy = CGFloat(2 * FLT_EPSILON)
+    let ColorComponentValueTestAccuracy = CGFloat(2 * FLT_EPSILON)
 #endif
 
-internal func componentValuesEqualWithinTolerance(_ value1: CGFloat, _ value2: CGFloat) -> Bool {
+func componentValuesEqualWithinTolerance(_ value1: CGFloat, _ value2: CGFloat) -> Bool {
     return fabs(value1 - value2) < ColorComponentValueTestAccuracy
 }

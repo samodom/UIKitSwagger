@@ -30,7 +30,7 @@ public extension NSLayoutConstraint {
         return newConstraint
     }
 
-    fileprivate var subjectsCanBeSwapped: Bool {
+    private var subjectsCanBeSwapped: Bool {
         return multiplier != 0.0 && secondItem != nil && secondAttribute != .notAnAttribute
     }
 
@@ -47,7 +47,7 @@ public extension NSLayoutConstraint {
 
 fileprivate extension NSLayoutRelation {
 
-    fileprivate var swapped: NSLayoutRelation {
+    var swapped: NSLayoutRelation {
         return NSLayoutRelation(rawValue: -rawValue)!
     }
     
