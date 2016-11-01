@@ -10,9 +10,7 @@ import UIKit
 
 public extension UISlider {
 
-    /**
-     Property representing the closed range `minimumValue ... maximumValue`.
-     */
+    /// Property representing the closed range `minimumValue ... maximumValue`.
     public var range: ClosedRange<Float> {
         get {
             return minimumValue ... maximumValue

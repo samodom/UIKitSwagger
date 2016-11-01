@@ -11,16 +11,12 @@ import UIKit
 
 public extension NSLayoutConstraint {
 
-    /**
-     Convenience method to activate an auto layout constraint.
-     */
+    /// Convenience method to activate an auto layout constraint.
     public func activate() {
         isActive = true
     }
 
-    /**
-     Convenience method to deactivate an auto layout constraint.
-     */
+    /// Convenience method to deactivate an auto layout constraint.
     public func deactivate() {
         isActive = false
     }
@@ -30,16 +26,12 @@ public extension NSLayoutConstraint {
 
 public extension Sequence where Iterator.Element: NSLayoutConstraint {
 
-    /**
-     Convenience method to activate each auto layout constraint in a sequence.
-     */
+    /// Convenience method to activate each auto layout constraint in a sequence.
     public func activate() {
         forEach { $0.activate() }
     }
 
-    /**
-     Convenience method to deactivate each auto layout constraint in a sequence.
-     */
+    /// Convenience method to deactivate each auto layout constraint in a sequence.
     public func deactivate() {
         forEach { $0.deactivate() }
     }

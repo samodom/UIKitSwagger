@@ -24,10 +24,8 @@ extension NSLayoutConstraint  {
         return false
     }
 
-    /**
-     Constraints should be equatable beyond reference comparison and we match them in a property-by-property manner.
-     - parameter object: Another constraint to compare to this constraint.
-     */
+    /// Constraints should be equatable beyond reference comparison and we match them in a property-by-property manner.
+    /// - parameter object: Another constraint to compare to this constraint.
     override open func isEqual(_ object: Any?) -> Bool {
         guard let constraint = object as? NSLayoutConstraint else {
             return false
@@ -70,9 +68,7 @@ extension NSLayoutConstraint  {
 }
 
 
-/**
- Global-level definition of the constraint identity operator.
- */
+/// Global-level definition of the constraint identity operator.
 infix operator ==*
 
 public func ==* (lhs: NSLayoutConstraint, rhs: NSLayoutConstraint) -> Bool {

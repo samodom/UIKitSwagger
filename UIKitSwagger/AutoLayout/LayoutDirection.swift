@@ -8,9 +8,7 @@
 
 import UIKit
 
-/**
- Enumerated integer type for layout directions in both possible orders.
- */
+/// Enumerated integer type for layout directions in both possible orders.
 public enum LayoutDirection: Int {
     case leftToRight = 1
     case rightToLeft = -1

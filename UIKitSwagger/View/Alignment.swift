@@ -13,13 +13,11 @@ fileprivate let DefaultFillDirections: Set<LayoutDirection> = [.leadingToTrailin
 
 public extension UIView {
 
-    /**
-     Convenience method for creating, activating and returning constraints that will fill this view's superview.
-     - parameter inDirections: Set of layout directions in which to fill.  Only one horizontal idiom is allowed and the leading-to-trailing and top-to-bottom directions are used by default.
-     - parameter excludedEdges: Set of layout directions to exclude from filling.  Any edges provided must match the directions being used.
-     - parameter inMargins: Flag indicating whether or not filling should be performed with respect to the superview's layout margins.  By default, margins are not used.
-     - returns: All constraints created and activated for filling the view's superview.
-     */
+    /// Convenience method for creating, activating and returning constraints that will fill this view's superview.
+    /// - parameter inDirections: Set of layout directions in which to fill.  Only one horizontal idiom is allowed and the leading-to-trailing and top-to-bottom directions are used by default.
+    /// - parameter excludedEdges: Set of layout directions to exclude from filling.  Any edges provided must match the directions being used.
+    /// - parameter inMargins: Flag indicating whether or not filling should be performed with respect to the superview's layout margins.  By default, margins are not used.
+    /// - returns: All constraints created and activated for filling the view's superview.
     public func fillSuperview(
         inDirections directions: Set<LayoutDirection> = DefaultFillDirections,
         excludeEdges edgesToExclude: Set<LayoutEdge> = [],

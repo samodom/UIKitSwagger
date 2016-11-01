@@ -20,9 +20,7 @@ extension UILayoutGuide: UIViewAddable { }
 public typealias UIViewRemovable = UIViewAddable
 
 
-/**
- An operator used to add a subview, layout guide, motion effect or gesture recognizer to a view.
- */
+/// An operator used to add a subview, layout guide, motion effect or gesture recognizer to a view.
 public func +=(view: UIView, addable: UIViewAddable) {
     if #available(iOS 9.0, *) {
         if let guide = addable as? UILayoutGuide {
@@ -46,17 +44,15 @@ public func +=(view: UIView, addable: UIViewAddable) {
     }
 }
 
-/**
- An operator used to add an array of subviews, layout guides, motion effects and gesture recognizers to a view.
- - note: The order in which the items are applied is not necessarily the order in which they are provided in the array.  This is done to avoid adding modifiers for which the view is unprepared.
- */
+
+/// An operator used to add an array of subviews, layout guides, motion effects and gesture recognizers to a view.
+/// - note: The order in which the items are applied is not necessarily the order in which they are provided in the array.  This is done to avoid adding modifiers for which the view is unprepared.
 public func +=(view: UIView, addables: [UIViewAddable]) {
     groupAddables(addables).forEach { view += $0 }
 }
 
-/**
- An operator used to remove a subview, auto layout constraint, motion effect or gesture recognizer from a view.
- */
+
+/// An operator used to remove a subview, auto layout constraint, motion effect or gesture recognizer from a view.
 public func -=(view: UIView, removable: UIViewRemovable) {
     if #available(iOS 9.0, *) {
         if let guide = removable as? UILayoutGuide {
@@ -82,10 +78,9 @@ public func -=(view: UIView, removable: UIViewRemovable) {
     }
 }
 
-/**
- An operator used to remove an array of subviews, layout guides, motion effects and gesture recognizers from a view.
- - note: The order in which the items are removed is not necessarily the order in which they are provided in the array.  This is done to avoid leaving invalid modifiers in the view.
- */
+
+/// An operator used to remove an array of subviews, layout guides, motion effects and gesture recognizers from a view.
+/// - note: The order in which the items are removed is not necessarily the order in which they are provided in the array.  This is done to avoid leaving invalid modifiers in the view.
 public func -=(view: UIView, removables: [UIViewRemovable]) {
     groupRemovables(removables).forEach { view -= $0 }
 }

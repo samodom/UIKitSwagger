@@ -10,9 +10,7 @@ import UIKit
 
 public extension NSLayoutConstraint {
 
-    /**
-     This variable swaps the subjects in a constraint from the form `y R mx + b`, where `R` is a layout relation, to the form `x = (y - b) / m`, where `m != 0`
-     */
+    /// This variable swaps the subjects in a constraint from the form `y R mx + b`, where `R` is a layout relation, to the form `x = (y - b) / m`, where `m != 0`
     public var swappedSubjectConstraint: NSLayoutConstraint? {
         guard subjectsCanBeSwapped else { return nil }
 
@@ -34,9 +32,7 @@ public extension NSLayoutConstraint {
         return multiplier != 0.0 && secondItem != nil && secondAttribute != .notAnAttribute
     }
 
-    /**
-     Puts a constraint in a non-negative constant form, if possible, or returns itself if it is already in non-negative constant.
-     */
+    /// Puts a constraint in a non-negative constant form, if possible, or returns itself if it is already in non-negative constant.
     public var positiveConstantConstraint: NSLayoutConstraint {
         guard constant < 0 else { return self }
 

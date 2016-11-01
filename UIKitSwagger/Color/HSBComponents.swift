@@ -8,9 +8,7 @@
 
 import UIKit
 
-/**
- Convenience structure to hold the hue, saturation, brightness and alpha component values of an instance of `UIColor`.
- */
+/// Convenience structure to hold the hue, saturation, brightness and alpha component values of an instance of `UIColor`.
 public struct HSBComponents {
     public let hue: CGFloat
     public let saturation: CGFloat
@@ -28,9 +26,7 @@ public struct HSBComponents {
 
 extension HSBComponents: ColorComponents {
 
-    /**
-     Required variable for creating colors based on this component scheme.
-     */
+    /// Required variable for creating colors based on this component scheme.
     public var uiColor: UIColor {
         return UIColor(
             hue: hue,
@@ -44,32 +40,25 @@ extension HSBComponents: ColorComponents {
 
 public extension UIColor {
 
-    /**
-     Property to provide the hue component value of the color.
-     */
+    /// Property to provide the hue component value of the color.
     public var hue: CGFloat {
         return hsbComponents.hue
     }
 
-    /**
-     Property to provide the saturation component value of the color.
-     */
+    /// Property to provide the saturation component value of the color.
     public var saturation: CGFloat {
         return hsbComponents.saturation
     }
 
-    /**
-     Property to provide the brightness component value of the color.
-     */
+    /// Property to provide the brightness component value of the color.
     public var brightness: CGFloat {
         return hsbComponents.brightness
     }
 
 }
 
-/**
- Equatability of HSB components.
- */
+
+/// Equatability of HSB components.
 extension HSBComponents: Equatable {}
 
 public func ==(lhs: HSBComponents, rhs: HSBComponents) -> Bool {
@@ -81,9 +70,7 @@ public func ==(lhs: HSBComponents, rhs: HSBComponents) -> Bool {
 
 public extension UIColor {
 
-    /**
-     Property that returns the HSB components of the color in a structure.
-     */
+    /// Property that returns the HSB components of the color in a structure.
     public var hsbComponents: HSBComponents {
         var hueValue: CGFloat = 0
         var saturationValue: CGFloat = 0
@@ -106,14 +93,12 @@ public extension UIColor {
 
 }
 
-/**
- Component conversion variables.
- */
+
+/// Component conversion variables.
+
 extension HSBComponents: HSBConvertible {
 
-    /**
-     Reflects the same HSB components.
-     */
+    /// Reflects the same HSB components.
     public var hsbComponents: HSBComponents {
         return self
     }
@@ -122,9 +107,7 @@ extension HSBComponents: HSBConvertible {
 
 extension HSBComponents: RGBConvertible {
 
-    /**
-     Converts HSB components into RGB components.
-     */
+    /// Converts HSB components into RGB components.
     public var rgbComponents: RGBComponents {
         return uiColor.rgbComponents
     }
@@ -133,9 +116,7 @@ extension HSBComponents: RGBConvertible {
 
 extension HSBComponents: GrayscaleConvertible {
 
-    /**
-     Converts HSB components into grayscale components.
-     */
+    /// Converts HSB components into grayscale components.
     public var grayscaleComponents: GrayscaleComponents {
         return uiColor.grayscaleComponents
     }
@@ -144,9 +125,7 @@ extension HSBComponents: GrayscaleConvertible {
 
 extension HSBComponents: CMYKConvertible {
 
-    /**
-     Converts HSB components into CNYK components.
-     */
+    /// Converts HSB components into CNYK components.
     public var cmykComponents: CMYKComponents {
         return uiColor.cmykComponents
     }

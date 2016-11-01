@@ -8,9 +8,7 @@
 
 import UIKit
 
-/**
- Enumerated type for specifying a horizontal or vertical edge used with Auto Layout.
- */
+/// Enumerated type for specifying a horizontal or vertical edge used with Auto Layout.
 public enum LayoutEdge {
 
     case leading, trailing

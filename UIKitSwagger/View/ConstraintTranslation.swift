@@ -10,9 +10,7 @@ import Foundation
 
 public extension UIView {
 
-    /**
-     Convenience property that always represents the boolean negation of the `setTranslatesAutoresizingMaskIntoConstraints` property.
-     */
+    /// Convenience property that always represents the boolean negation of the `setTranslatesAutoresizingMaskIntoConstraints` property.
     public var usesAutoLayout: Bool {
         get {
             return !translatesAutoresizingMaskIntoConstraints
@@ -27,9 +25,7 @@ public extension UIView {
 
 public extension Sequence where Iterator.Element: UIView {
 
-    /**
-     Convenience method to turn on auto layout usage for each view in a sequence.
-     */
+    /// Convenience method to turn on auto layout usage for each view in a sequence.
     public func useAutoLayout() {
         forEach { $0.usesAutoLayout = true }
     }

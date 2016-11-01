@@ -10,9 +10,7 @@ import UIKit
 
 public extension UIStepper {
 
-    /**
-     Property representing the closed range `minimumValue ... maximumValue`.
-     */
+    /// Property representing the closed range `minimumValue ... maximumValue`.
     public var range: ClosedRange<Double> {
         get {
             return minimumValue ... maximumValue
