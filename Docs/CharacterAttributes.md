@@ -38,7 +38,7 @@ When working with attributed strings, there are a number of keys that are used t
 
 ## Attribute methods
 
-| Property | `func keyValuePair() -> (key: String, value: Any)` |
+| Method | `func keyValuePair() -> (key: String, value: Any)` |
 |:--|:--|
 | **Description** | Provides the key and value that would be used in an attribute dictionary. |
 
