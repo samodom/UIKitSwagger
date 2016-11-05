@@ -21,7 +21,6 @@
 		0A25688B1D9EF052001E2A44 /* ConstraintTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25688A1D9EF052001E2A44 /* ConstraintTranslation.swift */; };
 		0A3BB97F19EB70C70075B32A /* UIKitSwagger.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A3BB97E19EB70C70075B32A /* UIKitSwagger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3BB98519EB70C70075B32A /* UIKitSwagger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A3BB97919EB70C70075B32A /* UIKitSwagger.framework */; };
-		0A4136631BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4136621BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift */; };
 		0A4136651BDB0DA7008DEB64 /* CharacterAttributeStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4136641BDB0DA7008DEB64 /* CharacterAttributeStringTests.swift */; };
 		0A4136671BDB11DC008DEB64 /* CharacterAttributeDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4136661BDB11DC008DEB64 /* CharacterAttributeDictionary.swift */; };
 		0A4136691BDB30E4008DEB64 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4136681BDB30E4008DEB64 /* AttributedString.swift */; };
@@ -133,7 +132,6 @@
 		0A3BB99F19EB71F00075B32A /* ConstraintComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintComparison.swift; sourceTree = "<group>"; };
 		0A3BB9AA19EB740F0075B32A /* ConstraintSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintSearch.swift; sourceTree = "<group>"; };
 		0A3F1B4D1A4112F500195B8F /* ConstraintRemoval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRemoval.swift; sourceTree = "<group>"; };
-		0A4136621BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeDictionaryTests.swift; sourceTree = "<group>"; };
 		0A4136641BDB0DA7008DEB64 /* CharacterAttributeStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeStringTests.swift; sourceTree = "<group>"; };
 		0A4136661BDB11DC008DEB64 /* CharacterAttributeDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeDictionary.swift; sourceTree = "<group>"; };
 		0A4136681BDB30E4008DEB64 /* AttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
@@ -312,7 +310,6 @@
 				0ACADAE41A3A8AB800CF49F8 /* AlertControllerAddableTests.swift */,
 				0A8028081A34257C00816792 /* BarItemEnablingTests.swift */,
 				0A8ACDD41C261E23004B4D71 /* CharacterAttributeCollectionTests.swift */,
-				0A4136621BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift */,
 				0A4136641BDB0DA7008DEB64 /* CharacterAttributeStringTests.swift */,
 				0A9048281BD70A6100193D7A /* CharacterAttributeTests.swift */,
 				0ACED1731AA3844D0073E42C /* CMYKComponentsTests.swift */,
@@ -718,7 +715,6 @@
 				0A23126C1A32826700BE92BE /* ViewAddableSyntaxTests.swift in Sources */,
 				0ACED1721AA384420073E42C /* GrayscaleComponentsTests.swift in Sources */,
 				0A5D736C1BC9996A005DEB73 /* ViewFillingTests.swift in Sources */,
-				0A4136631BDB0B42008DEB64 /* CharacterAttributeDictionaryTests.swift in Sources */,
 				0A9048291BD70A6100193D7A /* CharacterAttributeTests.swift in Sources */,
 				0A63DFE31B3CABEC00B68DC0 /* ViewSubscriptingTests.swift in Sources */,
 				0A5F12F31A285D1000694C56 /* DimensionsTests.swift in Sources */,

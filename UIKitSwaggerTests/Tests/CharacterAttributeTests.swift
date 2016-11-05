@@ -13,14 +13,14 @@ class CharacterAttributeTests: XCTestCase {
 
     //  MARK: Font
 
-    private let testFont = UIFont.systemFontOfSize(14)
+    private let testFont = UIFont.systemFont(ofSize: 14)
 
     func testFontAttribute() {
         let attribute = CharacterAttribute(name: NSFontAttributeName, value: testFont)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .Font attribute should be created with the provided font"
-        if case .Font(let font) = attribute! {
+        let message = "A .font attribute should be created with the provided font"
+        if case .font(let font) = attribute! {
             XCTAssertEqual(font, testFont, message)
         }
         else {
@@ -34,13 +34,13 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfFontAttribute() {
-        let attribute1 = CharacterAttribute.Font(testFont)
-        let attribute2 = CharacterAttribute.Font(testFont)
+        let attribute1 = CharacterAttribute.font(testFont)
+        let attribute2 = CharacterAttribute.font(testFont)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSFontAttributeName.hashValue ^ testFont.hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSFontAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.Font(UIFont.systemFontOfSize(42))
+        let attribute3 = CharacterAttribute.font(UIFont.systemFont(ofSize: 42))
         XCTAssertNotEqual(attribute1, attribute3, "Font attributes with unequal fonts are unequal")
     }
 
@@ -48,7 +48,7 @@ class CharacterAttributeTests: XCTestCase {
 
     private let testParagraphStyle: NSParagraphStyle = {
         let mutableStyle = NSMutableParagraphStyle()
-        mutableStyle.alignment = .Right
+        mutableStyle.alignment = .right
         mutableStyle.maximumLineHeight = 14.42
         return mutableStyle.copy() as! NSParagraphStyle
     }()
@@ -57,8 +57,8 @@ class CharacterAttributeTests: XCTestCase {
         let attribute = CharacterAttribute(name: NSParagraphStyleAttributeName, value: testParagraphStyle)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .ParagraphStyle attribute should be created with the provided paragraph style"
-        if case .ParagraphStyle(let style) = attribute! {
+        let message = "A .paragraphStyle attribute should be created with the provided paragraph style"
+        if case .paragraphStyle(let style) = attribute! {
             XCTAssertEqual(style, testParagraphStyle, message)
         }
         else {
@@ -72,25 +72,25 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfParagraphStyleAttribute() {
-        let attribute1 = CharacterAttribute.ParagraphStyle(testParagraphStyle)
-        let attribute2 = CharacterAttribute.ParagraphStyle(testParagraphStyle)
+        let attribute1 = CharacterAttribute.paragraphStyle(testParagraphStyle)
+        let attribute2 = CharacterAttribute.paragraphStyle(testParagraphStyle)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSParagraphStyleAttributeName.hashValue ^ testParagraphStyle.hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSParagraphStyleAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.ParagraphStyle(NSParagraphStyle())
+        let attribute3 = CharacterAttribute.paragraphStyle(NSParagraphStyle())
         XCTAssertNotEqual(attribute1, attribute3, "Paragraph style attributes with unequal paragraph style are unequal")
     }
 
     //  MARK: Foreground color
 
     func testForegroundColorAttribute() {
-        let testColor = Orange
+        let testColor = UIColor.orange
         let attribute = CharacterAttribute(name: NSForegroundColorAttributeName, value: testColor)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .ForegroundColor attribute should be created with the provided color"
-        if case .ForegroundColor(let color) = attribute! {
+        let message = "A .foregroundColor attribute should be created with the provided color"
+        if case .foregroundColor(let color) = attribute! {
             XCTAssertEqual(color, testColor, message)
         }
         else {
@@ -104,25 +104,26 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfForegroundColorAttribute() {
-        let attribute1 = CharacterAttribute.ForegroundColor(Orange)
-        let attribute2 = CharacterAttribute.ForegroundColor(Orange)
+        let color = UIColor.orange
+        let attribute1 = CharacterAttribute.foregroundColor(color)
+        let attribute2 = CharacterAttribute.foregroundColor(color)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSForegroundColorAttributeName.hashValue ^ Orange.hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSForegroundColorAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.ForegroundColor(Purple)
+        let attribute3 = CharacterAttribute.foregroundColor(UIColor.purple)
         XCTAssertNotEqual(attribute1, attribute3, "Foreground color attributes with unequal colors are unequal")
     }
 
     //  MARK: Background color
 
     func testBackgroundColorAttribute() {
-        let testColor = Orange
+        let testColor = UIColor.orange
         let attribute = CharacterAttribute(name: NSBackgroundColorAttributeName, value: testColor)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .BackgroundColor attribute should be created with the provided color"
-        if case .BackgroundColor(let color) = attribute! {
+        let message = "A .backgroundColor attribute should be created with the provided color"
+        if case .backgroundColor(let color) = attribute! {
             XCTAssertEqual(color, testColor, message)
         }
         else {
@@ -136,13 +137,14 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfBackgroundColorAttribute() {
-        let attribute1 = CharacterAttribute.BackgroundColor(Orange)
-        let attribute2 = CharacterAttribute.BackgroundColor(Orange)
+        let color = UIColor.orange
+        let attribute1 = CharacterAttribute.backgroundColor(color)
+        let attribute2 = CharacterAttribute.backgroundColor(color)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSBackgroundColorAttributeName.hashValue ^ Orange.hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSBackgroundColorAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.BackgroundColor(Purple)
+        let attribute3 = CharacterAttribute.backgroundColor(UIColor.purple)
         XCTAssertNotEqual(attribute1, attribute3, "Background color attributes with unequal colors are unequal")
     }
 
@@ -152,8 +154,8 @@ class CharacterAttributeTests: XCTestCase {
         let attribute = CharacterAttribute(name: NSLigatureAttributeName, value: false)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .UseLigatures attribute should be created with the provided boolean"
-        if case .UseLigatures(let shouldUseLigatures) = attribute! {
+        let message = "A .useLigatures attribute should be created with the provided boolean"
+        if case .useLigatures(let shouldUseLigatures) = attribute! {
             XCTAssertFalse(shouldUseLigatures, message)
         }
         else {
@@ -167,13 +169,13 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfUseLigaturesAttribute() {
-        let attribute1 = CharacterAttribute.UseLigatures(true)
-        let attribute2 = CharacterAttribute.UseLigatures(true)
+        let attribute1 = CharacterAttribute.useLigatures(true)
+        let attribute2 = CharacterAttribute.useLigatures(true)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSLigatureAttributeName.hashValue ^ (true as NSNumber).hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSLigatureAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.UseLigatures(false)
+        let attribute3 = CharacterAttribute.useLigatures(false)
         XCTAssertNotEqual(attribute1, attribute3, "Use ligatures attributes with unequal flags are unequal")
     }
 
@@ -183,8 +185,8 @@ class CharacterAttributeTests: XCTestCase {
         let attribute = CharacterAttribute(name: NSKernAttributeName, value: CGFloat(14.42))
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .Kern attribute should be created with the provided value"
-        if case .Kern(let kern) = attribute! {
+        let message = "A .kern attribute should be created with the provided value"
+        if case .kern(let kern) = attribute! {
             XCTAssertEqual(kern, 14.42, message)
         }
         else {
@@ -198,25 +200,25 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfKernAttribute() {
-        let attribute1 = CharacterAttribute.Kern(14.42)
-        let attribute2 = CharacterAttribute.Kern(14.42)
+        let attribute1 = CharacterAttribute.kern(14.42)
+        let attribute2 = CharacterAttribute.kern(14.42)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSKernAttributeName.hashValue ^ (14.42 as NSNumber).hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSKernAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.Kern(42.14)
+        let attribute3 = CharacterAttribute.kern(42.14)
         XCTAssertNotEqual(attribute1, attribute3, "Kern attributes with unequal values are unequal")
     }
     
     //  MARK: Strikethrough style
 
     func testStrikethroughStyleAttribute() {
-        let attribute = CharacterAttribute(name: NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.StyleThick.rawValue)
+        let attribute = CharacterAttribute(name: NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.styleThick.rawValue)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .StrikethroughStyle attribute should be created with the provided style"
-        if case .StrikethroughStyle(let style) = attribute! {
-            XCTAssertEqual(style, NSUnderlineStyle.StyleThick, message)
+        let message = "A .strikethroughStyle attribute should be created with the provided style"
+        if case .strikethroughStyle(let style) = attribute! {
+            XCTAssertEqual(style, NSUnderlineStyle.styleThick, message)
         }
         else {
             XCTFail(message)
@@ -229,26 +231,25 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfStrikethroughStyleAttribute() {
-        let attribute1 = CharacterAttribute.StrikethroughStyle(.StyleThick)
-        let attribute2 = CharacterAttribute.StrikethroughStyle(.StyleThick)
+        let attribute1 = CharacterAttribute.strikethroughStyle(.styleThick)
+        let attribute2 = CharacterAttribute.strikethroughStyle(.styleThick)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        let styleHash = (NSUnderlineStyle.StyleThick.rawValue as NSNumber).hashValue
-        XCTAssertEqual(attribute1.hashValue, NSStrikethroughStyleAttributeName.hashValue ^ styleHash, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSStrikethroughStyleAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.StrikethroughStyle(.StyleDouble)
+        let attribute3 = CharacterAttribute.strikethroughStyle(.styleDouble)
         XCTAssertNotEqual(attribute1, attribute3, "Strikethrough style attributes with unequal styles are unequal")
     }
 
     //  MARK: Underline style
 
     func testUnderlineStyleAttribute() {
-        let attribute = CharacterAttribute(name: NSUnderlineStyleAttributeName, value: NSUnderlineStyle.StyleThick.rawValue)
+        let attribute = CharacterAttribute(name: NSUnderlineStyleAttributeName, value: NSUnderlineStyle.styleThick.rawValue)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .UnderlineStyle attribute should be created with the provided style"
-        if case .UnderlineStyle(let style) = attribute! {
-            XCTAssertEqual(style, NSUnderlineStyle.StyleThick, message)
+        let message = "A .underlineStyle attribute should be created with the provided style"
+        if case .underlineStyle(let style) = attribute! {
+            XCTAssertEqual(style, NSUnderlineStyle.styleThick, message)
         }
         else {
             XCTFail(message)
@@ -261,26 +262,25 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfUnderlineStyleAttribute() {
-        let attribute1 = CharacterAttribute.UnderlineStyle(.StyleDouble)
-        let attribute2 = CharacterAttribute.UnderlineStyle(.StyleDouble)
+        let attribute1 = CharacterAttribute.underlineStyle(.styleDouble)
+        let attribute2 = CharacterAttribute.underlineStyle(.styleDouble)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        let styleHash = (NSUnderlineStyle.StyleDouble.rawValue as NSNumber).hashValue
-        XCTAssertEqual(attribute1.hashValue, NSUnderlineStyleAttributeName.hashValue ^ styleHash, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSUnderlineStyleAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.UnderlineStyle(.StyleThick)
+        let attribute3 = CharacterAttribute.underlineStyle(.styleThick)
         XCTAssertNotEqual(attribute1, attribute3, "Underline style attributes with unequal styles are unequal")
     }
     
     //  MARK: Stroke color
 
     func testStrokeColorAttribute() {
-        let testColor = Orange
+        let testColor = UIColor.orange
         let attribute = CharacterAttribute(name: NSStrokeColorAttributeName, value: testColor)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .StrokeColor attribute should be created with the provided color"
-        if case .StrokeColor(let color) = attribute! {
+        let message = "A .strokeColor attribute should be created with the provided color"
+        if case .strokeColor(let color) = attribute! {
             XCTAssertEqual(color, testColor, message)
         }
         else {
@@ -294,13 +294,14 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfStrokeColorAttribute() {
-        let attribute1 = CharacterAttribute.StrokeColor(Orange)
-        let attribute2 = CharacterAttribute.StrokeColor(Orange)
+        let color = UIColor.orange
+        let attribute1 = CharacterAttribute.strokeColor(color)
+        let attribute2 = CharacterAttribute.strokeColor(color)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSStrokeColorAttributeName.hashValue ^ Orange.hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSStrokeColorAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.StrokeColor(Purple)
+        let attribute3 = CharacterAttribute.strokeColor(UIColor.purple)
         XCTAssertNotEqual(attribute1, attribute3, "Stroke color attributes with unequal colors are unequal")
     }
 
@@ -310,8 +311,8 @@ class CharacterAttributeTests: XCTestCase {
         let attribute = CharacterAttribute(name: NSStrokeWidthAttributeName, value: CGFloat(14.42))
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .StrokeWidth attribute should be created with the provided value"
-        if case .StrokeWidth(let width) = attribute! {
+        let message = "A .strokeWidth attribute should be created with the provided value"
+        if case .strokeWidth(let width) = attribute! {
             XCTAssertEqual(width, 14.42, message)
         }
         else {
@@ -325,13 +326,13 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfStrokeWidthAttribute() {
-        let attribute1 = CharacterAttribute.StrokeWidth(14.42)
-        let attribute2 = CharacterAttribute.StrokeWidth(14.42)
+        let attribute1 = CharacterAttribute.strokeWidth(14.42)
+        let attribute2 = CharacterAttribute.strokeWidth(14.42)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSStrokeWidthAttributeName.hashValue ^ (14.42 as NSNumber).hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSStrokeWidthAttributeName.hashValue,"The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.StrokeWidth(42.14)
+        let attribute3 = CharacterAttribute.strokeWidth(42.14)
         XCTAssertNotEqual(attribute1, attribute3, "Stroke width attributes with unequal widths are unequal")
     }
 
@@ -347,8 +348,8 @@ class CharacterAttributeTests: XCTestCase {
         let attribute = CharacterAttribute(name: NSShadowAttributeName, value: testShadow)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .Shadow attribute should be created with the provided shadow"
-        if case .Shadow(let shadow) = attribute! {
+        let message = "A .shadow attribute should be created with the provided shadow"
+        if case .shadow(let shadow) = attribute! {
             XCTAssertEqual(shadow, testShadow, message)
         }
         else {
@@ -362,13 +363,13 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfShadowAttribute() {
-        let attribute1 = CharacterAttribute.Shadow(testShadow)
-        let attribute2 = CharacterAttribute.Shadow(testShadow)
+        let attribute1 = CharacterAttribute.shadow(testShadow)
+        let attribute2 = CharacterAttribute.shadow(testShadow)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSShadowAttributeName.hashValue ^ testShadow.hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSShadowAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.Shadow(NSShadow())
+        let attribute3 = CharacterAttribute.shadow(NSShadow())
         XCTAssertNotEqual(attribute1, attribute3, "Shadow attributes with unequal shadows are unequal")
     }
     
@@ -378,8 +379,8 @@ class CharacterAttributeTests: XCTestCase {
         let attribute = CharacterAttribute(name: NSTextEffectAttributeName, value: NSTextEffectLetterpressStyle)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .TextEffect attribute should be created with the provided effect"
-        if case .TextEffect(let effect) = attribute! {
+        let message = "A .textEffect attribute should be created with the provided effect"
+        if case .textEffect(let effect) = attribute! {
             XCTAssertEqual(effect, NSTextEffectLetterpressStyle, message)
         }
         else {
@@ -393,13 +394,13 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfTextEffectAttribute() {
-        let attribute1 = CharacterAttribute.TextEffect(NSTextEffectLetterpressStyle)
-        let attribute2 = CharacterAttribute.TextEffect(NSTextEffectLetterpressStyle)
+        let attribute1 = CharacterAttribute.textEffect(NSTextEffectLetterpressStyle)
+        let attribute2 = CharacterAttribute.textEffect(NSTextEffectLetterpressStyle)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSTextEffectAttributeName.hashValue ^ (NSTextEffectLetterpressStyle as NSString).hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSTextEffectAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.TextEffect("sample")
+        let attribute3 = CharacterAttribute.textEffect("sample")
         XCTAssertNotEqual(attribute1, attribute3, "Text effect attributes with unequal effects are unequal")
     }
 
@@ -417,7 +418,7 @@ class CharacterAttributeTests: XCTestCase {
         XCTAssert(attribute != nil, "An attribute should have been created")
 
         let message = "A .Attachment attribute should be created with the provided attachment"
-        if case .Attachment(let attachment) = attribute! {
+        if case .attachment(let attachment) = attribute! {
             XCTAssertEqual(attachment, testAttachment, message)
         }
         else {
@@ -431,27 +432,27 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfAttachmentAttribute() {
-        let attribute1 = CharacterAttribute.Attachment(testAttachment)
-        let attribute2 = CharacterAttribute.Attachment(testAttachment)
+        let attribute1 = CharacterAttribute.attachment(testAttachment)
+        let attribute2 = CharacterAttribute.attachment(testAttachment)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSAttachmentAttributeName.hashValue ^ testAttachment.hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSAttachmentAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.Attachment(NSTextAttachment())
+        let attribute3 = CharacterAttribute.attachment(NSTextAttachment())
         XCTAssertNotEqual(attribute1, attribute3, "Attachment attributes with unequal attachments are unequal")
     }
 
 
     //  MARK: Link
 
-    let testLink = NSURL(string: "http://example.com")!
+    let testLink = URL(string: "http://example.com")!
 
     func testLinkAttribute() {
         let attribute = CharacterAttribute(name: NSLinkAttributeName, value: testLink)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
         let message = "A .Link attribute should be created with the provided URL"
-        if case .Link(let link) = attribute! {
+        if case .link(let link) = attribute! {
             XCTAssertEqual(link, testLink, message)
         }
         else {
@@ -465,13 +466,13 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfLinkAttribute() {
-        let attribute1 = CharacterAttribute.Link(testLink)
-        let attribute2 = CharacterAttribute.Link(testLink)
+        let attribute1 = CharacterAttribute.link(testLink)
+        let attribute2 = CharacterAttribute.link(testLink)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSLinkAttributeName.hashValue ^ testLink.hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSLinkAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.Link(NSURL(string: "http://somewhere.com")!)
+        let attribute3 = CharacterAttribute.link(URL(string: "http://somewhere.com")!)
         XCTAssertNotEqual(attribute1, attribute3, "Link attributes with unequal URLs are unequal")
     }
     
@@ -481,8 +482,8 @@ class CharacterAttributeTests: XCTestCase {
         let attribute = CharacterAttribute(name: NSBaselineOffsetAttributeName, value: CGFloat(14.42))
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .BaselineOffset attribute should be created with the provided value"
-        if case .BaselineOffset(let width) = attribute! {
+        let message = "A .baselineOffset attribute should be created with the provided value"
+        if case .baselineOffset(let width) = attribute! {
             XCTAssertEqual(width, 14.42, message)
         }
         else {
@@ -496,25 +497,25 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfBaselineOffsetAttribute() {
-        let attribute1 = CharacterAttribute.BaselineOffset(14.42)
-        let attribute2 = CharacterAttribute.BaselineOffset(14.42)
+        let attribute1 = CharacterAttribute.baselineOffset(14.42)
+        let attribute2 = CharacterAttribute.baselineOffset(14.42)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSBaselineOffsetAttributeName.hashValue ^ (14.42 as NSNumber).hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSBaselineOffsetAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.BaselineOffset(42.14)
+        let attribute3 = CharacterAttribute.baselineOffset(42.14)
         XCTAssertNotEqual(attribute1, attribute3, "Baseline offset attributes with unequal offsets are unequal")
     }
     
     //  MARK: Strikethrough color
 
     func testStrikethroughColorAttribute() {
-        let testColor = Orange
+        let testColor = UIColor.orange
         let attribute = CharacterAttribute(name: NSStrikethroughColorAttributeName, value: testColor)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .StrikethroughColor attribute should be created with the provided color"
-        if case .StrikethroughColor(let color) = attribute! {
+        let message = "A .strikethroughColor attribute should be created with the provided color"
+        if case .strikethroughColor(let color) = attribute! {
             XCTAssertEqual(color, testColor, message)
         }
         else {
@@ -528,25 +529,26 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfStrikethroughColorAttribute() {
-        let attribute1 = CharacterAttribute.StrikethroughColor(Orange)
-        let attribute2 = CharacterAttribute.StrikethroughColor(Orange)
+        let color = UIColor.orange
+        let attribute1 = CharacterAttribute.strikethroughColor(color)
+        let attribute2 = CharacterAttribute.strikethroughColor(color)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSStrikethroughColorAttributeName.hashValue ^ Orange.hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSStrikethroughColorAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.StrikethroughColor(Purple)
+        let attribute3 = CharacterAttribute.strikethroughColor(UIColor.purple)
         XCTAssertNotEqual(attribute1, attribute3, "Strikethrough color attributes with unequal colors are unequal")
     }
 
     //  MARK: Underline color
 
     func testUnderlineColorAttribute() {
-        let testColor = Orange
+        let testColor = UIColor.orange
         let attribute = CharacterAttribute(name: NSUnderlineColorAttributeName, value: testColor)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .UnderlineColor attribute should be created with the provided color"
-        if case .UnderlineColor(let color) = attribute! {
+        let message = "A .underlineColor attribute should be created with the provided color"
+        if case .underlineColor(let color) = attribute! {
             XCTAssertEqual(color, testColor, message)
         }
         else {
@@ -560,13 +562,14 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfUnderlineColorAttribute() {
-        let attribute1 = CharacterAttribute.UnderlineColor(Orange)
-        let attribute2 = CharacterAttribute.UnderlineColor(Orange)
+        let color = UIColor.orange
+        let attribute1 = CharacterAttribute.underlineColor(color)
+        let attribute2 = CharacterAttribute.underlineColor(color)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSUnderlineColorAttributeName.hashValue ^ Orange.hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSUnderlineColorAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.UnderlineColor(Purple)
+        let attribute3 = CharacterAttribute.underlineColor(UIColor.purple)
         XCTAssertNotEqual(attribute1, attribute3, "Underline color attributes with unequal colors are unequal")
     }
     
@@ -576,8 +579,8 @@ class CharacterAttributeTests: XCTestCase {
         let attribute = CharacterAttribute(name: NSObliquenessAttributeName, value: CGFloat(14.42))
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .Obliqueness attribute should be created with the provided value"
-        if case .Obliqueness(let kern) = attribute! {
+        let message = "A .obliqueness attribute should be created with the provided value"
+        if case .obliqueness(let kern) = attribute! {
             XCTAssertEqual(kern, 14.42, message)
         }
         else {
@@ -591,13 +594,13 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfObliquenessAttribute() {
-        let attribute1 = CharacterAttribute.Obliqueness(14.42)
-        let attribute2 = CharacterAttribute.Obliqueness(14.42)
+        let attribute1 = CharacterAttribute.obliqueness(14.42)
+        let attribute2 = CharacterAttribute.obliqueness(14.42)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSObliquenessAttributeName.hashValue ^ (14.42 as NSNumber).hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSObliquenessAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.Obliqueness(42.14)
+        let attribute3 = CharacterAttribute.obliqueness(42.14)
         XCTAssertNotEqual(attribute1, attribute3, "Obliqueness attributes with unequal values are unequal")
     }
 
@@ -607,8 +610,8 @@ class CharacterAttributeTests: XCTestCase {
         let attribute = CharacterAttribute(name: NSExpansionAttributeName, value: CGFloat(14.42))
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .Expansion attribute should be created with the provided value"
-        if case .Expansion(let expansion) = attribute! {
+        let message = "A .expansion attribute should be created with the provided value"
+        if case .expansion(let expansion) = attribute! {
             XCTAssertEqual(expansion, 14.42, message)
         }
         else {
@@ -622,13 +625,13 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfExpansionAttribute() {
-        let attribute1 = CharacterAttribute.Expansion(14.42)
-        let attribute2 = CharacterAttribute.Expansion(14.42)
+        let attribute1 = CharacterAttribute.expansion(14.42)
+        let attribute2 = CharacterAttribute.expansion(14.42)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSExpansionAttributeName.hashValue ^ (14.42 as NSNumber).hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSExpansionAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.Expansion(42.14)
+        let attribute3 = CharacterAttribute.expansion(42.14)
         XCTAssertNotEqual(attribute1, attribute3, "Expansion attributes with unequal values are unequal")
     }
 
@@ -641,8 +644,8 @@ class CharacterAttributeTests: XCTestCase {
         )
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .WritingDirection attribute should be created with the provided overrides"
-        if case .WritingDirection(let overrides) = attribute! {
+        let message = "A .writingDirection attribute should be created with the provided overrides"
+        if case .writingDirection(let overrides) = attribute! {
             XCTAssertEqual(overrides.count, 4, "There should be 4 direction overrides")
             XCTAssertEqual(overrides[0], 0, message)
             XCTAssertEqual(overrides[1], 2, message)
@@ -660,13 +663,13 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfWritingDirectionAttribute() {
-        let attribute1 = CharacterAttribute.WritingDirection([0, 1, 2, 3])
-        let attribute2 = CharacterAttribute.WritingDirection([0, 1, 2, 3])
+        let attribute1 = CharacterAttribute.writingDirection([0, 1, 2, 3])
+        let attribute2 = CharacterAttribute.writingDirection([0, 1, 2, 3])
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSWritingDirectionAttributeName.hashValue ^ [0, 1, 2, 3].hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSWritingDirectionAttributeName.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.WritingDirection([0, 3, 2, 1])
+        let attribute3 = CharacterAttribute.writingDirection([0, 3, 2, 1])
         XCTAssertNotEqual(attribute1, attribute3, "Writing direction attributes with unequal overrides are unequal")
     }
 
@@ -676,8 +679,8 @@ class CharacterAttributeTests: XCTestCase {
         let attribute = CharacterAttribute(name: NSVerticalGlyphFormAttributeName, value: false)
         XCTAssert(attribute != nil, "An attribute should have been created")
 
-        let message = "A .UseVerticalGlyphForm attribute should be created with the provided boolean"
-        if case .UseVerticalGlyphForm(let shouldUseVerticalGlyphForm) = attribute! {
+        let message = "A .useVerticalGlyphForm attribute should be created with the provided boolean"
+        if case .useVerticalGlyphForm(let shouldUseVerticalGlyphForm) = attribute! {
             XCTAssertFalse(shouldUseVerticalGlyphForm, message)
         }
         else {
@@ -691,13 +694,13 @@ class CharacterAttributeTests: XCTestCase {
     }
 
     func testHashabilityOfUseVerticalGlyphFormAttribute() {
-        let attribute1 = CharacterAttribute.UseVerticalGlyphForm(true)
-        let attribute2 = CharacterAttribute.UseVerticalGlyphForm(true)
+        let attribute1 = CharacterAttribute.useVerticalGlyphForm(true)
+        let attribute2 = CharacterAttribute.useVerticalGlyphForm(true)
         XCTAssertEqual(attribute1, attribute2, "The two attributes should be equal")
         XCTAssertEqual(attribute1.hashValue, attribute2.hashValue, "Equal attributes should produce the same hash value")
-        XCTAssertEqual(attribute1.hashValue, NSVerticalGlyphFormAttributeName.hashValue ^ (true as NSNumber).hashValue, "The hash value should combine the dictionary key and the associated value")
+        XCTAssertEqual(attribute1.hashValue, NSVerticalGlyphFormAttributeName.hashValue.hashValue, "The hash value should be the hash value of dictionary key")
 
-        let attribute3 = CharacterAttribute.UseVerticalGlyphForm(false)
+        let attribute3 = CharacterAttribute.useVerticalGlyphForm(false)
         XCTAssertNotEqual(attribute1, attribute3, "Vertical glyph form attributes with unequal flags are unequal")
     }
 

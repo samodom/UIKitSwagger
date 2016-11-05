@@ -10,94 +10,93 @@ import UIKit
 
 public extension CharacterAttribute {
 
-    /**
-     Provides a key/value pair that can be used in an attribute dictionary.
-     */
-    public var keyValuePair: (String, AnyObject) {
+    /// Provides a key/value pair that can be used in an attribute dictionary.
+    /// - returns: a string representing the case and the attribute's associated value
+    public func keyValuePair() -> (key: String, value: Any) {
         let key: String
-        let value: AnyObject
+        let value: Any
         switch self {
-        case .Font(let font):
+        case .font(let font):
             key = NSFontAttributeName
             value = font
 
-        case .ParagraphStyle(let style):
+        case .paragraphStyle(let style):
             key = NSParagraphStyleAttributeName
             value = style
 
-        case .ForegroundColor(let color):
+        case .foregroundColor(let color):
             key = NSForegroundColorAttributeName
             value = color
 
-        case .BackgroundColor(let color):
+        case .backgroundColor(let color):
             key = NSBackgroundColorAttributeName
             value = color
 
-        case .UseLigatures(let shouldUseLigatures):
+        case .useLigatures(let shouldUseLigatures):
             key = NSLigatureAttributeName
             value = shouldUseLigatures
 
-        case .Kern(let kern):
+        case .kern(let kern):
             key = NSKernAttributeName
             value = kern
 
-        case .StrikethroughStyle(let style):
+        case .strikethroughStyle(let style):
             key = NSStrikethroughStyleAttributeName
             value = style.rawValue
 
-        case .UnderlineStyle(let style):
+        case .underlineStyle(let style):
             key = NSUnderlineStyleAttributeName
             value = style.rawValue
 
-        case .StrokeColor(let color):
+        case .strokeColor(let color):
             key = NSStrokeColorAttributeName
             value = color
 
-        case .StrokeWidth(let width):
+        case .strokeWidth(let width):
             key = NSStrokeWidthAttributeName
             value = width
 
-        case .Shadow(let shadow):
+        case .shadow(let shadow):
             key = NSShadowAttributeName
             value = shadow
 
-        case .TextEffect(let effect):
+        case .textEffect(let effect):
             key = NSTextEffectAttributeName
             value = effect
 
-        case .Attachment(let attachment):
+        case .attachment(let attachment):
             key = NSAttachmentAttributeName
             value = attachment
 
-        case .Link(let link):
+        case .link(let link):
             key = NSLinkAttributeName
             value = link
 
-        case .BaselineOffset(let offset):
+        case .baselineOffset(let offset):
             key = NSBaselineOffsetAttributeName
             value = offset
 
-        case .StrikethroughColor(let color):
+        case .strikethroughColor(let color):
             key = NSStrikethroughColorAttributeName
             value = color
 
-        case .UnderlineColor(let color):
+        case .underlineColor(let color):
             key = NSUnderlineColorAttributeName
             value = color
 
-        case .Obliqueness(let obliqueness):
+        case .obliqueness(let obliqueness):
             key = NSObliquenessAttributeName
             value = obliqueness
 
-        case .Expansion(let expansion):
+        case .expansion(let expansion):
             key = NSExpansionAttributeName
             value = expansion
             
-        case .WritingDirection(let overrides):
+        case .writingDirection(let overrides):
             key = NSWritingDirectionAttributeName
             value = overrides
             
-        case .UseVerticalGlyphForm(let shouldUseVerticalGlyphForm):
+        case .useVerticalGlyphForm(let shouldUseVerticalGlyphForm):
             key = NSVerticalGlyphFormAttributeName
             value = shouldUseVerticalGlyphForm
         }
@@ -105,11 +104,4 @@ public extension CharacterAttribute {
         return (key, value)
     }
 
-    /**
-     Represents the attribute as a single-element dictionary.
-     */
-    public var attributeDictionary: CharacterAttributeDictionary {
-        return Dictionary(dictionaryLiteral: keyValuePair)
-    }
-    
 }
