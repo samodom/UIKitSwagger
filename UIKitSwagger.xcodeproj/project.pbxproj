@@ -52,6 +52,7 @@
 		0A8028131A342EEA00816792 /* ControlEnablingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8028111A342EEA00816792 /* ControlEnablingTests.swift */; };
 		0A8ACDD51C261E23004B4D71 /* CharacterAttributeCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8ACDD41C261E23004B4D71 /* CharacterAttributeCollectionTests.swift */; };
 		0A8ACDD71C2620F3004B4D71 /* CharacterAttributeCollections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8ACDD61C2620F3004B4D71 /* CharacterAttributeCollections.swift */; };
+		0A8EC54F1DCE9EBF009491EB /* MutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8EC54E1DCE9EBF009491EB /* MutableAttributedString.swift */; };
 		0A9032261A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9032251A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift */; };
 		0A9048291BD70A6100193D7A /* CharacterAttributeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9048281BD70A6100193D7A /* CharacterAttributeTests.swift */; };
 		0A90482C1BD70D4000193D7A /* CharacterAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A90482B1BD70D4000193D7A /* CharacterAttribute.swift */; };
@@ -166,6 +167,7 @@
 		0A8028111A342EEA00816792 /* ControlEnablingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlEnablingTests.swift; sourceTree = "<group>"; };
 		0A8ACDD41C261E23004B4D71 /* CharacterAttributeCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeCollectionTests.swift; sourceTree = "<group>"; };
 		0A8ACDD61C2620F3004B4D71 /* CharacterAttributeCollections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeCollections.swift; sourceTree = "<group>"; };
+		0A8EC54E1DCE9EBF009491EB /* MutableAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableAttributedString.swift; sourceTree = "<group>"; };
 		0A9032251A3E18EC00D1A713 /* DynamicBehaviorItemAdditionSyntaxTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicBehaviorItemAdditionSyntaxTests.swift; sourceTree = "<group>"; };
 		0A9048281BD70A6100193D7A /* CharacterAttributeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttributeTests.swift; sourceTree = "<group>"; };
 		0A90482B1BD70D4000193D7A /* CharacterAttribute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAttribute.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				0A90482B1BD70D4000193D7A /* CharacterAttribute.swift */,
 				0A8ACDD61C2620F3004B4D71 /* CharacterAttributeCollections.swift */,
 				0A4136661BDB11DC008DEB64 /* CharacterAttributeDictionary.swift */,
+				0A8EC54E1DCE9EBF009491EB /* MutableAttributedString.swift */,
 			);
 			path = "Attributed String";
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				0A10F28F1A3D16E600715C7A /* ColorComponents.swift in Sources */,
 				0A63F7501A3E15D9001FBFF7 /* BehaviorAdditionSyntax.swift in Sources */,
 				0AA70B9E1D9E339B006C9DD1 /* ConstraintComparison.swift in Sources */,
+				0A8EC54F1DCE9EBF009491EB /* MutableAttributedString.swift in Sources */,
 				0ACADAED1A3BE90600CF49F8 /* StateManagement.swift in Sources */,
 				0A63F74B1A3E105D001FBFF7 /* AnimatorAdditionSyntax.swift in Sources */,
 				0AA70B9C1D9E3264006C9DD1 /* ConstraintSubjectSwapping.swift in Sources */,

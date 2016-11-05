@@ -18,6 +18,8 @@ class CharacterAttributeStringTests: XCTestCase {
     var characterCount: Int!
     var fullRange: Range<Int>!
     var oldFullRange: NSRange!
+    var subRange: Range<Int>!
+    var oldSubRange: NSRange!
 
     var foregroundColorAttribute: CharacterAttribute!
     var fontAttribute: CharacterAttribute!
@@ -31,7 +33,9 @@ class CharacterAttributeStringTests: XCTestCase {
     override func setUp() {
         characterCount = text.characters.count
         fullRange = 0 ..< characterCount
-        oldFullRange = NSRange(location: 0, length: characterCount)
+        oldFullRange = NSRange(fullRange)
+        subRange = 3 ..< characterCount
+        oldSubRange = NSRange(subRange)
 
         foregroundColorAttribute = .foregroundColor(UIColor.orange)
         fontAttribute = .font(font)
@@ -49,10 +53,13 @@ class CharacterAttributeStringTests: XCTestCase {
     }
 
     private func createPartiallyAttributedString() -> NSAttributedString {
-        let endRange = NSRange(location: 3, length: characterCount - 3)
         let mutableString = NSMutableAttributedString(string: text)
-        mutableString.addAttributes(attributeDictionary, range: endRange)
-        return NSAttributedString(attributedString: mutableString)
+        mutableString.addAttributes(attributeDictionary, range: oldSubRange)
+
+        let string = NSAttributedString(attributedString: mutableString)
+        assert(string != createFullyAttributedString())
+
+        return string
     }
 
 
@@ -158,7 +165,7 @@ class CharacterAttributeStringTests: XCTestCase {
         attributedString.maximumRangedCharacterAttribute(
             named: NSForegroundColorAttributeName,
             at: 3,
-            in: 0 ..< characterCount
+            in: fullRange
         )
 
         XCTAssertEqual(attribute, foregroundColorAttribute, "The appropriate attribute should be returned with the correct associated value")
@@ -174,14 +181,14 @@ class CharacterAttributeStringTests: XCTestCase {
         attributedString.maximumRangedCharacterAttribute(
             named: NSForegroundColorAttributeName,
             at: 0,
-            in: 0 ..< characterCount
+            in: fullRange
         )
 
         XCTAssertNil(attribute, "No attribute should be returned")
         XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
     }
 
-    
+
     //  MARK: Retrieving multiple ranged attributes
 
     func testRetrievingRangedCharacterAttributesAtIndex() {
@@ -207,7 +214,7 @@ class CharacterAttributeStringTests: XCTestCase {
         XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
     }
 
-    func testReceivingMaximumRangedCharacterAttributesAtIndex() {
+    func testRetrievingMaximumRangedCharacterAttributesAtIndex() {
         attributedString = createPartiallyAttributedString()
         var expectedRange = NSRange()
         attributedString.attributes(at: 3, longestEffectiveRange: &expectedRange, in: oldFullRange)
@@ -220,7 +227,7 @@ class CharacterAttributeStringTests: XCTestCase {
         XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
     }
 
-    func testReceivingMissingMaximumRangedCharacterAttributesAtIndex() {
+    func testRetrievingMissingMaximumRangedCharacterAttributesAtIndex() {
         attributedString = NSAttributedString(string: text)
         var expectedRange = NSRange()
         attributedString.attributes(at: 3, longestEffectiveRange: &expectedRange, in: oldFullRange)
@@ -228,6 +235,39 @@ class CharacterAttributeStringTests: XCTestCase {
         let (attributes, range) = attributedString.maximumRangedCharacterAttributes(at: 0, in: fullRange)
         XCTAssertEqual(attributes.count, 0, "There should be no attributes returned")
         XCTAssertEqual(range, expectedRange.toRange()!, "The same range should be returned as the system API")
+    }
+
+
+    //  MARK: - Mutable
+
+    func testSettingCharacterAttributesOverRange() {
+        let expected = NSMutableAttributedString(attributedString: createPartiallyAttributedString())
+
+        let mutableString = NSMutableAttributedString(string: text)
+        let attributes = attributeDictionary.characterAttributeSet()
+        mutableString.setCharacterAttributes(attributes: attributes, over: subRange)
+
+        XCTAssertEqual(mutableString, expected, "The mutable string should be modified in the same way as the original API")
+    }
+
+    func testAddingSingleCharacterAttributeOverRange() {
+        let expected = NSMutableAttributedString(string: text)
+        expected.addAttribute(NSForegroundColorAttributeName, value: UIColor.orange, range: oldSubRange)
+
+        let mutableString = NSMutableAttributedString(string: text)
+        mutableString.addCharacterAttribute(attribute: foregroundColorAttribute, over: subRange)
+
+        XCTAssertEqual(mutableString, expected, "The mutable string should be modified in the same way as the original API")
+    }
+
+    func testAddingCharacterAttributesOverRange() {
+        let expected = NSMutableAttributedString(string: text)
+        expected.addAttributes(attributeDictionary, range: oldSubRange)
+
+        let mutableString = NSMutableAttributedString(string: text)
+        mutableString.addCharacterAttributes(attributes: attributeDictionary.characterAttributeSet(), over: subRange)
+
+        XCTAssertEqual(mutableString, expected, "The mutable string should be modified in the same way as the original API")
     }
 
 }

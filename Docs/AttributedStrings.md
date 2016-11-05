@@ -35,25 +35,18 @@ The existing APIs for `NSAttributedString` have been shadowed with a full comple
 | **Description** | *Compare to `attribute(_:at:longestEffectiveRange:in:)`* |
 
 
-
----
-
-**UNIMPLEMENTED**
-
----
-
 ## Mutable Attributed Strings
 
 Mutable attributed strings have several mutating methods in addition to the various methods inherited from the immutable variant.
 
-| Method |  `setCharacterAttributes(_:overRange:)` |
+| Method |  `setCharacterAttributes(attributes:over:)` |
 |:--|:--|
 | **Description** | Sets the attributes for the characters in the specified range to the attributes specified in any collection generating elements of type `CharacterAttribute`. |
 
-| Method | `addCharacterAttribute(_:overRange:)` |
+| Method | `addCharacterAttribute(attribute:over:)` |
 |:--|:--|
 | **Description** | Adds a character attribute to an attributed string over a specified range. |
 
-| Method |  `addCharacterAttributes(_:overRange:)` |
+| Method |  `addCharacterAttributes(attributes:over:)` |
 |:--|:--|
 | **Description** | Adds any collection generating elements of type `CharacterAttribute` to an attributed string over a specified range. |
