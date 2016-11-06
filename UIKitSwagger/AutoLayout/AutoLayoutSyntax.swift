@@ -11,6 +11,7 @@ import UIKit
 /// Pair representing an Auto Layout attributable item (view or layout guide) and an NSLayoutAttribute.
 public typealias AutoLayoutAttributedItem = (item: AnyObject, attribute: NSLayoutAttribute)
 
+
 /// Pair representing an Auto Layout attribute for an item with a coefficient for producing a scalar multiple of the layout value.
 public typealias AutoLayoutAttributedItemScalarMultiple = (coefficient: CGFloat, attributedItem: AutoLayoutAttributedItem)
 
@@ -205,31 +206,4 @@ public func ~(constraint: NSLayoutConstraint, priority: UILayoutPriority) {
 /// - parameter identifier: New identifier value for constraint.
 public func ~(constraint: NSLayoutConstraint, identifier: String?) {
     constraint.identifier = identifier
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-fileprivate func BuildConstantRelationConstraint(item attributedItem: AutoLayoutAttributedItem, constant: CGFloat, relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
-    return NSLayoutConstraint(
-        item: attributedItem.item,
-        attribute: attributedItem.attribute,
-        relatedBy: relation,
-        toItem: nil,
-        attribute: .notAnAttribute,
-        multiplier: 0.0,
-        constant: constant
-    )
-}
-
-fileprivate func BuildConstraintFromOperands(_ attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset, relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
-    return NSLayoutConstraint(
-        item: attributedItem.item,
-        attribute: attributedItem.attribute,
-        relatedBy: relation,
-        toItem: offset.attributedItem.attributedItem.item,
-        attribute: offset.attributedItem.attributedItem.attribute,
-        multiplier: offset.attributedItem.coefficient,
-        constant: offset.constant
-    )
 }

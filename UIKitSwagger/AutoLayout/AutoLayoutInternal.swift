@@ -11,15 +11,12 @@ import UIKit
 
 //  MARK: Dimensions and aspect ratio
 
-fileprivate func AssertDimensionItemCount(_ count: Int) {
-    assert(count > 1, "Multiple views are required for constraining dimensions")
-}
+func ConstrainItemsInDimension(
+    items: [AutoLayoutAttributable],
+    dimension: NSLayoutAttribute,
+    value: CGFloat
+    ) -> [NSLayoutConstraint] {
 
-fileprivate func AssertDimensionAttribute(_ attribute: NSLayoutAttribute) {
-    assert(attribute == .width || attribute == .height)
-}
-
-func ConstrainItemsInDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute, value: CGFloat) -> [NSLayoutConstraint] {
     AssertDimensionAttribute(dimension)
 
     let constraints = items.map { ($0 as AnyObject, dimension) =* value }
@@ -27,10 +24,15 @@ func ConstrainItemsInDimension(items: [AutoLayoutAttributable], dimension: NSLay
     return constraints
 }
 
-func ConstrainItemsInDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute, range: ClosedRange<CGFloat>) -> [NSLayoutConstraint] {
+func ConstrainItemsInDimension(
+    items: [AutoLayoutAttributable],
+    dimension: NSLayoutAttribute,
+    range: ClosedRange<CGFloat>
+    ) -> [NSLayoutConstraint] {
+
     AssertDimensionAttribute(dimension)
 
-    let constraints = items.flatMap { (item) -> [NSLayoutConstraint] in
+    let constraints = items.flatMap { item -> [NSLayoutConstraint] in
         let attributedItem = AutoLayoutAttributedItem(item as AnyObject, dimension)
         return [attributedItem >=* range.lowerBound, attributedItem <=* range.upperBound]
     }
@@ -40,16 +42,36 @@ func ConstrainItemsInDimension(items: [AutoLayoutAttributable], dimension: NSLay
 }
 
 
-func MatchDimension(items: [AutoLayoutAttributable], dimension: NSLayoutAttribute) -> [NSLayoutConstraint] {
+func MatchDimension(
+    items: [AutoLayoutAttributable],
+    dimension: NSLayoutAttribute
+    ) -> [NSLayoutConstraint] {
+
     AssertDimensionItemCount(items.count)
     AssertDimensionAttribute(dimension)
 
     return ConstrainItemsToFirst(items: items, attribute: dimension)
 }
 
+fileprivate func AssertDimensionItemCount(_ count: Int) {
+    assert(count <= 1, "Multiple views are required for constraining dimensions")
+}
+
+fileprivate func AssertDimensionAttribute(_ attribute: NSLayoutAttribute) {
+    assert(attribute == .width || attribute == .height)
+}
+
+
 //  MARK: Alignment
 
-func AssertAlignmentItemCount(_ count: Int) {
+func AlignItems(items: [AutoLayoutAttributable], attribute: NSLayoutAttribute) -> [NSLayoutConstraint] {
+    AssertAlignmentItemCount(items.count)
+    AssertAlignmentAttribute(attribute)
+
+    return ConstrainItemsToFirst(items: items, attribute: attribute)
+}
+
+fileprivate func AssertAlignmentItemCount(_ count: Int) {
     assert(count > 1, "Multiple views are required for alignment")
 }
 
@@ -69,19 +91,8 @@ fileprivate func AssertAlignmentAttribute(_ attribute: NSLayoutAttribute) {
     assert(validAlignmentAttributes.contains(attribute))
 }
 
-func AlignItems(items: [AutoLayoutAttributable], attribute: NSLayoutAttribute) -> [NSLayoutConstraint] {
-    AssertAlignmentItemCount(items.count)
-    AssertAlignmentAttribute(attribute)
-
-    return ConstrainItemsToFirst(items: items, attribute: attribute)
-}
-
 
 //  MARK: Distribution and spacing
-
-func AssertDistributionItemCount(_ count: Int) {
-    assert(count > 1, "Multiple views are required for distribution")
-}
 
 func DistributeItems(items: [UIView], spacing: CGFloat, direction: LayoutDirection)  -> [NSLayoutConstraint] {
     AssertDistributionItemCount(items.count)
@@ -96,6 +107,10 @@ func DistributeItems(items: [UIView], spacing: CGFloat, direction: LayoutDirecti
         constraint.activate()
         return constraint
     }
+}
+
+fileprivate func AssertDistributionItemCount(_ count: Int) {
+    assert(count > 1, "Multiple views are required for distribution")
 }
 
 
@@ -115,4 +130,31 @@ fileprivate func ConstrainItemsToFirst(items: [AutoLayoutAttributable], attribut
         constraint.activate()
         return constraint
     }
+}
+
+
+//  MARK: Building constraints
+
+func BuildConstantRelationConstraint(item attributedItem: AutoLayoutAttributedItem, constant: CGFloat, relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
+    return NSLayoutConstraint(
+        item: attributedItem.item,
+        attribute: attributedItem.attribute,
+        relatedBy: relation,
+        toItem: nil,
+        attribute: .notAnAttribute,
+        multiplier: 0.0,
+        constant: constant
+    )
+}
+
+func BuildConstraintFromOperands(_ attributedItem: AutoLayoutAttributedItem, offset: AutoLayoutAttributedItemOffset, relation: NSLayoutRelation = .equal) -> NSLayoutConstraint {
+    return NSLayoutConstraint(
+        item: attributedItem.item,
+        attribute: attributedItem.attribute,
+        relatedBy: relation,
+        toItem: offset.attributedItem.attributedItem.item,
+        attribute: offset.attributedItem.attributedItem.attribute,
+        multiplier: offset.attributedItem.coefficient,
+        constant: offset.constant
+    )
 }
