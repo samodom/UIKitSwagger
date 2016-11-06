@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
 import UIKitSwagger
 
@@ -16,55 +15,55 @@ class ShowHideTests: XCTestCase {
     var viewTwo = UIView()
     var viewThree = UIView()
 
-    private func hideAll() {
-        viewOne.hidden = true
-        viewTwo.hidden = true
-        viewThree.hidden = true
+    func hideAll() {
+        viewOne.isHidden = true
+        viewTwo.isHidden = true
+        viewThree.isHidden = true
     }
 
     func testHidingOfView() {
         HideViews(viewOne)
-        XCTAssertTrue(viewOne.hidden, "The first view should be hidden")
-        XCTAssertFalse(viewTwo.hidden, "The second view should not be hidden")
-        XCTAssertFalse(viewThree.hidden, "The third view should not be hidden")
+        XCTAssertTrue(viewOne.isHidden, "The first view should be hidden")
+        XCTAssertFalse(viewTwo.isHidden, "The second view should not be hidden")
+        XCTAssertFalse(viewThree.isHidden, "The third view should not be hidden")
     }
 
     func testHidingOfViewsVariadic() {
         HideViews(viewOne, viewThree)
-        XCTAssertTrue(viewOne.hidden, "The first view should be hidden")
-        XCTAssertFalse(viewTwo.hidden, "The second view should not be hidden")
-        XCTAssertTrue(viewThree.hidden, "The third view should be hidden")
+        XCTAssertTrue(viewOne.isHidden, "The first view should be hidden")
+        XCTAssertFalse(viewTwo.isHidden, "The second view should not be hidden")
+        XCTAssertTrue(viewThree.isHidden, "The third view should be hidden")
     }
 
     func testHidingOfViewsArray() {
         HideViews([viewOne, viewThree])
-        XCTAssertTrue(viewOne.hidden, "The first view should be hidden")
-        XCTAssertFalse(viewTwo.hidden, "The second view should not be hidden")
-        XCTAssertTrue(viewThree.hidden, "The third view should be hidden")
+        XCTAssertTrue(viewOne.isHidden, "The first view should be hidden")
+        XCTAssertFalse(viewTwo.isHidden, "The second view should not be hidden")
+        XCTAssertTrue(viewThree.isHidden, "The third view should be hidden")
     }
 
     func testShowingOfView() {
         hideAll()
         ShowViews(viewOne)
-        XCTAssertFalse(viewOne.hidden, "The first view should no longer be hidden")
-        XCTAssertTrue(viewTwo.hidden, "The second view should still be hidden")
-        XCTAssertTrue(viewThree.hidden, "The third view should still be hidden")
+        XCTAssertFalse(viewOne.isHidden, "The first view should no longer be hidden")
+        XCTAssertTrue(viewTwo.isHidden, "The second view should still be hidden")
+        XCTAssertTrue(viewThree.isHidden, "The third view should still be hidden")
     }
 
     func testShowingOfViewsVariadic() {
         hideAll()
         ShowViews(viewOne, viewThree)
-        XCTAssertFalse(viewOne.hidden, "The first view should no longer be hidden")
-        XCTAssertTrue(viewTwo.hidden, "The second view should still be hidden")
-        XCTAssertFalse(viewThree.hidden, "The third view should no longer be hidden")
+        XCTAssertFalse(viewOne.isHidden, "The first view should no longer be hidden")
+        XCTAssertTrue(viewTwo.isHidden, "The second view should still be hidden")
+        XCTAssertFalse(viewThree.isHidden, "The third view should no longer be hidden")
     }
 
     func testShowingOfViewsArray() {
         hideAll()
         ShowViews([viewOne, viewThree])
-        XCTAssertFalse(viewOne.hidden, "The first view should no longer be hidden")
-        XCTAssertTrue(viewTwo.hidden, "The second view should still be hidden")
-        XCTAssertFalse(viewThree.hidden, "The third view should no longer be hidden")
+        XCTAssertFalse(viewOne.isHidden, "The first view should no longer be hidden")
+        XCTAssertTrue(viewTwo.isHidden, "The second view should still be hidden")
+        XCTAssertFalse(viewThree.isHidden, "The third view should no longer be hidden")
     }
 
 }

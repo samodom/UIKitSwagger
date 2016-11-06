@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal let MinimumTestExpectationWaitTime = 0.01 as NSTimeInterval
-internal let MaximumTestExpectationWaitTime = 0.1 as NSTimeInterval
+let MinimumTestExpectationWaitTime = 0.01 as TimeInterval
+let MaximumTestExpectationWaitTime = 0.1 as TimeInterval
 
-internal let BackgroundQueue = dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0)
+let BackgroundQueue = DispatchQueue.global(qos: DispatchQoS.QoSClass.background)

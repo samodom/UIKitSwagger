@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
 import UIKitSwagger
 
@@ -24,7 +23,7 @@ class ViewAlignmentTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        let window = UIApplication.sharedApplication().delegate!.window!
+        let window = UIApplication.shared.delegate!.window!
         controller = window!.rootViewController
         view = controller.view
         view.addSubview(subview1)
@@ -38,12 +37,12 @@ class ViewAlignmentTests: XCTestCase {
         subview1.removeFromSuperview()
         subview2.removeFromSuperview()
         view.clearConstraints()
-        
+
         super.tearDown()
     }
 
     func testLeftAlignmentWithList() {
-        returnedConstraints = AlignLeft(subview1, subview2, controller)
+        returnedConstraints = AlignLeft(items: subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.left =* subview1.left
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be left-aligned with the first subview")
@@ -54,7 +53,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testLeftAlignmentWithArray() {
-        returnedConstraints = AlignLeft([subview1, subview2, controller])
+        returnedConstraints = AlignLeft(items: [subview1, subview2, controller])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.left =* subview1.left
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be left-aligned with the first subview")
@@ -65,7 +64,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testLeadingAlignmentWithList() {
-        returnedConstraints = AlignLeading(subview1, subview2, controller)
+        returnedConstraints = AlignLeading(items: subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.leading =* subview1.leading
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be leading-aligned with the first subview")
@@ -76,7 +75,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testLeadingAlignmentWithArray() {
-        returnedConstraints = AlignLeading([subview1, subview2, controller])
+        returnedConstraints = AlignLeading(items: [subview1, subview2, controller])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.leading =* subview1.leading
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be leading-aligned with the first subview")
@@ -87,7 +86,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testRightAlignmentWithList() {
-        returnedConstraints = AlignRight(subview1, subview2, controller)
+        returnedConstraints = AlignRight(items: subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.right =* subview1.right
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be right-aligned with the first subview")
@@ -98,7 +97,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testRightAlignmentWithArray() {
-        returnedConstraints = AlignRight([subview1, subview2, controller])
+        returnedConstraints = AlignRight(items: [subview1, subview2, controller])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.right =* subview1.right
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be right-aligned with the first subview")
@@ -109,7 +108,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testTrailingAlignmentWithList() {
-        returnedConstraints = AlignTrailing(subview1, subview2, controller)
+        returnedConstraints = AlignTrailing(items: subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.trailing =* subview1.trailing
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be trailing-aligned with the first subview")
@@ -120,7 +119,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testTrailingAlignmentWithArray() {
-        returnedConstraints = AlignTrailing([subview1, subview2, controller])
+        returnedConstraints = AlignTrailing(items: [subview1, subview2, controller])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.trailing =* subview1.trailing
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be trailing-aligned with the first subview")
@@ -131,7 +130,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testTopAlignmentWithList() {
-        returnedConstraints = AlignTop(subview1, subview2, controller)
+        returnedConstraints = AlignTop(items: subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.top =* subview1.top
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be top-aligned with the first subview")
@@ -142,7 +141,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testTopAlignmentWithArray() {
-        returnedConstraints = AlignTop([subview1, subview2, controller])
+        returnedConstraints = AlignTop(items: [subview1, subview2, controller])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.top =* subview1.top
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be top-aligned with the first subview")
@@ -153,7 +152,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testBottomAlignmentWithList() {
-        returnedConstraints = AlignBottom(subview1, subview2, controller)
+        returnedConstraints = AlignBottom(items: subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.bottom =* subview1.bottom
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be bottom-aligned with the first subview")
@@ -164,7 +163,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testBottomAlignmentWithArray() {
-        returnedConstraints = AlignBottom([subview1, subview2, controller])
+        returnedConstraints = AlignBottom(items: [subview1, subview2, controller])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.bottom =* subview1.bottom
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be bottom-aligned with the first subview")
@@ -175,7 +174,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testHorizontalAlignmentWithList() {
-        returnedConstraints = AlignHorizontally(subview1, subview2, controller)
+        returnedConstraints = AlignHorizontally(items: subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.centerX =* subview1.centerX
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be horizontally aligned with the first subview")
@@ -186,7 +185,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testHorizontalAlignmentWithArray() {
-        returnedConstraints = AlignHorizontally([subview1, subview2, controller])
+        returnedConstraints = AlignHorizontally(items: [subview1, subview2, controller])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.centerX =* subview1.centerX
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be horizontally aligned with the first subview")
@@ -197,7 +196,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testVerticalAlignmentWithList() {
-        returnedConstraints = AlignVertically(subview1, subview2, controller)
+        returnedConstraints = AlignVertically(items: subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.centerY =* subview1.centerY
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be vertically aligned with the first subview")
@@ -208,7 +207,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testVerticalAlignmentWithArray() {
-        returnedConstraints = AlignVertically([subview1, subview2, controller])
+        returnedConstraints = AlignVertically(items: [subview1, subview2, controller])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = subview2.centerY =* subview1.centerY
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be vertically aligned with the first subview")
@@ -219,7 +218,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testCenterAlignmentWithList() {
-        returnedConstraints = AlignCenters(subview1, subview2, controller)
+        returnedConstraints = AlignCenters(items: subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 4, "There should be four total constraints returned")
         var expected = subview2.centerY =* subview1.centerY
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be vertically aligned with the first subview")
@@ -236,7 +235,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testCenterAlignmentWithArray() {
-        returnedConstraints = AlignCenters(subview1, subview2, controller)
+        returnedConstraints = AlignCenters(items: subview1, subview2, controller)
         XCTAssertEqual(returnedConstraints.count, 4, "There should be four total constraints returned")
         var expected = subview2.centerY =* subview1.centerY
         XCTAssertTrue(view.constraints.contains(expected), "The second subview should be vertically aligned with the first subview")
@@ -253,7 +252,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testBaselineAlignmentWithList() {
-        returnedConstraints = AlignBaselines(label1, label2, label3)
+        returnedConstraints = AlignBaselines(items: label1, label2, label3)
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = label2.baseline =* label1.baseline
         XCTAssertTrue(subview1.constraints.contains(expected), "The second label should be baseline-aligned with the first label")
@@ -264,7 +263,7 @@ class ViewAlignmentTests: XCTestCase {
     }
 
     func testBaselineAlignmentWithArray() {
-        returnedConstraints = AlignBaselines([label1, label2, label3])
+        returnedConstraints = AlignBaselines(items: [label1, label2, label3])
         XCTAssertEqual(returnedConstraints.count, 2, "There should be two total constraints returned")
         var expected = label2.baseline =* label1.baseline
         XCTAssertTrue(subview1.constraints.contains(expected), "The second label should be baseline-aligned with the first label")

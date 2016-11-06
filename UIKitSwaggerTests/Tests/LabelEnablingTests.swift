@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
 
 class LabelEnablingTests: XCTestCase {
@@ -17,28 +16,28 @@ class LabelEnablingTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        enabledLabel.enabled = true
-        disabledLabel.enabled = false
+        enabledLabel.isEnabled = true
+        disabledLabel.isEnabled = false
     }
 
     func testEnablingDisabledLabel() {
         disabledLabel.enable()
-        XCTAssertTrue(disabledLabel.enabled, "The disabled label should be enabled")
+        XCTAssertTrue(disabledLabel.isEnabled, "The disabled label should be enabled")
     }
 
     func testNotDisablingEnabledLabel() {
         enabledLabel.enable()
-        XCTAssertTrue(enabledLabel.enabled, "The enabled label should not be disabled")
+        XCTAssertTrue(enabledLabel.isEnabled, "The enabled label should not be disabled")
     }
 
     func testDisablingEnabledLabel() {
         enabledLabel.disable()
-        XCTAssertFalse(enabledLabel.enabled, "The enabled label should be disabled")
+        XCTAssertFalse(enabledLabel.isEnabled, "The enabled label should be disabled")
     }
 
     func testNotEnablingDisabledLabel() {
         disabledLabel.disable()
-        XCTAssertFalse(disabledLabel.enabled, "The disabled label should not be enabled")
+        XCTAssertFalse(disabledLabel.isEnabled, "The disabled label should not be enabled")
     }
 
 }

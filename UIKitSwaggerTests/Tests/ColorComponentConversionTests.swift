@@ -6,95 +6,85 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
-import UIKitSwagger
 
 class ColorComponentConversionTests: XCTestCase {
 
-    var rgbComponents: RGBComponents!
-    var hsbComponents: HSBComponents!
-    var grayscaleComponents: GrayscaleComponents!
-    var cmykComponents: CMYKComponents!
+    let rgbComponents = sampleRGBColor.rgbComponents
+    let hsbComponents = sampleHSBColor.hsbComponents
+    let grayscaleComponents = sampleMonochromeColor.grayscaleComponents
+    let cmykComponents = sampleCMYKColor.cmykComponents
 
     //  MARK: RGB -> ...
 
+    func testRGBtoRGBConversion() {
+        XCTAssertEqual(rgbComponents, rgbComponents.rgbComponents, "The components should provide an identical set of components")
+    }
+
     func testRGBtoHSBConversion() {
-        rgbComponents = sampleRGBColor.rgbComponents
-        hsbComponents = rgbComponents.asHSBComponents()
-        XCTAssertEqual(sampleRGBColor.hsbComponents, hsbComponents, "The RGB components should be correctly converted into their HSB component equivalents")
+        XCTAssertEqual(sampleRGBColor.hsbComponents, rgbComponents.hsbComponents, "The RGB components should be correctly converted into their HSB component equivalents")
     }
 
     func testRGBtoGrayscaleConversion() {
-        rgbComponents = sampleRGBColor.rgbComponents
-        grayscaleComponents = rgbComponents.asGrayscaleComponents()
-        XCTAssertEqual(sampleRGBColor.grayscaleComponents, grayscaleComponents, "The RGB components should be correctly converted into their grayscale component equivalents")
+        XCTAssertEqual(sampleRGBColor.grayscaleComponents, rgbComponents.grayscaleComponents, "The RGB components should be correctly converted into their grayscale component equivalents")
     }
 
     func testRGBtoCMYKConversion() {
-        rgbComponents = sampleRGBColor.rgbComponents
-        cmykComponents = rgbComponents.asCMYKComponents()
-        XCTAssertEqual(sampleRGBColor.cmykComponents, cmykComponents, "The RGB components should be correctly converted into their CMYK component equivalents")
+        XCTAssertEqual(sampleRGBColor.cmykComponents, rgbComponents.cmykComponents, "The RGB components should be correctly converted into their CMYK component equivalents")
     }
 
     //  MARK: HSB -> ...
 
+    func testHSBBtoHSBConversion() {
+        XCTAssertEqual(hsbComponents, hsbComponents.hsbComponents, "The components should provide an identical set of components")
+    }
+
     func testHSBtoRGBConversion() {
-        hsbComponents = sampleHSBColor.hsbComponents
-        rgbComponents = hsbComponents.asRGBComponents()
-        XCTAssertEqual(sampleHSBColor.rgbComponents, rgbComponents, "The HSB components should be correctly converted into their RGB component equivalents")
+        XCTAssertEqual(sampleHSBColor.rgbComponents, hsbComponents.rgbComponents, "The HSB components should be correctly converted into their RGB component equivalents")
     }
 
     func testHSBtoGrayscaleConversion() {
-        hsbComponents = sampleHSBColor.hsbComponents
-        grayscaleComponents = hsbComponents.asGrayscaleComponents()
-        XCTAssertEqual(sampleHSBColor.grayscaleComponents, grayscaleComponents, "The HSB components should be correctly converted into their grayscale component equivalents")
+        XCTAssertEqual(sampleHSBColor.grayscaleComponents, hsbComponents.grayscaleComponents, "The HSB components should be correctly converted into their grayscale component equivalents")
     }
 
     func testHSBtoCMYKConversion() {
-        hsbComponents = sampleHSBColor.hsbComponents
-        cmykComponents = hsbComponents.asCMYKComponents()
-        XCTAssertEqual(sampleHSBColor.cmykComponents, cmykComponents, "The HSB components should be correctly converted into their CMYK component equivalents")
-    }
-
-    //  MARK: Grayscale -> ...
-
-    func testGrayscaletoRGBConversion() {
-        grayscaleComponents = sampleMonochromeColor.grayscaleComponents
-        rgbComponents = grayscaleComponents.asRGBComponents()
-        XCTAssertEqual(sampleMonochromeColor.rgbComponents, rgbComponents, "The grayscale components should be correctly converted into their RGB component equivalents")
-    }
-
-    func testGrayscaletoHSBConversion() {
-        grayscaleComponents = sampleMonochromeColor.grayscaleComponents
-        hsbComponents = grayscaleComponents.asHSBComponents()
-        XCTAssertEqual(sampleMonochromeColor.hsbComponents, hsbComponents, "The grayscale components should be correctly converted into their HSB component equivalents")
-    }
-
-    func testGrayscaletoCMYKConversion() {
-        grayscaleComponents = sampleMonochromeColor.grayscaleComponents
-        cmykComponents = grayscaleComponents.asCMYKComponents()
-        XCTAssertEqual(sampleMonochromeColor.cmykComponents, cmykComponents, "The grayscale components should be correctly converted into their CMYK component equivalents")
+        XCTAssertEqual(sampleHSBColor.cmykComponents, hsbComponents.cmykComponents, "The HSB components should be correctly converted into their CMYK component equivalents")
     }
 
     //  MARK: CMYK -> ...
 
+    func testCMYKtoCMYKConversion() {
+        XCTAssertEqual(cmykComponents, cmykComponents.cmykComponents, "The components should provide an identical set of components")
+    }
+
     func testCMYKtoRGBConversion() {
-        cmykComponents = sampleHSBColor.cmykComponents
-        rgbComponents = cmykComponents.asRGBComponents()
-        XCTAssertEqual(sampleHSBColor.rgbComponents, rgbComponents, "The CMYK components should be correctly converted into their RGB component equivalents")
+        XCTAssertEqual(sampleCMYKColor.rgbComponents, cmykComponents.rgbComponents, "The CMYK components should be correctly converted into their RGB component equivalents")
     }
 
     func testCMYKtoHSBConversion() {
-        cmykComponents = sampleRGBColor.cmykComponents
-        hsbComponents = cmykComponents.asHSBComponents()
-        XCTAssertEqual(sampleRGBColor.hsbComponents, hsbComponents, "The CMYK components should be correctly converted into their HSB component equivalents")
+        XCTAssertEqual(sampleCMYKColor.hsbComponents, cmykComponents.hsbComponents, "The CMYK components should be correctly converted into their HSB component equivalents")
     }
 
     func testCMYKtoGrayscaleConversion() {
-        cmykComponents = sampleRGBColor.cmykComponents
-        grayscaleComponents = cmykComponents.asGrayscaleComponents()
-        XCTAssertEqual(sampleRGBColor.grayscaleComponents, grayscaleComponents, "The CMYK components should be correctly converted into their grayscale component equivalents")
+        XCTAssertEqual(sampleCMYKColor.grayscaleComponents, cmykComponents.grayscaleComponents, "The CMYK components should be correctly converted into their grayscale component equivalents")
+    }
+
+    //  MARK: Grayscale -> ...
+
+    func testGrayscaleToGrayscaleConversion() {
+        XCTAssertEqual(grayscaleComponents, grayscaleComponents.grayscaleComponents, "The components should provide an identical set of components")
+    }
+
+    func testGrayscaleToRGBConversion() {
+        XCTAssertEqual(sampleMonochromeColor.rgbComponents, grayscaleComponents.rgbComponents, "The grayscale components should be correctly converted into their RGB component equivalents")
+    }
+
+    func testGrayscaleToHSBConversion() {
+        XCTAssertEqual(sampleMonochromeColor.hsbComponents, grayscaleComponents.hsbComponents, "The grayscale components should be correctly converted into their HSB component equivalents")
+    }
+
+    func testGrayscaleToCMYKConversion() {
+        XCTAssertEqual(sampleMonochromeColor.cmykComponents, grayscaleComponents.cmykComponents, "The grayscale components should be correctly converted into their CMYK component equivalents")
     }
 
 }

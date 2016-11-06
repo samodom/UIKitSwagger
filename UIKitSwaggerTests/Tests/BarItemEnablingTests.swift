@@ -6,14 +6,13 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
 
 class BarItemEnablingTests: XCTestCase {
 
     var enabledBarItem = UIBarButtonItem(
         title: "Sample",
-        style: .Plain,
+        style: .plain,
         target: nil,
         action: #selector(sampleAction)
     )
@@ -26,31 +25,30 @@ class BarItemEnablingTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        enabledBarItem.enabled = true
-        disabledBarItem.enabled = false
+        enabledBarItem.isEnabled = true
+        disabledBarItem.isEnabled = false
     }
 
-    @objc
-    private func sampleAction() { }
+    func sampleAction() { }
 
     func testEnablingDisabledBarItem() {
         disabledBarItem.enable()
-        XCTAssertTrue(disabledBarItem.enabled, "The disabled bar item should be enabled")
+        XCTAssertTrue(disabledBarItem.isEnabled, "The disabled bar item should be enabled")
     }
 
     func testNotDisablingEnabledBarItem() {
         enabledBarItem.enable()
-        XCTAssertTrue(enabledBarItem.enabled, "The enabled bar item should not be disabled")
+        XCTAssertTrue(enabledBarItem.isEnabled, "The enabled bar item should not be disabled")
     }
 
     func testDisablingEnabledBarItem() {
         enabledBarItem.disable()
-        XCTAssertFalse(enabledBarItem.enabled, "The enabled bar item should be disabled")
+        XCTAssertFalse(enabledBarItem.isEnabled, "The enabled bar item should be disabled")
     }
 
     func testNotEnablingDisabledBarItem() {
         disabledBarItem.disable()
-        XCTAssertFalse(disabledBarItem.enabled, "The disabled bar item should not be enabled")
+        XCTAssertFalse(disabledBarItem.isEnabled, "The disabled bar item should not be enabled")
     }
 
 }

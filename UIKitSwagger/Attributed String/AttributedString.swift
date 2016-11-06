@@ -8,185 +8,112 @@
 
 import Foundation
 
-public typealias CharacterAttributeRun = (
-    attributes: CharacterAttributeSet,
-    range: Range<String.Index>
-)
-
 public extension NSAttributedString {
 
-    /**
-     Convenience initializer for creating an attributed string using a collection of character attributes.
-     - Parameters:
-       - string: Base string to use for the attributed string.
-       - attributes: Collection of `CharacterAttribute`s to apply to the provided string.
-     */
+    /// Convenience initializer for creating an attributed string using a collection of character attributes.
+    /// - parameter string: Base string to use for the attributed string.
+    /// - parameter attributes: Collection of `CharacterAttribute`s to apply to the provided string.
     public convenience init
-        <C: CollectionType where C.Generator.Element == CharacterAttribute>
-        (string: String, characterAttributes: C) {
-            self.init(string: string, attributes: characterAttributes.attributeDictionary)
+        <Attributes: Collection>
+        (string: String, characterAttributes: Attributes)
+        where Attributes.Iterator.Element == CharacterAttribute {
+
+            self.init(string: string, attributes: characterAttributes.attributeDictionary())
     }
 
-    /**
-     Retrieves the character attribute at the specified index identifiable by the provided attribute name.
-     - Parameters:
-       - index: Index in string of character with desired attribute.
-       - attributeName: Name of character attribute to retrieve.
-     - Returns: The character attribute identified by the name and index, if any.
-     */
-    public func characterAttributeAtIndex(index: String.Index, named attributeName: String) -> CharacterAttribute? {
-        guard let value = attribute(
-            attributeName,
-            atIndex: IntegerFromIndex(index),
-            effectiveRange: nil
-            ) else {
-                return nil
+
+    /// Retrieves the character attribute at the specified index identifiable by the provided attribute name.
+    /// - parameter named: Name of character attribute to retrieve.
+    /// - parameter at: Index in string of character with desired attribute.
+    /// - returns: The character attribute identified by the name and index, if any.
+    public func characterAttribute(named attributeName: String, at index: Int) -> CharacterAttribute? {
+        guard let value = attribute(attributeName, at: index, effectiveRange: nil) else {
+            return nil
         }
 
         return CharacterAttribute(name: attributeName, value: value)
     }
 
-    /**
-     Retrieves the set of character attributes at the specified index.
-     - Parameter index: Index in string of character with desired attributes.
-     - Returns: The character attributes identified by the name and index, if any.
-     */
-    public func characterAttributesAtIndex(index: String.Index) -> CharacterAttributeSet {
-        let attributes = attributesAtIndex(IntegerFromIndex(index), effectiveRange: nil)
 
-        return CharacterAttributeSetFromDictionary(attributes)
+    /// Retrieves the set of character attributes at the specified index.
+    /// - parameter at: Index in string of character with desired attributes.
+    /// - returns: The character attributes identified by the name and index, if any.
+    public func characterAttributes(at index: Int) -> Set<CharacterAttribute> {
+        return attributes(at: index, effectiveRange: nil).characterAttributeSet()
     }
 
-    /**
-     Retrieves the named character attribute or all character attributes at the specified index identifiable by the provided attribute name, if provided, and the range over which the attribute(s) is (are) applied.
-     - Parameters:
-       - index: Index in string of character with desired attribute(s).
-       - attributeName: Name of character attribute to retrieve or `nil` to retrieve all attributes.
-     - Returns: The character attribute run identified by the index and name, if any, and the range over which the attribute(s) is (are) applied.
-     - Note: The range isn’t necessarily the maximum range covered by the attribute(s) and its extent is implementation-dependent.  If you need the maximum range, use `longestCharacterAttributeRunAtIndex(_:named:inRange:)`.
-     */
-    public func characterAttributeRunAtIndex(index: String.Index, named attributeName: String? = nil) -> CharacterAttributeRun {
-        var nsRange = NSRange()
-        var attributeDictionary = CharacterAttributeDictionary()
 
-        if let name = attributeName {
-            if let value = attribute(name, atIndex: IntegerFromIndex(index), effectiveRange: &nsRange) {
-                attributeDictionary = [name: value]
+    /// Retrieves the character attribute at the specified index identifiable by the provided attribute name and the range over which the attribute is applied.
+    /// - parameter named: Name of character attribute to retrieve.
+    /// - parameter at: Index in string of character with desired attribute.
+    /// - returns: The character attribute identified by the name and index, if any, and the range over which the attribute is applied.
+    /// - note: The range isn’t necessarily the maximum range covered by the attribute and its extent is implementation-dependent.  If you need the maximum range, use `maximumRangedCharacterAttributeAtIndex(_:named:inRange:)`
+    public func rangedCharacterAttribute(named attributeName: String, at index: Int)
+        -> (CharacterAttribute?, Range<Int>) {
+
+            var range = NSRange()
+            guard let value = attribute(attributeName, at: index, effectiveRange: &range),
+                let characterAttribute = CharacterAttribute(name: attributeName, value: value) else {
+                    return (nil, range.toRange()!)
             }
+
+            return (characterAttribute, range.toRange()!)
+    }
+
+
+    /// Retrieves the character attribute at the specified index identifiable by the provided attribute name and the longest effective range over which the attribute is applied within the supplied range limit.
+    /// - parameter named: Name of character attribute to retrieve.
+    /// - parameter at: Index in string of character with desired attribute.
+    /// - parameter in: The maximum range extent to use for the returned range.
+    /// - returns: The character attribute identified by the name and index, if any, and the range over which the attribute is applied.
+    public func maximumRangedCharacterAttribute(
+        named attributeName: String,
+        at index: Int,
+        in rangeLimit: Range<Int>
+        ) -> (CharacterAttribute?, Range<Int>) {
+
+        var range = NSRange()
+        guard
+            let value = attribute(
+                attributeName,
+                at: index,
+                longestEffectiveRange: &range,
+                in: NSRange(rangeLimit)
+            ),
+            let characterAttribute = CharacterAttribute(name: attributeName, value: value) else {
+                return (nil, range.toRange()!)
         }
 
-        else {
-            attributeDictionary = attributesAtIndex(IntegerFromIndex(index), effectiveRange: &nsRange)
-        }
-
-        return (CharacterAttributeSetFromDictionary(attributeDictionary), IndexRangeFromNSRange(nsRange))
+        return (characterAttribute, range.toRange()!)
     }
 
-    /**
-     Retrieves the named character attribute or all character attributes at the specified index identifiable by the provided attribute name, if provided, and the longest effective range over which the attribute(s) is (are) applied within the supplied range limit.
-     - Parameters:
-       - index: Index in string of character with desired attribute(s).
-       - rangeLimit: The maximum range extent to use for the returned range.
-       - attributeName: Name of character attribute to retrieve or `nil` to retrieve all attributes.
-     - Returns: The character attribute run identified by the index and name, if any, and the range over which the attribute(s) is (are) applied.
-     */
-    public func longestCharacterAttributeRunAtIndex(index: String.Index, inRange rangeLimit: Range<String.Index>, named attributeName: String? = nil) -> CharacterAttributeRun {
-        var nsRange = NSRange()
-        var attributeDictionary = CharacterAttributeDictionary()
 
-        if let name = attributeName {
-            if let value = attribute(
-                name,
-                atIndex: IntegerFromIndex(index),
-                longestEffectiveRange: &nsRange,
-                inRange: NSRangeFromIndexRange(rangeLimit)
-                ) {
-                attributeDictionary = [name: value]
-            }
-        }
-
-        else {
-            attributeDictionary = attributesAtIndex(IntegerFromIndex(index), effectiveRange: &nsRange)
-        }
-
-        return (CharacterAttributeSetFromDictionary(attributeDictionary), IndexRangeFromNSRange(nsRange))
+    /// Retrieves the character attributes at the specified index and the range over which the attributes are applied.
+    /// - parameter at: Index in string of character with desired attributes.
+    /// - returns: The character attributes at the specified index, if any, and the range over which the attributes are applied.
+    /// - note: The range isn’t necessarily the maximum range covered by the attributes and its extent is implementation-dependent.  If you need the maximum range, use `maximumRangedCharacterAttributesAtIndex(_:inRange:)`
+    public func rangedCharacterAttributes(at index: Int) -> (Set<CharacterAttribute>, Range<Int>) {
+        var range = NSRange()
+        let oldAttributes = attributes(at: index, effectiveRange: &range)
+        return (oldAttributes.characterAttributeSet(), range.toRange()!)
     }
 
-}
 
-//  MARK: - Subscripting
+    /// Retrieves the character attributes at the specified index and the longest effective range over which the attributes are applied within the supplied range limit.
+    /// - parameter at: Index in string of character with desired attributes.
+    /// - parameter in: The maximum range extent to use for the returned range.
+    /// - returns: The character attributes at the specified index, if any, and the range over which the attributes are applied.
+    public func maximumRangedCharacterAttributes(at index: Int, in rangeLimit: Range<Int>)
+        -> (Set<CharacterAttribute>, Range<Int>) {
 
-public extension NSAttributedString {
+            var range = NSRange()
+            let oldAttributes = attributes(
+                at: index,
+                longestEffectiveRange: &range,
+                in: NSRange(rangeLimit)
+            )
 
-    /**
-     Retrieves the character attribute at the specified index identifiable by the provided attribute name.
-     - Parameters:
-       - index: Index in string of character with desired attribute.
-       - attributeName: Name of character attribute to retrieve.
-     - Returns: The character attribute identified by the name and index, if any.
-     */
-    public subscript(index: String.Index, named name: String) -> CharacterAttribute? {
-        return characterAttributeAtIndex(index, named: name)
-    }
-
-    /**
-     Retrieves the set of character attributes at the specified index.
-     - Parameter index: Index in string of character with desired attributes.
-     - Returns: The set of character attributes in use at the provided index, if any.
-     */
-    public subscript(index: String.Index) -> CharacterAttributeSet {
-        return characterAttributesAtIndex(index)
-    }
-
-    /**
-     Retrieves a substring via subscripting using the system method `attributedSubstringFromRange(_:)`.
-     - Parameter range: The range of the desired substring in this attributed string.
-     - Returns: The attributed string contained at the desired location.
-     */
-    public subscript(range: Range<String.Index>) -> NSAttributedString {
-        return attributedSubstringFromRange(NSRangeFromIndexRange(range))
-    }
-
-}
-
-
-//  MARK: Mutability
-
-public extension NSMutableAttributedString {
-
-    public func setCharacterAttributes<C: CollectionType where C.Generator.Element == CharacterAttribute>(attributes: C, overRange range: Range<String.Index>) {
-        setAttributes(attributes.attributeDictionary, range: NSRangeFromIndexRange(range))
-    }
-
-    public func addCharacterAttribute(attribute: CharacterAttribute, overRange range: Range<String.Index>) {
-        let (key, value) = attribute.keyValuePair
-        addAttribute(key, value: value, range: NSRangeFromIndexRange(range))
-    }
-
-    public func addCharacterAttributes<C: CollectionType where C.Generator.Element == CharacterAttribute>(attributes: C, overRange range: Range<String.Index>) {
-        addAttributes(attributes.attributeDictionary, range: NSRangeFromIndexRange(range))
-    }
-
-}
-
-private extension NSAttributedString {
-
-    private func IntegerFromIndex(index: String.Index) -> Int {
-        return string.startIndex.distanceTo(index)
-    }
-
-    private func NSRangeFromIndexRange(range: Range<String.Index>) -> NSRange {
-        let location = string.startIndex.distanceTo(range.startIndex)
-        let end = string.startIndex.distanceTo(range.endIndex)
-        let length = end - location
-        return NSRange(location: location, length: length)
-    }
-
-    private func IndexRangeFromNSRange(range: NSRange) -> Range<String.Index> {
-        let location = range.location
-        let start = string.startIndex.advancedBy(location)
-        let end = string.startIndex.advancedBy(location + range.length)
-        return start ..< end
+            return (oldAttributes.characterAttributeSet(), range.toRange()!)
     }
 
 }

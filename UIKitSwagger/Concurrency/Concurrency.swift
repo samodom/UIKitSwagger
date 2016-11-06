@@ -8,12 +8,10 @@
 
 import Foundation
 
-/**
- The prefix bang (!) operator provides a shortcut to executing code on the main thread.
- This is particularly useful for code that may run in the background that needs to update the UI in realtime.
- */
-public prefix func !(closure: () -> Void) {
-    dispatch_async(dispatch_get_main_queue()) {
+/// The prefix bang (!) operator provides a shortcut to executing code on the main thread.
+/// This is particularly useful for code that may run in the background that needs to update the UI in realtime.
+public prefix func !(closure: @escaping () -> Void) {
+    DispatchQueue.main.async {
         closure()
     }
 }

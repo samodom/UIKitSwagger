@@ -8,27 +8,43 @@
 
 import UIKit
 
-/**
- Enumerated type for specifying a horizontal or vertical edge used with Auto Layout.
- */
+/// Enumerated type for specifying a horizontal or vertical edge used with Auto Layout.
 public enum LayoutEdge {
 
-    /// Represents the leading edge of an Auto Layout item
-    case Leading
+    case leading, trailing
+    case left, right
+    case top, bottom
 
-    /// Represents the trailing edge of an Auto Layout item
-    case Trailing
+    var layoutAxis: UILayoutConstraintAxis {
+        switch self {
+        case .top, .bottom:
+            return .vertical
 
-    /// Represents the left edge of an Auto Layout item
-    case Left
+        default:
+            return .horizontal
+        }
+    }
 
-    /// Represents the right edge of an Auto Layout item
-    case Right
+    func getLayoutAttribute(usingMargins useMargins: Bool) -> NSLayoutAttribute {
+        switch self {
+        case .left:
+            return useMargins ? .leftMargin : .left
 
-    /// Represents the top edge of an Auto Layout item
-    case Top
+        case .right:
+            return useMargins ? .rightMargin : .right
 
-    /// Represents the bottom edge of an Auto Layout item
-    case Bottom
+        case .leading:
+            return useMargins ? .leadingMargin : .leading
+
+        case .trailing:
+            return useMargins ? .trailingMargin : .trailing
+
+        case .top:
+            return useMargins ? .topMargin : .top
+
+        case .bottom:
+            return useMargins ? .bottomMargin : .bottom
+        }
+    }
 
 }

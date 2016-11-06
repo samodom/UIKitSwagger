@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
 import UIKitSwagger
 
@@ -100,14 +99,6 @@ class ViewAddableSyntaxTests: XCTestCase {
         XCTAssertTrue(view.gestureRecognizers!.contains(recognizer2), "Each supplied gesture recognizer should be added to the view")
     }
 
-    func testCannotAddOtherAddables() {
-        let constraint = subview1.centerX =* subview2.centerX
-        view += constraint
-        XCTAssertFalse(view.hasConstraint(constraint), "The constraint should not be added to the view")
-
-        view += [constraint]
-        XCTAssertFalse(view.hasConstraint(constraint), "The constraint should not be added to the view")
-    }
 
     //  MARK: Removing
 
@@ -225,16 +216,4 @@ class ViewAddableSyntaxTests: XCTestCase {
         }
     }
 
-    func testCannotRemoveOtherRemovables() {
-        let constraint = subview1.centerX =* subview2.centerX
-        view.addConstraint(constraint)
-        view -= constraint
-        XCTAssertTrue(view.hasConstraint(constraint), "The constraint should not be removed from the view")
-
-        view -= [constraint]
-        XCTAssertTrue(view.hasConstraint(constraint), "The constraint should not be removed from the view")
-    }
-
 }
-
-extension NSLayoutConstraint: UIViewAddable { }

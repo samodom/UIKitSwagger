@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Sam Odom. All rights reserved.
 //
 
-import UIKit
 import XCTest
 import UIKitSwagger
 
@@ -20,7 +19,7 @@ class ConstraintSearchTests: XCTestCase {
     let slider = UISlider()
 
     let unusedView = UIView()
-    let unusedAttribute = NSLayoutAttribute.RightMargin
+    let unusedAttribute = NSLayoutAttribute.rightMargin
 
     var constraint1: NSLayoutConstraint!
     var constraint2: NSLayoutConstraint!
@@ -34,7 +33,7 @@ class ConstraintSearchTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        let window = UIApplication.sharedApplication().delegate!.window!
+        let window = UIApplication.shared.delegate!.window!
         controller = window!.rootViewController
         superview = controller.view
         subview.addSubview(button)
@@ -46,9 +45,7 @@ class ConstraintSearchTests: XCTestCase {
     
     override func tearDown() {
         subview.removeFromSuperview()
-        if constraints != nil {
-            DeactivateConstraints(constraints!)
-        }
+        constraints?.deactivate()
 
         super.tearDown()
     }
@@ -56,60 +53,60 @@ class ConstraintSearchTests: XCTestCase {
     func setupConstraints() {
         constraint1 = NSLayoutConstraint(
             item: subview,
-            attribute: .Leading,
-            relatedBy: .Equal,
+            attribute: .leading,
+            relatedBy: .equal,
             toItem: superview,
-            attribute: .Leading,
+            attribute: .leading,
             multiplier: 1.0,
             constant: 5.0
         )
         constraint2 = NSLayoutConstraint(
             item: superview,
-            attribute: .Trailing,
-            relatedBy: .Equal,
+            attribute: .trailing,
+            relatedBy: .equal,
             toItem: subview,
-            attribute: .Trailing,
+            attribute: .trailing,
             multiplier: 1.0,
             constant: 5.0
         )
         constraint3 = NSLayoutConstraint(
             item: button,
-            attribute: .Leading,
-            relatedBy: .Equal,
+            attribute: .leading,
+            relatedBy: .equal,
             toItem: subview,
-            attribute: .CenterX,
+            attribute: .centerX,
             multiplier: 1.0,
             constant: -10.0
         )
         constraint4 = NSLayoutConstraint(
             item: image,
-            attribute: .CenterY,
-            relatedBy: .GreaterThanOrEqual,
+            attribute: .centerY,
+            relatedBy: .greaterThanOrEqual,
             toItem: button,
-            attribute: .Top,
+            attribute: .top,
             multiplier: 4.0,
             constant: 0.0
         )
         constraint5 = NSLayoutConstraint(
             item: button,
-            attribute: .CenterX,
-            relatedBy: .LessThanOrEqual,
+            attribute: .centerX,
+            relatedBy: .lessThanOrEqual,
             toItem: image,
-            attribute: .CenterX,
+            attribute: .centerX,
             multiplier: 1.0,
             constant: 1.0
         )
         constraint6 = NSLayoutConstraint(
             item: subview,
-            attribute: .CenterX,
-            relatedBy: .Equal,
+            attribute: .centerX,
+            relatedBy: .equal,
             toItem: slider,
-            attribute: .Leading,
+            attribute: .leading,
             multiplier: 3.0,
             constant: 3.4
         )
 
-        ActivateConstraints([constraint1, constraint2, constraint3, constraint4, constraint5, constraint6])
+        [constraint1, constraint2, constraint3, constraint4, constraint5, constraint6].activate()
     }
 
     func testConstraintSearchByItem() {
@@ -130,11 +127,11 @@ class ConstraintSearchTests: XCTestCase {
     }
 
     func testConstraintSearchByAttribute() {
-        constraints = superview.constraintsForAttribute(.Leading)
+        constraints = superview.constraintsForAttribute(.leading)
         XCTAssertEqual(constraints!.count, 1, "All constraints with the leading attribute should be returned")
         XCTAssertTrue(constraints!.contains(constraint1), "The first constraint should be included")
 
-        constraints = subview.constraintsForAttribute(.Leading)
+        constraints = subview.constraintsForAttribute(.leading)
         XCTAssertEqual(constraints!.count, 2, "All constraints with the leading attribute should be returned")
         XCTAssertTrue(constraints!.contains(constraint3), "The third constraint should be included")
         XCTAssertTrue(constraints!.contains(constraint6), "The sixth constraint should be included")
@@ -146,7 +143,7 @@ class ConstraintSearchTests: XCTestCase {
     }
 
     func testConstraintSearchByItemAndAttribute() {
-        let attributedItem = AutoLayoutAttributedItem(subview, .CenterX)
+        let attributedItem = AutoLayoutAttributedItem(subview, .centerX)
         constraints = subview.constraintsForAttributedItem(attributedItem)
         XCTAssertEqual(constraints!.count, 2, "All constraints with the subview as an item with center X attribute should be returned")
         XCTAssertTrue(constraints!.contains(constraint3), "The third constraint should be included")
@@ -172,8 +169,8 @@ class ConstraintSearchTests: XCTestCase {
     }
 
     func testConstraintSearchByTwoItemsAndAttributes() {
-        let imageCenterY = AutoLayoutAttributedItem(image, .CenterY)
-        let buttonLeading = AutoLayoutAttributedItem(button, .Top)
+        let imageCenterY = AutoLayoutAttributedItem(image, .centerY)
+        let buttonLeading = AutoLayoutAttributedItem(button, .top)
         constraints = subview.constraintsForAttributedItems(imageCenterY, buttonLeading)
         XCTAssertEqual(constraints.count, 1, "Only the constraint with the image's center Y attribute and the button's leading attribute should be returned")
         XCTAssertTrue(constraints.contains(constraint4), "The fourth constraint is the expected result")
@@ -183,7 +180,7 @@ class ConstraintSearchTests: XCTestCase {
     }
 
     func testMissingConstraintsForTwoItemsAndAttributes() {
-        let imageCenterY = AutoLayoutAttributedItem(image, .CenterY)
+        let imageCenterY = AutoLayoutAttributedItem(image, .centerY)
         let unusedItemAndAttribute = AutoLayoutAttributedItem(unusedView, unusedAttribute)
         constraints = superview.constraintsForAttributedItems(imageCenterY, unusedItemAndAttribute)
         XCTAssertEqual(constraints.count, 0, "There should be no constraints returned")

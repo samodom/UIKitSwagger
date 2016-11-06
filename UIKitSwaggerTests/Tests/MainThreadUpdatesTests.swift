@@ -19,52 +19,56 @@ class MainThreadUpdatesTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        mainThreadExpectation = expectationWithDescription("Main thread execution completed")
+        mainThreadExpectation = expectation(description: "Main thread execution completed")
     }
 
     func testMainThreadExecutionClosureSyntax() {
-        dispatch_async(BackgroundQueue) {
-            assert(!NSThread.isMainThread())
+        BackgroundQueue.async {
+            assert(!Thread.isMainThread)
 
             !{
                 self.executionCount += 1
-                self.executedOnMainThread = NSThread.isMainThread()
+                self.executedOnMainThread = Thread.isMainThread
                 self.mainThreadExpectation.fulfill()
             }
 
-            assert(!NSThread.isMainThread())
+            assert(!Thread.isMainThread)
         }
 
-        waitForExpectationsWithTimeout(MaximumTestExpectationWaitTime) { _ in
+        waitForExpectations(timeout: MaximumTestExpectationWaitTime) { _ in
             XCTAssertTrue(self.executedOnMainThread, "The provided closure should be executed on the main thread")
             XCTAssertEqual(self.executionCount, 1, "The function should only be executed once")
         }
     }
 
-    private func sampleExecutableStatement() {
-        executedOnMainThread = NSThread.isMainThread()
-        mainThreadExpectation.fulfill()
-        executionCount += 1
-    }
-
     func testMainThreadExecutionFunctionSyntax() {
-        dispatch_async(BackgroundQueue) {
-            assert(!NSThread.isMainThread())
+        BackgroundQueue.async {
+            assert(!Thread.isMainThread)
 
             !self.sampleExecutableStatement
 
-            assert(!NSThread.isMainThread())
+            assert(!Thread.isMainThread)
         }
 
-        waitForExpectationsWithTimeout(MaximumTestExpectationWaitTime) {  _ in
+        waitForExpectations(timeout: MaximumTestExpectationWaitTime) {  _ in
             XCTAssertTrue(self.executedOnMainThread, "The provided function should be executed on the main thread")
             XCTAssertEqual(self.executionCount, 1, "The function should only be executed once")
         }
     }
 
-    private func sampleExecutableStatement(integer: Int) {
+}
+
+extension MainThreadUpdatesTests {
+
+    fileprivate func sampleExecutableStatement() {
+        executedOnMainThread = Thread.isMainThread
+        mainThreadExpectation.fulfill()
+        executionCount += 1
+    }
+
+    fileprivate func sampleExecutableStatement(_ integer: Int) {
         integerArgument = integer
-        executedOnMainThread = NSThread.isMainThread()
+        executedOnMainThread = Thread.isMainThread
         mainThreadExpectation.fulfill()
     }
 

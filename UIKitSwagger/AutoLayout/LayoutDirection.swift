@@ -8,27 +8,53 @@
 
 import UIKit
 
-/**
- Enumerated integer type for layout directions in both possible orders.
- */
+/// Enumerated integer type for layout directions in both possible orders.
 public enum LayoutDirection: Int {
+    case leftToRight = 1
+    case rightToLeft = -1
+    case leadingToTrailing = 2
+    case trailingToLeading = -2
+    case topToBottom = 3
+    case bottomToTop = -3
 
-    /// Represents the direction from left-to-right
-    case LeftToRight = 1
+    var attributePair: DirectedAttributePair {
+        let reversed = rawValue < 0
+        let defaultDirection = LayoutDirection(rawValue: abs(rawValue))!
+        let defaultPair = DirectedAttributePairMapping[defaultDirection]!
+        return reversed ? reverseAttributePair(defaultPair) : defaultPair
+    }
 
-    /// Represents the direction from right-to-left
-    case RightToLeft = -1
+    var axis: UILayoutConstraintAxis {
+        return abs(rawValue) == LayoutDirection.topToBottom.rawValue ? .vertical : .horizontal
+    }
 
-    /// Represents the direction from leading-to-trailing
-    case LeadingToTrailing = 2
+    var layoutEdges: Set<LayoutEdge> {
+        switch self {
+        case .leftToRight, .rightToLeft:
+            return [.left, .right]
 
-    /// Represents the direction from trailing-to-leading
-    case TrailingToLeading = -2
+        case .leadingToTrailing, .trailingToLeading:
+            return [.leading, .trailing]
 
-    /// Represents the direction from top-to-bottom
-    case TopToBottom = 3
+        case .topToBottom, .bottomToTop:
+            return [.top, .bottom]
+        }
+    }
 
-    /// Represents the direction from bottom-to-top
-    case BottomToTop = -3
+}
 
+prefix func -(direction: LayoutDirection) -> LayoutDirection {
+    return LayoutDirection(rawValue: -direction.rawValue)!
+}
+
+typealias DirectedAttributePair = (NSLayoutAttribute, NSLayoutAttribute)
+
+fileprivate let DirectedAttributePairMapping: [LayoutDirection:DirectedAttributePair] = [
+    .leftToRight: (.left, .right),
+    .leadingToTrailing: (.leading, .trailing),
+    .topToBottom: (.top, .bottom)
+]
+
+fileprivate func reverseAttributePair(_ attributePair: DirectedAttributePair) -> DirectedAttributePair {
+    return (attributePair.1, attributePair.0)
 }

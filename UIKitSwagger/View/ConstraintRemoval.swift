@@ -10,11 +10,9 @@ import UIKit
 
 public extension UIView {
 
-    /**
-     Convenience method for clearing all of the view's constraints.
-     */
+    /// Convenience method for clearing all of the view's constraints.
     public func clearConstraints() {
-        DeactivateConstraints(constraints)
+        constraints.deactivate()
     }
     
 }

@@ -8,14 +8,12 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
 
-    /**
-     Integer-indexed subview subscripting.
-     - Parameter index: (getter) Index of subview to get.  (setter) When non-negative, uses the provided view to replace the subview at the specified index.  Using any negative index is treated as moving the view to a new superview.
-     - Returns: Subview at provided index (getter).
-     - Note: When replacing a subview, there must exist a subview at the specified index -- otherwise, the operation is ignored.
-     */
+    /// Integer-indexed subview subscripting.
+    /// - parameter index: (getter) Index of subview to get.  (setter) When non-negative, uses the provided view to replace the subview at the specified index.  Using any negative index is treated as moving the view to a new superview.
+    /// - returns: Subview at provided index (getter).
+    /// - note: When replacing a subview, there must exist a subview at the specified index -- otherwise, the operation is ignored.
     public subscript(index: Int) -> UIView? {
 
         get {
@@ -32,7 +30,7 @@ extension UIView {
                 return superview
 
             default:
-                return superview?[index.successor()]
+                return superview?[index + 1]
             }
         }
 
@@ -41,14 +39,14 @@ extension UIView {
                 let oldView = subviews[index]
                 oldView.removeFromSuperview()
 
-                if newSuperview != nil {
-                    insertSubview(newSuperview!, atIndex: index)
+                if let parent = newSuperview {
+                    insertSubview(parent, at: index)
                 }
             }
 
             else {
                 removeFromSuperview()
-                newSuperview!.addSubview(self)
+                newSuperview?.addSubview(self)
             }
         }
 
@@ -59,14 +57,11 @@ extension UIView {
 
 public extension UIView {
 
-    /**
-     Much less verbose method signature for exchanging subviews.
-     - Parameters:
-       - indexOne: Index of first subview to swap.
-       - indexTwo: Index of second subview to swap.
-     */
-    public func swap(indexOne: Int, _ indexTwo: Int) {
-        exchangeSubviewAtIndex(indexOne, withSubviewAtIndex: indexTwo)
+    /// Much less verbose method signature for exchanging subviews.
+    /// - parameter indexOne: Index of first subview to swap.
+    /// - parameter indexTwo: Index of second subview to swap.
+    public func swap(_ indexOne: Int, _ indexTwo: Int) {
+        exchangeSubview(at: indexOne, withSubviewAt: indexTwo)
     }
     
 }

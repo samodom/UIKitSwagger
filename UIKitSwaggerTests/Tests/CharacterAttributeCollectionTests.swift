@@ -7,12 +7,12 @@
 //
 
 import XCTest
-import UIKitSwagger
+@testable import UIKitSwagger
 
 class CharacterAttributeCollectionTests: XCTestCase {
 
-    let color = Orange
-    let font = UIFont.systemFontOfSize(42)
+    let color = UIColor.orange
+    let font = UIFont.systemFont(ofSize: 42)
     let offset = CGFloat(14.42)
 
     var backgroundColorAttribute: CharacterAttribute!
@@ -20,19 +20,19 @@ class CharacterAttributeCollectionTests: XCTestCase {
     var baselineOffsetAttribute: CharacterAttribute!
 
     override func setUp() {
-        backgroundColorAttribute = .BackgroundColor(color)
-        fontAttribute = .Font(font)
-        baselineOffsetAttribute = .BaselineOffset(offset)
+        backgroundColorAttribute = .backgroundColor(color)
+        fontAttribute = .font(font)
+        baselineOffsetAttribute = .baselineOffset(offset)
     }
 
     func testCreatingSetOfCharacterAttributesFromAttributeDictionary() {
         let attributeDictionary = [
-            NSBackgroundColorAttributeName: Orange,
+            NSBackgroundColorAttributeName: UIColor.orange,
             NSFontAttributeName: font,
             NSBaselineOffsetAttributeName: offset,
-            NSLigatureAttributeName: Purple
+            NSLigatureAttributeName: UIColor.purple
         ] as CharacterAttributeDictionary
-        let attributeSet = CharacterAttributeSetFromDictionary(attributeDictionary)
+        let attributeSet = attributeDictionary.characterAttributeSet()
         XCTAssertEqual(attributeSet.count, 3, "The attribute dictionary should be converted into a character attribute set with three items")
         XCTAssert(attributeSet.contains(backgroundColorAttribute), "The background color attribute should be included in the set")
         XCTAssert(attributeSet.contains(fontAttribute), "The font attribute should be included in the set")
@@ -40,13 +40,13 @@ class CharacterAttributeCollectionTests: XCTestCase {
     }
 
     func testCreatingAttributeDictionaryFromSetOfCharacterAttributes() {
-        let attributeSet: CharacterAttributeSet = [
+        let attributeSet: Set<CharacterAttribute> = [
             backgroundColorAttribute,
             fontAttribute,
             baselineOffsetAttribute
         ]
 
-        let dictionary = attributeSet.attributeDictionary
+        let dictionary = attributeSet.attributeDictionary()
         XCTAssertEqual(dictionary.count, 3, "There should be 3 elements in the dictionary")
         XCTAssertEqual(dictionary[NSBackgroundColorAttributeName] as? UIColor, color, "The background color attribute should be included in the dictionary")
         XCTAssertEqual(dictionary[NSFontAttributeName] as? UIFont, font, "The font attribute should be included in the dictionary")
@@ -60,7 +60,7 @@ class CharacterAttributeCollectionTests: XCTestCase {
             baselineOffsetAttribute
         ]
 
-        let dictionary = attributeArray.attributeDictionary
+        let dictionary = attributeArray.attributeDictionary()
         XCTAssertEqual(dictionary.count, 3, "There should be 3 elements in the dictionary")
         XCTAssertEqual(dictionary[NSBackgroundColorAttributeName] as? UIColor, color, "The background color attribute should be included in the dictionary")
         XCTAssertEqual(dictionary[NSFontAttributeName] as? UIFont, font, "The font attribute should be included in the dictionary")

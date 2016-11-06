@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
 import UIKitSwagger
 
@@ -41,109 +40,109 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
 
     func testAttributedItemIntMultiplierSyntax() {
         multiple = 14 * rootView.width
-        XCTAssertEqual(multiple.0, CGFloat(14), "The multiple should use the provided multiplier")
+        XCTAssertEqual(multiple.0, 14, "The multiple should use the provided multiplier")
         XCTAssertEqual(multiple.1.item as? UIView, rootView, "The multiple should use the provided item")
-        XCTAssertEqual(multiple.1.attribute, NSLayoutAttribute.Width, "The multiple should use the provided attribute")
+        XCTAssertEqual(multiple.1.attribute, NSLayoutAttribute.width, "The multiple should use the provided attribute")
     }
 
     func testAttributedItemCGFloatMultiplierSyntax() {
         multiple = 14.42 * otherItem.width
-        XCTAssertEqual(multiple.0, CGFloat(14.42), "The multiple should use the provided multiplier")
+        XCTAssertEqual(multiple.0, 14.42, "The multiple should use the provided multiplier")
         if #available(iOS 9.0, *) {
             XCTAssertEqual(multiple.1.item as? UILayoutGuide, otherItem as? UILayoutGuide, "The multiple should use the provided item")
         }
         else {
             XCTAssertEqual(multiple.1.item as? UIView, otherItem as? UIView, "The multiple should use the provided item")
         }
-        XCTAssertEqual(multiple.1.attribute, NSLayoutAttribute.Width, "The multiple should use the provided attribute")
+        XCTAssertEqual(multiple.1.attribute, NSLayoutAttribute.width, "The multiple should use the provided attribute")
     }
 
     func testAttributedItemIntConstantSyntax() {
         offset = rootView.width + 14
-        XCTAssertEqual(offset.0.0, CGFloat(1), "A singular multiple should be used in the offset")
+        XCTAssertEqual(offset.0.0, 1, "A singular multiple should be used in the offset")
         XCTAssertEqual(offset.0.1.item as? UIView, rootView, "The offset should use the provided item")
-        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attribute")
-        XCTAssertEqual(offset.1, CGFloat(14), "The offset should use the provided constant")
+        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.width, "The offset should use the provided attribute")
+        XCTAssertEqual(offset.1, 14, "The offset should use the provided constant")
     }
 
     func testAttributedItemCGFloatConstantSyntax() {
         offset = otherItem.width + 14.42
-        XCTAssertEqual(offset.0.0, CGFloat(1), "A singular multiple should be used in the offset")
+        XCTAssertEqual(offset.0.0, 1, "A singular multiple should be used in the offset")
         if #available(iOS 9.0, *) {
             XCTAssertEqual(offset.0.1.item as? UILayoutGuide, otherItem as? UILayoutGuide, "The offset should use the provided item")
         }
         else {
             XCTAssertEqual(offset.0.1.item as? UIView, otherItem as? UIView, "The offset should use the provided item")
         }
-        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attribute")
-        XCTAssertEqual(offset.1, CGFloat(14.42), "The offset should use the provided constant")
+        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.width, "The offset should use the provided attribute")
+        XCTAssertEqual(offset.1, 14.42, "The offset should use the provided constant")
     }
 
     func testAttributedItemNegativeIntConstantSyntax() {
         offset = rootView.width - 14
-        XCTAssertEqual(offset.0.0, CGFloat(1), "A singular multiple should be used in the offset")
+        XCTAssertEqual(offset.0.0, 1, "A singular multiple should be used in the offset")
         XCTAssertEqual(offset.0.1.item as? UIView, rootView, "The offset should use the provided item")
-        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attribute")
-        XCTAssertEqual(offset.1, CGFloat(-14), "The offset should use the provided constant")
+        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.width, "The offset should use the provided attribute")
+        XCTAssertEqual(offset.1, -14, "The offset should use the provided constant")
     }
 
     func testAttributedItemNegativeCGFloatConstantSyntax() {
         offset = otherItem.width - 14.42
-        XCTAssertEqual(offset.0.0, CGFloat(1), "A singular multiple should be used in the offset")
+        XCTAssertEqual(offset.0.0, 1, "A singular multiple should be used in the offset")
         if #available(iOS 9.0, *) {
             XCTAssertEqual(offset.0.1.item as? UILayoutGuide, otherItem as? UILayoutGuide, "The offset should use the provided item")
         }
         else {
             XCTAssertEqual(offset.0.1.item as? UIView, otherItem as? UIView, "The offset should use the provided item")
         }
-        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attribute")
-        XCTAssertEqual(offset.1, CGFloat(-14.42), "The offset should use the provided constant")
+        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.width, "The offset should use the provided attribute")
+        XCTAssertEqual(offset.1, -14.42, "The offset should use the provided constant")
     }
 
     func testAttributedMultipleIntConstantSyntax() {
         multiple = 2 * rootView.width
         offset = multiple + 14
-        XCTAssertEqual(offset.0.0, CGFloat(2), "The offset should use the provided multiple")
+        XCTAssertEqual(offset.0.0, 2, "The offset should use the provided multiple")
         XCTAssertEqual(offset.0.1.item as? UIView, rootView, "The offset should use the provided multiple")
-        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided multiple")
-        XCTAssertEqual(offset.1, CGFloat(14), "The offset should use the provided constant")
+        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.width, "The offset should use the provided multiple")
+        XCTAssertEqual(offset.1, 14, "The offset should use the provided constant")
     }
 
     func testAttributedMultipleCGFloatConstantSyntax() {
         multiple = 2 * otherItem.width
         offset = multiple + 14.42
-        XCTAssertEqual(offset.0.0, CGFloat(2), "The offset should use the provided multiple")
+        XCTAssertEqual(offset.0.0, 2, "The offset should use the provided multiple")
         if #available(iOS 9.0, *) {
             XCTAssertEqual(offset.0.1.item as? UILayoutGuide, otherItem as? UILayoutGuide, "The offset should use the provided item")
         }
         else {
             XCTAssertEqual(offset.0.1.item as? UIView, otherItem as? UIView, "The offset should use the provided item")
         }
-        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attribute")
-        XCTAssertEqual(offset.1, CGFloat(14.42), "The offset should use the provided constant")
+        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.width, "The offset should use the provided attribute")
+        XCTAssertEqual(offset.1, 14.42, "The offset should use the provided constant")
     }
 
     func testAttributedMultipleNegativeIntConstantSyntax() {
         multiple = 2 * rootView.width
         offset = multiple - 14
-        XCTAssertEqual(offset.0.0, CGFloat(2), "The offset should use the provided multiple")
+        XCTAssertEqual(offset.0.0, 2, "The offset should use the provided multiple")
         XCTAssertEqual(offset.0.1.item as? UIView, rootView, "The offset should use the provided item")
-        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attribute")
-        XCTAssertEqual(offset.1, CGFloat(-14), "The offset should use the provided constant")
+        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.width, "The offset should use the provided attribute")
+        XCTAssertEqual(offset.1, -14, "The offset should use the provided constant")
     }
 
     func testAttributedMultipleNegativeCGFloatConstantSyntax() {
         multiple = 2 * otherItem.width
         offset = multiple - 14.42
-        XCTAssertEqual(offset.0.0, CGFloat(2), "The offset should use the provided multiple")
+        XCTAssertEqual(offset.0.0, 2, "The offset should use the provided multiple")
         if #available(iOS 9.0, *) {
             XCTAssertEqual(offset.0.1.item as? UILayoutGuide, otherItem as? UILayoutGuide, "The offset should use the provided item")
         }
         else {
             XCTAssertEqual(offset.0.1.item as? UIView, otherItem as? UIView, "The offset should use the provided item")
         }
-        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.Width, "The offset should use the provided attribute")
-        XCTAssertEqual(offset.1, CGFloat(-14.42), "The offset should use the provided constant")
+        XCTAssertEqual(offset.0.1.attribute, NSLayoutAttribute.width, "The offset should use the provided attribute")
+        XCTAssertEqual(offset.1, -14.42, "The offset should use the provided constant")
     }
 
     //  MARK: Equal relation constraint creation
@@ -152,10 +151,10 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         constraint = rootView.height =* 14.42
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .Equal,
+            attribute: .height,
+            relatedBy: .equal,
             toItem: nil,
-            attribute: .NotAnAttribute,
+            attribute: .notAnAttribute,
             multiplier: 0.0,
             constant: 14.42
         )
@@ -166,10 +165,10 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         constraint = rootView.height =* rootView.width
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .Equal,
+            attribute: .height,
+            relatedBy: .equal,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.0,
             constant: 0.0
         )
@@ -177,13 +176,13 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     }
 
     func testCreatingEqualConstraintWithAttributedItemScalarMultipleOnly() {
-        constraint = rootView.height =* 2 * rootView.width
+        constraint = rootView.height =* (2 * rootView.width)
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .Equal,
+            attribute: .height,
+            relatedBy: .equal,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 2.0,
             constant: 0.0
         )
@@ -191,13 +190,13 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     }
 
     func testCreatingEqualConstraintWithAttributedItemAndConstant() {
-        constraint = rootView.height =* rootView.width + 14.42
+        constraint = rootView.height =* (rootView.width + 14.42)
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .Equal,
+            attribute: .height,
+            relatedBy: .equal,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.0,
             constant: 14.42
         )
@@ -205,13 +204,13 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     }
 
     func testCreatingEqualConstraintWithAttributedItemScalarMultipleAndConstant() {
-        constraint = rootView.height =* 1.4 * rootView.width + 14.42
+        constraint = rootView.height =* ((1.4 * rootView.width) + 14.42)
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .Equal,
+            attribute: .height,
+            relatedBy: .equal,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.4,
             constant: 14.42
         )
@@ -224,10 +223,10 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         constraint = rootView.height >=* 14.42
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .GreaterThanOrEqual,
+            attribute: .height,
+            relatedBy: .greaterThanOrEqual,
             toItem: nil,
-            attribute: .NotAnAttribute,
+            attribute: .notAnAttribute,
             multiplier: 0.0,
             constant: 14.42
         )
@@ -238,10 +237,10 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         constraint = rootView.height >=* rootView.width
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .GreaterThanOrEqual,
+            attribute: .height,
+            relatedBy: .greaterThanOrEqual,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.0,
             constant: 0.0
         )
@@ -249,13 +248,13 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     }
 
     func testCreatingGTEConstraintWithAttributedItemScalarMultipleOnly() {
-        constraint = rootView.height >=* 2 * rootView.width
+        constraint = rootView.height >=* (2 * rootView.width)
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .GreaterThanOrEqual,
+            attribute: .height,
+            relatedBy: .greaterThanOrEqual,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 2.0,
             constant: 0.0
         )
@@ -263,13 +262,13 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     }
 
     func testCreatingGTEConstraintWithAttributedItemAndConstant() {
-        constraint = rootView.height >=* rootView.width + 14.42
+        constraint = rootView.height >=* (rootView.width + 14.42)
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .GreaterThanOrEqual,
+            attribute: .height,
+            relatedBy: .greaterThanOrEqual,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.0,
             constant: 14.42
         )
@@ -277,13 +276,13 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     }
 
     func testCreatingGTEConstraintWithAttributedItemScalarMultipleAndConstant() {
-        constraint = rootView.height >=* 1.4 * rootView.width + 14.42
+        constraint = rootView.height >=* ((1.4 * rootView.width) + 14.42)
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .GreaterThanOrEqual,
+            attribute: .height,
+            relatedBy: .greaterThanOrEqual,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.4,
             constant: 14.42
         )
@@ -296,10 +295,10 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         constraint = rootView.height <=* 14.42
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .LessThanOrEqual,
+            attribute: .height,
+            relatedBy: .lessThanOrEqual,
             toItem: nil,
-            attribute: .NotAnAttribute,
+            attribute: .notAnAttribute,
             multiplier: 0.0,
             constant: 14.42
         )
@@ -310,10 +309,10 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
         constraint = rootView.height <=* rootView.width
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .LessThanOrEqual,
+            attribute: .height,
+            relatedBy: .lessThanOrEqual,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.0,
             constant: 0.0
         )
@@ -321,13 +320,13 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     }
 
     func testCreatingLTEConstraintWithAttributedItemScalarMultipleOnly() {
-        constraint = rootView.height <=* 2 * rootView.width
+        constraint = rootView.height <=* (2 * rootView.width)
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .LessThanOrEqual,
+            attribute: .height,
+            relatedBy: .lessThanOrEqual,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 2.0,
             constant: 0.0
         )
@@ -335,13 +334,13 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     }
 
     func testCreatingLTEConstraintWithAttributedItemAndConstant() {
-        constraint = rootView.height <=* rootView.width + 14.42
+        constraint = rootView.height <=* (rootView.width + 14.42)
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .LessThanOrEqual,
+            attribute: .height,
+            relatedBy: .lessThanOrEqual,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.0,
             constant: 14.42
         )
@@ -349,13 +348,13 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     }
 
     func testCreatingLTEConstraintWithAttributedItemScalarMultipleAndConstant() {
-        constraint = rootView.height <=* 1.4 * rootView.width + 14.42
+        constraint = rootView.height <=* ((1.4 * rootView.width) + 14.42)
         let expected = NSLayoutConstraint(
             item: rootView,
-            attribute: .Height,
-            relatedBy: .LessThanOrEqual,
+            attribute: .height,
+            relatedBy: .lessThanOrEqual,
             toItem: rootView,
-            attribute: .Width,
+            attribute: .width,
             multiplier: 1.4,
             constant: 14.42
         )
@@ -365,7 +364,7 @@ class ConstraintBuilderSyntaxTests: XCTestCase {
     //  MARK: Priority and Identifier
 
     func testAddingPriorityToConstraint() {
-        constraint = rootView.height <=* 1.4 * rootView.width + 14.42
+        constraint = rootView.height <=* ((1.4 * rootView.width) + 14.42)
         constraint ~ 555
         XCTAssertEqual(constraint.priority, UILayoutPriority(555), "The '~' symbol should allow setting of constraint priorities")
     }

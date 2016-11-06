@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 Swagger Soft. All rights reserved.
 //
 
-import UIKit
 import XCTest
 import UIKitSwagger
 
@@ -15,27 +14,27 @@ class AlertControllerAddableTests: XCTestCase {
     let alertController = UIAlertController(
         title: "Alert",
         message: "Message",
-        preferredStyle: .Alert
+        preferredStyle: .alert
     )
     let actionSheetController = UIAlertController(
         title: "Alert Sheet",
         message: "Message",
-        preferredStyle: .ActionSheet
+        preferredStyle: .actionSheet
     )
 
     var action1 = UIAlertAction(
         title: "Action 1",
-        style: .Default,
+        style: .default,
         handler: { _ in }
     )
     var action2 = UIAlertAction(
         title: "Action 2",
-        style: .Destructive,
+        style: .destructive,
         handler: { _ in }
     )
     var action3 = UIAlertAction(
         title: "Action 3",
-        style: .Cancel,
+        style: .cancel,
         handler: { _ in }
     )
 
