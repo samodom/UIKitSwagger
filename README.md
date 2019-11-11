@@ -1,5 +1,4 @@
-UIKitSwagger
-============
+# UIKitSwagger - DEPRECATED
 
 ![](https://img.shields.io/badge/platform-_iOS_8,_9-lightgrey.svg?style=flat-square)
 
